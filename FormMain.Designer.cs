@@ -86,6 +86,8 @@
             this.generateHelpFilechmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabEvents = new System.Windows.Forms.TabPage();
+            this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -100,6 +102,8 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabWatchVariables);
+            this.tabControl1.Controls.Add(this.tabEvents);
+            this.tabControl1.Controls.Add(this.tabSelfTest);
             this.tabControl1.Controls.Add(this.tabEnumerations);
             this.tabControl1.Controls.Add(this.tabBitmasks);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
@@ -180,26 +184,26 @@
             this.modifyToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.conMenuWatchVarList.Name = "contextMenuStrip1";
-            this.conMenuWatchVarList.Size = new System.Drawing.Size(153, 92);
+            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -676,6 +680,24 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem1.Text = "About...";
             // 
+            // tabEvents
+            // 
+            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Name = "tabEvents";
+            this.tabEvents.Size = new System.Drawing.Size(762, 506);
+            this.tabEvents.TabIndex = 3;
+            this.tabEvents.Text = "Events";
+            this.tabEvents.UseVisualStyleBackColor = true;
+            // 
+            // tabSelfTest
+            // 
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Name = "tabSelfTest";
+            this.tabSelfTest.Size = new System.Drawing.Size(762, 506);
+            this.tabSelfTest.TabIndex = 4;
+            this.tabSelfTest.Text = "SelfTest";
+            this.tabSelfTest.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -767,6 +789,8 @@
         private System.Windows.Forms.TextBox tBoxWatchHelpText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem generateHelpFilechmToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabEvents;
+        private System.Windows.Forms.TabPage tabSelfTest;
     }
 }
 
