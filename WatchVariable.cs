@@ -254,7 +254,7 @@ namespace DDB
                                               MessageBoxButtons.OKCancel, 
                                               MessageBoxIcon.Warning);
 
-
+            // User really didn't want to delete the variables... abort delete
             if (dr == DialogResult.Cancel)
             {
                 return;

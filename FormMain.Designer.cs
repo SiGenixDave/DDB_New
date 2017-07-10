@@ -174,6 +174,7 @@
             this.lBoxWatchVariables.ContextMenuStrip = this.conMenuWatchVarList;
             this.lBoxWatchVariables.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxWatchVariables.FormattingEnabled = true;
+            this.lBoxWatchVariables.HorizontalScrollbar = true;
             this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 23);
             this.lBoxWatchVariables.Name = "lBoxWatchVariables";
             this.lBoxWatchVariables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
@@ -321,7 +322,7 @@
             "Read/Write [Level 2]"});
             this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(21, 360);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
-            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(114, 21);
+            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(132, 21);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
             // 
             // label9
@@ -718,7 +719,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder";
+            this.Text = "Bombardier Data Dictionary Builder (v 0.0.0.1)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
