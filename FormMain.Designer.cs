@@ -72,6 +72,8 @@
             this.btnWatchCopy = new System.Windows.Forms.Button();
             this.btnWatchModify = new System.Windows.Forms.Button();
             this.btnWatchCreate = new System.Windows.Forms.Button();
+            this.tabEvents = new System.Windows.Forms.TabPage();
+            this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabEnumerations = new System.Windows.Forms.TabPage();
             this.tabBitmasks = new System.Windows.Forms.TabPage();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -86,8 +88,7 @@
             this.generateHelpFilechmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabEvents = new System.Windows.Forms.TabPage();
-            this.tabSelfTest = new System.Windows.Forms.TabPage();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -152,6 +153,7 @@
             this.btnWatchSortZtoA.Size = new System.Drawing.Size(75, 36);
             this.btnWatchSortZtoA.TabIndex = 12;
             this.btnWatchSortZtoA.Text = "Sort Z-A";
+            this.toolTip1.SetToolTip(this.btnWatchSortZtoA, "\"Not yet Implemeneted\"");
             this.btnWatchSortZtoA.UseVisualStyleBackColor = true;
             this.btnWatchSortZtoA.Click += new System.EventHandler(this.btnWatchSortZtoA_Click);
             // 
@@ -163,6 +165,7 @@
             this.btnWatchFilterApply.Size = new System.Drawing.Size(75, 23);
             this.btnWatchFilterApply.TabIndex = 9;
             this.btnWatchFilterApply.Text = "Apply Filter";
+            this.toolTip1.SetToolTip(this.btnWatchFilterApply, "\"Not yet Implemeneted\"");
             this.btnWatchFilterApply.UseVisualStyleBackColor = true;
             this.btnWatchFilterApply.Click += new System.EventHandler(this.btnWatchFilterApply_Click);
             // 
@@ -173,6 +176,7 @@
             this.lBoxWatchVariables.FormattingEnabled = true;
             this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 23);
             this.lBoxWatchVariables.Name = "lBoxWatchVariables";
+            this.lBoxWatchVariables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lBoxWatchVariables.Size = new System.Drawing.Size(195, 329);
             this.lBoxWatchVariables.TabIndex = 0;
             this.lBoxWatchVariables.SelectedIndexChanged += new System.EventHandler(this.lBoxWatchVariables_SelectedIndexChanged);
@@ -214,6 +218,7 @@
             this.tBoxWatchFilter.Name = "tBoxWatchFilter";
             this.tBoxWatchFilter.Size = new System.Drawing.Size(192, 21);
             this.tBoxWatchFilter.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.tBoxWatchFilter, "\"Not yet Implemeneted\"");
             // 
             // btnWatchSortAtoZ
             // 
@@ -223,6 +228,7 @@
             this.btnWatchSortAtoZ.Size = new System.Drawing.Size(75, 36);
             this.btnWatchSortAtoZ.TabIndex = 11;
             this.btnWatchSortAtoZ.Text = "Sort A-Z";
+            this.toolTip1.SetToolTip(this.btnWatchSortAtoZ, "\"Not yet Implemeneted\"");
             this.btnWatchSortAtoZ.UseVisualStyleBackColor = true;
             this.btnWatchSortAtoZ.Click += new System.EventHandler(this.btnWatchSortAtoZ_Click);
             // 
@@ -277,6 +283,7 @@
             this.tBoxWatchHelpText.Name = "tBoxWatchHelpText";
             this.tBoxWatchHelpText.Size = new System.Drawing.Size(177, 157);
             this.tBoxWatchHelpText.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.tBoxWatchHelpText, "HTML format Not Yet Implemented");
             // 
             // cBoxWatchUnits
             // 
@@ -572,6 +579,24 @@
             this.btnWatchCreate.UseVisualStyleBackColor = true;
             this.btnWatchCreate.Click += new System.EventHandler(this.btnWatchCreate_Click);
             // 
+            // tabEvents
+            // 
+            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Name = "tabEvents";
+            this.tabEvents.Size = new System.Drawing.Size(762, 506);
+            this.tabEvents.TabIndex = 3;
+            this.tabEvents.Text = "Events";
+            this.tabEvents.UseVisualStyleBackColor = true;
+            // 
+            // tabSelfTest
+            // 
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Name = "tabSelfTest";
+            this.tabSelfTest.Size = new System.Drawing.Size(762, 506);
+            this.tabSelfTest.TabIndex = 4;
+            this.tabSelfTest.Text = "SelfTest";
+            this.tabSelfTest.UseVisualStyleBackColor = true;
+            // 
             // tabEnumerations
             // 
             this.tabEnumerations.Location = new System.Drawing.Point(4, 22);
@@ -680,24 +705,6 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem1.Text = "About...";
             // 
-            // tabEvents
-            // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
-            this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(762, 506);
-            this.tabEvents.TabIndex = 3;
-            this.tabEvents.Text = "Events";
-            this.tabEvents.UseVisualStyleBackColor = true;
-            // 
-            // tabSelfTest
-            // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
-            this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(762, 506);
-            this.tabSelfTest.TabIndex = 4;
-            this.tabSelfTest.Text = "SelfTest";
-            this.tabSelfTest.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,6 +717,7 @@
             this.MainMenuStrip = this.mainMenuStrip;
             this.MaximizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bombardier Data Dictionary Builder";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
@@ -792,6 +800,7 @@
         private System.Windows.Forms.ToolStripMenuItem generateHelpFilechmToolStripMenuItem;
         private System.Windows.Forms.TabPage tabEvents;
         private System.Windows.Forms.TabPage tabSelfTest;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

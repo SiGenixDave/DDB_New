@@ -20,8 +20,21 @@ namespace DDB
                 cBoxWatchUnits.SelectedIndex = w.units;
                 cBoxWatchReadWriteFlags.SelectedIndex = w.readWrite;
                 tBoxWatchHelpText.Text = w.helpText;
+                lBoxWatchVariables.SelectedIndex = index;
             }
-            lBoxWatchVariables.SelectedIndex = index;
+            else
+            {
+                tBoxWatchDisplayName.Text = "";
+                tBoxWatchEmbName.Text = "";
+                tBoxWatchMinChart.Text = "";
+                tBoxWatchMaxChart.Text = "";
+                tBoxWatchMinValue.Text = "";
+                tBoxWatchMaxValue.Text = "";
+                cBoxWatchDataType.SelectedIndex = 0;
+                cBoxWatchUnits.SelectedIndex = 0;
+                cBoxWatchReadWriteFlags.SelectedIndex = 0;
+                tBoxWatchHelpText.Text = "";
+            }
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,10 +54,51 @@ namespace DDB
 
         private void lBoxWatchVariables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateWatchVarDisplay(lBoxWatchVariables.SelectedIndex);
-            btnWatchModify.Enabled = true;
-            btnWatchDelete.Enabled = true;
-            btnWatchCopy.Enabled = true;
+            if (lBoxWatchVariables.SelectedIndices.Count == 0)
+            {
+                UpdateWatchVarDisplay(-1);
+                btnWatchModify.Enabled = false;
+                btnWatchDelete.Enabled = false;
+                btnWatchCopy.Enabled = false;
+
+                conMenuWatchVarList.Items[1].Enabled = false;
+            
+            }
+            else if (lBoxWatchVariables.SelectedIndices.Count == 1)
+            {
+                UpdateWatchVarDisplay(lBoxWatchVariables.SelectedIndex);
+                
+                conMenuWatchVarList.Items[1].Enabled = true;
+                
+                btnWatchModify.Enabled = true;
+                btnWatchDelete.Enabled = true;
+                btnWatchCopy.Enabled = true;
+            }
+            else
+            {
+                // Disable the "Modify" in context menu
+                conMenuWatchVarList.Items[1].Enabled = false;
+                
+                btnWatchModify.Enabled = false;
+                btnWatchDelete.Enabled = true;
+                btnWatchCopy.Enabled = true;
+                // Set the contents of the Watch Info based on the first selected index
+                int firstSelectedIndex = int.MaxValue;
+                int indexCount = 0;
+                while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
+                {
+                    if (lBoxWatchVariables.SelectedIndices[indexCount] < firstSelectedIndex)
+                    {
+                        firstSelectedIndex = lBoxWatchVariables.SelectedIndices[indexCount];
+                    }
+                    indexCount++;
+                }
+
+                UpdateWatchVarDisplay(firstSelectedIndex);
+
+
+            }
+
         }
 
         private void btnWatchModify_Click(object sender, EventArgs e)
@@ -180,17 +234,41 @@ namespace DDB
 
         private void CopyWatchVar()
         {
-            WatchVarTest w = WatchVarList.GetWatchVarCopy(lBoxWatchVariables.SelectedIndex);
-            w.embName = "Copy of " + w.embName;
-            w.dispName = "Copy of " + w.dispName;
-            WatchVarList.AddVar(w);
+            int indexCount = 0;
+            while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
+            {
+                WatchVarTest w = WatchVarList.GetWatchVarCopy(lBoxWatchVariables.SelectedIndices[indexCount]);
+                w.embName = "Copy of " + w.embName;
+                w.dispName = "Copy of " + w.dispName;
+                WatchVarList.AddVar(w); 
+                indexCount++;
+            }
+
             RefreshWatchVariableList(WatchVarList.GetWatchVarCount() - 1);
         }
 
         private void DeleteWatchVar()
         {
-            WatchVarTest w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
-            WatchVarList.DeleteVar(w);
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected variable(s)?",
+                                              "Delete Variable(s) Confirmation", 
+                                              MessageBoxButtons.OKCancel, 
+                                              MessageBoxIcon.Warning);
+
+
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            int indexCount = 0;
+            while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
+            {
+                WatchVarTest w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndices[indexCount]);
+                WatchVarList.DeleteVar(w);
+                
+                indexCount++;
+            }
+
             int numWatchVars = WatchVarList.GetWatchVarCount();
             if (lBoxWatchVariables.SelectedIndex < numWatchVars)
             {
