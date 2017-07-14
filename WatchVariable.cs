@@ -61,6 +61,7 @@ namespace DDB
                     lblWatchScaleInfo.Visible = false;
                     cBoxWatchScaleInfo.Visible = false;
                     lblWatchUnitsEnumBitmask.Text = "Units";
+                    LoadUnitsIntoComboBox();
                     break;
 
                 case "Scalar":
@@ -76,6 +77,7 @@ namespace DDB
                     cBoxWatchScaleInfo.SelectedIndex = w.scaleInfo;
                     
                     lblWatchUnitsEnumBitmask.Text = "Units";
+                    LoadUnitsIntoComboBox();
                     break;
 
                 case "Enumeration":
@@ -87,6 +89,8 @@ namespace DDB
                     cBoxWatchScaleInfo.Visible = false;
 
                     lblWatchUnitsEnumBitmask.Text = "Enumeration";
+
+                    LoadEnumsIntoComboBox();
                     break;
 
                 case "Bitmask":
@@ -98,11 +102,42 @@ namespace DDB
                     cBoxWatchScaleInfo.Visible = false;
 
                     lblWatchUnitsEnumBitmask.Text = "Bitmask";
+                    LoadBitmasksIntoComboBox();
                     break;
             }
 
 
         }
+
+        private void LoadUnitsIntoComboBox()
+        {
+            cBoxWatchUnits.Items.Clear();
+            cBoxWatchUnits.Items.Add("NONE");
+            cBoxWatchUnits.Items.Add("Amps");
+            cBoxWatchUnits.Items.Add("Volts");
+            cBoxWatchUnits.Items.Add("MPH");
+            cBoxWatchUnits.Items.Add("m/sec2");
+            cBoxWatchUnits.SelectedIndex = 0;
+        }
+        private void LoadEnumsIntoComboBox()
+        {
+            cBoxWatchUnits.Items.Clear();
+            cBoxWatchUnits.Items.Add("Enum1");
+            cBoxWatchUnits.Items.Add("Enum2");
+            cBoxWatchUnits.Items.Add("Enum3");
+            cBoxWatchUnits.Items.Add("Enum4");
+            cBoxWatchUnits.SelectedIndex = 0;
+        }
+        private void LoadBitmasksIntoComboBox()
+        {
+            cBoxWatchUnits.Items.Clear();
+            cBoxWatchUnits.Items.Add("Bitmask1");
+            cBoxWatchUnits.Items.Add("Bitmask2");
+            cBoxWatchUnits.Items.Add("Bitmask3");
+            cBoxWatchUnits.Items.Add("Bitmask4");
+            cBoxWatchUnits.SelectedIndex = 0;
+        }
+
 
         private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
         {

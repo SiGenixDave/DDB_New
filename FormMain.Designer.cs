@@ -303,11 +303,11 @@
             // 
             // btnWatchHelpAvailable
             // 
-            this.btnWatchHelpAvailable.Enabled = false;
             this.btnWatchHelpAvailable.Location = new System.Drawing.Point(382, 366);
             this.btnWatchHelpAvailable.Name = "btnWatchHelpAvailable";
             this.btnWatchHelpAvailable.Size = new System.Drawing.Size(19, 49);
             this.btnWatchHelpAvailable.TabIndex = 24;
+            this.toolTip1.SetToolTip(this.btnWatchHelpAvailable, "RED if no help text; GREEN otherwise");
             this.btnWatchHelpAvailable.UseVisualStyleBackColor = true;
             // 
             // cBoxWatchUnitConversion
