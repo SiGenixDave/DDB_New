@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DDB
 {
@@ -9,32 +10,134 @@ namespace DDB
         {
             if (index != -1)
             {
-                WatchVarTest w = WatchVarList.GetWatchVar(index);
-                tBoxWatchDisplayName.Text = w.dispName;
-                tBoxWatchEmbName.Text = w.embName;
-                tBoxWatchMinChart.Text = w.minChart.ToString();
-                tBoxWatchMaxChart.Text = w.maxChart.ToString();
-                tBoxWatchMinValue.Text = w.minVal.ToString();
-                tBoxWatchMaxValue.Text = w.maxVal.ToString();
-                cBoxWatchDataType.SelectedIndex = w.type;
-                cBoxWatchUnits.SelectedIndex = w.units;
-                cBoxWatchReadWriteFlags.SelectedIndex = w.readWrite;
-                tBoxWatchHelpText.Text = w.helpText;
-                lBoxWatchVariables.SelectedIndex = index;
+                currentWatchVar = WatchVarList.GetWatchVar(index);
+                tBoxWatchDisplayName.Text = currentWatchVar.dispName;
+                tBoxWatchEmbName.Text = currentWatchVar.embName;
+                tBoxWatchMinChart.Text = currentWatchVar.minChart.ToString();
+                tBoxWatchMaxChart.Text = currentWatchVar.maxChart.ToString();
+                tBoxWatchMinValue.Text = currentWatchVar.minVal.ToString();
+                tBoxWatchMaxValue.Text = currentWatchVar.maxVal.ToString();
+                cBoxWatchDataType.SelectedIndex = currentWatchVar.dataType;
+                cBoxWatchScaleType.SelectedIndex = currentWatchVar.scaleType;
+                cBoxWatchUnits.SelectedIndex = currentWatchVar.units;
+                cBoxWatchUnitConversion.SelectedIndex = currentWatchVar.unitConversion;
+                cBoxWatchReadWriteFlags.SelectedIndex = currentWatchVar.readWrite;
+                cBoxWatchFormatString.SelectedIndex = currentWatchVar.formatString;
+                chkWatchEngViewOnly.Checked = currentWatchVar.engineeringViewOnly == 1 ? true : false;
+
+                EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), currentWatchVar);
+                if (currentWatchVar.helpText == "")
+                {
+                    btnWatchHelpAvailable.BackColor = Color.Red;
+                }
+                else
+                {
+                    btnWatchHelpAvailable.BackColor = Color.Green;
+                }
+
+
             }
             else
             {
+                // Handle the case where no watch vars selected
                 tBoxWatchDisplayName.Text = "";
                 tBoxWatchEmbName.Text = "";
                 tBoxWatchMinChart.Text = "";
                 tBoxWatchMaxChart.Text = "";
                 tBoxWatchMinValue.Text = "";
                 tBoxWatchMaxValue.Text = "";
-                cBoxWatchDataType.SelectedIndex = 0;
-                cBoxWatchUnits.SelectedIndex = 0;
-                cBoxWatchReadWriteFlags.SelectedIndex = 0;
-                tBoxWatchHelpText.Text = "";
             }
+        }
+
+        private void EnableControlsOnSelectedScaleType(String scaleTypeTxt, WatchVarTest w)
+        {
+            switch (scaleTypeTxt)
+            {
+                case "NONE":
+                    lblFormatString.Visible = false;
+                    cBoxWatchFormatString.Visible = false;
+                    lblWatchUnitConversion.Visible = false;
+                    cBoxWatchUnitConversion.Visible = false;
+                    lblWatchScaleInfo.Visible = false;
+                    cBoxWatchScaleInfo.Visible = false;
+                    lblWatchUnitsEnumBitmask.Text = "Units";
+                    break;
+
+                case "Scalar":
+                    lblFormatString.Visible = true;
+                    cBoxWatchFormatString.Visible = true;
+                    lblWatchUnitConversion.Visible = true;
+                    cBoxWatchUnitConversion.Visible = true;
+                    lblWatchScaleInfo.Visible = true;
+                    cBoxWatchScaleInfo.Visible = true;
+
+                    cBoxWatchFormatString.SelectedIndex = w.formatString;
+                    cBoxWatchUnitConversion.SelectedIndex = w.unitConversion;
+                    cBoxWatchScaleInfo.SelectedIndex = w.scaleInfo;
+                    
+                    lblWatchUnitsEnumBitmask.Text = "Units";
+                    break;
+
+                case "Enumeration":
+                    lblFormatString.Visible = false;
+                    cBoxWatchFormatString.Visible = false;
+                    lblWatchUnitConversion.Visible = false;
+                    cBoxWatchUnitConversion.Visible = false;
+                    lblWatchScaleInfo.Visible = false;
+                    cBoxWatchScaleInfo.Visible = false;
+
+                    lblWatchUnitsEnumBitmask.Text = "Enumeration";
+                    break;
+
+                case "Bitmask":
+                    lblFormatString.Visible = false;
+                    cBoxWatchFormatString.Visible = false;
+                    lblWatchUnitConversion.Visible = false;
+                    cBoxWatchUnitConversion.Visible = false;
+                    lblWatchScaleInfo.Visible = false;
+                    cBoxWatchScaleInfo.Visible = false;
+
+                    lblWatchUnitsEnumBitmask.Text = "Bitmask";
+                    break;
+            }
+
+
+        }
+
+        private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
+        {
+            WatchVarTest w;
+            if (newVarBeingCreated)
+            {
+                w = newWatchVar;
+            }
+            else
+            {
+                w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
+            }
+            FormHelpText fh = new FormHelpText(w);
+            fh.ShowDialog();
+            // Code returned here after help form closes
+            if (w.preAcceptHelpText == "")
+            {
+                btnWatchHelpAvailable.BackColor = Color.Red;
+            }
+            else
+            {
+                btnWatchHelpAvailable.BackColor = Color.Green;
+            }
+
+        }
+
+        private void cBoxWatchList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshWatchVariableList(lBoxWatchVariables.SelectedIndex);
+        }
+
+        private void cBoxWatchScaleType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WatchVarTest w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
+            EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), w);
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,8 +204,19 @@ namespace DDB
 
         }
 
+        private WatchVarTest currentWatchVar;
         private void btnWatchModify_Click(object sender, EventArgs e)
         {
+            WatchVarTest w;
+            if (newVarBeingCreated)
+            {
+                w = newWatchVar;
+            }
+            else
+            {
+                w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
+            }
+            w.preAcceptHelpText = w.helpText;
             WatchModifyInProgress();
         }
 
@@ -136,45 +250,45 @@ namespace DDB
             // TODO
         }
 
+        private WatchVarTest newWatchVar;
+
         private void btnWatchAccept_Click(object sender, EventArgs e)
         {
+            WatchVarTest w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
+            w.dispName = tBoxWatchDisplayName.Text;
+            w.embName = tBoxWatchEmbName.Text;
+            w.minChart = Convert.ToInt32(tBoxWatchMinChart.Text);
+            w.maxChart = Convert.ToInt32(tBoxWatchMaxChart.Text);
+            w.minVal =  Convert.ToInt32(tBoxWatchMinValue.Text);
+            w.maxVal = Convert.ToInt32(tBoxWatchMaxValue.Text);
+            w.dataType = cBoxWatchDataType.SelectedIndex;
+            w.scaleType = cBoxWatchScaleType.SelectedIndex;
+            w.units = cBoxWatchUnits.SelectedIndex;
+            w.scaleInfo = cBoxWatchScaleInfo.SelectedIndex;
+            w.unitConversion = cBoxWatchUnitConversion.SelectedIndex;
+            w.formatString = cBoxWatchFormatString.SelectedIndex;
+            w.engineeringViewOnly = chkWatchEngViewOnly.Checked ? 1 : 0;
+            w.helpText = w.preAcceptHelpText;
             if (newVarBeingCreated)
             {
-                WatchVarTest w = new WatchVarTest(tBoxWatchDisplayName.Text, tBoxWatchEmbName.Text, Convert.ToInt32(tBoxWatchMinChart.Text),
-                                            Convert.ToInt32(tBoxWatchMaxChart.Text), Convert.ToInt32(tBoxWatchMinValue.Text),
-                                            Convert.ToInt32(tBoxWatchMaxValue.Text), cBoxWatchUnits.SelectedIndex,
-                                            cBoxWatchDataType.SelectedIndex, cBoxWatchUnits.SelectedIndex, tBoxWatchHelpText.Text);
-                WatchVarList.AddVar(w);
+                WatchVarList.AddVar(newWatchVar);
             }
-            else
-            {
-                // This will update the object reference
-                WatchVarTest w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
-                w.dispName = tBoxWatchDisplayName.Text;
-                w.embName = tBoxWatchEmbName.Text;
-                w.minChart = Convert.ToInt32(tBoxWatchMinChart.Text);
-                w.maxChart = Convert.ToInt32(tBoxWatchMaxChart.Text);
-                w.minVal =  Convert.ToInt32(tBoxWatchMinValue.Text);
-                w.maxVal = Convert.ToInt32(tBoxWatchMaxValue.Text);
-                w.units = cBoxWatchUnits.SelectedIndex;
-                w.type = cBoxWatchDataType.SelectedIndex;
-                w.units = cBoxWatchUnits.SelectedIndex;
-                w.helpText = tBoxWatchHelpText.Text;
-
-            }
+            
             AcceptOrCancelModification();
         }
 
         private void btnWatchCancel_Click(object sender, EventArgs e)
         {
             // Restore the original attributes
-            UpdateWatchVarDisplay(lBoxWatchVariables.SelectedIndex);
+            UpdateWatchVarDisplay(watchVarIndex);
 
             AcceptOrCancelModification();
         }
 
         private void WatchModifyInProgress()
         {
+            watchVarIndex = lBoxWatchVariables.SelectedIndex;
+
             btnWatchModify.Enabled = false;
             btnWatchCreate.Enabled = false;
             btnWatchCopy.Enabled = false;
@@ -184,11 +298,18 @@ namespace DDB
         }
 
         private bool newVarBeingCreated;
+        private Int32 watchVarIndex;
 
         private void WatchVarCreate()
         {
             newVarBeingCreated = true;
             PopulateNewVarDefaults();
+            newWatchVar = new WatchVarTest(tBoxWatchDisplayName.Text, tBoxWatchEmbName.Text, Convert.ToInt32(tBoxWatchMinChart.Text),
+                                            Convert.ToInt32(tBoxWatchMaxChart.Text), Convert.ToInt32(tBoxWatchMinValue.Text),
+                                            Convert.ToInt32(tBoxWatchMaxValue.Text), cBoxWatchDataType.SelectedIndex, cBoxWatchScaleType.SelectedIndex,
+                                            cBoxWatchUnits.SelectedIndex, cBoxWatchScaleInfo.SelectedIndex, cBoxWatchUnitConversion.SelectedIndex,
+                                            cBoxWatchFormatString.SelectedIndex, cBoxWatchReadWriteFlags.SelectedIndex,
+                                            chkWatchEngViewOnly.Checked ? 1 : 0, "");
             WatchModifyInProgress();
         }
 
@@ -196,12 +317,19 @@ namespace DDB
         {
             grpBoxWatchVarList.Enabled = true;
             grpBoxWatchAttrs.Enabled = false;
-            btnWatchModify.Enabled = true;
+            if (lBoxWatchVariables.SelectedIndex != -1)
+            {
+                btnWatchModify.Enabled = true;
+                btnWatchCopy.Enabled = true;
+                btnWatchDelete.Enabled = true;
+            }
             btnWatchCreate.Enabled = true;
-            btnWatchCopy.Enabled = true;
-            btnWatchDelete.Enabled = true;
+            if (newVarBeingCreated)
+            {
+                RefreshWatchVariableList(WatchVarList.GetWatchVarCount() - 1);
+            }
+
             newVarBeingCreated = false;
-            RefreshWatchVariableList(lBoxWatchVariables.SelectedIndex);
         }
 
         private void PopulateNewVarDefaults()
@@ -213,8 +341,14 @@ namespace DDB
             tBoxWatchMinValue.Text = "0";
             tBoxWatchMaxValue.Text = "255";
             cBoxWatchDataType.SelectedIndex = 0;
+            cBoxWatchScaleType.SelectedIndex = 0;
             cBoxWatchUnits.SelectedIndex = 0;
+            cBoxWatchScaleInfo.SelectedIndex = 0;
+            cBoxWatchUnitConversion.SelectedIndex = 0;
+            cBoxWatchFormatString.SelectedIndex = 0;
             cBoxWatchReadWriteFlags.SelectedIndex = 0;
+            chkWatchEngViewOnly.Checked = false;
+            btnWatchHelpAvailable.BackColor = Color.Red;
         }
 
         private void RefreshWatchVariableList(int prevIndex)
@@ -225,11 +359,18 @@ namespace DDB
             while (index < WatchVarList.GetWatchVarCount())
             {
                 w = WatchVarList.GetWatchVar(index);
-                lBoxWatchVariables.Items.Add(w.dispName);
+                switch (cBoxWatchList.SelectedIndex)
+                { 
+                    case 0:
+                    default:
+                        lBoxWatchVariables.Items.Add(w.dispName);
+                        break;
+                    case 1:
+                        lBoxWatchVariables.Items.Add(w.embName);
+                        break;
+                }
                 index++;
             }
-
-            UpdateWatchVarDisplay(prevIndex);
         }
 
         private void CopyWatchVar()

@@ -32,6 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
             this.grpBoxWatchVarList = new System.Windows.Forms.GroupBox();
+            this.cBoxWatchList = new System.Windows.Forms.ComboBox();
             this.btnWatchSortZtoA = new System.Windows.Forms.Button();
             this.btnWatchFilterApply = new System.Windows.Forms.Button();
             this.lBoxWatchVariables = new System.Windows.Forms.ListBox();
@@ -43,8 +44,17 @@
             this.btnWatchSortAtoZ = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.grpBoxWatchAttrs = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tBoxWatchHelpText = new System.Windows.Forms.TextBox();
+            this.btnWatchHelpAvailable = new System.Windows.Forms.Button();
+            this.cBoxWatchUnitConversion = new System.Windows.Forms.ComboBox();
+            this.cBoxWatchScaleInfo = new System.Windows.Forms.ComboBox();
+            this.lblWatchUnitConversion = new System.Windows.Forms.Label();
+            this.lblWatchScaleInfo = new System.Windows.Forms.Label();
+            this.cBoxWatchFormatString = new System.Windows.Forms.ComboBox();
+            this.btnWatchModifyHelpText = new System.Windows.Forms.Button();
+            this.lblFormatString = new System.Windows.Forms.Label();
+            this.chkWatchEngViewOnly = new System.Windows.Forms.CheckBox();
+            this.cBoxWatchScaleType = new System.Windows.Forms.ComboBox();
+            this.lblWatchUnitsEnumBitmask = new System.Windows.Forms.Label();
             this.cBoxWatchUnits = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cBoxWatchReadWriteFlags = new System.Windows.Forms.ComboBox();
@@ -74,8 +84,7 @@
             this.btnWatchCreate = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
-            this.tabEnumerations = new System.Windows.Forms.TabPage();
-            this.tabBitmasks = new System.Windows.Forms.TabPage();
+            this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +98,7 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnExitDDB = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -105,12 +115,11 @@
             this.tabControl1.Controls.Add(this.tabWatchVariables);
             this.tabControl1.Controls.Add(this.tabEvents);
             this.tabControl1.Controls.Add(this.tabSelfTest);
-            this.tabControl1.Controls.Add(this.tabEnumerations);
-            this.tabControl1.Controls.Add(this.tabBitmasks);
+            this.tabControl1.Controls.Add(this.tabProjectDefinitions);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(770, 532);
+            this.tabControl1.Size = new System.Drawing.Size(850, 555);
             this.tabControl1.TabIndex = 0;
             // 
             // tabWatchVariables
@@ -121,16 +130,17 @@
             this.tabWatchVariables.Controls.Add(this.btnWatchCopy);
             this.tabWatchVariables.Controls.Add(this.btnWatchModify);
             this.tabWatchVariables.Controls.Add(this.btnWatchCreate);
-            this.tabWatchVariables.Location = new System.Drawing.Point(4, 22);
+            this.tabWatchVariables.Location = new System.Drawing.Point(4, 26);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWatchVariables.Size = new System.Drawing.Size(762, 506);
+            this.tabWatchVariables.Size = new System.Drawing.Size(842, 525);
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
             // 
             // grpBoxWatchVarList
             // 
+            this.grpBoxWatchVarList.Controls.Add(this.cBoxWatchList);
             this.grpBoxWatchVarList.Controls.Add(this.btnWatchSortZtoA);
             this.grpBoxWatchVarList.Controls.Add(this.btnWatchFilterApply);
             this.grpBoxWatchVarList.Controls.Add(this.lBoxWatchVariables);
@@ -140,17 +150,31 @@
             this.grpBoxWatchVarList.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxWatchVarList.Location = new System.Drawing.Point(6, 27);
             this.grpBoxWatchVarList.Name = "grpBoxWatchVarList";
-            this.grpBoxWatchVarList.Size = new System.Drawing.Size(286, 432);
+            this.grpBoxWatchVarList.Size = new System.Drawing.Size(286, 478);
             this.grpBoxWatchVarList.TabIndex = 2;
             this.grpBoxWatchVarList.TabStop = false;
             this.grpBoxWatchVarList.Text = "Watch Variable List";
             // 
+            // cBoxWatchList
+            // 
+            this.cBoxWatchList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchList.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWatchList.FormattingEnabled = true;
+            this.cBoxWatchList.Items.AddRange(new object[] {
+            "Display Name",
+            "Embedded Name"});
+            this.cBoxWatchList.Location = new System.Drawing.Point(6, 34);
+            this.cBoxWatchList.Name = "cBoxWatchList";
+            this.cBoxWatchList.Size = new System.Drawing.Size(132, 25);
+            this.cBoxWatchList.TabIndex = 14;
+            this.cBoxWatchList.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchList_SelectedIndexChanged);
+            // 
             // btnWatchSortZtoA
             // 
             this.btnWatchSortZtoA.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchSortZtoA.Location = new System.Drawing.Point(207, 165);
+            this.btnWatchSortZtoA.Location = new System.Drawing.Point(207, 444);
             this.btnWatchSortZtoA.Name = "btnWatchSortZtoA";
-            this.btnWatchSortZtoA.Size = new System.Drawing.Size(75, 36);
+            this.btnWatchSortZtoA.Size = new System.Drawing.Size(72, 23);
             this.btnWatchSortZtoA.TabIndex = 12;
             this.btnWatchSortZtoA.Text = "Sort Z-A";
             this.toolTip1.SetToolTip(this.btnWatchSortZtoA, "\"Not yet Implemeneted\"");
@@ -160,7 +184,7 @@
             // btnWatchFilterApply
             // 
             this.btnWatchFilterApply.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchFilterApply.Location = new System.Drawing.Point(9, 401);
+            this.btnWatchFilterApply.Location = new System.Drawing.Point(6, 444);
             this.btnWatchFilterApply.Name = "btnWatchFilterApply";
             this.btnWatchFilterApply.Size = new System.Drawing.Size(75, 23);
             this.btnWatchFilterApply.TabIndex = 9;
@@ -175,10 +199,11 @@
             this.lBoxWatchVariables.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxWatchVariables.FormattingEnabled = true;
             this.lBoxWatchVariables.HorizontalScrollbar = true;
-            this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 23);
+            this.lBoxWatchVariables.ItemHeight = 17;
+            this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 65);
             this.lBoxWatchVariables.Name = "lBoxWatchVariables";
             this.lBoxWatchVariables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxWatchVariables.Size = new System.Drawing.Size(195, 329);
+            this.lBoxWatchVariables.Size = new System.Drawing.Size(273, 327);
             this.lBoxWatchVariables.TabIndex = 0;
             this.lBoxWatchVariables.SelectedIndexChanged += new System.EventHandler(this.lBoxWatchVariables_SelectedIndexChanged);
             // 
@@ -189,44 +214,44 @@
             this.modifyToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.conMenuWatchVarList.Name = "contextMenuStrip1";
-            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
+            this.conMenuWatchVarList.Size = new System.Drawing.Size(126, 76);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // tBoxWatchFilter
             // 
             this.tBoxWatchFilter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxWatchFilter.Location = new System.Drawing.Point(9, 371);
+            this.tBoxWatchFilter.Location = new System.Drawing.Point(6, 414);
             this.tBoxWatchFilter.Name = "tBoxWatchFilter";
-            this.tBoxWatchFilter.Size = new System.Drawing.Size(192, 21);
+            this.tBoxWatchFilter.Size = new System.Drawing.Size(192, 24);
             this.tBoxWatchFilter.TabIndex = 8;
             this.toolTip1.SetToolTip(this.tBoxWatchFilter, "\"Not yet Implemeneted\"");
             // 
             // btnWatchSortAtoZ
             // 
             this.btnWatchSortAtoZ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchSortAtoZ.Location = new System.Drawing.Point(207, 119);
+            this.btnWatchSortAtoZ.Location = new System.Drawing.Point(207, 414);
             this.btnWatchSortAtoZ.Name = "btnWatchSortAtoZ";
-            this.btnWatchSortAtoZ.Size = new System.Drawing.Size(75, 36);
+            this.btnWatchSortAtoZ.Size = new System.Drawing.Size(72, 23);
             this.btnWatchSortAtoZ.TabIndex = 11;
             this.btnWatchSortAtoZ.Text = "Sort A-Z";
             this.toolTip1.SetToolTip(this.btnWatchSortAtoZ, "\"Not yet Implemeneted\"");
@@ -237,16 +262,25 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 355);
+            this.label11.Location = new System.Drawing.Point(3, 398);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.Size = new System.Drawing.Size(36, 17);
             this.label11.TabIndex = 7;
             this.label11.Text = "Filter";
             // 
             // grpBoxWatchAttrs
             // 
-            this.grpBoxWatchAttrs.Controls.Add(this.label1);
-            this.grpBoxWatchAttrs.Controls.Add(this.tBoxWatchHelpText);
+            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchHelpAvailable);
+            this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchUnitConversion);
+            this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchScaleInfo);
+            this.grpBoxWatchAttrs.Controls.Add(this.lblWatchUnitConversion);
+            this.grpBoxWatchAttrs.Controls.Add(this.lblWatchScaleInfo);
+            this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchFormatString);
+            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchModifyHelpText);
+            this.grpBoxWatchAttrs.Controls.Add(this.lblFormatString);
+            this.grpBoxWatchAttrs.Controls.Add(this.chkWatchEngViewOnly);
+            this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchScaleType);
+            this.grpBoxWatchAttrs.Controls.Add(this.lblWatchUnitsEnumBitmask);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchUnits);
             this.grpBoxWatchAttrs.Controls.Add(this.label10);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchReadWriteFlags);
@@ -262,29 +296,150 @@
             this.grpBoxWatchAttrs.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxWatchAttrs.Location = new System.Drawing.Point(298, 27);
             this.grpBoxWatchAttrs.Name = "grpBoxWatchAttrs";
-            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(449, 398);
+            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(528, 434);
             this.grpBoxWatchAttrs.TabIndex = 6;
             this.grpBoxWatchAttrs.TabStop = false;
             this.grpBoxWatchAttrs.Text = "Attributes";
             // 
-            // label1
+            // btnWatchHelpAvailable
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(297, 187);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Help Text (html)";
+            this.btnWatchHelpAvailable.Enabled = false;
+            this.btnWatchHelpAvailable.Location = new System.Drawing.Point(382, 366);
+            this.btnWatchHelpAvailable.Name = "btnWatchHelpAvailable";
+            this.btnWatchHelpAvailable.Size = new System.Drawing.Size(19, 49);
+            this.btnWatchHelpAvailable.TabIndex = 24;
+            this.btnWatchHelpAvailable.UseVisualStyleBackColor = true;
             // 
-            // tBoxWatchHelpText
+            // cBoxWatchUnitConversion
             // 
-            this.tBoxWatchHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxWatchHelpText.Location = new System.Drawing.Point(260, 206);
-            this.tBoxWatchHelpText.Multiline = true;
-            this.tBoxWatchHelpText.Name = "tBoxWatchHelpText";
-            this.tBoxWatchHelpText.Size = new System.Drawing.Size(177, 157);
-            this.tBoxWatchHelpText.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.tBoxWatchHelpText, "HTML format Not Yet Implemented");
+            this.cBoxWatchUnitConversion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchUnitConversion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWatchUnitConversion.FormattingEnabled = true;
+            this.cBoxWatchUnitConversion.Items.AddRange(new object[] {
+            "METERSTOYARDS",
+            "YARDSTOINCHES",
+            "MPHTOKPH",
+            "KPHTOMPH",
+            "MILESTOKILOMETERS"});
+            this.cBoxWatchUnitConversion.Location = new System.Drawing.Point(358, 262);
+            this.cBoxWatchUnitConversion.Name = "cBoxWatchUnitConversion";
+            this.cBoxWatchUnitConversion.Size = new System.Drawing.Size(143, 25);
+            this.cBoxWatchUnitConversion.TabIndex = 23;
+            // 
+            // cBoxWatchScaleInfo
+            // 
+            this.cBoxWatchScaleInfo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchScaleInfo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWatchScaleInfo.FormattingEnabled = true;
+            this.cBoxWatchScaleInfo.Items.AddRange(new object[] {
+            "DIV1",
+            "DIV10",
+            "DIV100",
+            "DIV1000",
+            "MUL10",
+            "MUL100",
+            "MUL1000"});
+            this.cBoxWatchScaleInfo.Location = new System.Drawing.Point(358, 223);
+            this.cBoxWatchScaleInfo.Name = "cBoxWatchScaleInfo";
+            this.cBoxWatchScaleInfo.Size = new System.Drawing.Size(143, 25);
+            this.cBoxWatchScaleInfo.TabIndex = 22;
+            // 
+            // lblWatchUnitConversion
+            // 
+            this.lblWatchUnitConversion.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWatchUnitConversion.Location = new System.Drawing.Point(240, 262);
+            this.lblWatchUnitConversion.Name = "lblWatchUnitConversion";
+            this.lblWatchUnitConversion.Size = new System.Drawing.Size(112, 38);
+            this.lblWatchUnitConversion.TabIndex = 21;
+            this.lblWatchUnitConversion.Text = "Unit Conversion";
+            this.lblWatchUnitConversion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblWatchScaleInfo
+            // 
+            this.lblWatchScaleInfo.AutoSize = true;
+            this.lblWatchScaleInfo.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWatchScaleInfo.Location = new System.Drawing.Point(275, 227);
+            this.lblWatchScaleInfo.Name = "lblWatchScaleInfo";
+            this.lblWatchScaleInfo.Size = new System.Drawing.Size(77, 17);
+            this.lblWatchScaleInfo.TabIndex = 20;
+            this.lblWatchScaleInfo.Text = "Scale Info";
+            this.lblWatchScaleInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // cBoxWatchFormatString
+            // 
+            this.cBoxWatchFormatString.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchFormatString.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWatchFormatString.FormattingEnabled = true;
+            this.cBoxWatchFormatString.Items.AddRange(new object[] {
+            "General Number",
+            "Fixed",
+            "Standard",
+            "Scientific",
+            "Hexadecimal",
+            "Binary",
+            "8Dot8"});
+            this.cBoxWatchFormatString.Location = new System.Drawing.Point(358, 298);
+            this.cBoxWatchFormatString.Name = "cBoxWatchFormatString";
+            this.cBoxWatchFormatString.Size = new System.Drawing.Size(143, 25);
+            this.cBoxWatchFormatString.TabIndex = 19;
+            // 
+            // btnWatchModifyHelpText
+            // 
+            this.btnWatchModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchModifyHelpText.Location = new System.Drawing.Point(223, 366);
+            this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
+            this.btnWatchModifyHelpText.Size = new System.Drawing.Size(153, 49);
+            this.btnWatchModifyHelpText.TabIndex = 18;
+            this.btnWatchModifyHelpText.Text = "Modify Help Text";
+            this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
+            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
+            // 
+            // lblFormatString
+            // 
+            this.lblFormatString.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormatString.Location = new System.Drawing.Point(251, 298);
+            this.lblFormatString.Name = "lblFormatString";
+            this.lblFormatString.Size = new System.Drawing.Size(101, 34);
+            this.lblFormatString.TabIndex = 17;
+            this.lblFormatString.Text = "Format String";
+            this.lblFormatString.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // chkWatchEngViewOnly
+            // 
+            this.chkWatchEngViewOnly.AutoSize = true;
+            this.chkWatchEngViewOnly.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkWatchEngViewOnly.Location = new System.Drawing.Point(22, 401);
+            this.chkWatchEngViewOnly.Name = "chkWatchEngViewOnly";
+            this.chkWatchEngViewOnly.Size = new System.Drawing.Size(182, 21);
+            this.chkWatchEngViewOnly.TabIndex = 16;
+            this.chkWatchEngViewOnly.Text = "Engineering Only Visibility";
+            this.chkWatchEngViewOnly.UseVisualStyleBackColor = true;
+            // 
+            // cBoxWatchScaleType
+            // 
+            this.cBoxWatchScaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchScaleType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWatchScaleType.FormattingEnabled = true;
+            this.cBoxWatchScaleType.Items.AddRange(new object[] {
+            "NONE",
+            "Scalar",
+            "Enumeration",
+            "Bitmask"});
+            this.cBoxWatchScaleType.Location = new System.Drawing.Point(358, 152);
+            this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
+            this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 25);
+            this.cBoxWatchScaleType.TabIndex = 15;
+            this.cBoxWatchScaleType.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchScaleType_SelectedIndexChanged);
+            // 
+            // lblWatchUnitsEnumBitmask
+            // 
+            this.lblWatchUnitsEnumBitmask.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWatchUnitsEnumBitmask.Location = new System.Drawing.Point(249, 193);
+            this.lblWatchUnitsEnumBitmask.Name = "lblWatchUnitsEnumBitmask";
+            this.lblWatchUnitsEnumBitmask.Size = new System.Drawing.Size(93, 17);
+            this.lblWatchUnitsEnumBitmask.TabIndex = 14;
+            this.lblWatchUnitsEnumBitmask.Text = "Units";
+            this.lblWatchUnitsEnumBitmask.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cBoxWatchUnits
             // 
@@ -297,19 +452,21 @@
             "Volts",
             "MPH",
             "m/sec2"});
-            this.cBoxWatchUnits.Location = new System.Drawing.Point(294, 157);
+            this.cBoxWatchUnits.Location = new System.Drawing.Point(358, 189);
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
-            this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnits.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(249, 162);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(271, 159);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 16);
+            this.label10.Size = new System.Drawing.Size(81, 17);
             this.label10.TabIndex = 12;
-            this.label10.Text = "Units";
+            this.label10.Text = "Scale Type";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cBoxWatchReadWriteFlags
             // 
@@ -322,7 +479,7 @@
             "Read/Write [Level 2]"});
             this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(21, 360);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
-            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(132, 21);
+            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(132, 25);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
             // 
             // label9
@@ -330,7 +487,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(18, 333);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 16);
+            this.label9.Size = new System.Drawing.Size(154, 21);
             this.label9.TabIndex = 12;
             this.label9.Text = "Read Write Flags";
             // 
@@ -347,30 +504,29 @@
             "INT_16",
             "INT_32",
             "FLOAT",
-            "DOUBLE",
-            "Enum1",
-            "Enum2",
-            "Bitmask1"});
-            this.cBoxWatchDataType.Location = new System.Drawing.Point(294, 126);
+            "DOUBLE"});
+            this.cBoxWatchDataType.Location = new System.Drawing.Point(358, 119);
             this.cBoxWatchDataType.Name = "cBoxWatchDataType";
-            this.cBoxWatchDataType.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchDataType.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchDataType.TabIndex = 11;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(250, 131);
+            this.label8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(274, 123);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 16);
+            this.label8.Size = new System.Drawing.Size(78, 17);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Type";
+            this.label8.Text = "Data Type";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnWatchCancel
             // 
             this.btnWatchCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchCancel.Location = new System.Drawing.Point(362, 369);
+            this.btnWatchCancel.Location = new System.Drawing.Point(408, 392);
             this.btnWatchCancel.Name = "btnWatchCancel";
-            this.btnWatchCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchCancel.Size = new System.Drawing.Size(99, 34);
             this.btnWatchCancel.TabIndex = 8;
             this.btnWatchCancel.Text = "Cancel";
             this.btnWatchCancel.UseVisualStyleBackColor = true;
@@ -379,9 +535,9 @@
             // btnWatchAccept
             // 
             this.btnWatchAccept.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchAccept.Location = new System.Drawing.Point(260, 369);
+            this.btnWatchAccept.Location = new System.Drawing.Point(408, 351);
             this.btnWatchAccept.Name = "btnWatchAccept";
-            this.btnWatchAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchAccept.Size = new System.Drawing.Size(99, 34);
             this.btnWatchAccept.TabIndex = 7;
             this.btnWatchAccept.Text = "Accept";
             this.btnWatchAccept.UseVisualStyleBackColor = true;
@@ -394,7 +550,7 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.tBoxWatchMinValue);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(21, 225);
+            this.groupBox3.Location = new System.Drawing.Point(12, 227);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(222, 94);
             this.groupBox3.TabIndex = 5;
@@ -407,7 +563,7 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(7, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "Maximum Value";
             // 
@@ -416,7 +572,7 @@
             this.tBoxWatchMaxValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMaxValue.Location = new System.Drawing.Point(102, 60);
             this.tBoxWatchMaxValue.Name = "tBoxWatchMaxValue";
-            this.tBoxWatchMaxValue.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMaxValue.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMaxValue.TabIndex = 2;
             // 
             // label7
@@ -425,7 +581,7 @@
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(10, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.Size = new System.Drawing.Size(98, 17);
             this.label7.TabIndex = 1;
             this.label7.Text = "Minimum Value";
             // 
@@ -434,7 +590,7 @@
             this.tBoxWatchMinValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMinValue.Location = new System.Drawing.Point(102, 31);
             this.tBoxWatchMinValue.Name = "tBoxWatchMinValue";
-            this.tBoxWatchMinValue.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMinValue.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMinValue.TabIndex = 0;
             // 
             // groupBox2
@@ -444,7 +600,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.tBoxWatchMinChart);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(21, 126);
+            this.groupBox2.Location = new System.Drawing.Point(12, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(222, 93);
             this.groupBox2.TabIndex = 4;
@@ -457,7 +613,7 @@
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(7, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.Size = new System.Drawing.Size(103, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Maximum Value";
             // 
@@ -466,7 +622,7 @@
             this.tBoxWatchMaxChart.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMaxChart.Location = new System.Drawing.Point(102, 60);
             this.tBoxWatchMaxChart.Name = "tBoxWatchMaxChart";
-            this.tBoxWatchMaxChart.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMaxChart.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMaxChart.TabIndex = 2;
             // 
             // label5
@@ -475,7 +631,7 @@
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(10, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.Size = new System.Drawing.Size(98, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Minimum Value";
             // 
@@ -484,7 +640,7 @@
             this.tBoxWatchMinChart.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMinChart.Location = new System.Drawing.Point(102, 31);
             this.tBoxWatchMinChart.Name = "tBoxWatchMinChart";
-            this.tBoxWatchMinChart.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMinChart.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMinChart.TabIndex = 0;
             // 
             // groupBox1
@@ -494,9 +650,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tBoxWatchDisplayName);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(21, 22);
+            this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 98);
+            this.groupBox1.Size = new System.Drawing.Size(486, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name";
@@ -507,7 +663,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Embedded";
             // 
@@ -516,7 +672,7 @@
             this.tBoxWatchEmbName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchEmbName.Location = new System.Drawing.Point(76, 60);
             this.tBoxWatchEmbName.Name = "tBoxWatchEmbName";
-            this.tBoxWatchEmbName.Size = new System.Drawing.Size(340, 21);
+            this.tBoxWatchEmbName.Size = new System.Drawing.Size(404, 24);
             this.tBoxWatchEmbName.TabIndex = 2;
             // 
             // label2
@@ -525,7 +681,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(16, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Display";
             // 
@@ -534,13 +690,13 @@
             this.tBoxWatchDisplayName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchDisplayName.Location = new System.Drawing.Point(76, 31);
             this.tBoxWatchDisplayName.Name = "tBoxWatchDisplayName";
-            this.tBoxWatchDisplayName.Size = new System.Drawing.Size(340, 21);
+            this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 24);
             this.tBoxWatchDisplayName.TabIndex = 0;
             // 
             // btnWatchDelete
             // 
             this.btnWatchDelete.Enabled = false;
-            this.btnWatchDelete.Location = new System.Drawing.Point(558, 471);
+            this.btnWatchDelete.Location = new System.Drawing.Point(599, 496);
             this.btnWatchDelete.Name = "btnWatchDelete";
             this.btnWatchDelete.Size = new System.Drawing.Size(75, 23);
             this.btnWatchDelete.TabIndex = 5;
@@ -551,7 +707,7 @@
             // btnWatchCopy
             // 
             this.btnWatchCopy.Enabled = false;
-            this.btnWatchCopy.Location = new System.Drawing.Point(558, 442);
+            this.btnWatchCopy.Location = new System.Drawing.Point(599, 467);
             this.btnWatchCopy.Name = "btnWatchCopy";
             this.btnWatchCopy.Size = new System.Drawing.Size(75, 23);
             this.btnWatchCopy.TabIndex = 4;
@@ -562,7 +718,7 @@
             // btnWatchModify
             // 
             this.btnWatchModify.Enabled = false;
-            this.btnWatchModify.Location = new System.Drawing.Point(407, 471);
+            this.btnWatchModify.Location = new System.Drawing.Point(453, 496);
             this.btnWatchModify.Name = "btnWatchModify";
             this.btnWatchModify.Size = new System.Drawing.Size(75, 23);
             this.btnWatchModify.TabIndex = 3;
@@ -572,7 +728,7 @@
             // 
             // btnWatchCreate
             // 
-            this.btnWatchCreate.Location = new System.Drawing.Point(407, 442);
+            this.btnWatchCreate.Location = new System.Drawing.Point(453, 467);
             this.btnWatchCreate.Name = "btnWatchCreate";
             this.btnWatchCreate.Size = new System.Drawing.Size(75, 23);
             this.btnWatchCreate.TabIndex = 2;
@@ -582,40 +738,31 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Location = new System.Drawing.Point(4, 26);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(762, 506);
+            this.tabEvents.Size = new System.Drawing.Size(842, 525);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 26);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(762, 506);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 525);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
             // 
-            // tabEnumerations
+            // tabProjectDefinitions
             // 
-            this.tabEnumerations.Location = new System.Drawing.Point(4, 22);
-            this.tabEnumerations.Name = "tabEnumerations";
-            this.tabEnumerations.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEnumerations.Size = new System.Drawing.Size(762, 506);
-            this.tabEnumerations.TabIndex = 1;
-            this.tabEnumerations.Text = "Enumerations";
-            this.tabEnumerations.UseVisualStyleBackColor = true;
-            // 
-            // tabBitmasks
-            // 
-            this.tabBitmasks.Location = new System.Drawing.Point(4, 22);
-            this.tabBitmasks.Name = "tabBitmasks";
-            this.tabBitmasks.Size = new System.Drawing.Size(762, 506);
-            this.tabBitmasks.TabIndex = 2;
-            this.tabBitmasks.Text = "Bitmasks";
-            this.tabBitmasks.UseVisualStyleBackColor = true;
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
+            this.tabProjectDefinitions.Name = "tabProjectDefinitions";
+            this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectDefinitions.TabIndex = 1;
+            this.tabProjectDefinitions.Text = "Project Definitions";
+            this.tabProjectDefinitions.UseVisualStyleBackColor = true;
             // 
             // mainMenuStrip
             // 
@@ -625,7 +772,7 @@
             this.helpToolStripMenuItem1});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(794, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(871, 28);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -638,38 +785,39 @@
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.importToolStripMenuItem.Text = "Import...";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.exitToolStripMenuItem.Text = "Exit..";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -677,19 +825,19 @@
             this.aboutToolStripMenuItem,
             this.generateHelpFilechmToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.helpToolStripMenuItem.Text = "Tools";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.aboutToolStripMenuItem.Text = "Generate Emb Code";
             // 
             // generateHelpFilechmToolStripMenuItem
             // 
             this.generateHelpFilechmToolStripMenuItem.Name = "generateHelpFilechmToolStripMenuItem";
-            this.generateHelpFilechmToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.generateHelpFilechmToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.generateHelpFilechmToolStripMenuItem.Text = "Generate Help File (.chm)";
             // 
             // helpToolStripMenuItem1
@@ -697,20 +845,31 @@
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(128, 24);
             this.aboutToolStripMenuItem1.Text = "About...";
+            // 
+            // btnExitDDB
+            // 
+            this.btnExitDDB.Location = new System.Drawing.Point(348, 588);
+            this.btnExitDDB.Name = "btnExitDDB";
+            this.btnExitDDB.Size = new System.Drawing.Size(120, 40);
+            this.btnExitDDB.TabIndex = 2;
+            this.btnExitDDB.Text = "Exit DDB";
+            this.btnExitDDB.UseVisualStyleBackColor = true;
+            this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 571);
+            this.ClientSize = new System.Drawing.Size(871, 635);
+            this.Controls.Add(this.btnExitDDB);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -719,7 +878,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder (v 0.0.0.1)";
+            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.2)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -744,7 +903,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabWatchVariables;
-        private System.Windows.Forms.TabPage tabEnumerations;
+        private System.Windows.Forms.TabPage tabProjectDefinitions;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -754,7 +913,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabBitmasks;
         private System.Windows.Forms.ListBox lBoxWatchVariables;
         private System.Windows.Forms.Button btnWatchCreate;
         private System.Windows.Forms.GroupBox grpBoxWatchAttrs;
@@ -780,7 +938,6 @@
         private System.Windows.Forms.Button btnWatchAccept;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cBoxWatchDataType;
-        private System.Windows.Forms.ComboBox cBoxWatchReadWriteFlags;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cBoxWatchUnits;
         private System.Windows.Forms.Label label10;
@@ -796,12 +953,24 @@
         private System.Windows.Forms.GroupBox grpBoxWatchVarList;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.TextBox tBoxWatchHelpText;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem generateHelpFilechmToolStripMenuItem;
         private System.Windows.Forms.TabPage tabEvents;
         private System.Windows.Forms.TabPage tabSelfTest;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox cBoxWatchList;
+        private System.Windows.Forms.ComboBox cBoxWatchReadWriteFlags;
+        private System.Windows.Forms.ComboBox cBoxWatchScaleType;
+        private System.Windows.Forms.Label lblWatchUnitsEnumBitmask;
+        private System.Windows.Forms.ComboBox cBoxWatchUnitConversion;
+        private System.Windows.Forms.ComboBox cBoxWatchScaleInfo;
+        private System.Windows.Forms.Label lblWatchUnitConversion;
+        private System.Windows.Forms.Label lblWatchScaleInfo;
+        private System.Windows.Forms.ComboBox cBoxWatchFormatString;
+        private System.Windows.Forms.Button btnWatchModifyHelpText;
+        private System.Windows.Forms.Label lblFormatString;
+        private System.Windows.Forms.CheckBox chkWatchEngViewOnly;
+        private System.Windows.Forms.Button btnExitDDB;
+        private System.Windows.Forms.Button btnWatchHelpAvailable;
     }
 }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    internal class WatchVarTest
+    internal class WatchVarTest: iDDBHelpObject
     {
         public String dispName;
         public String embName;
@@ -11,12 +11,24 @@ namespace DDB
         public Int32 maxChart;
         public Int32 minVal;
         public Int32 maxVal;
-        public Int32 units;
-        public Int32 type;
+        public Int32 dataType;
+        public Int32 scaleType;
+        public Int32 units; 
+        public Int32 scaleInfo;
+        public Int32 unitConversion;
+        public Int32 formatString;
         public Int32 readWrite;
+        public Int32 engineeringViewOnly;
         public String helpText;
+        public String preAcceptHelpText;
 
-        public WatchVarTest(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 u, Int32 t, Int32 rw, String help)
+        public WatchVarTest()
+        {
+        }
+
+
+        public WatchVarTest(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
+                            Int32 u, Int32 si, Int32 uc, Int32 fs, Int32 rw, Int32 evo, String ht)
         {
             dispName = d;
             embName = e;
@@ -24,10 +36,16 @@ namespace DDB
             maxChart = maxC;
             minVal = minV;
             maxVal = maxV;
+            dataType = dt;
+            scaleType = st;
             units = u;
-            type = t;
-            readWrite = rw;
-            helpText = help;
+            scaleInfo = si;
+            unitConversion = uc;
+            formatString = fs;
+            readWrite= rw;
+            engineeringViewOnly = evo;
+            helpText = ht;
+            preAcceptHelpText = helpText;
         }
 
         public WatchVarTest(WatchVarTest w)
@@ -38,11 +56,28 @@ namespace DDB
             maxChart = w.maxChart;
             minVal = w.minVal;
             maxVal = w.maxVal;
+            dataType = w.dataType;
+            scaleType = w.scaleType;
             units = w.units;
-            type = w.type;
+            scaleInfo = w.scaleInfo;
+            unitConversion = w.unitConversion;
+            formatString = w.formatString;
             readWrite = w.readWrite;
+            engineeringViewOnly = w.engineeringViewOnly;
             helpText = w.helpText;
+
         }
+
+        public void SaveHelpText(string helpText)
+        {
+            this.preAcceptHelpText = helpText;
+        }
+
+        public string GetHelpText()
+        {
+            return preAcceptHelpText;
+        }
+
     }
 
     internal class WatchVarList
@@ -77,11 +112,12 @@ namespace DDB
 
         static public void Init(FormMain mForm)
         {
-            list.Add(new WatchVarTest("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 1, 0, "<b>Motion - Var 01</b><p>motion01"));
-            list.Add(new WatchVarTest("Motion - Var 02", "motion02", 0, 255, 0, 255, 0, 0, 0, "<b>Motion - Var 02</b><p>motion02"));
-            list.Add(new WatchVarTest("Motion - Var 03", "motion03", -20, 20, -200, 200, 4, 1, 1, "<b>Motion - Var 03</b><p>motion03"));
-            list.Add(new WatchVarTest("Velocity - Var 01", "velocity01", 0, 100, 0, 100, 1, 0, 2, "<b>Velocity - Var 01</b><p>velocity01"));
-            list.Add(new WatchVarTest("Velocity - Var 02", "velocity02", 0, 255, 0, 255, 0, 0, 1, "<b>Velocity - Var 02</b><p>velocity02"));
+
+            list.Add(new WatchVarTest("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
+            list.Add(new WatchVarTest("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
+            list.Add(new WatchVarTest("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
+            list.Add(new WatchVarTest("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
+            list.Add(new WatchVarTest("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
         }
     }
 }
