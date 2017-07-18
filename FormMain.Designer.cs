@@ -785,10 +785,10 @@
             // 
             this.tabProjectDefinitions.Controls.Add(this.groupBox4);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
@@ -1079,7 +1079,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.2)";
+            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.3)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
