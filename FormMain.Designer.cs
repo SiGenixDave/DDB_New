@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
+            this.btnWatchImport = new System.Windows.Forms.Button();
             this.grpBoxWatchVarList = new System.Windows.Forms.GroupBox();
             this.cBoxWatchList = new System.Windows.Forms.ComboBox();
             this.btnWatchSortZtoA = new System.Windows.Forms.Button();
@@ -85,6 +86,22 @@
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnProjUnitsImport = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnProUnitsCopy = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnProUnitsDelete = new System.Windows.Forms.Button();
+            this.btnProUnitsModify = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnProUnitsCreate = new System.Windows.Forms.Button();
+            this.lBoxProjUnits = new System.Windows.Forms.ListBox();
+            this.conMenuUnits = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,6 +124,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabProjectDefinitions.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.conMenuUnits.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,9 +141,11 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(850, 555);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabWatchVariables
             // 
+            this.tabWatchVariables.Controls.Add(this.btnWatchImport);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchVarList);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
             this.tabWatchVariables.Controls.Add(this.btnWatchDelete);
@@ -137,6 +159,17 @@
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
+            // 
+            // btnWatchImport
+            // 
+            this.btnWatchImport.Location = new System.Drawing.Point(721, 482);
+            this.btnWatchImport.Name = "btnWatchImport";
+            this.btnWatchImport.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchImport.TabIndex = 7;
+            this.btnWatchImport.Text = "Import...";
+            this.toolTip1.SetToolTip(this.btnWatchImport, "\"TODO Import watch variables from another XML file\"");
+            this.btnWatchImport.UseVisualStyleBackColor = true;
+            this.btnWatchImport.Click += new System.EventHandler(this.btnWatchImport_Click);
             // 
             // grpBoxWatchVarList
             // 
@@ -321,7 +354,7 @@
             "MPHTOKPH",
             "KPHTOMPH",
             "MILESTOKILOMETERS"});
-            this.cBoxWatchUnitConversion.Location = new System.Drawing.Point(358, 262);
+            this.cBoxWatchUnitConversion.Location = new System.Drawing.Point(349, 270);
             this.cBoxWatchUnitConversion.Name = "cBoxWatchUnitConversion";
             this.cBoxWatchUnitConversion.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnitConversion.TabIndex = 23;
@@ -339,7 +372,7 @@
             "MUL10",
             "MUL100",
             "MUL1000"});
-            this.cBoxWatchScaleInfo.Location = new System.Drawing.Point(358, 223);
+            this.cBoxWatchScaleInfo.Location = new System.Drawing.Point(349, 231);
             this.cBoxWatchScaleInfo.Name = "cBoxWatchScaleInfo";
             this.cBoxWatchScaleInfo.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchScaleInfo.TabIndex = 22;
@@ -347,9 +380,9 @@
             // lblWatchUnitConversion
             // 
             this.lblWatchUnitConversion.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWatchUnitConversion.Location = new System.Drawing.Point(240, 262);
+            this.lblWatchUnitConversion.Location = new System.Drawing.Point(240, 270);
             this.lblWatchUnitConversion.Name = "lblWatchUnitConversion";
-            this.lblWatchUnitConversion.Size = new System.Drawing.Size(112, 38);
+            this.lblWatchUnitConversion.Size = new System.Drawing.Size(103, 38);
             this.lblWatchUnitConversion.TabIndex = 21;
             this.lblWatchUnitConversion.Text = "Unit Conversion";
             this.lblWatchUnitConversion.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -358,7 +391,7 @@
             // 
             this.lblWatchScaleInfo.AutoSize = true;
             this.lblWatchScaleInfo.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWatchScaleInfo.Location = new System.Drawing.Point(275, 227);
+            this.lblWatchScaleInfo.Location = new System.Drawing.Point(266, 235);
             this.lblWatchScaleInfo.Name = "lblWatchScaleInfo";
             this.lblWatchScaleInfo.Size = new System.Drawing.Size(77, 17);
             this.lblWatchScaleInfo.TabIndex = 20;
@@ -378,7 +411,7 @@
             "Hexadecimal",
             "Binary",
             "8Dot8"});
-            this.cBoxWatchFormatString.Location = new System.Drawing.Point(358, 298);
+            this.cBoxWatchFormatString.Location = new System.Drawing.Point(349, 306);
             this.cBoxWatchFormatString.Name = "cBoxWatchFormatString";
             this.cBoxWatchFormatString.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchFormatString.TabIndex = 19;
@@ -397,7 +430,7 @@
             // lblFormatString
             // 
             this.lblFormatString.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormatString.Location = new System.Drawing.Point(251, 298);
+            this.lblFormatString.Location = new System.Drawing.Point(242, 306);
             this.lblFormatString.Name = "lblFormatString";
             this.lblFormatString.Size = new System.Drawing.Size(101, 34);
             this.lblFormatString.TabIndex = 17;
@@ -425,7 +458,7 @@
             "Scalar",
             "Enumeration",
             "Bitmask"});
-            this.cBoxWatchScaleType.Location = new System.Drawing.Point(358, 152);
+            this.cBoxWatchScaleType.Location = new System.Drawing.Point(349, 160);
             this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
             this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchScaleType.TabIndex = 15;
@@ -434,7 +467,7 @@
             // lblWatchUnitsEnumBitmask
             // 
             this.lblWatchUnitsEnumBitmask.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWatchUnitsEnumBitmask.Location = new System.Drawing.Point(249, 193);
+            this.lblWatchUnitsEnumBitmask.Location = new System.Drawing.Point(240, 201);
             this.lblWatchUnitsEnumBitmask.Name = "lblWatchUnitsEnumBitmask";
             this.lblWatchUnitsEnumBitmask.Size = new System.Drawing.Size(93, 17);
             this.lblWatchUnitsEnumBitmask.TabIndex = 14;
@@ -446,13 +479,7 @@
             this.cBoxWatchUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxWatchUnits.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxWatchUnits.FormattingEnabled = true;
-            this.cBoxWatchUnits.Items.AddRange(new object[] {
-            "NONE",
-            "Amps",
-            "Volts",
-            "MPH",
-            "m/sec2"});
-            this.cBoxWatchUnits.Location = new System.Drawing.Point(358, 189);
+            this.cBoxWatchUnits.Location = new System.Drawing.Point(349, 197);
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
             this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnits.TabIndex = 13;
@@ -461,7 +488,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(271, 159);
+            this.label10.Location = new System.Drawing.Point(262, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 17);
             this.label10.TabIndex = 12;
@@ -505,7 +532,7 @@
             "INT_32",
             "FLOAT",
             "DOUBLE"});
-            this.cBoxWatchDataType.Location = new System.Drawing.Point(358, 119);
+            this.cBoxWatchDataType.Location = new System.Drawing.Point(349, 127);
             this.cBoxWatchDataType.Name = "cBoxWatchDataType";
             this.cBoxWatchDataType.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchDataType.TabIndex = 11;
@@ -514,7 +541,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(274, 123);
+            this.label8.Location = new System.Drawing.Point(265, 131);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 17);
             this.label8.TabIndex = 9;
@@ -696,7 +723,7 @@
             // btnWatchDelete
             // 
             this.btnWatchDelete.Enabled = false;
-            this.btnWatchDelete.Location = new System.Drawing.Point(599, 496);
+            this.btnWatchDelete.Location = new System.Drawing.Point(541, 496);
             this.btnWatchDelete.Name = "btnWatchDelete";
             this.btnWatchDelete.Size = new System.Drawing.Size(75, 23);
             this.btnWatchDelete.TabIndex = 5;
@@ -707,7 +734,7 @@
             // btnWatchCopy
             // 
             this.btnWatchCopy.Enabled = false;
-            this.btnWatchCopy.Location = new System.Drawing.Point(599, 467);
+            this.btnWatchCopy.Location = new System.Drawing.Point(541, 467);
             this.btnWatchCopy.Name = "btnWatchCopy";
             this.btnWatchCopy.Size = new System.Drawing.Size(75, 23);
             this.btnWatchCopy.TabIndex = 4;
@@ -738,31 +765,206 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 26);
+            this.tabEvents.Location = new System.Drawing.Point(4, 22);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 525);
+            this.tabEvents.Size = new System.Drawing.Size(842, 529);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 26);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 525);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
             // 
             // tabProjectDefinitions
             // 
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
+            this.tabProjectDefinitions.Controls.Add(this.groupBox4);
+            this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnProjUnitsImport);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btnProUnitsCopy);
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.btnProUnitsDelete);
+            this.groupBox4.Controls.Add(this.btnProUnitsModify);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.btnProUnitsCreate);
+            this.groupBox4.Controls.Add(this.lBoxProjUnits);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(6, 20);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(247, 499);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Units";
+            // 
+            // btnProjUnitsImport
+            // 
+            this.btnProjUnitsImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProjUnitsImport.Location = new System.Drawing.Point(165, 279);
+            this.btnProjUnitsImport.Name = "btnProjUnitsImport";
+            this.btnProjUnitsImport.Size = new System.Drawing.Size(75, 23);
+            this.btnProjUnitsImport.TabIndex = 18;
+            this.btnProjUnitsImport.Text = "Import...";
+            this.toolTip1.SetToolTip(this.btnProjUnitsImport, "\"TODO Import units from another XML file\"");
+            this.btnProjUnitsImport.UseVisualStyleBackColor = true;
+            this.btnProjUnitsImport.Click += new System.EventHandler(this.btnProjUnitsImport_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(168, 461);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Sort Z-A";
+            this.toolTip1.SetToolTip(this.button1, "\"Not yet Implemeneted\"");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnProUnitsCopy
+            // 
+            this.btnProUnitsCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProUnitsCopy.Location = new System.Drawing.Point(167, 164);
+            this.btnProUnitsCopy.Name = "btnProUnitsCopy";
+            this.btnProUnitsCopy.Size = new System.Drawing.Size(75, 23);
+            this.btnProUnitsCopy.TabIndex = 5;
+            this.btnProUnitsCopy.Text = "Copy";
+            this.btnProUnitsCopy.UseVisualStyleBackColor = true;
+            this.btnProUnitsCopy.Click += new System.EventHandler(this.btnProUnitsCopy_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(6, 462);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Apply Filter";
+            this.toolTip1.SetToolTip(this.button2, "\"Not yet Implemeneted\"");
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(168, 432);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 23);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Sort A-Z";
+            this.toolTip1.SetToolTip(this.button3, "\"Not yet Implemeneted\"");
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnProUnitsDelete
+            // 
+            this.btnProUnitsDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProUnitsDelete.Location = new System.Drawing.Point(167, 222);
+            this.btnProUnitsDelete.Name = "btnProUnitsDelete";
+            this.btnProUnitsDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnProUnitsDelete.TabIndex = 4;
+            this.btnProUnitsDelete.Text = "Delete";
+            this.btnProUnitsDelete.UseVisualStyleBackColor = true;
+            this.btnProUnitsDelete.Click += new System.EventHandler(this.btnProUnitsDelete_Click);
+            // 
+            // btnProUnitsModify
+            // 
+            this.btnProUnitsModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProUnitsModify.Location = new System.Drawing.Point(168, 193);
+            this.btnProUnitsModify.Name = "btnProUnitsModify";
+            this.btnProUnitsModify.Size = new System.Drawing.Size(75, 23);
+            this.btnProUnitsModify.TabIndex = 3;
+            this.btnProUnitsModify.Text = "Modify";
+            this.btnProUnitsModify.UseVisualStyleBackColor = true;
+            this.btnProUnitsModify.Click += new System.EventHandler(this.btnProUnitsModify_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(6, 432);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(156, 24);
+            this.textBox1.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox1, "\"Not yet Implemeneted\"");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 416);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Filter";
+            // 
+            // btnProUnitsCreate
+            // 
+            this.btnProUnitsCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProUnitsCreate.Location = new System.Drawing.Point(167, 135);
+            this.btnProUnitsCreate.Name = "btnProUnitsCreate";
+            this.btnProUnitsCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnProUnitsCreate.TabIndex = 2;
+            this.btnProUnitsCreate.Text = "Create";
+            this.btnProUnitsCreate.UseVisualStyleBackColor = true;
+            this.btnProUnitsCreate.Click += new System.EventHandler(this.btnProUnitsCreate_Click);
+            // 
+            // lBoxProjUnits
+            // 
+            this.lBoxProjUnits.ContextMenuStrip = this.conMenuUnits;
+            this.lBoxProjUnits.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBoxProjUnits.FormattingEnabled = true;
+            this.lBoxProjUnits.HorizontalScrollbar = true;
+            this.lBoxProjUnits.ItemHeight = 21;
+            this.lBoxProjUnits.Location = new System.Drawing.Point(6, 27);
+            this.lBoxProjUnits.Name = "lBoxProjUnits";
+            this.lBoxProjUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lBoxProjUnits.Size = new System.Drawing.Size(155, 382);
+            this.lBoxProjUnits.TabIndex = 1;
+            this.lBoxProjUnits.SelectedIndexChanged += new System.EventHandler(this.lBoxProjUnits_SelectedIndexChanged);
+            // 
+            // conMenuUnits
+            // 
+            this.conMenuUnits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem1,
+            this.modifyToolStripMenuItem1,
+            this.deleteToolStripMenuItem1});
+            this.conMenuUnits.Name = "conMenuUnits";
+            this.conMenuUnits.Size = new System.Drawing.Size(126, 76);
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
+            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
+            // 
+            // modifyToolStripMenuItem1
+            // 
+            this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
+            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
+            this.modifyToolStripMenuItem1.Text = "Modify";
+            this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyToolStripMenuItem1_Click);
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
+            this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
             // 
             // mainMenuStrip
             // 
@@ -866,8 +1068,7 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(871, 635);
             this.Controls.Add(this.btnExitDDB);
             this.Controls.Add(this.tabControl1);
@@ -892,6 +1093,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabProjectDefinitions.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.conMenuUnits.ResumeLayout(false);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -971,6 +1176,23 @@
         private System.Windows.Forms.CheckBox chkWatchEngViewOnly;
         private System.Windows.Forms.Button btnExitDDB;
         private System.Windows.Forms.Button btnWatchHelpAvailable;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnProUnitsCopy;
+        private System.Windows.Forms.Button btnProUnitsDelete;
+        private System.Windows.Forms.Button btnProUnitsModify;
+        private System.Windows.Forms.Button btnProUnitsCreate;
+        private System.Windows.Forms.ListBox lBoxProjUnits;
+        private System.Windows.Forms.ContextMenuStrip conMenuUnits;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnWatchImport;
+        private System.Windows.Forms.Button btnProjUnitsImport;
     }
 }
 

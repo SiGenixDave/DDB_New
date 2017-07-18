@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using DDB.Test;
 
 namespace DDB
 {
@@ -13,9 +14,22 @@ namespace DDB
             /// FOR TEST ONLY
             WatchVarList.Init(this);
             RefreshWatchVariableList(-1);
+            PopulateUnits();
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
 
+        }
+
+        private void PopulateUnits()
+        {
+            String[] units = UnitsTest.GetUnits();
+            cBoxWatchUnits.Items.Clear();
+            lBoxProjUnits.Items.Clear();
+            foreach (String u in units)
+            {
+                cBoxWatchUnits.Items.Add(u);
+                lBoxProjUnits.Items.Add(u);
+            }
         }
 
         private void btnExitDDB_Click(object sender, EventArgs e)
@@ -30,6 +44,25 @@ namespace DDB
             Close();
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO Reload any information based on the current tab selected
+            switch (tabControl1.SelectedIndex)
+            {
+                case 0:
+                    // Tab Watch
+                    break;
+                case 1:
+                    // Tab Event
+                    break;
+                case 2:
+                    // Tab Selftest
+                    break;
+                case 3:
+                    // Tab Project Definitions
+                    break;
+            }
+        }
 
     }
 }

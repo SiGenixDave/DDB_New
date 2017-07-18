@@ -320,6 +320,16 @@ namespace DDB
             AcceptOrCancelModification();
         }
 
+        private void btnWatchImport_Click(object sender, EventArgs e)
+        {
+            FormImport iForm = new FormImport("Watch Variables");
+            iForm.ShowDialog();
+            //TODO Open File dialog (xml file default)
+
+            //TODO Open new form with list box of units from the XML file
+
+        }
+
         private void WatchModifyInProgress()
         {
             watchVarIndex = lBoxWatchVariables.SelectedIndex;
@@ -328,6 +338,7 @@ namespace DDB
             btnWatchCreate.Enabled = false;
             btnWatchCopy.Enabled = false;
             btnWatchDelete.Enabled = false;
+            btnWatchImport.Enabled = false;
             grpBoxWatchVarList.Enabled = false;
             grpBoxWatchAttrs.Enabled = true;
         }
@@ -359,6 +370,7 @@ namespace DDB
                 btnWatchDelete.Enabled = true;
             }
             btnWatchCreate.Enabled = true;
+            btnWatchImport.Enabled = true;
             if (newVarBeingCreated)
             {
                 RefreshWatchVariableList(WatchVarList.GetWatchVarCount() - 1);
