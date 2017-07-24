@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Windows.Forms;
 using DDB.Test;
+using System.Collections.Generic;
 
 namespace DDB
 {
@@ -35,7 +34,6 @@ namespace DDB
             //TODO Open File dialog (xml file default)
 
             //TODO Open new form with list box of units from the XML file
-
         }
 
         private void lBoxProjUnits_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,20 +61,19 @@ namespace DDB
                 btnProUnitsCopy.Enabled = true;
                 btnProUnitsDelete.Enabled = true;
             }
-
         }
 
-        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void copyUnitsMenuItem1_Click(object sender, EventArgs e)
         {
             CopyUnits();
         }
 
-        private void modifyToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void modifyUnitsMenuItem_Click(object sender, EventArgs e)
         {
             ModifyUnits();
         }
 
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void deleteUnitsMenuItem_Click(object sender, EventArgs e)
         {
             DeleteUnits();
         }
@@ -110,25 +107,41 @@ namespace DDB
             UnitCreateObject unitCreate = new UnitCreateObject();
             if (unitCreate.GetUserAcceptance())
             {
-                String newUnitName= unitCreate.GetUnit();
+                String newUnitName = unitCreate.GetUnit();
                 UnitsTest.AddUnits(newUnitName);
                 lBoxProjUnits.Items.Add(newUnitName);
             }
-
         }
 
         private void DeleteUnits()
         {
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected bitmasks(s)?",
+                                  "Delete Bitmask(s) Confirmation",
+                                  MessageBoxButtons.OKCancel,
+                                  MessageBoxIcon.Warning);
+
+            // User really didn't want to delete the variables... abort delete
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
             int indexCount = 0;
+            List<String> unitsToDelete = new List<String>();
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
-                String u = UnitsTest.GetUnit(lBoxProjUnits.SelectedIndices[indexCount]);
-                UnitsTest.Delete(u);
+                unitsToDelete.Add(UnitsTest.GetUnit(lBoxProjUnits.SelectedIndices[indexCount]));
                 indexCount++;
             }
 
+            while (unitsToDelete.Count != 0)
+            {
+                UnitsTest.Delete(unitsToDelete[0]);
+                unitsToDelete.RemoveAt(0);
+            }
+
+
             PopulateUnits();
         }
-
     }
 }

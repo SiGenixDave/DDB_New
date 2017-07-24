@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace DDB
 {
@@ -34,8 +35,6 @@ namespace DDB
                 {
                     btnWatchHelpAvailable.BackColor = Color.Green;
                 }
-
-
             }
             else
             {
@@ -75,7 +74,7 @@ namespace DDB
                     cBoxWatchFormatString.SelectedIndex = w.formatString;
                     cBoxWatchUnitConversion.SelectedIndex = w.unitConversion;
                     cBoxWatchScaleInfo.SelectedIndex = w.scaleInfo;
-                    
+
                     lblWatchUnitsEnumBitmask.Text = "Units";
                     LoadUnitsIntoComboBox();
                     break;
@@ -105,8 +104,6 @@ namespace DDB
                     LoadBitmasksIntoComboBox();
                     break;
             }
-
-
         }
 
         private void LoadUnitsIntoComboBox()
@@ -119,6 +116,7 @@ namespace DDB
             cBoxWatchUnits.Items.Add("m/sec2");
             cBoxWatchUnits.SelectedIndex = 0;
         }
+
         private void LoadEnumsIntoComboBox()
         {
             cBoxWatchUnits.Items.Clear();
@@ -128,6 +126,7 @@ namespace DDB
             cBoxWatchUnits.Items.Add("Enum4");
             cBoxWatchUnits.SelectedIndex = 0;
         }
+
         private void LoadBitmasksIntoComboBox()
         {
             cBoxWatchUnits.Items.Clear();
@@ -137,7 +136,6 @@ namespace DDB
             cBoxWatchUnits.Items.Add("Bitmask4");
             cBoxWatchUnits.SelectedIndex = 0;
         }
-
 
         private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
         {
@@ -161,7 +159,6 @@ namespace DDB
             {
                 btnWatchHelpAvailable.BackColor = Color.Green;
             }
-
         }
 
         private void cBoxWatchList_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,17 +172,17 @@ namespace DDB
             EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), w);
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void copyWatchMenuItem_Click(object sender, EventArgs e)
         {
             CopyWatchVar();
         }
 
-        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modifyWatchMenuItem_Click(object sender, EventArgs e)
         {
             WatchModifyInProgress();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteWatchMenuItem_Click(object sender, EventArgs e)
         {
             DeleteWatchVar();
         }
@@ -200,14 +197,13 @@ namespace DDB
                 btnWatchCopy.Enabled = false;
 
                 conMenuWatchVarList.Items[1].Enabled = false;
-            
             }
             else if (lBoxWatchVariables.SelectedIndices.Count == 1)
             {
                 UpdateWatchVarDisplay(lBoxWatchVariables.SelectedIndex);
-                
+
                 conMenuWatchVarList.Items[1].Enabled = true;
-                
+
                 btnWatchModify.Enabled = true;
                 btnWatchDelete.Enabled = true;
                 btnWatchCopy.Enabled = true;
@@ -216,7 +212,7 @@ namespace DDB
             {
                 // Disable the "Modify" in context menu
                 conMenuWatchVarList.Items[1].Enabled = false;
-                
+
                 btnWatchModify.Enabled = false;
                 btnWatchDelete.Enabled = true;
                 btnWatchCopy.Enabled = true;
@@ -233,13 +229,11 @@ namespace DDB
                 }
 
                 UpdateWatchVarDisplay(firstSelectedIndex);
-
-
             }
-
         }
 
         private WatchVarTest currentWatchVar;
+
         private void btnWatchModify_Click(object sender, EventArgs e)
         {
             WatchVarTest w;
@@ -294,7 +288,7 @@ namespace DDB
             w.embName = tBoxWatchEmbName.Text;
             w.minChart = Convert.ToInt32(tBoxWatchMinChart.Text);
             w.maxChart = Convert.ToInt32(tBoxWatchMaxChart.Text);
-            w.minVal =  Convert.ToInt32(tBoxWatchMinValue.Text);
+            w.minVal = Convert.ToInt32(tBoxWatchMinValue.Text);
             w.maxVal = Convert.ToInt32(tBoxWatchMaxValue.Text);
             w.dataType = cBoxWatchDataType.SelectedIndex;
             w.scaleType = cBoxWatchScaleType.SelectedIndex;
@@ -308,16 +302,19 @@ namespace DDB
             {
                 WatchVarList.AddVar(newWatchVar);
             }
-            
+
             AcceptOrCancelModification();
         }
 
         private void btnWatchCancel_Click(object sender, EventArgs e)
         {
-            // Restore the original attributes
-            UpdateWatchVarDisplay(watchVarIndex);
+            if (Cancel.Query("Watch Variable") == true)
+            {
+                // Restore the original attributes
+                UpdateWatchVarDisplay(watchVarIndex);
 
-            AcceptOrCancelModification();
+                AcceptOrCancelModification();
+            }
         }
 
         private void btnWatchImport_Click(object sender, EventArgs e)
@@ -327,7 +324,6 @@ namespace DDB
             //TODO Open File dialog (xml file default)
 
             //TODO Open new form with list box of units from the XML file
-
         }
 
         private void WatchModifyInProgress()
@@ -407,11 +403,12 @@ namespace DDB
             {
                 w = WatchVarList.GetWatchVar(index);
                 switch (cBoxWatchList.SelectedIndex)
-                { 
+                {
                     case 0:
                     default:
                         lBoxWatchVariables.Items.Add(w.dispName);
                         break;
+
                     case 1:
                         lBoxWatchVariables.Items.Add(w.embName);
                         break;
@@ -428,7 +425,7 @@ namespace DDB
                 WatchVarTest w = WatchVarList.GetWatchVarCopy(lBoxWatchVariables.SelectedIndices[indexCount]);
                 w.embName = "Copy of " + w.embName;
                 w.dispName = "Copy of " + w.dispName;
-                WatchVarList.AddVar(w); 
+                WatchVarList.AddVar(w);
                 indexCount++;
             }
 
@@ -438,8 +435,8 @@ namespace DDB
         private void DeleteWatchVar()
         {
             DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected variable(s)?",
-                                              "Delete Variable(s) Confirmation", 
-                                              MessageBoxButtons.OKCancel, 
+                                              "Delete Variable(s) Confirmation",
+                                              MessageBoxButtons.OKCancel,
                                               MessageBoxIcon.Warning);
 
             // User really didn't want to delete the variables... abort delete
@@ -449,12 +446,17 @@ namespace DDB
             }
 
             int indexCount = 0;
+            List<WatchVarTest> watchesToDelete = new List<WatchVarTest>();
             while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
             {
-                WatchVarTest w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndices[indexCount]);
-                WatchVarList.DeleteVar(w);
-                
+                watchesToDelete.Add(WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndices[indexCount]));
                 indexCount++;
+            }
+
+            while (watchesToDelete.Count != 0)
+            {
+                WatchVarList.DeleteVar(watchesToDelete[0]);
+                watchesToDelete.RemoveAt(0);
             }
 
             int numWatchVars = WatchVarList.GetWatchVarCount();
@@ -467,7 +469,5 @@ namespace DDB
                 RefreshWatchVariableList(lBoxWatchVariables.SelectedIndex - 1);
             }
         }
-
-
     }
 }

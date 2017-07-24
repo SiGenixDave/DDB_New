@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DDB
 {
-    class UnitModifyObject: iTextEntry
+    internal class UnitModifyObject : iTextEntry
     {
-        const String formTitle = "Modify Unit";
-        const String formMessage = "Update the Unit name: click Accept or Cancel";
+        private const String formTitle = "Modify Unit";
+        private const String formMessage = "Update the Unit name: click Accept or Cancel";
 
-        Boolean userAcceptance = false;
-        String unit;
+        private Boolean userAcceptance = false;
+        private String unit;
 
         public UnitModifyObject(String unitName)
         {
@@ -20,7 +17,7 @@ namespace DDB
         }
 
         private UnitModifyObject()
-        {}
+        { }
 
         public void ConfirmedTextEntry(string text)
         {
@@ -28,9 +25,9 @@ namespace DDB
             userAcceptance = true;
         }
 
-        public Boolean GetUserAcceptance() 
+        public Boolean GetUserAcceptance()
         {
-            return userAcceptance; 
+            return userAcceptance;
         }
 
         public String GetUnit()

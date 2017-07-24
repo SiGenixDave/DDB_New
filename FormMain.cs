@@ -12,12 +12,13 @@ namespace DDB
 
             ////////////////////////////////////////////////////////
             /// FOR TEST ONLY
-            WatchVarList.Init(this);
+            WatchVarList.Init();
+            BitmaskVarList.Init();
             RefreshWatchVariableList(-1);
             PopulateUnits();
+            PopulateBitmasks();
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
-
         }
 
         private void PopulateUnits()
@@ -29,6 +30,16 @@ namespace DDB
             {
                 cBoxWatchUnits.Items.Add(u);
                 lBoxProjUnits.Items.Add(u);
+            }
+        }
+
+        private void PopulateBitmasks()
+        {
+            String[] bitmasks = BitmaskVarList.GetBitmasks();
+            lBoxProjBitmasks.Items.Clear();
+            foreach (String b in bitmasks)
+            {
+                lBoxProjBitmasks.Items.Add(b);
             }
         }
 
@@ -52,12 +63,15 @@ namespace DDB
                 case 0:
                     // Tab Watch
                     break;
+
                 case 1:
                     // Tab Event
                     break;
+
                 case 2:
                     // Tab Selftest
                     break;
+
                 case 3:
                     // Tab Project Definitions
                     break;

@@ -46,12 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitmasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancel.cs" />
+    <Compile Include="FormBitmaskEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBitmaskEditor.Designer.cs">
+      <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormImport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormImport.Designer.cs">
       <DependentUpon>FormImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\BitmaskTest.cs" />
     <Compile Include="UnitCreateObject.cs" />
     <Compile Include="FormHelpText.cs">
       <SubType>Form</SubType>
@@ -84,6 +95,9 @@
     <Compile Include="WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="FormBitmaskEditor.resx">
+      <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHelpText.resx">
       <DependentUpon>FormHelpText.cs</DependentUpon>
     </EmbeddedResource>

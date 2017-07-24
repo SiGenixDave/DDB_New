@@ -38,9 +38,9 @@
             this.btnWatchFilterApply = new System.Windows.Forms.Button();
             this.lBoxWatchVariables = new System.Windows.Forms.ListBox();
             this.conMenuWatchVarList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tBoxWatchFilter = new System.Windows.Forms.TextBox();
             this.btnWatchSortAtoZ = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -86,6 +86,22 @@
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnProBitmasksImport = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.btnProBitmasksCopy = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.btnProBitmasksDelete = new System.Windows.Forms.Button();
+            this.btnProBitmasksModify = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnProBitmasksCreate = new System.Windows.Forms.Button();
+            this.lBoxProjBitmasks = new System.Windows.Forms.ListBox();
+            this.conMenuBitmasks = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnProjUnitsImport = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -99,9 +115,10 @@
             this.btnProUnitsCreate = new System.Windows.Forms.Button();
             this.lBoxProjUnits = new System.Windows.Forms.ListBox();
             this.conMenuUnits = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabProjectSettings = new System.Windows.Forms.TabPage();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +142,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.conMenuBitmasks.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.conMenuUnits.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
@@ -136,6 +155,7 @@
             this.tabControl1.Controls.Add(this.tabEvents);
             this.tabControl1.Controls.Add(this.tabSelfTest);
             this.tabControl1.Controls.Add(this.tabProjectDefinitions);
+            this.tabControl1.Controls.Add(this.tabProjectSettings);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -243,32 +263,30 @@
             // conMenuWatchVarList
             // 
             this.conMenuWatchVarList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.modifyToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.copyWatchMenuItem,
+            this.modifyWatchMenuItem,
+            this.deleteWatchMenuItem});
             this.conMenuWatchVarList.Name = "contextMenuStrip1";
             this.conMenuWatchVarList.Size = new System.Drawing.Size(126, 76);
             // 
-            // copyToolStripMenuItem
+            // copyWatchMenuItem
             // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.copyWatchMenuItem.Name = "copyWatchMenuItem";
+            this.copyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyWatchMenuItem.Text = "Copy";
             // 
-            // modifyToolStripMenuItem
+            // modifyWatchMenuItem
             // 
-            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
-            this.modifyToolStripMenuItem.Text = "Modify";
-            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
+            this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
+            this.modifyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyWatchMenuItem.Text = "Modify";
             // 
-            // deleteToolStripMenuItem
+            // deleteWatchMenuItem
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.deleteWatchMenuItem.Name = "deleteWatchMenuItem";
+            this.deleteWatchMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteWatchMenuItem.Text = "Delete";
+            this.deleteWatchMenuItem.Click += new System.EventHandler(this.deleteWatchMenuItem_Click);
             // 
             // tBoxWatchFilter
             // 
@@ -498,6 +516,7 @@
             // cBoxWatchReadWriteFlags
             // 
             this.cBoxWatchReadWriteFlags.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWatchReadWriteFlags.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cBoxWatchReadWriteFlags.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxWatchReadWriteFlags.FormattingEnabled = true;
             this.cBoxWatchReadWriteFlags.Items.AddRange(new object[] {
@@ -524,6 +543,7 @@
             this.cBoxWatchDataType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxWatchDataType.FormattingEnabled = true;
             this.cBoxWatchDataType.Items.AddRange(new object[] {
+            "BOOL",
             "UINT_8",
             "UINT_16",
             "UINT_32",
@@ -765,33 +785,210 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Location = new System.Drawing.Point(4, 25);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 529);
+            this.tabEvents.Size = new System.Drawing.Size(842, 526);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 25);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 526);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
             // 
             // tabProjectDefinitions
             // 
+            this.tabProjectDefinitions.Controls.Add(this.groupBox5);
             this.tabProjectDefinitions.Controls.Add(this.groupBox4);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnProBitmasksImport);
+            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.btnProBitmasksCopy);
+            this.groupBox5.Controls.Add(this.button7);
+            this.groupBox5.Controls.Add(this.button8);
+            this.groupBox5.Controls.Add(this.btnProBitmasksDelete);
+            this.groupBox5.Controls.Add(this.btnProBitmasksModify);
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.btnProBitmasksCreate);
+            this.groupBox5.Controls.Add(this.lBoxProjBitmasks);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(273, 20);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(247, 499);
+            this.groupBox5.TabIndex = 19;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Bitmasks";
+            // 
+            // btnProBitmasksImport
+            // 
+            this.btnProBitmasksImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksImport.Location = new System.Drawing.Point(165, 279);
+            this.btnProBitmasksImport.Name = "btnProBitmasksImport";
+            this.btnProBitmasksImport.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksImport.TabIndex = 18;
+            this.btnProBitmasksImport.Text = "Import...";
+            this.toolTip1.SetToolTip(this.btnProBitmasksImport, "\"TODO Import units from another XML file\"");
+            this.btnProBitmasksImport.UseVisualStyleBackColor = true;
+            this.btnProBitmasksImport.Click += new System.EventHandler(this.btnProBitmasksImport_Click);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(168, 461);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(72, 23);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "Sort Z-A";
+            this.toolTip1.SetToolTip(this.button5, "\"Not yet Implemeneted\"");
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // btnProBitmasksCopy
+            // 
+            this.btnProBitmasksCopy.Enabled = false;
+            this.btnProBitmasksCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksCopy.Location = new System.Drawing.Point(167, 164);
+            this.btnProBitmasksCopy.Name = "btnProBitmasksCopy";
+            this.btnProBitmasksCopy.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksCopy.TabIndex = 5;
+            this.btnProBitmasksCopy.Text = "Copy";
+            this.btnProBitmasksCopy.UseVisualStyleBackColor = true;
+            this.btnProBitmasksCopy.Click += new System.EventHandler(this.btnProBitmasksCopy_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(6, 462);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Apply Filter";
+            this.toolTip1.SetToolTip(this.button7, "\"Not yet Implemeneted\"");
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(168, 432);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(72, 23);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Sort A-Z";
+            this.toolTip1.SetToolTip(this.button8, "\"Not yet Implemeneted\"");
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // btnProBitmasksDelete
+            // 
+            this.btnProBitmasksDelete.Enabled = false;
+            this.btnProBitmasksDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksDelete.Location = new System.Drawing.Point(167, 222);
+            this.btnProBitmasksDelete.Name = "btnProBitmasksDelete";
+            this.btnProBitmasksDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksDelete.TabIndex = 4;
+            this.btnProBitmasksDelete.Text = "Delete";
+            this.btnProBitmasksDelete.UseVisualStyleBackColor = true;
+            this.btnProBitmasksDelete.Click += new System.EventHandler(this.btnProBitmasksDelete_Click);
+            // 
+            // btnProBitmasksModify
+            // 
+            this.btnProBitmasksModify.Enabled = false;
+            this.btnProBitmasksModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksModify.Location = new System.Drawing.Point(168, 193);
+            this.btnProBitmasksModify.Name = "btnProBitmasksModify";
+            this.btnProBitmasksModify.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksModify.TabIndex = 3;
+            this.btnProBitmasksModify.Text = "Modify";
+            this.btnProBitmasksModify.UseVisualStyleBackColor = true;
+            this.btnProBitmasksModify.Click += new System.EventHandler(this.btnProBitmasksModify_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(6, 432);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(156, 24);
+            this.textBox2.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox2, "\"Not yet Implemeneted\"");
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 416);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 17);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Filter";
+            // 
+            // btnProBitmasksCreate
+            // 
+            this.btnProBitmasksCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksCreate.Location = new System.Drawing.Point(167, 135);
+            this.btnProBitmasksCreate.Name = "btnProBitmasksCreate";
+            this.btnProBitmasksCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksCreate.TabIndex = 2;
+            this.btnProBitmasksCreate.Text = "Create";
+            this.btnProBitmasksCreate.UseVisualStyleBackColor = true;
+            this.btnProBitmasksCreate.Click += new System.EventHandler(this.btnProBitmasksCreate_Click);
+            // 
+            // lBoxProjBitmasks
+            // 
+            this.lBoxProjBitmasks.ContextMenuStrip = this.conMenuBitmasks;
+            this.lBoxProjBitmasks.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBoxProjBitmasks.FormattingEnabled = true;
+            this.lBoxProjBitmasks.HorizontalScrollbar = true;
+            this.lBoxProjBitmasks.ItemHeight = 21;
+            this.lBoxProjBitmasks.Location = new System.Drawing.Point(6, 27);
+            this.lBoxProjBitmasks.Name = "lBoxProjBitmasks";
+            this.lBoxProjBitmasks.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lBoxProjBitmasks.Size = new System.Drawing.Size(155, 382);
+            this.lBoxProjBitmasks.TabIndex = 1;
+            this.lBoxProjBitmasks.SelectedIndexChanged += new System.EventHandler(this.lBoxProjBitmasks_SelectedIndexChanged);
+            // 
+            // conMenuBitmasks
+            // 
+            this.conMenuBitmasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyBitmasksMenuItem,
+            this.modifyBitmasksMenuItem,
+            this.deleteBitmasksMenuItem});
+            this.conMenuBitmasks.Name = "conMenuUnits";
+            this.conMenuBitmasks.Size = new System.Drawing.Size(126, 76);
+            // 
+            // copyBitmasksMenuItem
+            // 
+            this.copyBitmasksMenuItem.Name = "copyBitmasksMenuItem";
+            this.copyBitmasksMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyBitmasksMenuItem.Text = "Copy";
+            this.copyBitmasksMenuItem.Click += new System.EventHandler(this.copyBitmasksMenuItem_Click);
+            // 
+            // modifyBitmasksMenuItem
+            // 
+            this.modifyBitmasksMenuItem.Name = "modifyBitmasksMenuItem";
+            this.modifyBitmasksMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyBitmasksMenuItem.Text = "Modify";
+            this.modifyBitmasksMenuItem.Click += new System.EventHandler(this.modifyBitmasksMenuItem_Click);
+            // 
+            // deleteBitmasksMenuItem
+            // 
+            this.deleteBitmasksMenuItem.Name = "deleteBitmasksMenuItem";
+            this.deleteBitmasksMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteBitmasksMenuItem.Text = "Delete";
+            this.deleteBitmasksMenuItem.Click += new System.EventHandler(this.deleteBitmasksMenuItem_Click);
             // 
             // groupBox4
             // 
@@ -839,6 +1036,7 @@
             // 
             // btnProUnitsCopy
             // 
+            this.btnProUnitsCopy.Enabled = false;
             this.btnProUnitsCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProUnitsCopy.Location = new System.Drawing.Point(167, 164);
             this.btnProUnitsCopy.Name = "btnProUnitsCopy";
@@ -872,6 +1070,7 @@
             // 
             // btnProUnitsDelete
             // 
+            this.btnProUnitsDelete.Enabled = false;
             this.btnProUnitsDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProUnitsDelete.Location = new System.Drawing.Point(167, 222);
             this.btnProUnitsDelete.Name = "btnProUnitsDelete";
@@ -883,6 +1082,7 @@
             // 
             // btnProUnitsModify
             // 
+            this.btnProUnitsModify.Enabled = false;
             this.btnProUnitsModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProUnitsModify.Location = new System.Drawing.Point(168, 193);
             this.btnProUnitsModify.Name = "btnProUnitsModify";
@@ -939,32 +1139,40 @@
             // conMenuUnits
             // 
             this.conMenuUnits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem1,
-            this.modifyToolStripMenuItem1,
-            this.deleteToolStripMenuItem1});
+            this.copyUnitsMenuItem,
+            this.modifyUnitsMenuItem,
+            this.deleteUnitsMenuItem});
             this.conMenuUnits.Name = "conMenuUnits";
             this.conMenuUnits.Size = new System.Drawing.Size(126, 76);
             // 
-            // copyToolStripMenuItem1
+            // copyUnitsMenuItem
             // 
-            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
-            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
-            this.copyToolStripMenuItem1.Text = "Copy";
-            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
+            this.copyUnitsMenuItem.Name = "copyUnitsMenuItem";
+            this.copyUnitsMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyUnitsMenuItem.Text = "Copy";
             // 
-            // modifyToolStripMenuItem1
+            // modifyUnitsMenuItem
             // 
-            this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
-            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
-            this.modifyToolStripMenuItem1.Text = "Modify";
-            this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyToolStripMenuItem1_Click);
+            this.modifyUnitsMenuItem.Name = "modifyUnitsMenuItem";
+            this.modifyUnitsMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyUnitsMenuItem.Text = "Modify";
+            this.modifyUnitsMenuItem.Click += new System.EventHandler(this.modifyUnitsMenuItem_Click);
             // 
-            // deleteToolStripMenuItem1
+            // deleteUnitsMenuItem
             // 
-            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
-            this.deleteToolStripMenuItem1.Text = "Delete";
-            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
+            this.deleteUnitsMenuItem.Name = "deleteUnitsMenuItem";
+            this.deleteUnitsMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteUnitsMenuItem.Text = "Delete";
+            this.deleteUnitsMenuItem.Click += new System.EventHandler(this.deleteUnitsMenuItem_Click);
+            // 
+            // tabProjectSettings
+            // 
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectSettings.Name = "tabProjectSettings";
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectSettings.TabIndex = 5;
+            this.tabProjectSettings.Text = "Project Settings";
+            this.tabProjectSettings.UseVisualStyleBackColor = true;
             // 
             // mainMenuStrip
             // 
@@ -1079,7 +1287,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.3)";
+            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.4)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -1094,6 +1302,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabProjectDefinitions.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.conMenuBitmasks.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.conMenuUnits.ResumeLayout(false);
@@ -1152,9 +1363,9 @@
         private System.Windows.Forms.TextBox tBoxWatchFilter;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ContextMenuStrip conMenuWatchVarList;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyWatchMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyWatchMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteWatchMenuItem;
         private System.Windows.Forms.GroupBox grpBoxWatchVarList;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
@@ -1183,9 +1394,9 @@
         private System.Windows.Forms.Button btnProUnitsCreate;
         private System.Windows.Forms.ListBox lBoxProjUnits;
         private System.Windows.Forms.ContextMenuStrip conMenuUnits;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem copyUnitsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyUnitsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteUnitsMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -1193,6 +1404,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnWatchImport;
         private System.Windows.Forms.Button btnProjUnitsImport;
+        private System.Windows.Forms.TabPage tabProjectSettings;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnProBitmasksImport;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnProBitmasksCopy;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnProBitmasksDelete;
+        private System.Windows.Forms.Button btnProBitmasksModify;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnProBitmasksCreate;
+        private System.Windows.Forms.ListBox lBoxProjBitmasks;
+        private System.Windows.Forms.ContextMenuStrip conMenuBitmasks;
+        private System.Windows.Forms.ToolStripMenuItem copyBitmasksMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyBitmasksMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteBitmasksMenuItem;
     }
 }
 

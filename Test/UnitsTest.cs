@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DDB.Test
 {
-    public static class UnitsTest
+    public class UnitsTest
     {
         static List <String> myDefines = new List<String>() 
         {

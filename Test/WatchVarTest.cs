@@ -110,7 +110,7 @@ namespace DDB
             return list.Count;
         }
 
-        static public void Init(FormMain mForm)
+        static public void Init()
         {
 
             list.Add(new WatchVarTest("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
