@@ -101,7 +101,9 @@ namespace DDB
                     cBoxWatchScaleInfo.Visible = false;
 
                     lblWatchUnitsEnumBitmask.Text = "Bitmask";
-                    LoadBitmasksIntoComboBox();
+                    LoadBitmasksIntoComboBox(false);
+
+
                     break;
             }
         }
@@ -127,14 +129,20 @@ namespace DDB
             cBoxWatchUnits.SelectedIndex = 0;
         }
 
-        private void LoadBitmasksIntoComboBox()
+        private void LoadBitmasksIntoComboBox(Boolean useExistingIndex)
         {
             cBoxWatchUnits.Items.Clear();
-            cBoxWatchUnits.Items.Add("Bitmask1");
-            cBoxWatchUnits.Items.Add("Bitmask2");
-            cBoxWatchUnits.Items.Add("Bitmask3");
-            cBoxWatchUnits.Items.Add("Bitmask4");
-            cBoxWatchUnits.SelectedIndex = 0;
+
+            int index = 0;
+            while (index < BitmaskVarList.GetVarCount())
+            {
+                cBoxWatchUnits.Items.Add(BitmaskVarList.GetVar(index).dispName);
+                index++;
+            }
+            if (!useExistingIndex)
+            {
+                cBoxWatchUnits.SelectedIndex = 0;
+            }
         }
 
         private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
@@ -170,6 +178,14 @@ namespace DDB
         {
             WatchVarTest w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
             EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), w);
+        }
+
+        private void cBoxWatchUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
+            {
+                formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(cBoxWatchUnits.SelectedIndex));
+            }
         }
 
         private void copyWatchMenuItem_Click(object sender, EventArgs e)

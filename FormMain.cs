@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using DDB.Test;
+using System.Drawing;
 
 namespace DDB
 {
     public partial class FormMain : Form
     {
+        FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
+
         public FormMain()
         {
             InitializeComponent();
@@ -62,6 +65,15 @@ namespace DDB
             {
                 case 0:
                     // Tab Watch
+                    if (cBoxWatchScaleType.SelectedItem != null)
+                    {
+                        if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
+                        {
+                            int savedIndex = cBoxWatchUnits.SelectedIndex;
+                            LoadBitmasksIntoComboBox(true);
+                            cBoxWatchUnits.SelectedIndex = savedIndex;
+                        }
+                    }
                     break;
 
                 case 1:
@@ -77,6 +89,19 @@ namespace DDB
                     break;
             }
         }
+
+        private void previewBitmasksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewBitmasksToolStripMenuItem.Checked)
+            {
+                formBitmaskPreview.Show();
+            }
+            else
+            {
+                formBitmaskPreview.Hide();
+            }
+        }
+
 
     }
 }

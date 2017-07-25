@@ -35,6 +35,11 @@ namespace DDB
             //TODO Open new form with list box of units from the XML file
         }
 
+        private void lBoxProjBitmasks_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ModifyBitmasks();
+        }
+
         private void lBoxProjBitmasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lBoxProjBitmasks.SelectedIndices.Count == 0)
@@ -50,6 +55,8 @@ namespace DDB
                 btnProBitmasksModify.Enabled = true;
                 btnProBitmasksCopy.Enabled = true;
                 btnProBitmasksDelete.Enabled = true;
+
+                formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
             }
             else
             {
@@ -95,10 +102,18 @@ namespace DDB
 
         private void ModifyBitmasks()
         {
+            int savedIndex = lBoxProjBitmasks.SelectedIndex;
+
             BitmaskTest bmt = BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex);
 
             FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt);
             bmEdit.ShowDialog();
+
+            formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
+            
+            PopulateBitmasks();
+
+            lBoxProjBitmasks.SelectedIndex = savedIndex;
         }
 
         private void CreateBitmasks()

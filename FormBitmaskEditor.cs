@@ -68,6 +68,8 @@ namespace DDB
 
         private void Load()
         {
+            tBoxName.Text = bitmask.dispName;
+
             for (int index = 1; index <= 16; index++)
             {
                 if (!String.IsNullOrEmpty(bitmask.strValues[index - 1]))
@@ -87,6 +89,8 @@ namespace DDB
 
         private void Save()
         {
+            bitmask.dispName = tBoxName.Text;
+
             for (int index = 1; index <= 16; index++)
             {
                 String str = dataGridView2.Rows[16 - index].Cells[2].Value.ToString();
@@ -114,6 +118,13 @@ namespace DDB
                     bitmask.strValues[index - 1 + 16] = str;
                 }
             }
+        }
+
+        private void tBoxName_TextChanged(object sender, EventArgs e)
+        {
+            Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
+            tBoxName.Width = size.Width;
+            tBoxName.Height = size.Height;
         }
     }
 }

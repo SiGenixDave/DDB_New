@@ -126,10 +126,12 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genEmbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genHelpFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewBitmasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewEnumerationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generateHelpFilechmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
@@ -501,6 +503,8 @@
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
             this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnits.TabIndex = 13;
+            this.cBoxWatchUnits.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchUnits_SelectedIndexChanged);
+
             // 
             // label10
             // 
@@ -959,6 +963,7 @@
             this.lBoxProjBitmasks.Size = new System.Drawing.Size(155, 382);
             this.lBoxProjBitmasks.TabIndex = 1;
             this.lBoxProjBitmasks.SelectedIndexChanged += new System.EventHandler(this.lBoxProjBitmasks_SelectedIndexChanged);
+            this.lBoxProjBitmasks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxProjBitmasks_MouseDoubleClick);
             // 
             // conMenuBitmasks
             // 
@@ -1178,8 +1183,8 @@
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.helpToolStripMenuItem1});
+            this.toolsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(871, 28);
@@ -1229,34 +1234,51 @@
             this.exitToolStripMenuItem.Text = "Exit..";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.genEmbToolStripMenuItem,
+            this.genHelpFileToolStripMenuItem,
+            this.previewBitmasksToolStripMenuItem,
+            this.previewEnumerationsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // genEmbToolStripMenuItem
+            // 
+            this.genEmbToolStripMenuItem.Name = "genEmbToolStripMenuItem";
+            this.genEmbToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.genEmbToolStripMenuItem.Text = "Generate Emb Code";
+            // 
+            // genHelpFileToolStripMenuItem
+            // 
+            this.genHelpFileToolStripMenuItem.Name = "genHelpFileToolStripMenuItem";
+            this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.genHelpFileToolStripMenuItem.Text = "Generate Help File (.chm)";
+            // 
+            // previewBitmasksToolStripMenuItem
+            // 
+            this.previewBitmasksToolStripMenuItem.CheckOnClick = true;
+            this.previewBitmasksToolStripMenuItem.Name = "previewBitmasksToolStripMenuItem";
+            this.previewBitmasksToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.previewBitmasksToolStripMenuItem.Text = "Preview Bitmasks";
+            this.previewBitmasksToolStripMenuItem.Click += new System.EventHandler(this.previewBitmasksToolStripMenuItem_Click);
+            // 
+            // previewEnumerationsToolStripMenuItem
+            // 
+            this.previewEnumerationsToolStripMenuItem.CheckOnClick = true;
+            this.previewEnumerationsToolStripMenuItem.Name = "previewEnumerationsToolStripMenuItem";
+            this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.previewEnumerationsToolStripMenuItem.Text = "Preview Enumerations";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.generateHelpFilechmToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
-            this.helpToolStripMenuItem.Text = "Tools";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
-            this.aboutToolStripMenuItem.Text = "Generate Emb Code";
-            // 
-            // generateHelpFilechmToolStripMenuItem
-            // 
-            this.generateHelpFilechmToolStripMenuItem.Name = "generateHelpFilechmToolStripMenuItem";
-            this.generateHelpFilechmToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
-            this.generateHelpFilechmToolStripMenuItem.Text = "Generate Help File (.chm)";
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem1.Text = "Help";
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem1
             // 
@@ -1287,7 +1309,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.4)";
+            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.5)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -1326,9 +1348,9 @@
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genEmbToolStripMenuItem;
         private System.Windows.Forms.ListBox lBoxWatchVariables;
         private System.Windows.Forms.Button btnWatchCreate;
         private System.Windows.Forms.GroupBox grpBoxWatchAttrs;
@@ -1367,9 +1389,9 @@
         private System.Windows.Forms.ToolStripMenuItem modifyWatchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteWatchMenuItem;
         private System.Windows.Forms.GroupBox grpBoxWatchVarList;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem generateHelpFilechmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genHelpFileToolStripMenuItem;
         private System.Windows.Forms.TabPage tabEvents;
         private System.Windows.Forms.TabPage tabSelfTest;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -1421,6 +1443,8 @@
         private System.Windows.Forms.ToolStripMenuItem copyBitmasksMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyBitmasksMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteBitmasksMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem previewBitmasksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem previewEnumerationsToolStripMenuItem;
     }
 }
 

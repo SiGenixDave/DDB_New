@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,6 +53,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancel.cs" />
+    <Compile Include="FormBitmaskPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBitmaskPreview.Designer.cs">
+      <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBitmaskEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +104,9 @@
     <Compile Include="WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="FormBitmaskPreview.resx">
+      <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBitmaskEditor.resx">
       <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
     </EmbeddedResource>
