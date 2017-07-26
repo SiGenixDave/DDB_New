@@ -203,6 +203,11 @@ namespace DDB
             DeleteWatchVar();
         }
 
+        private void lBoxWatchVariables_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            WatchModifyInProgress();
+        }
+
         private void lBoxWatchVariables_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lBoxWatchVariables.SelectedIndices.Count == 0)
@@ -431,6 +436,8 @@ namespace DDB
                 }
                 index++;
             }
+
+            lBoxWatchVariables.SelectedIndex = prevIndex;
         }
 
         private void CopyWatchVar()

@@ -69,6 +69,19 @@ namespace DDB
             }
         }
 
+        private int savedBitmaskIndex = 0;
+        private void gBoxProjBitmask_Enter(object sender, EventArgs e)
+        {
+            lBoxProjBitmasks.SelectedIndex = savedBitmaskIndex;
+        }
+
+        private void gBoxProjBitmask_Leave(object sender, EventArgs e)
+        {
+            savedBitmaskIndex = lBoxProjBitmasks.SelectedIndex;
+            lBoxProjBitmasks.SelectedIndex = -1;
+        }
+
+
         private void copyBitmasksMenuItem_Click(object sender, EventArgs e)
         {
             CopyBitmasks();
@@ -111,7 +124,7 @@ namespace DDB
 
             formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
             
-            PopulateBitmasks();
+            PopulateBitmasks(lBoxProjBitmasks.SelectedIndex);
 
             lBoxProjBitmasks.SelectedIndex = savedIndex;
         }
@@ -136,6 +149,8 @@ namespace DDB
                 return;
             }
 
+            int prevIndex = lBoxProjBitmasks.SelectedIndices[0];
+
             int indexCount = 0;
             List<BitmaskTest> bmsToDelete = new List<BitmaskTest>();
             while (indexCount < lBoxProjBitmasks.SelectedIndices.Count)
@@ -150,7 +165,7 @@ namespace DDB
                 bmsToDelete.RemoveAt(0);
             }
 
-            PopulateBitmasks();
+            PopulateBitmasks(prevIndex);
         }
 
     }

@@ -86,7 +86,7 @@
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gBoxProjBitmask = new System.Windows.Forms.GroupBox();
             this.btnProBitmasksImport = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnProBitmasksCopy = new System.Windows.Forms.Button();
@@ -102,7 +102,7 @@
             this.copyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gBoxProjUnits = new System.Windows.Forms.GroupBox();
             this.btnProjUnitsImport = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnProUnitsCopy = new System.Windows.Forms.Button();
@@ -144,9 +144,9 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gBoxProjBitmask.SuspendLayout();
             this.conMenuBitmasks.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gBoxProjUnits.SuspendLayout();
             this.conMenuUnits.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -261,6 +261,7 @@
             this.lBoxWatchVariables.Size = new System.Drawing.Size(273, 327);
             this.lBoxWatchVariables.TabIndex = 0;
             this.lBoxWatchVariables.SelectedIndexChanged += new System.EventHandler(this.lBoxWatchVariables_SelectedIndexChanged);
+            this.lBoxWatchVariables.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxWatchVariables_MouseDoubleClick);
             // 
             // conMenuWatchVarList
             // 
@@ -276,12 +277,14 @@
             this.copyWatchMenuItem.Name = "copyWatchMenuItem";
             this.copyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
             this.copyWatchMenuItem.Text = "Copy";
+            this.copyWatchMenuItem.Click += new System.EventHandler(this.copyWatchMenuItem_Click);
             // 
             // modifyWatchMenuItem
             // 
             this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
             this.modifyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
             this.modifyWatchMenuItem.Text = "Modify";
+            this.modifyWatchMenuItem.Click += new System.EventHandler(this.modifyWatchMenuItem_Click);
             // 
             // deleteWatchMenuItem
             // 
@@ -504,7 +507,6 @@
             this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnits.TabIndex = 13;
             this.cBoxWatchUnits.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchUnits_SelectedIndexChanged);
-
             // 
             // label10
             // 
@@ -807,37 +809,39 @@
             // 
             // tabProjectDefinitions
             // 
-            this.tabProjectDefinitions.Controls.Add(this.groupBox5);
-            this.tabProjectDefinitions.Controls.Add(this.groupBox4);
+            this.tabProjectDefinitions.Controls.Add(this.gBoxProjBitmask);
+            this.tabProjectDefinitions.Controls.Add(this.gBoxProjUnits);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gBoxProjBitmask
             // 
-            this.groupBox5.Controls.Add(this.btnProBitmasksImport);
-            this.groupBox5.Controls.Add(this.button5);
-            this.groupBox5.Controls.Add(this.btnProBitmasksCopy);
-            this.groupBox5.Controls.Add(this.button7);
-            this.groupBox5.Controls.Add(this.button8);
-            this.groupBox5.Controls.Add(this.btnProBitmasksDelete);
-            this.groupBox5.Controls.Add(this.btnProBitmasksModify);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.btnProBitmasksCreate);
-            this.groupBox5.Controls.Add(this.lBoxProjBitmasks);
-            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(273, 20);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(247, 499);
-            this.groupBox5.TabIndex = 19;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Bitmasks";
+            this.gBoxProjBitmask.Controls.Add(this.btnProBitmasksImport);
+            this.gBoxProjBitmask.Controls.Add(this.button5);
+            this.gBoxProjBitmask.Controls.Add(this.btnProBitmasksCopy);
+            this.gBoxProjBitmask.Controls.Add(this.button7);
+            this.gBoxProjBitmask.Controls.Add(this.button8);
+            this.gBoxProjBitmask.Controls.Add(this.btnProBitmasksDelete);
+            this.gBoxProjBitmask.Controls.Add(this.btnProBitmasksModify);
+            this.gBoxProjBitmask.Controls.Add(this.textBox2);
+            this.gBoxProjBitmask.Controls.Add(this.label12);
+            this.gBoxProjBitmask.Controls.Add(this.btnProBitmasksCreate);
+            this.gBoxProjBitmask.Controls.Add(this.lBoxProjBitmasks);
+            this.gBoxProjBitmask.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxProjBitmask.Location = new System.Drawing.Point(273, 20);
+            this.gBoxProjBitmask.Name = "gBoxProjBitmask";
+            this.gBoxProjBitmask.Size = new System.Drawing.Size(247, 499);
+            this.gBoxProjBitmask.TabIndex = 19;
+            this.gBoxProjBitmask.TabStop = false;
+            this.gBoxProjBitmask.Text = "Bitmasks";
+            this.gBoxProjBitmask.Enter += new System.EventHandler(this.gBoxProjBitmask_Enter);
+            this.gBoxProjBitmask.Leave += new System.EventHandler(this.gBoxProjBitmask_Leave);
             // 
             // btnProBitmasksImport
             // 
@@ -995,26 +999,28 @@
             this.deleteBitmasksMenuItem.Text = "Delete";
             this.deleteBitmasksMenuItem.Click += new System.EventHandler(this.deleteBitmasksMenuItem_Click);
             // 
-            // groupBox4
+            // gBoxProjUnits
             // 
-            this.groupBox4.Controls.Add(this.btnProjUnitsImport);
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.btnProUnitsCopy);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.btnProUnitsDelete);
-            this.groupBox4.Controls.Add(this.btnProUnitsModify);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.btnProUnitsCreate);
-            this.groupBox4.Controls.Add(this.lBoxProjUnits);
-            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 20);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(247, 499);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Units";
+            this.gBoxProjUnits.Controls.Add(this.btnProjUnitsImport);
+            this.gBoxProjUnits.Controls.Add(this.button1);
+            this.gBoxProjUnits.Controls.Add(this.btnProUnitsCopy);
+            this.gBoxProjUnits.Controls.Add(this.button2);
+            this.gBoxProjUnits.Controls.Add(this.button3);
+            this.gBoxProjUnits.Controls.Add(this.btnProUnitsDelete);
+            this.gBoxProjUnits.Controls.Add(this.btnProUnitsModify);
+            this.gBoxProjUnits.Controls.Add(this.textBox1);
+            this.gBoxProjUnits.Controls.Add(this.label1);
+            this.gBoxProjUnits.Controls.Add(this.btnProUnitsCreate);
+            this.gBoxProjUnits.Controls.Add(this.lBoxProjUnits);
+            this.gBoxProjUnits.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxProjUnits.Location = new System.Drawing.Point(6, 20);
+            this.gBoxProjUnits.Name = "gBoxProjUnits";
+            this.gBoxProjUnits.Size = new System.Drawing.Size(247, 499);
+            this.gBoxProjUnits.TabIndex = 3;
+            this.gBoxProjUnits.TabStop = false;
+            this.gBoxProjUnits.Text = "Units";
+            this.gBoxProjUnits.Enter += new System.EventHandler(this.gBoxProjUnits_Enter);
+            this.gBoxProjUnits.Leave += new System.EventHandler(this.gBoxProjUnits_Leave);
             // 
             // btnProjUnitsImport
             // 
@@ -1140,6 +1146,7 @@
             this.lBoxProjUnits.Size = new System.Drawing.Size(155, 382);
             this.lBoxProjUnits.TabIndex = 1;
             this.lBoxProjUnits.SelectedIndexChanged += new System.EventHandler(this.lBoxProjUnits_SelectedIndexChanged);
+            this.lBoxProjUnits.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxProjUnits_MouseDoubleClick);
             // 
             // conMenuUnits
             // 
@@ -1309,7 +1316,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.5)";
+            this.Text = "Bombardier Data Dictionary Builder User Interface Validator  (v 0.0.0.6)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -1324,11 +1331,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabProjectDefinitions.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gBoxProjBitmask.ResumeLayout(false);
+            this.gBoxProjBitmask.PerformLayout();
             this.conMenuBitmasks.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gBoxProjUnits.ResumeLayout(false);
+            this.gBoxProjUnits.PerformLayout();
             this.conMenuUnits.ResumeLayout(false);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
@@ -1409,7 +1416,7 @@
         private System.Windows.Forms.CheckBox chkWatchEngViewOnly;
         private System.Windows.Forms.Button btnExitDDB;
         private System.Windows.Forms.Button btnWatchHelpAvailable;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gBoxProjUnits;
         private System.Windows.Forms.Button btnProUnitsCopy;
         private System.Windows.Forms.Button btnProUnitsDelete;
         private System.Windows.Forms.Button btnProUnitsModify;
@@ -1427,7 +1434,7 @@
         private System.Windows.Forms.Button btnWatchImport;
         private System.Windows.Forms.Button btnProjUnitsImport;
         private System.Windows.Forms.TabPage tabProjectSettings;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gBoxProjBitmask;
         private System.Windows.Forms.Button btnProBitmasksImport;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnProBitmasksCopy;

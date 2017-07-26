@@ -27,6 +27,11 @@ namespace DDB
             DeleteUnits();
         }
 
+        private void lBoxProjUnits_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ModifyUnits();
+        }
+
         private void btnProjUnitsImport_Click(object sender, EventArgs e)
         {
             FormImport iForm = new FormImport("Units");
@@ -62,6 +67,19 @@ namespace DDB
                 btnProUnitsDelete.Enabled = true;
             }
         }
+
+        private int savedUnitsIndex = 0;
+        private void gBoxProjUnits_Enter(object sender, EventArgs e)
+        {
+            lBoxProjUnits.SelectedIndex = savedUnitsIndex;
+        }
+
+        private void gBoxProjUnits_Leave(object sender, EventArgs e)
+        {
+            savedUnitsIndex = lBoxProjUnits.SelectedIndex;
+            lBoxProjUnits.SelectedIndex = -1;
+        }
+
 
         private void copyUnitsMenuItem1_Click(object sender, EventArgs e)
         {
@@ -126,6 +144,8 @@ namespace DDB
                 return;
             }
 
+            int prevSelected = lBoxProjUnits.SelectedIndices[0];
+
             int indexCount = 0;
             List<String> unitsToDelete = new List<String>();
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
@@ -140,8 +160,7 @@ namespace DDB
                 unitsToDelete.RemoveAt(0);
             }
 
-
-            PopulateUnits();
+            PopulateUnits(prevSelected);
         }
     }
 }

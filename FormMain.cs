@@ -18,13 +18,13 @@ namespace DDB
             WatchVarList.Init();
             BitmaskVarList.Init();
             RefreshWatchVariableList(-1);
-            PopulateUnits();
-            PopulateBitmasks();
+            PopulateUnits(-1);
+            PopulateBitmasks(-1);
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
         }
 
-        private void PopulateUnits()
+        private void PopulateUnits(int select)
         {
             String[] units = UnitsTest.GetUnits();
             cBoxWatchUnits.Items.Clear();
@@ -34,9 +34,19 @@ namespace DDB
                 cBoxWatchUnits.Items.Add(u);
                 lBoxProjUnits.Items.Add(u);
             }
+
+            if (select >= lBoxProjUnits.Items.Count)
+            {
+                lBoxProjUnits.SelectedIndex = lBoxProjUnits.Items.Count - 1;
+            }
+            else
+            {
+                lBoxProjUnits.SelectedIndex = select;
+            }
+
         }
 
-        private void PopulateBitmasks()
+        private void PopulateBitmasks(int select)
         {
             String[] bitmasks = BitmaskVarList.GetBitmasks();
             lBoxProjBitmasks.Items.Clear();
@@ -44,6 +54,16 @@ namespace DDB
             {
                 lBoxProjBitmasks.Items.Add(b);
             }
+
+            if (select >= lBoxProjBitmasks.Items.Count)
+            {
+                lBoxProjBitmasks.SelectedIndex = lBoxProjBitmasks.Items.Count - 1;
+            }
+            else
+            {
+                lBoxProjBitmasks.SelectedIndex = select;
+            }
+
         }
 
         private void btnExitDDB_Click(object sender, EventArgs e)
@@ -101,7 +121,6 @@ namespace DDB
                 formBitmaskPreview.Hide();
             }
         }
-
 
     }
 }
