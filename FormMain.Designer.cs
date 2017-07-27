@@ -446,7 +446,7 @@
             this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
             this.btnWatchModifyHelpText.Size = new System.Drawing.Size(153, 49);
             this.btnWatchModifyHelpText.TabIndex = 18;
-            this.btnWatchModifyHelpText.Text = "Modify Help Text";
+            this.btnWatchModifyHelpText.Text = "Modify Help Text...";
             this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
             this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
             // 

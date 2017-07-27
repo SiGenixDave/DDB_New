@@ -62,6 +62,7 @@
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.Size = new System.Drawing.Size(373, 420);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Leave += new System.EventHandler(this.dataGridView1_Leave);
             // 
             // bmId
             // 
@@ -98,6 +99,7 @@
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView2.Size = new System.Drawing.Size(373, 420);
             this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.Leave += new System.EventHandler(this.dataGridView2_Leave);
             // 
             // dataGridViewTextBoxColumn1
             // 

@@ -126,5 +126,15 @@ namespace DDB
             tBoxName.Width = size.Width;
             tBoxName.Height = size.Height;
         }
+
+        private void dataGridView2_Leave(object sender, EventArgs e)
+        {
+            dataGridView2.ClearSelection();
+        }
+
+        private void dataGridView1_Leave(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }
