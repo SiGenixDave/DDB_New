@@ -49,20 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bitmasks.cs">
+    <Compile Include="ProjectDefinitions\Bitmasks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancel.cs" />
-    <Compile Include="FormBitmaskPreview.cs">
+    <Compile Include="ProjectDefinitions\FormEnumsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBitmaskPreview.Designer.cs">
+    <Compile Include="ProjectDefinitions\FormEnumsEditor.Designer.cs">
+      <DependentUpon>FormEnumsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDefinitions\Enumerations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectDefinitions\FormBitmaskPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectDefinitions\FormBitmaskPreview.Designer.cs">
       <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBitmaskEditor.cs">
+    <Compile Include="ProjectDefinitions\FormBitmaskEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBitmaskEditor.Designer.cs">
+    <Compile Include="ProjectDefinitions\FormBitmaskEditor.Designer.cs">
       <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormImport.cs">
@@ -72,7 +81,8 @@
       <DependentUpon>FormImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\BitmaskTest.cs" />
-    <Compile Include="UnitCreateObject.cs" />
+    <Compile Include="Test\EnumsTest.cs" />
+    <Compile Include="ProjectDefinitions\UnitCreateObject.cs" />
     <Compile Include="FormHelpText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,8 +105,8 @@
     <Compile Include="iTextEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Test\UnitsTest.cs" />
-    <Compile Include="UnitModifyObject.cs" />
-    <Compile Include="Units.cs">
+    <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />
+    <Compile Include="ProjectDefinitions\Units.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,10 +114,13 @@
     <Compile Include="WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="FormBitmaskPreview.resx">
+    <EmbeddedResource Include="ProjectDefinitions\FormEnumsEditor.resx">
+      <DependentUpon>FormEnumsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectDefinitions\FormBitmaskPreview.resx">
       <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBitmaskEditor.resx">
+    <EmbeddedResource Include="ProjectDefinitions\FormBitmaskEditor.resx">
       <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelpText.resx">

@@ -17,9 +17,11 @@ namespace DDB
             /// FOR TEST ONLY
             WatchVarList.Init();
             BitmaskVarList.Init();
+            EnumVarList.Init();
             RefreshWatchVariableList(-1);
             PopulateUnits(-1);
             PopulateBitmasks(-1);
+            PopulateEnums(-1);
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
         }
@@ -62,6 +64,26 @@ namespace DDB
             else
             {
                 lBoxProjBitmasks.SelectedIndex = select;
+            }
+
+        }
+
+        private void PopulateEnums(int select)
+        {
+            String[] enums = EnumVarList.GetNames();
+            lBoxProjEnums.Items.Clear();
+            foreach (String e in enums)
+            {
+                lBoxProjEnums.Items.Add(e);
+            }
+
+            if (select >= lBoxProjEnums.Items.Count)
+            {
+                lBoxProjEnums.SelectedIndex = lBoxProjEnums.Items.Count - 1;
+            }
+            else
+            {
+                lBoxProjEnums.SelectedIndex = select;
             }
 
         }
@@ -121,6 +143,6 @@ namespace DDB
                 formBitmaskPreview.Hide();
             }
         }
-
+        
     }
 }
