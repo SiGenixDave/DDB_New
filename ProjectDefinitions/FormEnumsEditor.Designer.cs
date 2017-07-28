@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.enumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enumDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewMemberMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxName = new System.Windows.Forms.TextBox();
             this.btnAddNewValue = new System.Windows.Forms.Button();
-            this.enumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enumDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.conMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -45,17 +51,53 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.enumValue,
             this.enumDescription});
+            this.dataGridView1.ContextMenuStrip = this.conMenu;
             this.dataGridView1.Location = new System.Drawing.Point(17, 56);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(373, 420);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Leave += new System.EventHandler(this.dataGridView1_Leave);
+            this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // enumValue
+            // 
+            this.enumValue.Frozen = true;
+            this.enumValue.HeaderText = "Value";
+            this.enumValue.Name = "enumValue";
+            // 
+            // enumDescription
+            // 
+            this.enumDescription.Frozen = true;
+            this.enumDescription.HeaderText = "Description";
+            this.enumDescription.Name = "enumDescription";
+            this.enumDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // conMenu
+            // 
+            this.conMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewMemberMenuItem,
+            this.deleteMenuItem});
+            this.conMenu.Name = "conMenu";
+            this.conMenu.Size = new System.Drawing.Size(201, 52);
+            // 
+            // addNewMemberMenuItem
+            // 
+            this.addNewMemberMenuItem.Name = "addNewMemberMenuItem";
+            this.addNewMemberMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.addNewMemberMenuItem.Text = "Add New Member";
+            // 
+            // deleteMenuItem
+            // 
+            this.deleteMenuItem.Name = "deleteMenuItem";
+            this.deleteMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.deleteMenuItem.Text = "Delete";
             // 
             // btnAccept
             // 
@@ -100,21 +142,19 @@
             this.btnAddNewValue.Name = "btnAddNewValue";
             this.btnAddNewValue.Size = new System.Drawing.Size(75, 63);
             this.btnAddNewValue.TabIndex = 6;
-            this.btnAddNewValue.Text = "Add New Value";
+            this.btnAddNewValue.Text = "Add New Member";
             this.btnAddNewValue.UseVisualStyleBackColor = true;
             this.btnAddNewValue.Click += new System.EventHandler(this.btnAddNewValue_Click);
             // 
-            // enumValue
+            // btnDelete
             // 
-            this.enumValue.HeaderText = "Value";
-            this.enumValue.Name = "enumValue";
-            this.enumValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // enumDescription
-            // 
-            this.enumDescription.HeaderText = "Description";
-            this.enumDescription.Name = "enumDescription";
-            this.enumDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(407, 159);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 28);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // FormEnumsEditor
             // 
@@ -122,6 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 497);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddNewValue);
             this.Controls.Add(this.tBoxName);
             this.Controls.Add(this.label1);
@@ -134,6 +175,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Enumeration Editor";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.conMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,6 +189,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tBoxName;
         private System.Windows.Forms.Button btnAddNewValue;
+        private System.Windows.Forms.ContextMenuStrip conMenu;
+        private System.Windows.Forms.ToolStripMenuItem addNewMemberMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteMenuItem;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn enumValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn enumDescription;
     }

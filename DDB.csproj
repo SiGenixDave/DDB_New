@@ -111,7 +111,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\WatchVarTest.cs" />
-    <Compile Include="WatchVariable.cs">
+    <Compile Include="Watch Variables\WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="ProjectDefinitions\FormEnumsEditor.resx">
