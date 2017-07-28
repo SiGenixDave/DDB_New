@@ -4,16 +4,16 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormBitmaskPreview: Form
+    public partial class FormEnumPreview: Form
     {
 
-        public FormBitmaskPreview()
+        public FormEnumPreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
-        public void UpdateForm (BitmaskTest bm)
+        public void UpdateForm (EnumsTest enm)
         {
             do
             {
@@ -27,30 +27,26 @@ namespace DDB
                 }
             } while (dataGridView1.Rows.Count > 0);
 
-            if (bm == null)
+            if (enm == null)
             {
                 return;
             }
 
-            this.Text = "Bitmask Preview for \"" + bm.dispName + "\"";
-            int populatedRowCount = 0;
-            for (int index = 31; index >= 0; index--)
+            this.Text = "Enumeration Preview for \"" + enm.dispName + "\"";
+            int index = 0;
+            foreach (String str in enm.strValues)
             {
-                if (!String.IsNullOrEmpty(bm.strValues[index]))
-                {
-                    Console.WriteLine(bm.strValues[index]);
-                    dataGridView1.Rows.Add(index.ToString(), bm.strValues[index]);
-                    populatedRowCount++;
-                }
+                dataGridView1.Rows.Add(enm.intValues[index], enm.strValues[index]);
+                index++;
             }
 
-            this.Size = new Size(436, 100 + populatedRowCount * 25);
-            dataGridView1.Size = new Size(436, 75 + populatedRowCount * 25);
+            this.Size = new Size(436, 100 + index * 25);
+            dataGridView1.Size = new Size(436, 75 + index * 25);
         }
 
         private void InitDataGrid()
         {
-            dataGridView1.Columns[0].Width = 30;
+            dataGridView1.Columns[0].Width = 60;
             dataGridView1.Columns[1].Width = dataGridView1.Width - (dataGridView1.Columns[0].Width);
 
             DataGridViewCellStyle style = new DataGridViewCellStyle();

@@ -89,7 +89,7 @@ namespace DDB
 
                     lblWatchUnitsEnumBitmask.Text = "Enumeration";
 
-                    LoadEnumsIntoComboBox();
+                    LoadEnumsIntoComboBox(false);
                     break;
 
                 case "Bitmask":
@@ -119,15 +119,6 @@ namespace DDB
             cBoxWatchUnits.SelectedIndex = 0;
         }
 
-        private void LoadEnumsIntoComboBox()
-        {
-            cBoxWatchUnits.Items.Clear();
-            cBoxWatchUnits.Items.Add("Enum1");
-            cBoxWatchUnits.Items.Add("Enum2");
-            cBoxWatchUnits.Items.Add("Enum3");
-            cBoxWatchUnits.Items.Add("Enum4");
-            cBoxWatchUnits.SelectedIndex = 0;
-        }
 
         private void LoadBitmasksIntoComboBox(Boolean useExistingIndex)
         {
@@ -137,6 +128,22 @@ namespace DDB
             while (index < BitmaskVarList.GetVarCount())
             {
                 cBoxWatchUnits.Items.Add(BitmaskVarList.GetVar(index).dispName);
+                index++;
+            }
+            if (!useExistingIndex)
+            {
+                cBoxWatchUnits.SelectedIndex = 0;
+            }
+        }
+
+        private void LoadEnumsIntoComboBox(Boolean useExistingIndex)
+        {
+            cBoxWatchUnits.Items.Clear();
+
+            int index = 0;
+            while (index < EnumVarList.GetVarCount())
+            {
+                cBoxWatchUnits.Items.Add(EnumVarList.GetVar(index).dispName);
                 index++;
             }
             if (!useExistingIndex)
@@ -184,7 +191,25 @@ namespace DDB
         {
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
             {
+                formEnumPreview.UpdateForm(null);
                 formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(cBoxWatchUnits.SelectedIndex));
+            }
+            if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
+            {
+                formBitmaskPreview.UpdateForm(null);
+                formEnumPreview.UpdateForm(EnumVarList.GetVar(cBoxWatchUnits.SelectedIndex));
+            }
+        }
+
+        private void cBoxWatchReadWriteFlags_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxWatchReadWriteFlags.SelectedIndex == 0)
+            {
+                gBoxWatchVarMod.Enabled = false;
+            }
+            else
+            {
+                gBoxWatchVarMod.Enabled = true;
             }
         }
 

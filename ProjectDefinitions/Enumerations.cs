@@ -22,7 +22,7 @@ namespace DDB
                 btnProjEnumsCopy.Enabled = true;
                 btnProjEnumsDelete.Enabled = true;
 
-                //TODO formEnumsPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
+                formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
             }
             else
             {
@@ -40,6 +40,7 @@ namespace DDB
         private void gBoxProjEnums_Enter(object sender, EventArgs e)
         {
             lBoxProjEnums.SelectedIndex = savedEnums;
+            formBitmaskPreview.UpdateForm(null);
         }
 
         private void gBoxProjEnums_Leave(object sender, EventArgs e)
@@ -123,9 +124,9 @@ namespace DDB
             FormEnumsEditor enumEdit = new FormEnumsEditor(emt);
             enumEdit.ShowDialog();
 
-            //formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjEnums.SelectedIndex));
+            formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
 
-            //PopulateEnums(lBoxProjEnums.SelectedIndex);
+            PopulateEnums(lBoxProjEnums.SelectedIndex);
 
             lBoxProjEnums.SelectedIndex = savedIndex;
         }

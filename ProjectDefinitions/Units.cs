@@ -72,6 +72,8 @@ namespace DDB
         private void gBoxProjUnits_Enter(object sender, EventArgs e)
         {
             lBoxProjUnits.SelectedIndex = savedUnitsIndex;
+            formEnumPreview.UpdateForm(null);
+            formBitmaskPreview.UpdateForm(null);
         }
 
         private void gBoxProjUnits_Leave(object sender, EventArgs e)
@@ -133,8 +135,8 @@ namespace DDB
 
         private void DeleteUnits()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected bitmasks(s)?",
-                                  "Delete Bitmask(s) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Unit(s)?",
+                                  "Delete Units(s) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 

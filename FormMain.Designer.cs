@@ -64,12 +64,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnWatchCancel = new System.Windows.Forms.Button();
             this.btnWatchAccept = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gBoxWatchVarMod = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tBoxWatchMaxValue = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tBoxWatchMinValue = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gBoxWatchChartScaling = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tBoxWatchMaxChart = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -156,8 +156,8 @@
             this.grpBoxWatchVarList.SuspendLayout();
             this.conMenuWatchVarList.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gBoxWatchVarMod.SuspendLayout();
+            this.gBoxWatchChartScaling.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.gBoxProjEnums.SuspendLayout();
@@ -363,8 +363,8 @@
             this.grpBoxWatchAttrs.Controls.Add(this.label8);
             this.grpBoxWatchAttrs.Controls.Add(this.btnWatchCancel);
             this.grpBoxWatchAttrs.Controls.Add(this.btnWatchAccept);
-            this.grpBoxWatchAttrs.Controls.Add(this.groupBox3);
-            this.grpBoxWatchAttrs.Controls.Add(this.groupBox2);
+            this.grpBoxWatchAttrs.Controls.Add(this.gBoxWatchVarMod);
+            this.grpBoxWatchAttrs.Controls.Add(this.gBoxWatchChartScaling);
             this.grpBoxWatchAttrs.Controls.Add(this.groupBox1);
             this.grpBoxWatchAttrs.Enabled = false;
             this.grpBoxWatchAttrs.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -551,6 +551,7 @@
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
             this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(132, 25);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
+            this.cBoxWatchReadWriteFlags.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchReadWriteFlags_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -614,19 +615,19 @@
             this.btnWatchAccept.UseVisualStyleBackColor = true;
             this.btnWatchAccept.Click += new System.EventHandler(this.btnWatchAccept_Click);
             // 
-            // groupBox3
+            // gBoxWatchVarMod
             // 
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.tBoxWatchMaxValue);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.tBoxWatchMinValue);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 227);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(222, 94);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Variable Modification";
+            this.gBoxWatchVarMod.Controls.Add(this.label6);
+            this.gBoxWatchVarMod.Controls.Add(this.tBoxWatchMaxValue);
+            this.gBoxWatchVarMod.Controls.Add(this.label7);
+            this.gBoxWatchVarMod.Controls.Add(this.tBoxWatchMinValue);
+            this.gBoxWatchVarMod.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxWatchVarMod.Location = new System.Drawing.Point(12, 227);
+            this.gBoxWatchVarMod.Name = "gBoxWatchVarMod";
+            this.gBoxWatchVarMod.Size = new System.Drawing.Size(222, 94);
+            this.gBoxWatchVarMod.TabIndex = 5;
+            this.gBoxWatchVarMod.TabStop = false;
+            this.gBoxWatchVarMod.Text = "Variable Modification";
             // 
             // label6
             // 
@@ -664,19 +665,19 @@
             this.tBoxWatchMinValue.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMinValue.TabIndex = 0;
             // 
-            // groupBox2
+            // gBoxWatchChartScaling
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.tBoxWatchMaxChart);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.tBoxWatchMinChart);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 126);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(222, 93);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Chart Scaling";
+            this.gBoxWatchChartScaling.Controls.Add(this.label4);
+            this.gBoxWatchChartScaling.Controls.Add(this.tBoxWatchMaxChart);
+            this.gBoxWatchChartScaling.Controls.Add(this.label5);
+            this.gBoxWatchChartScaling.Controls.Add(this.tBoxWatchMinChart);
+            this.gBoxWatchChartScaling.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxWatchChartScaling.Location = new System.Drawing.Point(12, 126);
+            this.gBoxWatchChartScaling.Name = "gBoxWatchChartScaling";
+            this.gBoxWatchChartScaling.Size = new System.Drawing.Size(222, 93);
+            this.gBoxWatchChartScaling.TabIndex = 4;
+            this.gBoxWatchChartScaling.TabStop = false;
+            this.gBoxWatchChartScaling.Text = "Chart Scaling";
             // 
             // label4
             // 
@@ -1377,9 +1378,9 @@
             // 
             // tabProjectSettings
             // 
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -1476,6 +1477,7 @@
             this.previewEnumerationsToolStripMenuItem.Name = "previewEnumerationsToolStripMenuItem";
             this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEnumerationsToolStripMenuItem.Text = "Preview Enumerations";
+            this.previewEnumerationsToolStripMenuItem.Click += new System.EventHandler(this.previewEnumerationsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1522,10 +1524,10 @@
             this.conMenuWatchVarList.ResumeLayout(false);
             this.grpBoxWatchAttrs.ResumeLayout(false);
             this.grpBoxWatchAttrs.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gBoxWatchVarMod.ResumeLayout(false);
+            this.gBoxWatchVarMod.PerformLayout();
+            this.gBoxWatchChartScaling.ResumeLayout(false);
+            this.gBoxWatchChartScaling.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabProjectDefinitions.ResumeLayout(false);
@@ -1562,7 +1564,7 @@
         private System.Windows.Forms.ListBox lBoxWatchVariables;
         private System.Windows.Forms.Button btnWatchCreate;
         private System.Windows.Forms.GroupBox grpBoxWatchAttrs;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gBoxWatchChartScaling;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBoxWatchMaxChart;
         private System.Windows.Forms.Label label5;
@@ -1575,7 +1577,7 @@
         private System.Windows.Forms.Button btnWatchDelete;
         private System.Windows.Forms.Button btnWatchCopy;
         private System.Windows.Forms.Button btnWatchModify;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gBoxWatchVarMod;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tBoxWatchMaxValue;
         private System.Windows.Forms.Label label7;

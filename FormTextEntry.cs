@@ -6,6 +6,7 @@ namespace DDB
     public partial class FormTextEntry : Form
     {
         private iTextEntry textEntry;
+        private String originalUnitText;
 
         public FormTextEntry(String formTitle, String message, iTextEntry textEntry)
         {
@@ -21,6 +22,7 @@ namespace DDB
             this.Text = formTitle;
             lblMessage.Text = message;
             tBoxEntry.Text = existingtext;
+            originalUnitText = existingtext;
             this.textEntry = textEntry;
         }
 
@@ -29,7 +31,10 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            if (Cancel.Query("Unit " + "\"" + originalUnitText + "\""))
+            {
+                Close();
+            }
         }
 
         private void btnAccept_Click(object sender, EventArgs e)

@@ -73,6 +73,7 @@ namespace DDB
         private void gBoxProjBitmask_Enter(object sender, EventArgs e)
         {
             lBoxProjBitmasks.SelectedIndex = savedBitmaskIndex;
+            formEnumPreview.UpdateForm(null);
         }
 
         private void gBoxProjBitmask_Leave(object sender, EventArgs e)

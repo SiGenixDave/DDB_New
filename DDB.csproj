@@ -53,6 +53,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancel.cs" />
+    <Compile Include="ProjectDefinitions\FormEnumPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectDefinitions\FormEnumPreview.Designer.cs">
+      <DependentUpon>FormEnumPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProjectDefinitions\FormEnumsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Watch Variables\WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="ProjectDefinitions\FormEnumPreview.resx">
+      <DependentUpon>FormEnumPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProjectDefinitions\FormEnumsEditor.resx">
       <DependentUpon>FormEnumsEditor.cs</DependentUpon>
     </EmbeddedResource>

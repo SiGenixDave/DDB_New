@@ -8,6 +8,7 @@ namespace DDB
     public partial class FormMain : Form
     {
         FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
+        FormEnumPreview formEnumPreview = new FormEnumPreview();
 
         public FormMain()
         {
@@ -115,6 +116,12 @@ namespace DDB
                             LoadBitmasksIntoComboBox(true);
                             cBoxWatchUnits.SelectedIndex = savedIndex;
                         }
+                        else if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
+                        {
+                            int savedIndex = cBoxWatchUnits.SelectedIndex;
+                            LoadEnumsIntoComboBox(true);
+                            cBoxWatchUnits.SelectedIndex = savedIndex;
+                        }
                     }
                     break;
 
@@ -143,6 +150,18 @@ namespace DDB
                 formBitmaskPreview.Hide();
             }
         }
-        
+
+        private void previewEnumerationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewEnumerationsToolStripMenuItem.Checked)
+            {
+                formEnumPreview.Show();
+            }
+            else
+            {
+                formEnumPreview.Hide();
+            }
+        }
+       
     }
 }

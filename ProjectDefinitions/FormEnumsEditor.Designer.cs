@@ -62,7 +62,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(373, 420);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -85,19 +84,21 @@
             this.addNewMemberMenuItem,
             this.deleteMenuItem});
             this.conMenu.Name = "conMenu";
-            this.conMenu.Size = new System.Drawing.Size(201, 52);
+            this.conMenu.Size = new System.Drawing.Size(201, 74);
             // 
             // addNewMemberMenuItem
             // 
             this.addNewMemberMenuItem.Name = "addNewMemberMenuItem";
             this.addNewMemberMenuItem.Size = new System.Drawing.Size(200, 24);
             this.addNewMemberMenuItem.Text = "Add New Member";
+            this.addNewMemberMenuItem.Click += new System.EventHandler(this.addNewMemberMenuItem_Click);
             // 
             // deleteMenuItem
             // 
             this.deleteMenuItem.Name = "deleteMenuItem";
             this.deleteMenuItem.Size = new System.Drawing.Size(200, 24);
             this.deleteMenuItem.Text = "Delete";
+            this.deleteMenuItem.Click += new System.EventHandler(this.deleteMenuItem_Click);
             // 
             // btnAccept
             // 
@@ -155,6 +156,7 @@
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // FormEnumsEditor
             // 
