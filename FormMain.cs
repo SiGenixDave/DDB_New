@@ -25,6 +25,7 @@ namespace DDB
             PopulateEnums(-1);
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
+            cBoxCommType.SelectedIndex = 0;
         }
 
         private void PopulateUnits(int select)
@@ -162,6 +163,8 @@ namespace DDB
                 formEnumPreview.Hide();
             }
         }
-       
+
+
+
     }
 }
