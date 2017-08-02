@@ -835,18 +835,18 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 25);
+            this.tabEvents.Location = new System.Drawing.Point(4, 22);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 526);
+            this.tabEvents.Size = new System.Drawing.Size(842, 529);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 25);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 526);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -857,10 +857,10 @@
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjBitmask);
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjUnits);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
@@ -1417,6 +1417,7 @@
             // 
             this.gBoxTargetCommunication.Controls.Add(this.gBoxURLs);
             this.gBoxTargetCommunication.Controls.Add(this.cBoxCommType);
+            this.gBoxTargetCommunication.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxTargetCommunication.Location = new System.Drawing.Point(17, 3);
             this.gBoxTargetCommunication.Name = "gBoxTargetCommunication";
             this.gBoxTargetCommunication.Size = new System.Drawing.Size(462, 224);
@@ -1428,6 +1429,7 @@
             // 
             this.gBoxURLs.Controls.Add(this.dGridURL);
             this.gBoxURLs.Controls.Add(this.btnProjSettingsAddURL);
+            this.gBoxURLs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxURLs.Location = new System.Drawing.Point(126, 20);
             this.gBoxURLs.Name = "gBoxURLs";
             this.gBoxURLs.Size = new System.Drawing.Size(320, 189);
@@ -1501,6 +1503,7 @@
             // cBoxCommType
             // 
             this.cBoxCommType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCommType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBoxCommType.FormattingEnabled = true;
             this.cBoxCommType.Items.AddRange(new object[] {
             "Serial",
@@ -1557,9 +1560,10 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 1);
+            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(43, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(133, 26);
+            this.label14.Size = new System.Drawing.Size(101, 26);
             this.label14.TabIndex = 1;
             this.label14.Text = "Displayed Watch Variables (max)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1568,9 +1572,10 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(55, 36);
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(41, 36);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.Size = new System.Drawing.Size(103, 13);
             this.label15.TabIndex = 2;
             this.label15.Text = "Software Version";
             // 
@@ -1578,9 +1583,10 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(34, 69);
+            this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(15, 69);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(110, 13);
+            this.label16.Size = new System.Drawing.Size(129, 13);
             this.label16.TabIndex = 3;
             this.label16.Text = "Application Data Path";
             // 
@@ -1595,6 +1601,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cListBoxFunctionFlags);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(17, 241);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(417, 139);
@@ -1605,6 +1612,7 @@
             // cListBoxFunctionFlags
             // 
             this.cListBoxFunctionFlags.CheckOnClick = true;
+            this.cListBoxFunctionFlags.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cListBoxFunctionFlags.FormattingEnabled = true;
             this.cListBoxFunctionFlags.Items.AddRange(new object[] {
             "Target requires 4 digit year code",
@@ -1749,7 +1757,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.7)";
+            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);

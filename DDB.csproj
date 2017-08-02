@@ -113,7 +113,7 @@
     <Compile Include="iDDBHelpObject.cs" />
     <Compile Include="iTextEntry.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Test\ProjectSettings.cs" />
+    <Compile Include="Test\ProjectSettingsTest.cs" />
     <Compile Include="Test\UnitsTest.cs" />
     <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />
     <Compile Include="ProjectDefinitions\Units.cs">

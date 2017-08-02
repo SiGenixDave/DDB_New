@@ -19,10 +19,12 @@ namespace DDB
             WatchVarList.Init();
             BitmaskVarList.Init();
             EnumVarList.Init();
+            ProjectSettingsTest.Init();
             RefreshWatchVariableList(-1);
             PopulateUnits(-1);
             PopulateBitmasks(-1);
             PopulateEnums(-1);
+            PopulateProjectSettings();
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
@@ -88,6 +90,30 @@ namespace DDB
                 lBoxProjEnums.SelectedIndex = select;
             }
 
+        }
+
+        private void PopulateProjectSettings() 
+        {
+            URLTest[] urls = ProjectSettingsTest.GetURLs();
+
+            foreach (URLTest u in urls)
+            {
+                dGridURL.Rows.Add(u.name, u.alias);
+            }
+
+            int ff = ProjectSettingsTest.GetFunctionFlags();
+
+            for (int index = 0; index < 32; index++)
+            {
+                if (((1 << index) & ff) != 0)
+                {
+                    cListBoxFunctionFlags.SetItemChecked(index, true);
+                }
+            }
+
+            tBoxProjSettingsWatchVarMax.Text = "40";
+            tBoxProjSettingsSoftwareVersion.Text = "PROJVC0100";
+            tBoxProjSettingsAppDataPath.Text = @"C:\PTU\Data";
         }
 
         private void btnExitDDB_Click(object sender, EventArgs e)
