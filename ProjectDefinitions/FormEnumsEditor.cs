@@ -8,11 +8,19 @@ namespace DDB
     {
         private EnumsTest enm;
 
-        public FormEnumsEditor(EnumsTest em)
+        public FormEnumsEditor(EnumsTest em, Boolean modifyNewEnum)
         {
             InitializeComponent();
             enm = em;
-            this.Text = "Edit Enumeration " + "\"" + enm.dispName + "\"";
+            if (modifyNewEnum)
+            {
+                this.Text = "Create";
+            }
+            else
+            {
+                this.Text = "Modify";
+            }
+            this.Text += " Enumeration " + "\"" + enm.dispName + "\"";
             InitDataGrid();
         }
 
@@ -39,6 +47,7 @@ namespace DDB
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             Save();
             Close();
         }
@@ -47,6 +56,7 @@ namespace DDB
         {
             if (Cancel.Query("Enumeration \"" + enm.dispName + "\" "))
             {
+                this.DialogResult = DialogResult.Cancel;
                 Close();
             }
         }

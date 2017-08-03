@@ -52,7 +52,7 @@ namespace DDB
 
         private void lBoxProjEnums_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ModifyEnums();
+            ModifyEnums(false);
         }
 
         private void btnProjEnumsImport_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace DDB
 
         private void btnProjEnumsModify_Click(object sender, EventArgs e)
         {
-            ModifyEnums();
+            ModifyEnums(false);
         }
 
         private void btnProjEnumsCopy_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace DDB
 
         private void modifyEnumsMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyEnums();
+            ModifyEnums(false);
         }
 
         private void deleteEnumsMenuItem_Click(object sender, EventArgs e)
@@ -115,27 +115,61 @@ namespace DDB
             }
         }
 
-        private void ModifyEnums()
+        private Boolean ModifyEnums(Boolean modifyNewEnum)
         {
-            int savedIndex = lBoxProjEnums.SelectedIndex;
-
             EnumsTest emt = EnumVarList.GetVar(lBoxProjEnums.SelectedIndex);
 
-            FormEnumsEditor enumEdit = new FormEnumsEditor(emt);
-            enumEdit.ShowDialog();
+            using (FormEnumsEditor emEdit = new FormEnumsEditor(emt, modifyNewEnum))
+            {
+                DialogResult dr = emEdit.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
 
-            formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
+                    PopulateEnums(lBoxProjEnums.SelectedIndex);
 
-            PopulateEnums(lBoxProjEnums.SelectedIndex);
+                    return true;
 
-            lBoxProjEnums.SelectedIndex = savedIndex;
+                }
+            }
+
+            return false;
         }
 
         private void CreateEnums()
         {
-            EnumsTest et = new EnumsTest("New Enum", new int[] {0}, new String[] {"eName"});
+            EnumsTest et = new EnumsTest("New Enum", new int[] {0}, new String[] {"Description"});
             lBoxProjEnums.Items.Add(et.dispName);
             EnumVarList.AddVar(et);
+
+            List<int> selEnums = new List<int>();
+
+            int indexCount = 0;
+            while (indexCount < lBoxProjEnums.SelectedIndices.Count)
+            {
+                selEnums.Add(lBoxProjEnums.SelectedIndices[indexCount]);
+                indexCount++;
+            }
+
+            // For some reason, one must set the listbox SelectedIndex to -1 prior to changing the listbox index programatically???
+            lBoxProjEnums.SelectedIndex = -1;
+            lBoxProjEnums.SelectedIndex = lBoxProjEnums.Items.Count - 1;
+            if (!ModifyEnums(true))
+            {
+               lBoxProjEnums.Items.Remove(et.dispName);
+                EnumVarList.DeleteVar(et);
+
+                // Restore the selected index(s) prior to the cancel
+                indexCount = 0;
+                lBoxProjEnums.SelectedIndices.Clear();
+                while (indexCount < selEnums.Count)
+                {
+                    lBoxProjEnums.SelectedIndices.Add(selEnums[indexCount]);
+                    indexCount++;
+                }
+            }
+
+
         }
 
         private void DeleteEnums()

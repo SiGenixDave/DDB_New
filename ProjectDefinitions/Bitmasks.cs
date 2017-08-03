@@ -8,7 +8,7 @@ namespace DDB
     {
         private void btnProBitmasksModify_Click(object sender, EventArgs e)
         {
-            ModifyBitmasks();
+            ModifyBitmasks(false);
         }
 
         private void btnProBitmasksCreate_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace DDB
 
         private void lBoxProjBitmasks_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ModifyBitmasks();
+            ModifyBitmasks(false);
         }
 
         private void lBoxProjBitmasks_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace DDB
 
         private void modifyBitmasksMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyBitmasks();
+            ModifyBitmasks(false);
         }
 
         private void deleteBitmasksMenuItem_Click(object sender, EventArgs e)
@@ -114,11 +114,11 @@ namespace DDB
             }
         }
 
-        private Boolean ModifyBitmasks()
+        private Boolean ModifyBitmasks(Boolean createNewBitmask)
         {
             BitmaskTest bmt = BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex);
 
-            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt))
+            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, createNewBitmask))
             {
                 DialogResult dr = bmEdit.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -153,7 +153,7 @@ namespace DDB
             // For some reason, one must set the listbox SelectedIndex to -1 prior to changing the listbox index programatically???
             lBoxProjBitmasks.SelectedIndex = -1;
             lBoxProjBitmasks.SelectedIndex = lBoxProjBitmasks.Items.Count - 1;
-            if (!ModifyBitmasks())
+            if (!ModifyBitmasks(true))
             {
                 lBoxProjBitmasks.Items.Remove(bmt.dispName);
                 BitmaskVarList.DeleteVar(bmt);

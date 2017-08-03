@@ -8,11 +8,19 @@ namespace DDB
     {
         private BitmaskTest bitmask;
 
-        public FormBitmaskEditor(BitmaskTest bm)
+        public FormBitmaskEditor(BitmaskTest bm, Boolean createNewBitmask)
         {
             InitializeComponent();
             bitmask = bm;
-            this.Text = "Edit Bitmask " + "\"" + bm.dispName + "\"";
+            if (createNewBitmask)
+            {
+                this.Text = "Create";
+            }
+            else
+            {
+                this.Text = "Modify";
+            }
+            this.Text += " Bitmask " + "\"" + bm.dispName + "\"";
             InitDataGrid(dataGridView1, 31);
             InitDataGrid(dataGridView2, 15);
             LoadInfo();
