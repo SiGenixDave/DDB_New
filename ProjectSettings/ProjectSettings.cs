@@ -20,33 +20,23 @@ namespace DDB
                 gBoxTargetCommunication.Size = new Size(462, 224);
             }
 
-            URLAliasColumnVisibility();
         }
 
         private void cListBoxFunctionFlags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            Console.WriteLine("Called Event");
             if (cListBoxFunctionFlags.SelectedIndex == 4)
             {
-                Console.WriteLine("URLAliasColumnVisibility");
-                URLAliasColumnVisibility();
+                if (e.NewValue == CheckState.Checked)
+                {
+                    dGridURL.Columns[1].Visible = true;
+                }
+                else
+                {
+                    dGridURL.Columns[1].Visible = false;
+                }
             }
         }
 
-        private void URLAliasColumnVisibility()
-        {
-
-            if (cListBoxFunctionFlags.GetItemChecked(4))
-            {
-                dGridURL.Columns[1].Visible = true;
-                Console.WriteLine("true");
-            }
-            else
-            {
-                dGridURL.Columns[1].Visible = false;
-                Console.WriteLine("false");
-            }
-        }
 
         private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
         {
