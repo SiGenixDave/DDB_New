@@ -55,6 +55,7 @@ namespace DDB
         private void btnAccept_Click(object sender, EventArgs e)
         {
             Save();
+            this.DialogResult = DialogResult.OK;
             Close();
         }
 
@@ -62,6 +63,7 @@ namespace DDB
         {
             if (Cancel.Query("Bitmask \"" + bitmask.dispName + "\" "))
             {
+                this.DialogResult = DialogResult.Cancel;
                 Close();
             }
         }

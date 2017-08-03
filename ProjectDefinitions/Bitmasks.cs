@@ -114,20 +114,25 @@ namespace DDB
             }
         }
 
-        private void ModifyBitmasks()
+        private Boolean ModifyBitmasks()
         {
-            int savedIndex = lBoxProjBitmasks.SelectedIndex;
-
             BitmaskTest bmt = BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex);
 
-            FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt);
-            bmEdit.ShowDialog();
+            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt))
+            {
+                DialogResult dr = bmEdit.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
 
-            formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(lBoxProjBitmasks.SelectedIndex));
-            
-            PopulateBitmasks(lBoxProjBitmasks.SelectedIndex);
+                    PopulateBitmasks(lBoxProjBitmasks.SelectedIndex);
 
-            lBoxProjBitmasks.SelectedIndex = savedIndex;
+                    return true;
+
+                }
+            }
+
+            return false;
         }
 
         private void CreateBitmasks()
@@ -135,6 +140,33 @@ namespace DDB
             BitmaskTest bmt = new BitmaskTest("New Bitmask");
             lBoxProjBitmasks.Items.Add(bmt.dispName);
             BitmaskVarList.AddVar(bmt);
+
+            List<int> selBMs = new List<int>();
+
+            int indexCount = 0;
+            while (indexCount < lBoxProjBitmasks.SelectedIndices.Count)
+            {
+                selBMs.Add(lBoxProjBitmasks.SelectedIndices[indexCount]);
+                indexCount++;
+            }
+
+            // For some reason, one must set the listbox SelectedIndex to -1 prior to changing the listbox index programatically???
+            lBoxProjBitmasks.SelectedIndex = -1;
+            lBoxProjBitmasks.SelectedIndex = lBoxProjBitmasks.Items.Count - 1;
+            if (!ModifyBitmasks())
+            {
+                lBoxProjBitmasks.Items.Remove(bmt.dispName);
+                BitmaskVarList.DeleteVar(bmt);
+
+                // Restore the selected index(s) prior to the cancel
+                indexCount = 0;
+                lBoxProjBitmasks.SelectedIndices.Clear();
+                while (indexCount < selBMs.Count)
+                {
+                    lBoxProjBitmasks.SelectedIndices.Add(selBMs[indexCount]);
+                    indexCount++;
+                }
+            }
         }
 
         private void DeleteBitmasks()
