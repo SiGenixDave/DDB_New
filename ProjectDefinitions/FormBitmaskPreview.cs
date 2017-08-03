@@ -39,7 +39,7 @@ namespace DDB
                 if (!String.IsNullOrEmpty(bm.strValues[index]))
                 {
                     Console.WriteLine(bm.strValues[index]);
-                    dataGridView1.Rows.Add(index.ToString(), bm.strValues[index]);
+                    dataGridView1.Rows.Add(index, bm.strValues[index]);
                     populatedRowCount++;
                 }
             }
@@ -65,6 +65,9 @@ namespace DDB
             dataGridView1.Columns[0].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.Columns[1].DefaultCellStyle.SelectionBackColor = Color.LightGray;
             dataGridView1.Columns[1].DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Force sort using int and not string
+            dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
 
     }

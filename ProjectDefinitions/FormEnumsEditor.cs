@@ -23,19 +23,18 @@ namespace DDB
                 dataGridView1.Rows.Add(enm.intValues[index], enm.strValues[index]);
             }
 
-            dataGridView1.Columns[0].Width = 50;
-            dataGridView1.Columns[1].Width = dataGridView1.Width - dataGridView1.Columns[0].Width;
-
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.Font = new Font(this.Font, FontStyle.Bold);
             dataGridView1.Columns[0].HeaderCell.Style = style;
             dataGridView1.Columns[1].HeaderCell.Style = style;
 
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = dataGridView1.Width - dataGridView1.Columns[0].Width;
+
             tBoxName.Text = enm.dispName;
 
             // Force sort using int and not string
             dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
-
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Enumeration \"" + enm.dispName + "\" " ))
+            if (Cancel.Query("Enumeration \"" + enm.dispName + "\" "))
             {
                 Close();
             }
@@ -57,19 +56,21 @@ namespace DDB
             DeleteItems();
         }
 
-
         private void tBoxName_TextChanged(object sender, EventArgs e)
         {
-            Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
-            tBoxName.Width = size.Width;
-            tBoxName.Height = size.Height;
+            // Only resize textbox when there is some and limited amount of text
+            if ((tBoxName.Text.Length > 0) && (tBoxName.Text.Length < 80))
+            {
+                Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
+                tBoxName.Width = size.Width;
+                tBoxName.Height = size.Height;
+            }
         }
 
         private void btnAddNewValue_Click(object sender, EventArgs e)
         {
             AddNewItem();
         }
-
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -87,7 +88,7 @@ namespace DDB
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // If editing value, need to convert to int so sorting is done properly 
+            // If editing value, need to convert to int so sorting is done properly
             if (e.ColumnIndex == 0)
             {
                 dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value =
@@ -110,7 +111,6 @@ namespace DDB
                 enm.intValues.Add(intValue);
             }
         }
-
 
         private void DeleteItems()
         {
@@ -159,7 +159,6 @@ namespace DDB
                 rowindex++;
             }
 
-
             DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
             row.Cells[0].Value = highestValue + 1;
             row.Cells[1].Value = "Description";
@@ -167,6 +166,5 @@ namespace DDB
             dataGridView1.CurrentCell = dataGridView1.Rows[rowindex].Cells[1];
             dataGridView1.BeginEdit(true);
         }
-
     }
 }

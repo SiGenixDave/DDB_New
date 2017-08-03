@@ -15,7 +15,7 @@ namespace DDB
             this.Text = "Edit Bitmask " + "\"" + bm.dispName + "\"";
             InitDataGrid(dataGridView1, 31);
             InitDataGrid(dataGridView2, 15);
-            Load();
+            LoadInfo();
         }
 
         private void InitDataGrid(DataGridView dView, int startBit)
@@ -33,15 +33,15 @@ namespace DDB
                 bmId--;
             }
 
-            dView.Columns[0].Width = 30;
-            dView.Columns[1].Width = 100;
-            dView.Columns[2].Width = dView.Width - (dView.Columns[0].Width + dView.Columns[1].Width);
-
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.Font = new Font(this.Font, FontStyle.Bold);
             dView.Columns[0].HeaderCell.Style = style;
             dView.Columns[1].HeaderCell.Style = style;
             dView.Columns[2].HeaderCell.Style = style;
+
+            dView.Columns[0].Width = 30;
+            dView.Columns[1].Width = 100;
+            dView.Columns[2].Width = dView.Width - (dView.Columns[0].Width + dView.Columns[1].Width);
 
             dView.Columns[0].DefaultCellStyle.BackColor = Color.LightGray;
             dView.Columns[1].DefaultCellStyle.BackColor = Color.LightGray;
@@ -60,13 +60,13 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Bitmask \"" + bitmask.dispName + "\" " ))
+            if (Cancel.Query("Bitmask \"" + bitmask.dispName + "\" "))
             {
                 Close();
             }
         }
 
-        private void Load()
+        private void LoadInfo()
         {
             tBoxName.Text = bitmask.dispName;
 
@@ -122,9 +122,14 @@ namespace DDB
 
         private void tBoxName_TextChanged(object sender, EventArgs e)
         {
-            Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
-            tBoxName.Width = size.Width;
-            tBoxName.Height = size.Height;
+            // Only resize textbox when there is some and limited amount of text
+            if ((tBoxName.Text.Length > 0) && (tBoxName.Text.Length < 80))
+            {
+                Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
+
+                tBoxName.Width = size.Width;
+                tBoxName.Height = size.Height;
+            }
         }
 
         private void dataGridView2_Leave(object sender, EventArgs e)

@@ -23,24 +23,28 @@ namespace DDB
             URLAliasColumnVisibility();
         }
 
-        private void cListBoxFunctionFlags_SelectedIndexChanged(object sender, EventArgs e)
+        private void cListBoxFunctionFlags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            Console.WriteLine("Called Event");
             if (cListBoxFunctionFlags.SelectedIndex == 4)
             {
+                Console.WriteLine("URLAliasColumnVisibility");
                 URLAliasColumnVisibility();
             }
-
         }
 
         private void URLAliasColumnVisibility()
         {
+
             if (cListBoxFunctionFlags.GetItemChecked(4))
             {
                 dGridURL.Columns[1].Visible = true;
+                Console.WriteLine("true");
             }
             else
             {
                 dGridURL.Columns[1].Visible = false;
+                Console.WriteLine("false");
             }
         }
 
@@ -57,6 +61,11 @@ namespace DDB
         private void deleteURLMenuItem_Click(object sender, EventArgs e)
         {
             DeleteItems();
+        }
+
+        private void btnProjSettingsAddEventLog_Click(object sender, EventArgs e)
+        {
+            AddNewEventLog();
         }
 
         private void AddNewURL()
@@ -84,5 +93,33 @@ namespace DDB
                 dGridURL.Rows.RemoveAt(item.Index);
             }
         }
+
+        private void AddNewEventLog()
+        {
+            // Scan the datagridView for the highest value and insert the next highest and select
+            // the cell with description
+            int highestValue = int.MinValue;
+
+            int rowindex = 0;
+            foreach (DataGridViewRow r in dGridEventLog.Rows)
+            {
+                int i;
+                int.TryParse(r.Cells[0].Value.ToString(), out i);
+                if (i > highestValue)
+                {
+                    highestValue = i;
+                }
+                rowindex++;
+            }
+
+
+            DataGridViewRow row = (DataGridViewRow)dGridEventLog.Rows[0].Clone();
+            row.Cells[0].Value = highestValue + 1;
+            row.Cells[1].Value = "New Event Log";
+            dGridEventLog.Rows.Add(row);
+            dGridEventLog.CurrentCell = dGridEventLog.Rows[rowindex].Cells[1];
+            dGridEventLog.BeginEdit(true);
+        }
+
     }
 }

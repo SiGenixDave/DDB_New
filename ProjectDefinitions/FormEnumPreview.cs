@@ -46,13 +46,13 @@ namespace DDB
 
         private void InitDataGrid()
         {
-            dataGridView1.Columns[0].Width = 60;
-            dataGridView1.Columns[1].Width = dataGridView1.Width - (dataGridView1.Columns[0].Width);
-
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.Font = new Font(this.Font, FontStyle.Bold);
             dataGridView1.Columns[0].HeaderCell.Style = style;
             dataGridView1.Columns[1].HeaderCell.Style = style;
+
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = dataGridView1.Width - (dataGridView1.Columns[0].Width);
 
             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightGray;
             dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightGray;
@@ -61,6 +61,9 @@ namespace DDB
             dataGridView1.Columns[0].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.Columns[1].DefaultCellStyle.SelectionBackColor = Color.LightGray;
             dataGridView1.Columns[1].DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Force sort using int and not string
+            dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
 
     }

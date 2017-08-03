@@ -135,6 +135,11 @@
             this.modifyUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
+            this.gBoxEventLogs = new System.Windows.Forms.GroupBox();
+            this.dGridEventLog = new System.Windows.Forms.DataGridView();
+            this.eventLogEmbIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventLogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnProjSettingsAddEventLog = new System.Windows.Forms.Button();
             this.gBoxTargetCommunication = new System.Windows.Forms.GroupBox();
             this.gBoxURLs = new System.Windows.Forms.GroupBox();
             this.dGridURL = new System.Windows.Forms.DataGridView();
@@ -186,6 +191,8 @@
             this.gBoxProjUnits.SuspendLayout();
             this.conMenuUnits.SuspendLayout();
             this.tabProjectSettings.SuspendLayout();
+            this.gBoxEventLogs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).BeginInit();
             this.gBoxTargetCommunication.SuspendLayout();
             this.gBoxURLs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).BeginInit();
@@ -835,18 +842,18 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Location = new System.Drawing.Point(4, 25);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 529);
+            this.tabEvents.Size = new System.Drawing.Size(842, 526);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 25);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 526);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -857,10 +864,10 @@
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjBitmask);
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjUnits);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
@@ -1403,6 +1410,7 @@
             // 
             // tabProjectSettings
             // 
+            this.tabProjectSettings.Controls.Add(this.gBoxEventLogs);
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
@@ -1412,6 +1420,59 @@
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
+            // 
+            // gBoxEventLogs
+            // 
+            this.gBoxEventLogs.Controls.Add(this.dGridEventLog);
+            this.gBoxEventLogs.Controls.Add(this.btnProjSettingsAddEventLog);
+            this.gBoxEventLogs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxEventLogs.Location = new System.Drawing.Point(502, 3);
+            this.gBoxEventLogs.Name = "gBoxEventLogs";
+            this.gBoxEventLogs.Size = new System.Drawing.Size(320, 210);
+            this.gBoxEventLogs.TabIndex = 9;
+            this.gBoxEventLogs.TabStop = false;
+            this.gBoxEventLogs.Text = "Event Logs";
+            // 
+            // dGridEventLog
+            // 
+            this.dGridEventLog.AllowUserToAddRows = false;
+            this.dGridEventLog.AllowUserToDeleteRows = false;
+            this.dGridEventLog.AllowUserToResizeColumns = false;
+            this.dGridEventLog.AllowUserToResizeRows = false;
+            this.dGridEventLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dGridEventLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridEventLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.eventLogEmbIndex,
+            this.eventLogName});
+            this.dGridEventLog.Location = new System.Drawing.Point(6, 23);
+            this.dGridEventLog.Name = "dGridEventLog";
+            this.dGridEventLog.RowTemplate.Height = 24;
+            this.dGridEventLog.Size = new System.Drawing.Size(295, 128);
+            this.dGridEventLog.TabIndex = 8;
+            // 
+            // eventLogEmbIndex
+            // 
+            this.eventLogEmbIndex.Frozen = true;
+            this.eventLogEmbIndex.HeaderText = "Embedded Index";
+            this.eventLogEmbIndex.Name = "eventLogEmbIndex";
+            // 
+            // eventLogName
+            // 
+            this.eventLogName.Frozen = true;
+            this.eventLogName.HeaderText = "Name";
+            this.eventLogName.Name = "eventLogName";
+            this.eventLogName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // btnProjSettingsAddEventLog
+            // 
+            this.btnProjSettingsAddEventLog.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProjSettingsAddEventLog.Location = new System.Drawing.Point(6, 160);
+            this.btnProjSettingsAddEventLog.Name = "btnProjSettingsAddEventLog";
+            this.btnProjSettingsAddEventLog.Size = new System.Drawing.Size(78, 35);
+            this.btnProjSettingsAddEventLog.TabIndex = 4;
+            this.btnProjSettingsAddEventLog.Text = "Add Event Log";
+            this.btnProjSettingsAddEventLog.UseVisualStyleBackColor = true;
+            this.btnProjSettingsAddEventLog.Click += new System.EventHandler(this.btnProjSettingsAddEventLog_Click);
             // 
             // gBoxTargetCommunication
             // 
@@ -1474,19 +1535,19 @@
             this.addNewURLMenuItem,
             this.deleteURLMenuItem});
             this.conMenuURL.Name = "conMenu";
-            this.conMenuURL.Size = new System.Drawing.Size(172, 48);
+            this.conMenuURL.Size = new System.Drawing.Size(148, 48);
             // 
             // addNewURLMenuItem
             // 
             this.addNewURLMenuItem.Name = "addNewURLMenuItem";
-            this.addNewURLMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.addNewURLMenuItem.Text = "Add New Member";
+            this.addNewURLMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addNewURLMenuItem.Text = "Add New URL";
             this.addNewURLMenuItem.Click += new System.EventHandler(this.addNewURLMenuItem_Click);
             // 
             // deleteURLMenuItem
             // 
             this.deleteURLMenuItem.Name = "deleteURLMenuItem";
-            this.deleteURLMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.deleteURLMenuItem.Size = new System.Drawing.Size(147, 22);
             this.deleteURLMenuItem.Text = "Delete";
             this.deleteURLMenuItem.Click += new System.EventHandler(this.deleteURLMenuItem_Click);
             // 
@@ -1528,7 +1589,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 386);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 389);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1624,7 +1685,7 @@
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
             this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 84);
             this.cListBoxFunctionFlags.TabIndex = 4;
-            this.cListBoxFunctionFlags.SelectedIndexChanged += new System.EventHandler(this.cListBoxFunctionFlags_SelectedIndexChanged);
+            this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             // 
             // mainMenuStrip
             // 
@@ -1782,6 +1843,8 @@
             this.gBoxProjUnits.PerformLayout();
             this.conMenuUnits.ResumeLayout(false);
             this.tabProjectSettings.ResumeLayout(false);
+            this.gBoxEventLogs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).EndInit();
             this.gBoxTargetCommunication.ResumeLayout(false);
             this.gBoxURLs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).EndInit();
@@ -1939,6 +2002,11 @@
         private System.Windows.Forms.ContextMenuStrip conMenuURL;
         private System.Windows.Forms.ToolStripMenuItem addNewURLMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteURLMenuItem;
+        private System.Windows.Forms.GroupBox gBoxEventLogs;
+        private System.Windows.Forms.DataGridView dGridEventLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventLogEmbIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventLogName;
+        private System.Windows.Forms.Button btnProjSettingsAddEventLog;
     }
 }
 

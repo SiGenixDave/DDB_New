@@ -28,6 +28,7 @@ namespace DDB
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
+            cBoxCommType.SelectedIndex = 1;
         }
 
         private void PopulateUnits(int select)
@@ -100,6 +101,14 @@ namespace DDB
             {
                 dGridURL.Rows.Add(u.name, u.alias);
             }
+
+            EventLogTest[] eventLogs = ProjectSettingsTest.GetEventLogs();
+
+            foreach (EventLogTest e in eventLogs)
+            {
+                dGridEventLog.Rows.Add(e.embIndex, e.name);
+            }
+
 
             int ff = ProjectSettingsTest.GetFunctionFlags();
 
@@ -189,8 +198,6 @@ namespace DDB
                 formEnumPreview.Hide();
             }
         }
-
-
 
     }
 }
