@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
-            this.btnWatchImport = new System.Windows.Forms.Button();
+            this.btnWatchHelpAvailable = new System.Windows.Forms.Button();
             this.grpBoxWatchVarList = new System.Windows.Forms.GroupBox();
             this.cBoxWatchList = new System.Windows.Forms.ComboBox();
             this.btnWatchSortZtoA = new System.Windows.Forms.Button();
@@ -44,14 +46,15 @@
             this.tBoxWatchFilter = new System.Windows.Forms.TextBox();
             this.btnWatchSortAtoZ = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnWatchModifyHelpText = new System.Windows.Forms.Button();
             this.grpBoxWatchAttrs = new System.Windows.Forms.GroupBox();
-            this.btnWatchHelpAvailable = new System.Windows.Forms.Button();
             this.cBoxWatchUnitConversion = new System.Windows.Forms.ComboBox();
+            this.btnWatchAccept = new System.Windows.Forms.Button();
             this.cBoxWatchScaleInfo = new System.Windows.Forms.ComboBox();
             this.lblWatchUnitConversion = new System.Windows.Forms.Label();
+            this.btnWatchCancel = new System.Windows.Forms.Button();
             this.lblWatchScaleInfo = new System.Windows.Forms.Label();
             this.cBoxWatchFormatString = new System.Windows.Forms.ComboBox();
-            this.btnWatchModifyHelpText = new System.Windows.Forms.Button();
             this.lblFormatString = new System.Windows.Forms.Label();
             this.chkWatchEngViewOnly = new System.Windows.Forms.CheckBox();
             this.cBoxWatchScaleType = new System.Windows.Forms.ComboBox();
@@ -62,8 +65,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cBoxWatchDataType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnWatchCancel = new System.Windows.Forms.Button();
-            this.btnWatchAccept = new System.Windows.Forms.Button();
             this.gBoxWatchVarMod = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tBoxWatchMaxValue = new System.Windows.Forms.TextBox();
@@ -79,10 +80,12 @@
             this.tBoxWatchEmbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tBoxWatchDisplayName = new System.Windows.Forms.TextBox();
-            this.btnWatchDelete = new System.Windows.Forms.Button();
+            this.gBoxWatchActions = new System.Windows.Forms.GroupBox();
             this.btnWatchCopy = new System.Windows.Forms.Button();
-            this.btnWatchModify = new System.Windows.Forms.Button();
+            this.btnWatchImport = new System.Windows.Forms.Button();
             this.btnWatchCreate = new System.Windows.Forms.Button();
+            this.btnWatchModify = new System.Windows.Forms.Button();
+            this.btnWatchDelete = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
@@ -135,10 +138,20 @@
             this.modifyUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteUnitsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tBoxPasswordLevel3 = new System.Windows.Forms.TextBox();
+            this.tBoxPasswordLevel2 = new System.Windows.Forms.TextBox();
+            this.tBoxPasswordLevel1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.gBoxEventLogs = new System.Windows.Forms.GroupBox();
             this.dGridEventLog = new System.Windows.Forms.DataGridView();
             this.eventLogEmbIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventLogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conMenuEventLogs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProjSettingsAddEventLog = new System.Windows.Forms.Button();
             this.gBoxTargetCommunication = new System.Windows.Forms.GroupBox();
             this.gBoxURLs = new System.Windows.Forms.GroupBox();
@@ -183,6 +196,7 @@
             this.gBoxWatchVarMod.SuspendLayout();
             this.gBoxWatchChartScaling.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gBoxWatchActions.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.gBoxProjEnums.SuspendLayout();
             this.conMenuEnums.SuspendLayout();
@@ -191,8 +205,10 @@
             this.gBoxProjUnits.SuspendLayout();
             this.conMenuUnits.SuspendLayout();
             this.tabProjectSettings.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.gBoxEventLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).BeginInit();
+            this.conMenuEventLogs.SuspendLayout();
             this.gBoxTargetCommunication.SuspendLayout();
             this.gBoxURLs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).BeginInit();
@@ -218,13 +234,11 @@
             // 
             // tabWatchVariables
             // 
-            this.tabWatchVariables.Controls.Add(this.btnWatchImport);
+            this.tabWatchVariables.Controls.Add(this.btnWatchHelpAvailable);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchVarList);
+            this.tabWatchVariables.Controls.Add(this.btnWatchModifyHelpText);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
-            this.tabWatchVariables.Controls.Add(this.btnWatchDelete);
-            this.tabWatchVariables.Controls.Add(this.btnWatchCopy);
-            this.tabWatchVariables.Controls.Add(this.btnWatchModify);
-            this.tabWatchVariables.Controls.Add(this.btnWatchCreate);
+            this.tabWatchVariables.Controls.Add(this.gBoxWatchActions);
             this.tabWatchVariables.Location = new System.Drawing.Point(4, 22);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
@@ -233,16 +247,15 @@
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
             // 
-            // btnWatchImport
+            // btnWatchHelpAvailable
             // 
-            this.btnWatchImport.Location = new System.Drawing.Point(721, 482);
-            this.btnWatchImport.Name = "btnWatchImport";
-            this.btnWatchImport.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchImport.TabIndex = 7;
-            this.btnWatchImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnWatchImport, "\"TODO Import watch variables from another XML file\"");
-            this.btnWatchImport.UseVisualStyleBackColor = true;
-            this.btnWatchImport.Click += new System.EventHandler(this.btnWatchImport_Click);
+            this.btnWatchHelpAvailable.Enabled = false;
+            this.btnWatchHelpAvailable.Location = new System.Drawing.Point(697, 501);
+            this.btnWatchHelpAvailable.Name = "btnWatchHelpAvailable";
+            this.btnWatchHelpAvailable.Size = new System.Drawing.Size(127, 18);
+            this.btnWatchHelpAvailable.TabIndex = 24;
+            this.toolTip1.SetToolTip(this.btnWatchHelpAvailable, "RED if no help text; GREEN otherwise");
+            this.btnWatchHelpAvailable.UseVisualStyleBackColor = true;
             // 
             // grpBoxWatchVarList
             // 
@@ -374,15 +387,27 @@
             this.label11.TabIndex = 7;
             this.label11.Text = "Filter";
             // 
+            // btnWatchModifyHelpText
+            // 
+            this.btnWatchModifyHelpText.Enabled = false;
+            this.btnWatchModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchModifyHelpText.Location = new System.Drawing.Point(697, 456);
+            this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
+            this.btnWatchModifyHelpText.Size = new System.Drawing.Size(127, 34);
+            this.btnWatchModifyHelpText.TabIndex = 18;
+            this.btnWatchModifyHelpText.Text = "Modify Help Text...";
+            this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
+            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
+            // 
             // grpBoxWatchAttrs
             // 
-            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchHelpAvailable);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchUnitConversion);
+            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchAccept);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchScaleInfo);
             this.grpBoxWatchAttrs.Controls.Add(this.lblWatchUnitConversion);
+            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchCancel);
             this.grpBoxWatchAttrs.Controls.Add(this.lblWatchScaleInfo);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchFormatString);
-            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchModifyHelpText);
             this.grpBoxWatchAttrs.Controls.Add(this.lblFormatString);
             this.grpBoxWatchAttrs.Controls.Add(this.chkWatchEngViewOnly);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchScaleType);
@@ -393,8 +418,6 @@
             this.grpBoxWatchAttrs.Controls.Add(this.label9);
             this.grpBoxWatchAttrs.Controls.Add(this.cBoxWatchDataType);
             this.grpBoxWatchAttrs.Controls.Add(this.label8);
-            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchCancel);
-            this.grpBoxWatchAttrs.Controls.Add(this.btnWatchAccept);
             this.grpBoxWatchAttrs.Controls.Add(this.gBoxWatchVarMod);
             this.grpBoxWatchAttrs.Controls.Add(this.gBoxWatchChartScaling);
             this.grpBoxWatchAttrs.Controls.Add(this.groupBox1);
@@ -402,19 +425,10 @@
             this.grpBoxWatchAttrs.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxWatchAttrs.Location = new System.Drawing.Point(298, 27);
             this.grpBoxWatchAttrs.Name = "grpBoxWatchAttrs";
-            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(528, 434);
+            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(528, 411);
             this.grpBoxWatchAttrs.TabIndex = 6;
             this.grpBoxWatchAttrs.TabStop = false;
             this.grpBoxWatchAttrs.Text = "Attributes";
-            // 
-            // btnWatchHelpAvailable
-            // 
-            this.btnWatchHelpAvailable.Location = new System.Drawing.Point(382, 366);
-            this.btnWatchHelpAvailable.Name = "btnWatchHelpAvailable";
-            this.btnWatchHelpAvailable.Size = new System.Drawing.Size(19, 49);
-            this.btnWatchHelpAvailable.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.btnWatchHelpAvailable, "RED if no help text; GREEN otherwise");
-            this.btnWatchHelpAvailable.UseVisualStyleBackColor = true;
             // 
             // cBoxWatchUnitConversion
             // 
@@ -431,6 +445,18 @@
             this.cBoxWatchUnitConversion.Name = "cBoxWatchUnitConversion";
             this.cBoxWatchUnitConversion.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchUnitConversion.TabIndex = 23;
+            // 
+            // btnWatchAccept
+            // 
+            this.btnWatchAccept.Enabled = false;
+            this.btnWatchAccept.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchAccept.Location = new System.Drawing.Point(294, 366);
+            this.btnWatchAccept.Name = "btnWatchAccept";
+            this.btnWatchAccept.Size = new System.Drawing.Size(99, 34);
+            this.btnWatchAccept.TabIndex = 7;
+            this.btnWatchAccept.Text = "Accept";
+            this.btnWatchAccept.UseVisualStyleBackColor = true;
+            this.btnWatchAccept.Click += new System.EventHandler(this.btnWatchAccept_Click);
             // 
             // cBoxWatchScaleInfo
             // 
@@ -460,11 +486,23 @@
             this.lblWatchUnitConversion.Text = "Unit Conversion";
             this.lblWatchUnitConversion.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // btnWatchCancel
+            // 
+            this.btnWatchCancel.Enabled = false;
+            this.btnWatchCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchCancel.Location = new System.Drawing.Point(399, 366);
+            this.btnWatchCancel.Name = "btnWatchCancel";
+            this.btnWatchCancel.Size = new System.Drawing.Size(99, 34);
+            this.btnWatchCancel.TabIndex = 8;
+            this.btnWatchCancel.Text = "Cancel";
+            this.btnWatchCancel.UseVisualStyleBackColor = true;
+            this.btnWatchCancel.Click += new System.EventHandler(this.btnWatchCancel_Click);
+            // 
             // lblWatchScaleInfo
             // 
             this.lblWatchScaleInfo.AutoSize = true;
             this.lblWatchScaleInfo.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWatchScaleInfo.Location = new System.Drawing.Point(266, 235);
+            this.lblWatchScaleInfo.Location = new System.Drawing.Point(280, 235);
             this.lblWatchScaleInfo.Name = "lblWatchScaleInfo";
             this.lblWatchScaleInfo.Size = new System.Drawing.Size(63, 13);
             this.lblWatchScaleInfo.TabIndex = 20;
@@ -489,17 +527,6 @@
             this.cBoxWatchFormatString.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchFormatString.TabIndex = 19;
             // 
-            // btnWatchModifyHelpText
-            // 
-            this.btnWatchModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchModifyHelpText.Location = new System.Drawing.Point(223, 366);
-            this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
-            this.btnWatchModifyHelpText.Size = new System.Drawing.Size(153, 49);
-            this.btnWatchModifyHelpText.TabIndex = 18;
-            this.btnWatchModifyHelpText.Text = "Modify Help Text...";
-            this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
-            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
-            // 
             // lblFormatString
             // 
             this.lblFormatString.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -514,7 +541,7 @@
             // 
             this.chkWatchEngViewOnly.AutoSize = true;
             this.chkWatchEngViewOnly.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkWatchEngViewOnly.Location = new System.Drawing.Point(22, 401);
+            this.chkWatchEngViewOnly.Location = new System.Drawing.Point(12, 327);
             this.chkWatchEngViewOnly.Name = "chkWatchEngViewOnly";
             this.chkWatchEngViewOnly.Size = new System.Drawing.Size(147, 17);
             this.chkWatchEngViewOnly.TabIndex = 16;
@@ -540,7 +567,7 @@
             // lblWatchUnitsEnumBitmask
             // 
             this.lblWatchUnitsEnumBitmask.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWatchUnitsEnumBitmask.Location = new System.Drawing.Point(240, 201);
+            this.lblWatchUnitsEnumBitmask.Location = new System.Drawing.Point(249, 202);
             this.lblWatchUnitsEnumBitmask.Name = "lblWatchUnitsEnumBitmask";
             this.lblWatchUnitsEnumBitmask.Size = new System.Drawing.Size(93, 17);
             this.lblWatchUnitsEnumBitmask.TabIndex = 14;
@@ -562,7 +589,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(262, 167);
+            this.label10.Location = new System.Drawing.Point(274, 165);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 13);
             this.label10.TabIndex = 12;
@@ -579,18 +606,19 @@
             "Read Only",
             "Read/Write [Level 1]",
             "Read/Write [Level 2]"});
-            this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(21, 360);
+            this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(11, 379);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
-            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(132, 21);
+            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
             this.cBoxWatchReadWriteFlags.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchReadWriteFlags_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 333);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(9, 357);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 16);
+            this.label9.Size = new System.Drawing.Size(102, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "Read Write Flags";
             // 
@@ -618,34 +646,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(265, 131);
+            this.label8.Location = new System.Drawing.Point(277, 131);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Data Type";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // btnWatchCancel
-            // 
-            this.btnWatchCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchCancel.Location = new System.Drawing.Point(408, 392);
-            this.btnWatchCancel.Name = "btnWatchCancel";
-            this.btnWatchCancel.Size = new System.Drawing.Size(99, 34);
-            this.btnWatchCancel.TabIndex = 8;
-            this.btnWatchCancel.Text = "Cancel";
-            this.btnWatchCancel.UseVisualStyleBackColor = true;
-            this.btnWatchCancel.Click += new System.EventHandler(this.btnWatchCancel_Click);
-            // 
-            // btnWatchAccept
-            // 
-            this.btnWatchAccept.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchAccept.Location = new System.Drawing.Point(408, 351);
-            this.btnWatchAccept.Name = "btnWatchAccept";
-            this.btnWatchAccept.Size = new System.Drawing.Size(99, 34);
-            this.btnWatchAccept.TabIndex = 7;
-            this.btnWatchAccept.Text = "Accept";
-            this.btnWatchAccept.UseVisualStyleBackColor = true;
-            this.btnWatchAccept.Click += new System.EventHandler(this.btnWatchAccept_Click);
             // 
             // gBoxWatchVarMod
             // 
@@ -797,21 +803,26 @@
             this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 21);
             this.tBoxWatchDisplayName.TabIndex = 0;
             // 
-            // btnWatchDelete
+            // gBoxWatchActions
             // 
-            this.btnWatchDelete.Enabled = false;
-            this.btnWatchDelete.Location = new System.Drawing.Point(541, 496);
-            this.btnWatchDelete.Name = "btnWatchDelete";
-            this.btnWatchDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchDelete.TabIndex = 5;
-            this.btnWatchDelete.Text = "Delete";
-            this.btnWatchDelete.UseVisualStyleBackColor = true;
-            this.btnWatchDelete.Click += new System.EventHandler(this.btnWatchDelete_Click);
+            this.gBoxWatchActions.Controls.Add(this.btnWatchCopy);
+            this.gBoxWatchActions.Controls.Add(this.btnWatchImport);
+            this.gBoxWatchActions.Controls.Add(this.btnWatchCreate);
+            this.gBoxWatchActions.Controls.Add(this.btnWatchModify);
+            this.gBoxWatchActions.Controls.Add(this.btnWatchDelete);
+            this.gBoxWatchActions.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxWatchActions.Location = new System.Drawing.Point(298, 444);
+            this.gBoxWatchActions.Name = "gBoxWatchActions";
+            this.gBoxWatchActions.Size = new System.Drawing.Size(273, 79);
+            this.gBoxWatchActions.TabIndex = 25;
+            this.gBoxWatchActions.TabStop = false;
+            this.gBoxWatchActions.Text = "Actions";
             // 
             // btnWatchCopy
             // 
             this.btnWatchCopy.Enabled = false;
-            this.btnWatchCopy.Location = new System.Drawing.Point(541, 467);
+            this.btnWatchCopy.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchCopy.Location = new System.Drawing.Point(11, 49);
             this.btnWatchCopy.Name = "btnWatchCopy";
             this.btnWatchCopy.Size = new System.Drawing.Size(75, 23);
             this.btnWatchCopy.TabIndex = 4;
@@ -819,10 +830,34 @@
             this.btnWatchCopy.UseVisualStyleBackColor = true;
             this.btnWatchCopy.Click += new System.EventHandler(this.btnWatchCopy_Click);
             // 
+            // btnWatchImport
+            // 
+            this.btnWatchImport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchImport.Location = new System.Drawing.Point(192, 24);
+            this.btnWatchImport.Name = "btnWatchImport";
+            this.btnWatchImport.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchImport.TabIndex = 7;
+            this.btnWatchImport.Text = "Import...";
+            this.toolTip1.SetToolTip(this.btnWatchImport, "\"TODO Import watch variables from another XML file\"");
+            this.btnWatchImport.UseVisualStyleBackColor = true;
+            this.btnWatchImport.Click += new System.EventHandler(this.btnWatchImport_Click);
+            // 
+            // btnWatchCreate
+            // 
+            this.btnWatchCreate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchCreate.Location = new System.Drawing.Point(11, 20);
+            this.btnWatchCreate.Name = "btnWatchCreate";
+            this.btnWatchCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchCreate.TabIndex = 2;
+            this.btnWatchCreate.Text = "Create";
+            this.btnWatchCreate.UseVisualStyleBackColor = true;
+            this.btnWatchCreate.Click += new System.EventHandler(this.btnWatchCreate_Click);
+            // 
             // btnWatchModify
             // 
             this.btnWatchModify.Enabled = false;
-            this.btnWatchModify.Location = new System.Drawing.Point(453, 496);
+            this.btnWatchModify.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchModify.Location = new System.Drawing.Point(92, 20);
             this.btnWatchModify.Name = "btnWatchModify";
             this.btnWatchModify.Size = new System.Drawing.Size(75, 23);
             this.btnWatchModify.TabIndex = 3;
@@ -830,15 +865,17 @@
             this.btnWatchModify.UseVisualStyleBackColor = true;
             this.btnWatchModify.Click += new System.EventHandler(this.btnWatchModify_Click);
             // 
-            // btnWatchCreate
+            // btnWatchDelete
             // 
-            this.btnWatchCreate.Location = new System.Drawing.Point(453, 467);
-            this.btnWatchCreate.Name = "btnWatchCreate";
-            this.btnWatchCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchCreate.TabIndex = 2;
-            this.btnWatchCreate.Text = "Create";
-            this.btnWatchCreate.UseVisualStyleBackColor = true;
-            this.btnWatchCreate.Click += new System.EventHandler(this.btnWatchCreate_Click);
+            this.btnWatchDelete.Enabled = false;
+            this.btnWatchDelete.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWatchDelete.Location = new System.Drawing.Point(92, 49);
+            this.btnWatchDelete.Name = "btnWatchDelete";
+            this.btnWatchDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchDelete.TabIndex = 5;
+            this.btnWatchDelete.Text = "Delete";
+            this.btnWatchDelete.UseVisualStyleBackColor = true;
+            this.btnWatchDelete.Click += new System.EventHandler(this.btnWatchDelete_Click);
             // 
             // tabEvents
             // 
@@ -1410,6 +1447,7 @@
             // 
             // tabProjectSettings
             // 
+            this.tabProjectSettings.Controls.Add(this.groupBox3);
             this.tabProjectSettings.Controls.Add(this.gBoxEventLogs);
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
@@ -1421,6 +1459,79 @@
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tBoxPasswordLevel3);
+            this.groupBox3.Controls.Add(this.tBoxPasswordLevel2);
+            this.groupBox3.Controls.Add(this.tBoxPasswordLevel1);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(502, 241);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(309, 112);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PTU Password Settings";
+            // 
+            // tBoxPasswordLevel3
+            // 
+            this.tBoxPasswordLevel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxPasswordLevel3.Location = new System.Drawing.Point(72, 79);
+            this.tBoxPasswordLevel3.Name = "tBoxPasswordLevel3";
+            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel3.TabIndex = 5;
+            this.tBoxPasswordLevel3.Text = "aeg3";
+            // 
+            // tBoxPasswordLevel2
+            // 
+            this.tBoxPasswordLevel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxPasswordLevel2.Location = new System.Drawing.Point(72, 49);
+            this.tBoxPasswordLevel2.Name = "tBoxPasswordLevel2";
+            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel2.TabIndex = 4;
+            this.tBoxPasswordLevel2.Text = "aeg2";
+            // 
+            // tBoxPasswordLevel1
+            // 
+            this.tBoxPasswordLevel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxPasswordLevel1.Location = new System.Drawing.Point(72, 20);
+            this.tBoxPasswordLevel1.Name = "tBoxPasswordLevel1";
+            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel1.TabIndex = 3;
+            this.tBoxPasswordLevel1.Text = "aeg1";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(18, 82);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Level3";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(18, 52);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Level2";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(18, 23);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Level1";
+            // 
             // gBoxEventLogs
             // 
             this.gBoxEventLogs.Controls.Add(this.dGridEventLog);
@@ -1428,7 +1539,7 @@
             this.gBoxEventLogs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxEventLogs.Location = new System.Drawing.Point(502, 3);
             this.gBoxEventLogs.Name = "gBoxEventLogs";
-            this.gBoxEventLogs.Size = new System.Drawing.Size(320, 210);
+            this.gBoxEventLogs.Size = new System.Drawing.Size(320, 224);
             this.gBoxEventLogs.TabIndex = 9;
             this.gBoxEventLogs.TabStop = false;
             this.gBoxEventLogs.Text = "Event Logs";
@@ -1444,11 +1555,21 @@
             this.dGridEventLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eventLogEmbIndex,
             this.eventLogName});
+            this.dGridEventLog.ContextMenuStrip = this.conMenuEventLogs;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGridEventLog.DefaultCellStyle = dataGridViewCellStyle3;
             this.dGridEventLog.Location = new System.Drawing.Point(6, 23);
             this.dGridEventLog.Name = "dGridEventLog";
             this.dGridEventLog.RowTemplate.Height = 24;
-            this.dGridEventLog.Size = new System.Drawing.Size(295, 128);
+            this.dGridEventLog.Size = new System.Drawing.Size(295, 148);
             this.dGridEventLog.TabIndex = 8;
+            this.dGridEventLog.Leave += new System.EventHandler(this.dGridEventLog_Leave);
             // 
             // eventLogEmbIndex
             // 
@@ -1463,12 +1584,34 @@
             this.eventLogName.Name = "eventLogName";
             this.eventLogName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // conMenuEventLogs
+            // 
+            this.conMenuEventLogs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addEventLogMenuItem,
+            this.deleteEventLogMenuItem});
+            this.conMenuEventLogs.Name = "conMenu";
+            this.conMenuEventLogs.Size = new System.Drawing.Size(179, 48);
+            // 
+            // addEventLogMenuItem
+            // 
+            this.addEventLogMenuItem.Name = "addEventLogMenuItem";
+            this.addEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.addEventLogMenuItem.Text = "Add New Event Log";
+            this.addEventLogMenuItem.Click += new System.EventHandler(this.addEventLogMenuItem_Click);
+            // 
+            // deleteEventLogMenuItem
+            // 
+            this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.deleteEventLogMenuItem.Text = "Delete";
+            this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
+            // 
             // btnProjSettingsAddEventLog
             // 
             this.btnProjSettingsAddEventLog.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjSettingsAddEventLog.Location = new System.Drawing.Point(6, 160);
+            this.btnProjSettingsAddEventLog.Location = new System.Drawing.Point(6, 180);
             this.btnProjSettingsAddEventLog.Name = "btnProjSettingsAddEventLog";
-            this.btnProjSettingsAddEventLog.Size = new System.Drawing.Size(78, 35);
+            this.btnProjSettingsAddEventLog.Size = new System.Drawing.Size(94, 29);
             this.btnProjSettingsAddEventLog.TabIndex = 4;
             this.btnProjSettingsAddEventLog.Text = "Add Event Log";
             this.btnProjSettingsAddEventLog.UseVisualStyleBackColor = true;
@@ -1490,10 +1633,10 @@
             // 
             this.gBoxURLs.Controls.Add(this.dGridURL);
             this.gBoxURLs.Controls.Add(this.btnProjSettingsAddURL);
-            this.gBoxURLs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxURLs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxURLs.Location = new System.Drawing.Point(126, 20);
             this.gBoxURLs.Name = "gBoxURLs";
-            this.gBoxURLs.Size = new System.Drawing.Size(320, 189);
+            this.gBoxURLs.Size = new System.Drawing.Size(320, 195);
             this.gBoxURLs.TabIndex = 4;
             this.gBoxURLs.TabStop = false;
             this.gBoxURLs.Text = "URLs";
@@ -1510,11 +1653,20 @@
             this.urlName,
             this.urlAlias});
             this.dGridURL.ContextMenuStrip = this.conMenuURL;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGridURL.DefaultCellStyle = dataGridViewCellStyle1;
             this.dGridURL.Location = new System.Drawing.Point(6, 23);
             this.dGridURL.Name = "dGridURL";
             this.dGridURL.RowTemplate.Height = 24;
             this.dGridURL.Size = new System.Drawing.Size(295, 128);
             this.dGridURL.TabIndex = 8;
+            this.dGridURL.Leave += new System.EventHandler(this.dGridURL_Leave);
             // 
             // urlName
             // 
@@ -1553,9 +1705,10 @@
             // 
             // btnProjSettingsAddURL
             // 
+            this.btnProjSettingsAddURL.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProjSettingsAddURL.Location = new System.Drawing.Point(6, 160);
             this.btnProjSettingsAddURL.Name = "btnProjSettingsAddURL";
-            this.btnProjSettingsAddURL.Size = new System.Drawing.Size(75, 23);
+            this.btnProjSettingsAddURL.Size = new System.Drawing.Size(75, 29);
             this.btnProjSettingsAddURL.TabIndex = 4;
             this.btnProjSettingsAddURL.Text = "Add URL";
             this.btnProjSettingsAddURL.UseVisualStyleBackColor = true;
@@ -1589,7 +1742,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 389);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 398);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1665,7 +1818,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(17, 241);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(417, 139);
+            this.groupBox2.Size = new System.Drawing.Size(462, 139);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Function Flags";
@@ -1686,6 +1839,7 @@
             this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 84);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
+            this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
             // 
             // mainMenuStrip
             // 
@@ -1818,7 +1972,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8)";
+            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.7A)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -1832,6 +1986,7 @@
             this.gBoxWatchChartScaling.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gBoxWatchActions.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
             this.gBoxProjEnums.ResumeLayout(false);
             this.gBoxProjEnums.PerformLayout();
@@ -1843,8 +1998,11 @@
             this.gBoxProjUnits.PerformLayout();
             this.conMenuUnits.ResumeLayout(false);
             this.tabProjectSettings.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.gBoxEventLogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).EndInit();
+            this.conMenuEventLogs.ResumeLayout(false);
             this.gBoxTargetCommunication.ResumeLayout(false);
             this.gBoxURLs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).EndInit();
@@ -2007,6 +2165,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLogEmbIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLogName;
         private System.Windows.Forms.Button btnProjSettingsAddEventLog;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tBoxPasswordLevel3;
+        private System.Windows.Forms.TextBox tBoxPasswordLevel2;
+        private System.Windows.Forms.TextBox tBoxPasswordLevel1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox gBoxWatchActions;
+        private System.Windows.Forms.ContextMenuStrip conMenuEventLogs;
+        private System.Windows.Forms.ToolStripMenuItem addEventLogMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteEventLogMenuItem;
     }
 }
 

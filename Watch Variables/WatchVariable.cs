@@ -7,6 +7,18 @@ namespace DDB
 {
     public partial class FormMain
     {
+        private void InitWatchVars()
+        {
+            RefreshWatchVariableList(-1);
+            // Always disable the Actions and context menu that contains actions when in customer mode
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                gBoxWatchActions.Enabled = false;
+                conMenuWatchVarList.Enabled = false;
+            }
+
+        }
+
         private void UpdateWatchVarDisplay(int index)
         {
             if (index != -1)
@@ -45,6 +57,11 @@ namespace DDB
                 tBoxWatchMaxChart.Text = "";
                 tBoxWatchMinValue.Text = "";
                 tBoxWatchMaxValue.Text = "";
+
+                btnWatchAccept.Enabled = false;
+                btnWatchCancel.Enabled = false;
+                btnWatchModifyHelpText.Enabled = false;
+                btnWatchHelpAvailable.Enabled = false;
             }
         }
 
@@ -165,6 +182,13 @@ namespace DDB
             }
             FormHelpText fh = new FormHelpText(w);
             fh.ShowDialog();
+
+            // Always save the help text when in customer mode because Accept and Cancel are disabled in customer mode
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                w.helpText = w.preAcceptHelpText;
+            }
+
             // Code returned here after help form closes
             if (w.preAcceptHelpText == "")
             {
@@ -243,6 +267,7 @@ namespace DDB
                 btnWatchCopy.Enabled = false;
 
                 conMenuWatchVarList.Items[1].Enabled = false;
+                btnWatchModifyHelpText.Enabled = false;
             }
             else if (lBoxWatchVariables.SelectedIndices.Count == 1)
             {
@@ -250,9 +275,17 @@ namespace DDB
 
                 conMenuWatchVarList.Items[1].Enabled = true;
 
-                btnWatchModify.Enabled = true;
-                btnWatchDelete.Enabled = true;
-                btnWatchCopy.Enabled = true;
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnWatchModify.Enabled = true;
+                    btnWatchDelete.Enabled = true;
+                    btnWatchCopy.Enabled = true;
+                }
+                else
+                {
+                    // Enable modify help text only for customer
+                    btnWatchModifyHelpText.Enabled = true;
+                }
             }
             else
             {
@@ -273,6 +306,8 @@ namespace DDB
                     }
                     indexCount++;
                 }
+
+                btnWatchModifyHelpText.Enabled = false;
 
                 UpdateWatchVarDisplay(firstSelectedIndex);
             }
@@ -376,13 +411,16 @@ namespace DDB
         {
             watchVarIndex = lBoxWatchVariables.SelectedIndex;
 
-            btnWatchModify.Enabled = false;
-            btnWatchCreate.Enabled = false;
-            btnWatchCopy.Enabled = false;
-            btnWatchDelete.Enabled = false;
-            btnWatchImport.Enabled = false;
+            gBoxWatchActions.Enabled = false;
             grpBoxWatchVarList.Enabled = false;
-            grpBoxWatchAttrs.Enabled = true;
+            btnWatchModifyHelpText.Enabled = true;
+            btnWatchAccept.Enabled = true;
+            btnWatchCancel.Enabled = true;
+
+            if (!GlobalSettings.getCustomerUseOnly())
+            {
+                grpBoxWatchAttrs.Enabled = true;
+            }
         }
 
         private bool newVarBeingCreated;
@@ -419,6 +457,8 @@ namespace DDB
             }
 
             newVarBeingCreated = false;
+            gBoxWatchActions.Enabled = true;
+
         }
 
         private void PopulateNewVarDefaults()

@@ -37,6 +37,15 @@ namespace DDB
             }
         }
 
+        private void addEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewEventLog();
+        }
+
+        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteEventLogs();
+        }
 
         private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
         {
@@ -50,7 +59,7 @@ namespace DDB
 
         private void deleteURLMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteItems();
+            DeleteUrls();
         }
 
         private void btnProjSettingsAddEventLog_Click(object sender, EventArgs e)
@@ -65,7 +74,7 @@ namespace DDB
             dGridURL.BeginEdit(true);
         }
 
-        private void DeleteItems()
+        private void DeleteUrls()
         {
             DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected URL(s)?",
                                   "Delete URL(s) Confirmation",
@@ -110,6 +119,27 @@ namespace DDB
             dGridEventLog.CurrentCell = dGridEventLog.Rows[rowindex].Cells[1];
             dGridEventLog.BeginEdit(true);
         }
+
+        private void DeleteEventLogs()
+        {
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Log(s)?",
+                                  "Delete Event Log(s) Confirmation",
+                                  MessageBoxButtons.OKCancel,
+                                  MessageBoxIcon.Warning);
+
+            // User really didn't want to delete the variables... abort delete
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            foreach (DataGridViewRow item in dGridEventLog.SelectedRows)
+            {
+                dGridEventLog.Rows.RemoveAt(item.Index);
+            }
+        }
+
+
 
     }
 }

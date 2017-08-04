@@ -10,9 +10,21 @@ namespace DDB
         FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
         FormEnumPreview formEnumPreview = new FormEnumPreview();
 
-        public FormMain()
+        private FormMain()
+        { }
+
+        public FormMain(string []args)
         {
             InitializeComponent();
+
+            GlobalSettings.setCustomerUseOnly(false);
+            if (args.Length == 1)
+            {
+                if (args[0] == "CUSTOMER_USE_ONLY")
+                {
+                    GlobalSettings.setCustomerUseOnly(true);
+                }
+            }
 
             ////////////////////////////////////////////////////////
             /// FOR TEST ONLY
@@ -20,7 +32,7 @@ namespace DDB
             BitmaskVarList.Init();
             EnumVarList.Init();
             ProjectSettingsTest.Init();
-            RefreshWatchVariableList(-1);
+            InitWatchVars();
             PopulateUnits(-1);
             PopulateBitmasks(-1);
             PopulateEnums(-1);
@@ -29,6 +41,12 @@ namespace DDB
             cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 1;
+
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                tabControl1.TabPages.Remove(tabProjectDefinitions);
+                tabControl1.TabPages.Remove(tabProjectSettings);
+            }
         }
 
         private void PopulateUnits(int select)
@@ -109,7 +127,6 @@ namespace DDB
                 dGridEventLog.Rows.Add(e.embIndex, e.name);
             }
 
-
             int ff = ProjectSettingsTest.GetFunctionFlags();
 
             for (int index = 0; index < 32; index++)
@@ -172,6 +189,13 @@ namespace DDB
                 case 3:
                     // Tab Project Definitions
                     break;
+
+
+                case 4:
+                    // Tab Project Settings
+                    dGridURL.ClearSelection();
+                    dGridEventLog.ClearSelection();
+                    break;
             }
         }
 
@@ -199,5 +223,20 @@ namespace DDB
             }
         }
 
-    }
+        private void dGridURL_Leave(object sender, EventArgs e)
+        {
+            dGridURL.ClearSelection();
+        }
+
+        private void dGridEventLog_Leave(object sender, EventArgs e)
+        {
+            dGridEventLog.ClearSelection();
+        }
+
+        private void cListBoxFunctionFlags_Leave(object sender, EventArgs e)
+        {
+            cListBoxFunctionFlags.SelectedIndex = -1;
+        }
+
+     }
 }
