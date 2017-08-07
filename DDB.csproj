@@ -67,11 +67,11 @@
     <Compile Include="ProjectDefinitions\FormEnumPreview.Designer.cs">
       <DependentUpon>FormEnumPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormEnumsEditor.cs">
+    <Compile Include="ProjectDefinitions\FormEnumEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormEnumsEditor.Designer.cs">
-      <DependentUpon>FormEnumsEditor.cs</DependentUpon>
+    <Compile Include="ProjectDefinitions\FormEnumEditor.Designer.cs">
+      <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectDefinitions\Enumerations.cs">
       <SubType>Form</SubType>
@@ -135,8 +135,8 @@
     <EmbeddedResource Include="ProjectDefinitions\FormEnumPreview.resx">
       <DependentUpon>FormEnumPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDefinitions\FormEnumsEditor.resx">
-      <DependentUpon>FormEnumsEditor.cs</DependentUpon>
+    <EmbeddedResource Include="ProjectDefinitions\FormEnumEditor.resx">
+      <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectDefinitions\FormBitmaskPreview.resx">
       <DependentUpon>FormBitmaskPreview.cs</DependentUpon>

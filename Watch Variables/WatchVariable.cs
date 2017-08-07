@@ -17,7 +17,11 @@ namespace DDB
                 conMenuWatchVarList.Enabled = false;
             }
 
+
         }
+
+
+
 
         private void UpdateWatchVarDisplay(int index)
         {
@@ -411,6 +415,8 @@ namespace DDB
         {
             watchVarIndex = lBoxWatchVariables.SelectedIndex;
 
+            tabControl1.Focus();
+            grpBoxWatchAttrs.Focus();
             gBoxWatchActions.Enabled = false;
             grpBoxWatchVarList.Enabled = false;
             btnWatchModifyHelpText.Enabled = true;

@@ -7,6 +7,17 @@ namespace DDB
 {
     public partial class FormMain
     {
+        private void InitProjectSettings()
+        {
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font(this.Font, FontStyle.Bold);
+            dGridURL.Columns[0].HeaderCell.Style = style;
+            dGridURL.Columns[1].HeaderCell.Style = style;
+            dGridEventLog.Columns[0].HeaderCell.Style = style;
+            dGridEventLog.Columns[1].HeaderCell.Style = style;
+
+        }
+
         private void cBoxCommType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxCommType.SelectedIndex == 0)
