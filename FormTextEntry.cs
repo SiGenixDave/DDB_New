@@ -42,5 +42,17 @@ namespace DDB
             textEntry.ConfirmedTextEntry(tBoxEntry.Text);
             Close();
         }
+
+        private void FormTextEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                btnAccept_Click(null, null);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(null, null);
+            }
+        }
     }
 }

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 using DDB.Test;
-using System.Drawing;
 
 namespace DDB
 {
     public partial class FormMain : Form
     {
-        FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
-        FormEnumPreview formEnumPreview = new FormEnumPreview();
+        private FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
+        private FormEnumPreview formEnumPreview = new FormEnumPreview();
 
         private FormMain()
         { }
 
-        public FormMain(string []args)
+        public FormMain(string[] args)
         {
             InitializeComponent();
 
@@ -33,6 +32,7 @@ namespace DDB
             EnumVarList.Init();
             ProjectSettingsTest.Init();
             InitWatchVars();
+            InitProjectSettings();
             PopulateUnits(-1);
             PopulateBitmasks(-1);
             PopulateEnums(-1);
@@ -68,7 +68,6 @@ namespace DDB
             {
                 lBoxProjUnits.SelectedIndex = select;
             }
-
         }
 
         private void PopulateBitmasks(int select)
@@ -88,7 +87,6 @@ namespace DDB
             {
                 lBoxProjBitmasks.SelectedIndex = select;
             }
-
         }
 
         private void PopulateEnums(int select)
@@ -108,10 +106,9 @@ namespace DDB
             {
                 lBoxProjEnums.SelectedIndex = select;
             }
-
         }
 
-        private void PopulateProjectSettings() 
+        private void PopulateProjectSettings()
         {
             URLTest[] urls = ProjectSettingsTest.GetURLs();
 
@@ -190,7 +187,6 @@ namespace DDB
                     // Tab Project Definitions
                     break;
 
-
                 case 4:
                     // Tab Project Settings
                     dGridURL.ClearSelection();
@@ -238,5 +234,23 @@ namespace DDB
             cListBoxFunctionFlags.SelectedIndex = -1;
         }
 
-     }
+        // Handle <Escape> and <CR> keys
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                if (grpBoxWatchAttrs.Enabled)
+                {
+                    if (e.KeyCode == Keys.Return)
+                    {
+                        btnWatchAccept_Click(null, null);
+                    }
+                    else if (e.KeyCode == Keys.Escape)
+                    {
+                        btnWatchCancel_Click(null, null);
+                    }
+                }
+            }
+        }
+    }
 }

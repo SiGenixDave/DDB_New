@@ -176,5 +176,17 @@ namespace DDB
             dataGridView1.CurrentCell = dataGridView1.Rows[rowindex].Cells[1];
             dataGridView1.BeginEdit(true);
         }
+
+        private void FormEnumsEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                btnAccept_Click(null, null);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(null, null);
+            }
+        }
     }
 }

@@ -17,7 +17,17 @@ namespace DDB
                 conMenuWatchVarList.Enabled = false;
             }
 
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                // remove the double click so the customer can't edit a watch variable
+                this.lBoxWatchVariables.MouseDoubleClick -= this.lBoxWatchVariables_MouseDoubleClick;
+            }
+
+
         }
+
+
+
 
         private void UpdateWatchVarDisplay(int index)
         {
@@ -411,6 +421,8 @@ namespace DDB
         {
             watchVarIndex = lBoxWatchVariables.SelectedIndex;
 
+            tabControl1.Focus();
+            grpBoxWatchAttrs.Focus();
             gBoxWatchActions.Enabled = false;
             grpBoxWatchVarList.Enabled = false;
             btnWatchModifyHelpText.Enabled = true;
