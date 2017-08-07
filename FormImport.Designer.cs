@@ -61,7 +61,7 @@
             this.lBoxImport.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxImport.FormattingEnabled = true;
             this.lBoxImport.HorizontalScrollbar = true;
-            this.lBoxImport.ItemHeight = 21;
+            this.lBoxImport.ItemHeight = 17;
             this.lBoxImport.Location = new System.Drawing.Point(22, 67);
             this.lBoxImport.Name = "lBoxImport";
             this.lBoxImport.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
@@ -73,7 +73,7 @@
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(18, 24);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(54, 21);
+            this.lbl.Size = new System.Drawing.Size(42, 17);
             this.lbl.TabIndex = 4;
             this.lbl.Text = "label2";
             // 
@@ -88,11 +88,13 @@
             this.Controls.Add(this.btnAccept);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FormImport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ImportForm";
             this.Load += new System.EventHandler(this.ImportForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormImport_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
