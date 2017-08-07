@@ -56,6 +56,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\FormEventEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\FormEventEditor.Designer.cs">
+      <DependentUpon>FormEventEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="ProjectDefinitions\Bitmasks.cs">
       <SubType>Form</SubType>
@@ -121,6 +130,7 @@
     <Compile Include="iDDBHelpObject.cs" />
     <Compile Include="iTextEntry.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Test\EventTest.cs" />
     <Compile Include="Test\ProjectSettingsTest.cs" />
     <Compile Include="Test\UnitsTest.cs" />
     <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />
@@ -132,6 +142,9 @@
     <Compile Include="Watch Variables\WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="Events\FormEventEditor.resx">
+      <DependentUpon>FormEventEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProjectDefinitions\FormEnumPreview.resx">
       <DependentUpon>FormEnumPreview.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,12 +31,14 @@ namespace DDB
             BitmaskVarList.Init();
             EnumVarList.Init();
             ProjectSettingsTest.Init();
+            EventInfoTest.Init();
             InitWatchVars();
             InitProjectSettings();
             PopulateUnits(-1);
             PopulateBitmasks(-1);
             PopulateEnums(-1);
             PopulateProjectSettings();
+            PopulateEventLists();
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
@@ -252,5 +254,8 @@ namespace DDB
                 }
             }
         }
+
+             
+
     }
 }
