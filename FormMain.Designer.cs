@@ -86,7 +86,7 @@
             this.btnWatchModify = new System.Windows.Forms.Button();
             this.btnWatchDelete = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gBoxEventVariables = new System.Windows.Forms.GroupBox();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -99,7 +99,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.btnEventVarCreate = new System.Windows.Forms.Button();
             this.lBoxEventVars = new System.Windows.Forms.ListBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gBoxEventStructures = new System.Windows.Forms.GroupBox();
             this.button12 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.btnEventStructFilterClear = new System.Windows.Forms.Button();
@@ -242,8 +242,8 @@
             this.groupBox1.SuspendLayout();
             this.gBoxWatchActions.SuspendLayout();
             this.tabEvents.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gBoxEventVariables.SuspendLayout();
+            this.gBoxEventStructures.SuspendLayout();
             this.gBoxEvents.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.gBoxProjEnums.SuspendLayout();
@@ -940,8 +940,8 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Controls.Add(this.groupBox5);
-            this.tabEvents.Controls.Add(this.groupBox4);
+            this.tabEvents.Controls.Add(this.gBoxEventVariables);
+            this.tabEvents.Controls.Add(this.gBoxEventStructures);
             this.tabEvents.Controls.Add(this.gBoxEvents);
             this.tabEvents.Location = new System.Drawing.Point(4, 22);
             this.tabEvents.Name = "tabEvents";
@@ -950,27 +950,29 @@
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gBoxEventVariables
             // 
-            this.groupBox5.Controls.Add(this.button17);
-            this.groupBox5.Controls.Add(this.button18);
-            this.groupBox5.Controls.Add(this.button19);
-            this.groupBox5.Controls.Add(this.btnEventVarImport);
-            this.groupBox5.Controls.Add(this.btnEventVarCopy);
-            this.groupBox5.Controls.Add(this.button22);
-            this.groupBox5.Controls.Add(this.btnEventVarDelete);
-            this.groupBox5.Controls.Add(this.btnEventVarModify);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Controls.Add(this.btnEventVarCreate);
-            this.groupBox5.Controls.Add(this.lBoxEventVars);
-            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(558, 32);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(255, 444);
-            this.groupBox5.TabIndex = 33;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Event Variables";
+            this.gBoxEventVariables.Controls.Add(this.button17);
+            this.gBoxEventVariables.Controls.Add(this.button18);
+            this.gBoxEventVariables.Controls.Add(this.button19);
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarImport);
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarCopy);
+            this.gBoxEventVariables.Controls.Add(this.button22);
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarDelete);
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarModify);
+            this.gBoxEventVariables.Controls.Add(this.textBox6);
+            this.gBoxEventVariables.Controls.Add(this.label22);
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarCreate);
+            this.gBoxEventVariables.Controls.Add(this.lBoxEventVars);
+            this.gBoxEventVariables.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxEventVariables.Location = new System.Drawing.Point(558, 32);
+            this.gBoxEventVariables.Name = "gBoxEventVariables";
+            this.gBoxEventVariables.Size = new System.Drawing.Size(255, 444);
+            this.gBoxEventVariables.TabIndex = 33;
+            this.gBoxEventVariables.TabStop = false;
+            this.gBoxEventVariables.Text = "Event Variables";
+            this.gBoxEventVariables.Enter += new System.EventHandler(this.gBoxEventVariables_Enter);
+            this.gBoxEventVariables.Leave += new System.EventHandler(this.gBoxEventVariables_Leave);
             // 
             // button17
             // 
@@ -1107,27 +1109,29 @@
             this.lBoxEventVars.SelectedIndexChanged += new System.EventHandler(this.lBoxEventVars_SelectedIndexChanged);
             this.lBoxEventVars.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventVars_MouseDoubleClick);
             // 
-            // groupBox4
+            // gBoxEventStructures
             // 
-            this.groupBox4.Controls.Add(this.button12);
-            this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Controls.Add(this.btnEventStructFilterClear);
-            this.groupBox4.Controls.Add(this.btnEventStructureImport);
-            this.groupBox4.Controls.Add(this.btnEventStructureCopy);
-            this.groupBox4.Controls.Add(this.btnEventStructFilterApply);
-            this.groupBox4.Controls.Add(this.btnEventStructureDelete);
-            this.groupBox4.Controls.Add(this.btnEventStructureModify);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Controls.Add(this.btnEventStructureCreate);
-            this.groupBox4.Controls.Add(this.lBoxEventStructures);
-            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(288, 32);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(255, 444);
-            this.groupBox4.TabIndex = 29;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Event Structures";
+            this.gBoxEventStructures.Controls.Add(this.button12);
+            this.gBoxEventStructures.Controls.Add(this.button16);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructFilterClear);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructureImport);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructureCopy);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructFilterApply);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructureDelete);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructureModify);
+            this.gBoxEventStructures.Controls.Add(this.textBox5);
+            this.gBoxEventStructures.Controls.Add(this.label21);
+            this.gBoxEventStructures.Controls.Add(this.btnEventStructureCreate);
+            this.gBoxEventStructures.Controls.Add(this.lBoxEventStructures);
+            this.gBoxEventStructures.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxEventStructures.Location = new System.Drawing.Point(288, 32);
+            this.gBoxEventStructures.Name = "gBoxEventStructures";
+            this.gBoxEventStructures.Size = new System.Drawing.Size(255, 444);
+            this.gBoxEventStructures.TabIndex = 29;
+            this.gBoxEventStructures.TabStop = false;
+            this.gBoxEventStructures.Text = "Event Structures";
+            this.gBoxEventStructures.Enter += new System.EventHandler(this.gBoxEventStructures_Enter);
+            this.gBoxEventStructures.Leave += new System.EventHandler(this.gBoxEventStructures_Leave);
             // 
             // button12
             // 
@@ -1263,6 +1267,7 @@
             this.lBoxEventStructures.TabIndex = 1;
             this.lBoxEventStructures.SelectedIndexChanged += new System.EventHandler(this.lBoxEventStructures_SelectedIndexChanged);
             this.lBoxEventStructures.DoubleClick += new System.EventHandler(this.lBoxEventStructures_DoubleClick);
+            this.lBoxEventStructures.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventStructures_MouseDoubleClick);
             // 
             // gBoxEvents
             // 
@@ -1285,6 +1290,8 @@
             this.gBoxEvents.TabIndex = 2;
             this.gBoxEvents.TabStop = false;
             this.gBoxEvents.Text = "Event List";
+            this.gBoxEvents.Enter += new System.EventHandler(this.gBoxEvents_Enter);
+            this.gBoxEvents.Leave += new System.EventHandler(this.gBoxEvents_Leave);
             // 
             // button9
             // 
@@ -2497,18 +2504,22 @@
             // 
             // previewEventsToolStripMenuItem
             // 
+            this.previewEventsToolStripMenuItem.CheckOnClick = true;
             this.previewEventsToolStripMenuItem.Name = "previewEventsToolStripMenuItem";
             this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.previewEventsToolStripMenuItem.Text = "Preview Events";
+            this.previewEventsToolStripMenuItem.Click += new System.EventHandler(this.previewEventsToolStripMenuItem_Click);
             // 
             // previewEventVariablesToolStripMenuItem
             // 
+            this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
             this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
             this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.previewEventVariablesToolStripMenuItem.Text = "Preview Event Variables";
             // 
             // previewEventStructuresToolStripMenuItem
             // 
+            this.previewEventStructuresToolStripMenuItem.CheckOnClick = true;
             this.previewEventStructuresToolStripMenuItem.Name = "previewEventStructuresToolStripMenuItem";
             this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
@@ -2551,7 +2562,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8a)";
+            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8b)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -2567,10 +2578,10 @@
             this.groupBox1.PerformLayout();
             this.gBoxWatchActions.ResumeLayout(false);
             this.tabEvents.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gBoxEventVariables.ResumeLayout(false);
+            this.gBoxEventVariables.PerformLayout();
+            this.gBoxEventStructures.ResumeLayout(false);
+            this.gBoxEventStructures.PerformLayout();
             this.gBoxEvents.ResumeLayout(false);
             this.gBoxEvents.PerformLayout();
             this.tabProjectDefinitions.ResumeLayout(false);
@@ -2771,7 +2782,7 @@
         private System.Windows.Forms.ToolStripMenuItem previewEventsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventVariablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventStructuresToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gBoxEventStructures;
         private System.Windows.Forms.Button btnEventStructureImport;
         private System.Windows.Forms.Button btnEventStructureCopy;
         private System.Windows.Forms.Button btnEventStructFilterApply;
@@ -2795,7 +2806,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gBoxEventVariables;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;

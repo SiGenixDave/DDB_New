@@ -8,6 +8,7 @@ namespace DDB
     {
         private FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
         private FormEnumPreview formEnumPreview = new FormEnumPreview();
+        private FormEventPreview formEventPreview = new FormEventPreview();
 
         private FormMain()
         { }
@@ -221,6 +222,19 @@ namespace DDB
             }
         }
 
+        private void previewEventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewEventsToolStripMenuItem.Checked)
+            {
+                formEventPreview.Show();
+            }
+            else
+            {
+                formEventPreview.Hide();
+            }
+
+        }
+
         private void dGridURL_Leave(object sender, EventArgs e)
         {
             dGridURL.ClearSelection();
@@ -254,6 +268,11 @@ namespace DDB
                 }
             }
         }
+
+
+        
+
+
 
              
 

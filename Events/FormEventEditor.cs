@@ -7,6 +7,7 @@ namespace DDB
     public partial class FormEventEditor : Form
     {
         EventTest ev;
+        String helpText;
 
         public FormEventEditor(EventTest e)
         {
@@ -20,6 +21,7 @@ namespace DDB
             tBoxDefineName.Text = ev.cDefineName;
             cBoxEventLogs.SelectedIndex = ev.logId;
             cBoxEventStructs.SelectedIndex = ev.structId;
+            helpText = ev.helpText;
 
             if (GlobalSettings.getCustomerUseOnly())
             {
@@ -34,6 +36,18 @@ namespace DDB
         {
         }
 
+
+        public EventTest GetEditedEvent()
+        {
+            ev.name = tBoxEventName.Text;
+            ev.cDefineName = tBoxDefineName.Text;
+            ev.logId = cBoxEventLogs.SelectedIndex;
+            ev.structId = cBoxEventStructs.SelectedIndex;
+            ev.helpText = helpText;
+
+            return ev;
+        }
+
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -42,7 +56,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Event \"" + ev.name + "\""))
+            if (Cancel.Query("Event", ev.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

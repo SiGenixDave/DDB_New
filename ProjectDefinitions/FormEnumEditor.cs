@@ -54,7 +54,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Enumeration \"" + enm.dispName + "\" "))
+            if (Cancel.Query("Enumeration", enm.dispName))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

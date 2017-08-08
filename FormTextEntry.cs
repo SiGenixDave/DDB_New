@@ -31,7 +31,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Unit " + "\"" + originalUnitText + "\""))
+            if (Cancel.Query("Unit", originalUnitText))
             {
                 Close();
             }

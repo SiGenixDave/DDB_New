@@ -33,6 +33,10 @@ namespace DDB
         {
             return evVars.ToArray();
         }
+        static public EventVariableTest GetEventVariable(int i)
+        {
+            return evVars[i];
+        }
 
         static public EventTest GetEvent(String name)
         {
@@ -47,14 +51,43 @@ namespace DDB
             return null;
         }
 
+        static public EventTest GetEvent(int i)
+        {
+            return events[i];
+        }
+
+
+        static public void AddNewEvent(EventTest ev)
+        {
+            events.Add(ev);
+        }
+
+        static public void DeleteEvent(EventTest ev)
+        {
+            events.Remove(ev);
+        }
+
+
+        static public EventStructureTest GetEventStructure(String name)
+        {
+            foreach (EventStructureTest e in evStructs)
+            {
+                if (e.name == name)
+                {
+                    return e;
+                }
+            }
+
+            return null;
+        }
 
 
         static private void CreateEvents()
         {
             events.Add(new EventTest("Event 1", "EV_1", 0, 0, "<b>Event 1 Description</b>"));
-            events.Add(new EventTest("Event 2", "EV_2", 1, 1, "<b>Event 2 Description</b>"));
-            events.Add(new EventTest("Event 3", "EV_3", 1, 2, "<b>Event 3 Description</b>"));
-            events.Add(new EventTest("Event 4", "EV_4", 1, 3, "<b>Event 4 Description</b>"));
+            events.Add(new EventTest("Event 2", "EV_2", 1, 1, "<i>Event 2 Description</i>"));
+            events.Add(new EventTest("Event 3", "EV_3", 1, 2, "<u>Event 3 Description</u>"));
+            events.Add(new EventTest("Event 4", "EV_4", 1, 3, "<em>Event 4 Description</em>"));
         }
 
         static private void CreateEventStructures()
