@@ -10,8 +10,7 @@ namespace DDB
         {
             if (GlobalSettings.getCustomerUseOnly())
             {
-                // remove the double click so the customer can't edit a watch variable
-                this.lBoxWatchVariables.MouseDoubleClick -= this.lBoxWatchVariables_MouseDoubleClick;
+
             }
         }
 
@@ -102,6 +101,9 @@ namespace DDB
                 btnEventDelete.Enabled = true;
 
                 formEventPreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+
+                // return focus to main form so that up/down arrows still work
+                this.Focus();
             }
             else
             {
@@ -116,10 +118,12 @@ namespace DDB
 
         private void btnEventStructureCreate_Click(object sender, EventArgs e)
         {
+            CreateEventStructure();
         }
 
         private void btnEventStructureCopy_Click(object sender, EventArgs e)
         {
+            CopyEventStructure();
         }
 
         private void btnEventStructureModify_Click(object sender, EventArgs e)
@@ -129,6 +133,7 @@ namespace DDB
 
         private void btnEventStructureDelete_Click(object sender, EventArgs e)
         {
+            DeleteEventStructure();
         }
 
         private void btnEventStructureImport_Click(object sender, EventArgs e)
@@ -140,9 +145,6 @@ namespace DDB
             //TODO Open new form with list box of units from the XML file
         }
 
-        private void lBoxEventStructures_DoubleClick(object sender, EventArgs e)
-        {
-        }
 
         private void lBoxEventStructures_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -163,6 +165,9 @@ namespace DDB
                 btnEventStructureDelete.Enabled = true;
 
                 //formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+
+                // return focus to main form so that up/down arrows still work
+                this.Focus();
             }
             else
             {
@@ -346,14 +351,14 @@ namespace DDB
 
         private void CreateEventStructure()
         {
-            EventTest e = new EventTest("New Event Name", "'C' #define name", 0, 0, "");
-            using (FormEventEditor frmEvEdit = new FormEventEditor(e))
+            EventStructureTest e = new EventStructureTest("New_Event_str", new List<int>());
+            using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
-                    e = frmEvEdit.GetEditedEvent();
-                    EventInfoTest.AddNewEvent(e);
-                    PopulateEvents();
+                    e = frmEvEdit.GetEditedEventStructure();
+                    EventInfoTest.AddNewEventStructure(e);
+                    PopulateEventStructures();
                 }
             }
         }
@@ -374,21 +379,21 @@ namespace DDB
         private void CopyEventStructure()
         {
             int indexCount = 0;
-            while (indexCount < lBoxEvents.SelectedIndices.Count)
+            while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                EventTest e = EventInfoTest.GetEvent(lBoxEvents.SelectedIndices[indexCount]);
-                EventTest eNew = new EventTest("Copy of " + e.name, "Copy of " + e.cDefineName, e.logId, e.structId, e.helpText);
-                EventInfoTest.AddNewEvent(eNew);
+                EventStructureTest e = EventInfoTest.GetEventStructure(lBoxEventStructures.SelectedIndices[indexCount]);
+                EventStructureTest eNew = new EventStructureTest("Copy of " + e.name, e.varId);
+                EventInfoTest.AddNewEventStructure(eNew);
                 indexCount++;
             }
-            PopulateEvents();
-            lBoxEvents.SelectedIndex = EventInfoTest.GetEvents().Length - 1;
+            PopulateEventStructures();
+            lBoxEventStructures.SelectedIndex = EventInfoTest.GetEventStructures().Length - 1;
         }
 
         private void DeleteEventStructure()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected event(s)?",
-                                                          "Delete Event(s) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Structure(s)?",
+                                                          "Delete Event Structure(s) Confirmation",
                                                           MessageBoxButtons.OKCancel,
                                                           MessageBoxIcon.Warning);
 
@@ -399,29 +404,29 @@ namespace DDB
             }
 
             int indexCount = 0;
-            List<EventTest> items = new List<EventTest>();
-            while (indexCount < lBoxEvents.SelectedIndices.Count)
+            List<EventStructureTest> items = new List<EventStructureTest>();
+            while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                items.Add(EventInfoTest.GetEvent(lBoxEvents.SelectedIndices[indexCount]));
+                items.Add(EventInfoTest.GetEventStructure(lBoxEventStructures.SelectedIndices[indexCount]));
                 indexCount++;
             }
 
             while (items.Count != 0)
             {
-                EventInfoTest.DeleteEvent(items[0]);
+                EventInfoTest.DeleteEventStructure(items[0]);
                 items.RemoveAt(0);
             }
 
-            int numEvents = EventInfoTest.GetEvents().Length;
-            int selIndex = lBoxEvents.SelectedIndex;
-            PopulateEvents();
+            int numEvents = EventInfoTest.GetEventStructures().Length;
+            int selIndex = lBoxEventStructures.SelectedIndex;
+            PopulateEventStructures();
             if (selIndex < numEvents)
             {
-                lBoxEvents.SelectedIndex = selIndex;
+                lBoxEventStructures.SelectedIndex = selIndex;
             }
             else
             {
-                lBoxEvents.SelectedIndex = selIndex - 1;
+                lBoxEventStructures.SelectedIndex = selIndex - 1;
             }
         }
 

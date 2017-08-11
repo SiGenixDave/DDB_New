@@ -140,6 +140,7 @@
             this.btnWatchModifyHelpText.TabIndex = 19;
             this.btnWatchModifyHelpText.Text = "Modify Help Text...";
             this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
+            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
             // 
             // FormEventEditor
             // 

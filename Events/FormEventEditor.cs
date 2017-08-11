@@ -113,5 +113,11 @@ namespace DDB
             cBoxEventLogs.Items.Add("Propulsion");
             cBoxEventLogs.Items.Add("Engineering");
         }
+
+        private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
+        {
+            FormHelpText fh = new FormHelpText(null);
+            fh.ShowDialog();
+        }
     }
 }

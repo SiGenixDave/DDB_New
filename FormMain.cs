@@ -23,6 +23,10 @@ namespace DDB
                 if (args[0] == "CUSTOMER_USE_ONLY")
                 {
                     GlobalSettings.setCustomerUseOnly(true);
+                    importToolStripMenuItem.Enabled = false;
+                    genEmbToolStripMenuItem.Enabled = false;
+                    tabControl1.TabPages.Remove(tabProjectDefinitions);
+                    tabControl1.TabPages.Remove(tabProjectSettings);
                 }
             }
 
@@ -45,11 +49,6 @@ namespace DDB
             cBoxCommType.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 1;
 
-            if (GlobalSettings.getCustomerUseOnly())
-            {
-                tabControl1.TabPages.Remove(tabProjectDefinitions);
-                tabControl1.TabPages.Remove(tabProjectSettings);
-            }
         }
 
         private void PopulateUnits(int select)

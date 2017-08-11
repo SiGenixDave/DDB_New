@@ -1266,7 +1266,6 @@
             this.lBoxEventStructures.Size = new System.Drawing.Size(161, 316);
             this.lBoxEventStructures.TabIndex = 1;
             this.lBoxEventStructures.SelectedIndexChanged += new System.EventHandler(this.lBoxEventStructures_SelectedIndexChanged);
-            this.lBoxEventStructures.DoubleClick += new System.EventHandler(this.lBoxEventStructures_DoubleClick);
             this.lBoxEventStructures.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventStructures_MouseDoubleClick);
             // 
             // gBoxEvents

@@ -24,6 +24,15 @@ namespace DDB
 
         }
 
+        public EventStructureTest GetEditedEventStructure()
+        {
+            evt.name = tBoxStructName.Text;
+
+            // TODO get all of the vars from the Used list and add their indexes
+
+            return evt;
+        }
+
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
             MoveItem(-1);

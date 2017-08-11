@@ -67,7 +67,6 @@ namespace DDB
             events.Remove(ev);
         }
 
-
         static public EventStructureTest GetEventStructure(String name)
         {
             foreach (EventStructureTest e in evStructs)
@@ -79,6 +78,21 @@ namespace DDB
             }
 
             return null;
+        }
+
+        static public EventStructureTest GetEventStructure(int i)
+        {
+            return evStructs[i];
+        }
+
+        static public void AddNewEventStructure(EventStructureTest e)
+        {
+            evStructs.Add(e);
+        }
+
+        static public void DeleteEventStructure(EventStructureTest ev)
+        {
+            evStructs.Remove(ev);
         }
 
 
