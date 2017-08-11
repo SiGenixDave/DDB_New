@@ -155,7 +155,7 @@ namespace DDB
             int index = 0;
             while (index < BitmaskVarList.GetVarCount())
             {
-                cBoxWatchUnits.Items.Add(BitmaskVarList.GetVar(index).dispName);
+                cBoxWatchUnits.Items.Add(BitmaskVarList.GetVar(index));
                 index++;
             }
             if (!useExistingIndex)

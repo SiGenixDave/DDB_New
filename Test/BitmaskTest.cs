@@ -66,11 +66,6 @@ namespace DDB
             list.Remove(w);
         }
 
-        static public BitmaskTest GetMitmaskCopy(int index)
-        {
-            BitmaskTest w = new BitmaskTest(list[index]);
-            return w;
-        }
 
         static public BitmaskTest GetVar(int index)
         {

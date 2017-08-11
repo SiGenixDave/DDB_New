@@ -13,6 +13,7 @@ namespace DDB
                 btnProjEnumsModify.Enabled = false;
                 btnProjEnumsCopy.Enabled = false;
                 btnProjEnumsDelete.Enabled = false;
+                btnProjEnumsLinks.Enabled = false;
             }
             else if (lBoxProjEnums.SelectedIndices.Count == 1)
             {
@@ -21,6 +22,7 @@ namespace DDB
                 btnProjEnumsModify.Enabled = true;
                 btnProjEnumsCopy.Enabled = true;
                 btnProjEnumsDelete.Enabled = true;
+                btnProjEnumsLinks.Enabled = true;
 
                 formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
             }
@@ -32,6 +34,7 @@ namespace DDB
                 btnProjEnumsModify.Enabled = false;
                 btnProjEnumsCopy.Enabled = true;
                 btnProjEnumsDelete.Enabled = true;
+                btnProjEnumsLinks.Enabled = true;
             }
 
         }
@@ -105,12 +108,11 @@ namespace DDB
             while (indexCount < lBoxProjEnums.SelectedIndices.Count)
             {
 
-                EnumsTest enm = new EnumsTest(EnumVarList.GetVar(lBoxProjEnums.SelectedIndices[indexCount]));
-                String b = enm.dispName;
-                b = "Copy of " + b;
-                enm.dispName = b;
+                EnumsTest enm = (EnumsTest)lBoxProjEnums.SelectedItems[indexCount];
+                enm = EnumVarList.CreateVar(enm.dispName, enm.intValues.ToArray(), enm.strValues.ToArray());
+                enm.dispName = "Copy of " + enm.dispName;
                 EnumVarList.AddVar(enm);
-                lBoxProjEnums.Items.Add(b);
+                lBoxProjEnums.Items.Add(enm);
                 indexCount++;
             }
         }
@@ -124,7 +126,7 @@ namespace DDB
                 DialogResult dr = emEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    formEnumPreview.UpdateForm(EnumVarList.GetVar(lBoxProjEnums.SelectedIndex));
+                    formEnumPreview.UpdateForm((EnumsTest)lBoxProjEnums.SelectedItem);
 
                     PopulateEnums(lBoxProjEnums.SelectedIndex);
 
@@ -138,12 +140,12 @@ namespace DDB
 
         private void CreateEnums()
         {
-            EnumsTest et = new EnumsTest("New Enum", new int[] {0}, new String[] {"Description"});
-            lBoxProjEnums.Items.Add(et.dispName);
+            EnumsTest et = EnumVarList.CreateVar("New Enum", new int[] {0}, new String[] {"Description"});
+            lBoxProjEnums.Items.Add(et);
             EnumVarList.AddVar(et);
 
+            // Needed to restore selected items if user aborts
             List<int> selEnums = new List<int>();
-
             int indexCount = 0;
             while (indexCount < lBoxProjEnums.SelectedIndices.Count)
             {
@@ -156,7 +158,7 @@ namespace DDB
             lBoxProjEnums.SelectedIndex = lBoxProjEnums.Items.Count - 1;
             if (!ModifyEnums(true))
             {
-               lBoxProjEnums.Items.Remove(et.dispName);
+               lBoxProjEnums.Items.Remove(et);
                 EnumVarList.DeleteVar(et);
 
                 // Restore the selected index(s) prior to the cancel
@@ -191,7 +193,7 @@ namespace DDB
             List<EnumsTest> enumsToDelete = new List<EnumsTest>();
             while (indexCount < lBoxProjEnums.SelectedIndices.Count)
             {
-                enumsToDelete.Add(EnumVarList.GetVar(lBoxProjEnums.SelectedIndices[indexCount]));
+                enumsToDelete.Add((EnumsTest)(lBoxProjEnums.SelectedItems[indexCount]));
                 indexCount++;
             }
 
