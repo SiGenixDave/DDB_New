@@ -40,6 +40,11 @@ namespace DDB
                 intValues.Add(e.intValues[index]);
             }
         }
+
+        public override string ToString()
+        {
+            return dispName;
+        }
     }
 
     public class EnumVarList
@@ -72,15 +77,9 @@ namespace DDB
             return list.Count;
         }
 
-        static public String[] GetNames()
+        static public EnumsTest[] GetEnums()
         {
-            List<String> strList = new List<string>();
-            foreach (EnumsTest e in list)
-            {
-                strList.Add(e.dispName);
-            }
-
-            return strList.ToArray();
+            return list.ToArray();
         }
 
 

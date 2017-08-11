@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using DDB.Test;
 using System.Collections.Generic;
 
 namespace DDB
@@ -103,9 +102,9 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
-                String u = UnitsTest.GetUnit(lBoxProjUnits.SelectedIndices[indexCount]);
-                u = "Copy of " + u;
-                UnitsTest.AddUnits(u);
+                UnitsTest u = (UnitsTest)lBoxProjUnits.SelectedItems[indexCount];
+                u.name = "Copy of " + u.name;
+                UnitsTestList.AddUnits(u);
                 lBoxProjUnits.Items.Add(u);
                 indexCount++;
             }
@@ -113,12 +112,12 @@ namespace DDB
 
         private void ModifyUnits()
         {
-            UnitModifyObject unitModify = new UnitModifyObject(lBoxProjUnits.SelectedItem.ToString());
+            UnitModifyObject unitModify = new UnitModifyObject((UnitsTest)lBoxProjUnits.SelectedItem);
             if (unitModify.GetUserAcceptance())
             {
-                String modifiedUnitName = unitModify.GetUnit();
-                lBoxProjUnits.Items[lBoxProjUnits.SelectedIndex] = modifiedUnitName;
-                UnitsTest.ModifyUnits(lBoxProjUnits.SelectedIndex, modifiedUnitName);
+                UnitsTest modifiedUnit = unitModify.GetUnit();
+                lBoxProjUnits.Items[lBoxProjUnits.SelectedIndex] = modifiedUnit;
+                UnitsTestList.ModifyUnits(modifiedUnit);
             }
         }
 
@@ -127,9 +126,8 @@ namespace DDB
             UnitCreateObject unitCreate = new UnitCreateObject();
             if (unitCreate.GetUserAcceptance())
             {
-                String newUnitName = unitCreate.GetUnit();
-                UnitsTest.AddUnits(newUnitName);
-                lBoxProjUnits.Items.Add(newUnitName);
+                UnitsTest u = UnitsTestList.AddUnits(unitCreate.GetUnitName());
+                lBoxProjUnits.Items.Add(u);
             }
         }
 
@@ -149,16 +147,16 @@ namespace DDB
             int prevSelected = lBoxProjUnits.SelectedIndices[0];
 
             int indexCount = 0;
-            List<String> unitsToDelete = new List<String>();
+            List<UnitsTest> unitsToDelete = new List<UnitsTest>();
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
-                unitsToDelete.Add(UnitsTest.GetUnit(lBoxProjUnits.SelectedIndices[indexCount]));
+                unitsToDelete.Add((UnitsTest)(lBoxProjUnits.SelectedItems[indexCount]));
                 indexCount++;
             }
 
             while (unitsToDelete.Count != 0)
             {
-                UnitsTest.Delete(unitsToDelete[0]);
+                UnitsTestList.Delete(unitsToDelete[0]);
                 unitsToDelete.RemoveAt(0);
             }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using DDB.Test;
+
 
 namespace DDB
 {
@@ -53,10 +53,10 @@ namespace DDB
 
         private void PopulateUnits(int select)
         {
-            String[] units = UnitsTest.GetUnits();
+            UnitsTest[] units = UnitsTestList.GetUnits();
             cBoxWatchUnits.Items.Clear();
             lBoxProjUnits.Items.Clear();
-            foreach (String u in units)
+            foreach (UnitsTest u in units)
             {
                 cBoxWatchUnits.Items.Add(u);
                 lBoxProjUnits.Items.Add(u);
@@ -74,9 +74,9 @@ namespace DDB
 
         private void PopulateBitmasks(int select)
         {
-            String[] bitmasks = BitmaskVarList.GetBitmasks();
+            BitmaskTest[] bitmasks = BitmaskVarList.GetBitmasks();
             lBoxProjBitmasks.Items.Clear();
-            foreach (String b in bitmasks)
+            foreach (BitmaskTest b in bitmasks)
             {
                 lBoxProjBitmasks.Items.Add(b);
             }
@@ -93,9 +93,9 @@ namespace DDB
 
         private void PopulateEnums(int select)
         {
-            String[] enums = EnumVarList.GetNames();
+            EnumsTest[] enums = EnumVarList.GetEnums();
             lBoxProjEnums.Items.Clear();
-            foreach (String e in enums)
+            foreach (EnumsTest e in enums)
             {
                 lBoxProjEnums.Items.Add(e);
             }
@@ -268,12 +268,6 @@ namespace DDB
             }
         }
 
-
-        
-
-
-
-             
 
     }
 }

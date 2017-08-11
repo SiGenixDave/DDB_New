@@ -6,15 +6,17 @@ namespace DDB
     public class BitmaskTest
     {
         public String dispName;
+        public Int32 key;
         public String[] strValues = new String[32];
 
         private BitmaskTest()
         {
         }
 
-        public BitmaskTest(String dName, String[] sValues)
+        public BitmaskTest(String dName, String[] sValues, Int32 k)
         {
             dispName = dName;
+            key = k;
             for (int index = 0; index < sValues.Length; index++)
             {
                 strValues[index] = sValues[index];
@@ -34,17 +36,31 @@ namespace DDB
                 strValues[index] = w.strValues[index];
             }
         }
+
+        public override string ToString()
+        {
+            return dispName;
+        }
     }
 
     public class BitmaskVarList
     {
         static public List<BitmaskTest> list = new List<BitmaskTest>();
+        static public Int32 key = 0;
 
         static public void AddVar(BitmaskTest w)
         {
+            w.key = key++;
             list.Add(w);
         }
 
+        static public BitmaskTest CreateVar(String disp)
+        {
+            BitmaskTest bmt = new BitmaskTest(disp);
+            AddVar(bmt);
+            return bmt;
+        }
+        
         static public void DeleteVar(BitmaskTest w)
         {
             list.Remove(w);
@@ -66,26 +82,20 @@ namespace DDB
             return list.Count;
         }
 
-        static public String[] GetBitmasks()
+        static public BitmaskTest[] GetBitmasks()
         {
-            List<String> strList = new List<string>();
-            foreach (BitmaskTest b in list)
-            {
-                strList.Add(b.dispName);
-            }
-
-            return strList.ToArray();
+            return list.ToArray();
         }
 
         static public void Init()
         {
             String[] val = new String[32];
-            list.Add(new BitmaskTest("BitMask 01", val));
-            list.Add(new BitmaskTest("BitMask 02", val));
-            list.Add(new BitmaskTest("BitMask 03", val));
-            list.Add(new BitmaskTest("BitMask 04", val));
-            list.Add(new BitmaskTest("BitMask 05", val));
-            list.Add(new BitmaskTest("BitMask 06", val));
+            list.Add(new BitmaskTest("BitMask 01", val, key++));
+            list.Add(new BitmaskTest("BitMask 02", val, key++));
+            list.Add(new BitmaskTest("BitMask 03", val, key++));
+            list.Add(new BitmaskTest("BitMask 04", val, key++));
+            list.Add(new BitmaskTest("BitMask 05", val, key++));
+            list.Add(new BitmaskTest("BitMask 06", val, key++));
         }
 
     }

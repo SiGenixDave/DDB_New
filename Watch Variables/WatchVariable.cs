@@ -138,11 +138,12 @@ namespace DDB
         private void LoadUnitsIntoComboBox()
         {
             cBoxWatchUnits.Items.Clear();
-            cBoxWatchUnits.Items.Add("NONE");
-            cBoxWatchUnits.Items.Add("Amps");
-            cBoxWatchUnits.Items.Add("Volts");
-            cBoxWatchUnits.Items.Add("MPH");
-            cBoxWatchUnits.Items.Add("m/sec2");
+                
+            foreach (UnitsTest unit in UnitsTestList.GetUnits())
+            {
+                cBoxWatchUnits.Items.Add(unit);
+            }
+
             cBoxWatchUnits.SelectedIndex = 0;
         }
 

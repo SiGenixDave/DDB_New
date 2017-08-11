@@ -78,6 +78,11 @@ namespace DDB
             return preAcceptHelpText;
         }
 
+        public override string ToString()
+        {
+            return dispName;
+        }
+
     }
 
     internal class WatchVarList

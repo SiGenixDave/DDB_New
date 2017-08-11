@@ -156,6 +156,11 @@ namespace DDB
             structId = s;
             helpText = h;
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
  
     }
 
@@ -171,6 +176,11 @@ namespace DDB
             name = n;
             varId = l;
             id = sId++;
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 
@@ -201,6 +211,11 @@ namespace DDB
             unitConversion = uc;
             formatString = fs;
             helpText = ht;
+        }
+
+        public override string ToString()
+        {
+            return dispName;
         }
 
 

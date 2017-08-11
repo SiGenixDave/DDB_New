@@ -3,52 +3,79 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DDB.Test
+namespace DDB
 {
-    public class UnitsTest
+    public class UnitsTestList
     {
-        static List <String> myDefines = new List<String>() 
+        static Int32 key = 0;
+        static List<UnitsTest> list = new List<UnitsTest>() 
         {
-            "NONE",
-            "Volts",
-            "Meters",
-            "Amps",
-            "MPHPS",
+            new UnitsTest ("NONE", key++),
+            new UnitsTest ("Volts", key++),
+            new UnitsTest ("Meters", key++),
+            new UnitsTest ("Amps", key++),
+            new UnitsTest ("MPHPS", key++),
         };
 
-        static public void AddUnits(String newUnit)
+        static public UnitsTest AddUnits(UnitsTest newUnit)
         {
-            myDefines.Add(newUnit);
+            UnitsTest ut = new UnitsTest(newUnit.name, key++);
+            list.Add(ut);
+            return ut;
         }
 
-        static public void ModifyUnits(int index, String modifiedUnit)
+        static public UnitsTest AddUnits(String name)
         {
-            myDefines[index] = modifiedUnit;
+            UnitsTest ut = new UnitsTest(name, key++);
+            list.Add(ut);
+            return ut;
         }
 
-        static public String[] GetUnits()
+        static public void ModifyUnits(UnitsTest ut)
         {
-            return myDefines.ToArray();
-        }
+            Int32 index = 0;
 
-        static public String GetUnit(Int32 index)
-        {
-            return myDefines[index];
-        }
-
-        static public void Delete(String unit)
-        {
-            myDefines.Remove(unit);
-        }
-
-        static public void Delete(String []units)
-        {
-            foreach (String u in units)
+            while (index < list.Count)
             {
-                myDefines.Remove(u);
+                if (list[index].key == ut.key)
+                {
+                    list[index] = ut;
+                }
             }
         }
 
+        static public UnitsTest[] GetUnits()
+        {
+            return list.ToArray();
+        }
+
+        static public void Delete(UnitsTest ut)
+        {
+            list.Remove(ut);
+        }
+
+    }
+
+    public class UnitsTest
+    {
+        public Int32 key;
+        public String name;
+
+        private UnitsTest()
+        {
+
+        }
+
+        public UnitsTest(String n, Int32 k)
+        {
+            name = n;
+            key = k;
+        }
+
+        public override string ToString()
+        {
+            return name;
+        }
 
     }
 
