@@ -116,7 +116,7 @@ namespace DDB
 
         private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
         {
-            FormHelpText fh = new FormHelpText(null);
+            FormHelpText fh = new FormHelpText(null, null);
             fh.ShowDialog();
         }
     }

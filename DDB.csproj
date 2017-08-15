@@ -52,7 +52,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WinFormHtmlEditor">
-      <HintPath>..\..\..\..\..\Users\Dave\Trial_Version\Main Control DLL\.NET 4.0\WinFormHtmlEditor.dll</HintPath>
+      <HintPath>WInformHTMLEditor\WinFormHtmlEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +207,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WInformHTMLEditor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

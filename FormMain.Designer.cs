@@ -128,6 +128,7 @@
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
             this.gBoxProjEnums = new System.Windows.Forms.GroupBox();
+            this.btnProjEnumsLinks = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -145,6 +146,7 @@
             this.modifyEnumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEnumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gBoxProjBitmask = new System.Windows.Forms.GroupBox();
+            this.btnProBitmasksLinks = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -162,6 +164,7 @@
             this.modifyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gBoxProjUnits = new System.Windows.Forms.GroupBox();
+            this.btnProUnitsLinks = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnProjUnitsImport = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -232,9 +235,6 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
-            this.btnProUnitsLinks = new System.Windows.Forms.Button();
-            this.btnProBitmasksLinks = new System.Windows.Forms.Button();
-            this.btnProjEnumsLinks = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -947,9 +947,9 @@
             this.tabEvents.Controls.Add(this.gBoxEventVariables);
             this.tabEvents.Controls.Add(this.gBoxEventStructures);
             this.tabEvents.Controls.Add(this.gBoxEvents);
-            this.tabEvents.Location = new System.Drawing.Point(4, 26);
+            this.tabEvents.Location = new System.Drawing.Point(4, 25);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 525);
+            this.tabEvents.Size = new System.Drawing.Size(842, 526);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -1436,9 +1436,9 @@
             // 
             // tabSelfTest
             // 
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 25);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 526);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -1481,6 +1481,17 @@
             this.gBoxProjEnums.Text = "Enumerations";
             this.gBoxProjEnums.Enter += new System.EventHandler(this.gBoxProjEnums_Enter);
             this.gBoxProjEnums.Leave += new System.EventHandler(this.gBoxProjEnums_Leave);
+            // 
+            // btnProjEnumsLinks
+            // 
+            this.btnProjEnumsLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProjEnumsLinks.Location = new System.Drawing.Point(168, 251);
+            this.btnProjEnumsLinks.Name = "btnProjEnumsLinks";
+            this.btnProjEnumsLinks.Size = new System.Drawing.Size(75, 23);
+            this.btnProjEnumsLinks.TabIndex = 22;
+            this.btnProjEnumsLinks.Text = "Links...";
+            this.toolTip1.SetToolTip(this.btnProjEnumsLinks, "\"TODO Show vars that use this Enumeration\"");
+            this.btnProjEnumsLinks.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
@@ -1674,6 +1685,17 @@
             this.gBoxProjBitmask.Enter += new System.EventHandler(this.gBoxProjBitmask_Enter);
             this.gBoxProjBitmask.Leave += new System.EventHandler(this.gBoxProjBitmask_Leave);
             // 
+            // btnProBitmasksLinks
+            // 
+            this.btnProBitmasksLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProBitmasksLinks.Location = new System.Drawing.Point(168, 251);
+            this.btnProBitmasksLinks.Name = "btnProBitmasksLinks";
+            this.btnProBitmasksLinks.Size = new System.Drawing.Size(75, 23);
+            this.btnProBitmasksLinks.TabIndex = 21;
+            this.btnProBitmasksLinks.Text = "Links...";
+            this.toolTip1.SetToolTip(this.btnProBitmasksLinks, "\"TODO Show vars that use this Bitmask\"");
+            this.btnProBitmasksLinks.UseVisualStyleBackColor = true;
+            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1866,6 +1888,17 @@
             this.gBoxProjUnits.Enter += new System.EventHandler(this.gBoxProjUnits_Enter);
             this.gBoxProjUnits.Leave += new System.EventHandler(this.gBoxProjUnits_Leave);
             // 
+            // btnProUnitsLinks
+            // 
+            this.btnProUnitsLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProUnitsLinks.Location = new System.Drawing.Point(165, 251);
+            this.btnProUnitsLinks.Name = "btnProUnitsLinks";
+            this.btnProUnitsLinks.Size = new System.Drawing.Size(75, 23);
+            this.btnProUnitsLinks.TabIndex = 20;
+            this.btnProUnitsLinks.Text = "Links...";
+            this.toolTip1.SetToolTip(this.btnProUnitsLinks, "\"TODO Show vars that use this Unit\"");
+            this.btnProUnitsLinks.UseVisualStyleBackColor = true;
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2039,9 +2072,9 @@
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -2315,7 +2348,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 401);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 400);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2409,7 +2442,7 @@
             "Display URL Alias Name"});
             this.cListBoxFunctionFlags.Location = new System.Drawing.Point(6, 23);
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
-            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 80);
+            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 99);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
@@ -2557,39 +2590,6 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
-            // btnProUnitsLinks
-            // 
-            this.btnProUnitsLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProUnitsLinks.Location = new System.Drawing.Point(165, 251);
-            this.btnProUnitsLinks.Name = "btnProUnitsLinks";
-            this.btnProUnitsLinks.Size = new System.Drawing.Size(75, 23);
-            this.btnProUnitsLinks.TabIndex = 20;
-            this.btnProUnitsLinks.Text = "Links...";
-            this.toolTip1.SetToolTip(this.btnProUnitsLinks, "\"TODO Show vars that use this Unit\"");
-            this.btnProUnitsLinks.UseVisualStyleBackColor = true;
-            // 
-            // btnProBitmasksLinks
-            // 
-            this.btnProBitmasksLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProBitmasksLinks.Location = new System.Drawing.Point(168, 251);
-            this.btnProBitmasksLinks.Name = "btnProBitmasksLinks";
-            this.btnProBitmasksLinks.Size = new System.Drawing.Size(75, 23);
-            this.btnProBitmasksLinks.TabIndex = 21;
-            this.btnProBitmasksLinks.Text = "Links...";
-            this.toolTip1.SetToolTip(this.btnProBitmasksLinks, "\"TODO Show vars that use this Bitmask\"");
-            this.btnProBitmasksLinks.UseVisualStyleBackColor = true;
-            // 
-            // btnProjEnumsLinks
-            // 
-            this.btnProjEnumsLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsLinks.Location = new System.Drawing.Point(168, 251);
-            this.btnProjEnumsLinks.Name = "btnProjEnumsLinks";
-            this.btnProjEnumsLinks.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsLinks.TabIndex = 22;
-            this.btnProjEnumsLinks.Text = "Links...";
-            this.toolTip1.SetToolTip(this.btnProjEnumsLinks, "\"TODO Show vars that use this Enumeration\"");
-            this.btnProjEnumsLinks.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2604,7 +2604,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8b)";
+            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8c)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);

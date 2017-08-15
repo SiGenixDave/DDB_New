@@ -191,7 +191,7 @@ namespace DDB
             {
                 w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
             }
-            FormHelpText fh = new FormHelpText(w);
+            FormHelpText fh = new FormHelpText(w, "Watch Variable \"" + w.dispName + "\"");
             fh.ShowDialog();
 
             // Always save the help text when in customer mode because Accept and Cancel are disabled in customer mode

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHelpText));
             SpiceLogic.HtmlEditorControl.Domain.DesignTime.DictionaryFileInfo dictionaryFileInfo1 = new SpiceLogic.HtmlEditorControl.Domain.DesignTime.DictionaryFileInfo();
             this.winFormHtmlEditor1 = new SpiceLogic.WinHTMLEditor.WinForm.WinFormHtmlEditor();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.winFormHtmlEditor1.Toolbar1.SuspendLayout();
             this.winFormHtmlEditor1.Toolbar2.SuspendLayout();
             this.winFormHtmlEditor1.SuspendLayout();
@@ -229,6 +231,7 @@
             this.winFormHtmlEditor1.BtnNew.Name = "_factoryBtnNew";
             this.winFormHtmlEditor1.BtnNew.Size = new System.Drawing.Size(23, 26);
             this.winFormHtmlEditor1.BtnNew.Text = "New";
+            this.winFormHtmlEditor1.BtnNew.Visible = false;
             // 
             // winFormHtmlEditor1.BtnOpen
             // 
@@ -239,6 +242,7 @@
             this.winFormHtmlEditor1.BtnOpen.Name = "_factoryBtnOpen";
             this.winFormHtmlEditor1.BtnOpen.Size = new System.Drawing.Size(23, 26);
             this.winFormHtmlEditor1.BtnOpen.Text = "Open";
+            this.winFormHtmlEditor1.BtnOpen.Visible = false;
             // 
             // winFormHtmlEditor1.BtnOrderedList
             // 
@@ -299,6 +303,7 @@
             this.winFormHtmlEditor1.BtnSave.Name = "_factoryBtnSave";
             this.winFormHtmlEditor1.BtnSave.Size = new System.Drawing.Size(23, 26);
             this.winFormHtmlEditor1.BtnSave.Text = "Save";
+            this.winFormHtmlEditor1.BtnSave.Visible = false;
             // 
             // winFormHtmlEditor1.BtnSearch
             // 
@@ -396,7 +401,7 @@
             this.winFormHtmlEditor1.CmbFontName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.winFormHtmlEditor1.CmbFontName.MaxDropDownItems = 17;
             this.winFormHtmlEditor1.CmbFontName.Name = "_factoryCmbFontName";
-            this.winFormHtmlEditor1.CmbFontName.Size = new System.Drawing.Size(125, 29);
+            this.winFormHtmlEditor1.CmbFontName.Size = new System.Drawing.Size(85, 29);
             this.winFormHtmlEditor1.CmbFontName.Text = "Times New Roman";
             // 
             // winFormHtmlEditor1.CmbFontSize
@@ -408,12 +413,12 @@
             // winFormHtmlEditor1.CmbTitleInsert
             // 
             this.winFormHtmlEditor1.CmbTitleInsert.Name = "_factoryCmbTitleInsert";
-            this.winFormHtmlEditor1.CmbTitleInsert.Size = new System.Drawing.Size(100, 29);
-            this.winFormHtmlEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.winFormHtmlEditor1.CmbTitleInsert.Size = new System.Drawing.Size(75, 29);
             this.winFormHtmlEditor1.EditorContextMenuStrip = null;
             this.winFormHtmlEditor1.HeaderStyleContentElementID = "page_style";
             this.winFormHtmlEditor1.HorizontalScroll = null;
             this.winFormHtmlEditor1.Location = new System.Drawing.Point(0, 0);
+            this.winFormHtmlEditor1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.winFormHtmlEditor1.Name = "winFormHtmlEditor1";
             this.winFormHtmlEditor1.Options.ConvertFileUrlsToLocalPaths = true;
             this.winFormHtmlEditor1.Options.CustomDOCTYPE = null;
@@ -427,7 +432,7 @@
             this.winFormHtmlEditor1.Options.FTPSettingsForRemoteResources.Timeout = 4000;
             this.winFormHtmlEditor1.Options.FTPSettingsForRemoteResources.UrlOfTheRemoteFolderPath = null;
             this.winFormHtmlEditor1.Options.FTPSettingsForRemoteResources.UserName = null;
-            this.winFormHtmlEditor1.Size = new System.Drawing.Size(901, 475);
+            this.winFormHtmlEditor1.Size = new System.Drawing.Size(800, 475);
             this.winFormHtmlEditor1.SpellCheckOptions.CurlyUnderlineImageFilePath = null;
             dictionaryFileInfo1.AffixFilePath = null;
             dictionaryFileInfo1.DictionaryFilePath = null;
@@ -510,7 +515,7 @@
             this.winFormHtmlEditor1.BtnSearch});
             this.winFormHtmlEditor1.Toolbar1.Location = new System.Drawing.Point(0, 0);
             this.winFormHtmlEditor1.Toolbar1.Name = "WinFormHtmlEditor_Toolbar1";
-            this.winFormHtmlEditor1.Toolbar1.Size = new System.Drawing.Size(901, 29);
+            this.winFormHtmlEditor1.Toolbar1.Size = new System.Drawing.Size(800, 29);
             this.winFormHtmlEditor1.Toolbar1.TabIndex = 0;
             // 
             // winFormHtmlEditor1.WinFormHtmlEditor_Toolbar2
@@ -543,7 +548,7 @@
             this.winFormHtmlEditor1.BtnBodyStyle});
             this.winFormHtmlEditor1.Toolbar2.Location = new System.Drawing.Point(0, 29);
             this.winFormHtmlEditor1.Toolbar2.Name = "WinFormHtmlEditor_Toolbar2";
-            this.winFormHtmlEditor1.Toolbar2.Size = new System.Drawing.Size(901, 29);
+            this.winFormHtmlEditor1.Toolbar2.Size = new System.Drawing.Size(800, 29);
             this.winFormHtmlEditor1.Toolbar2.TabIndex = 0;
             this.winFormHtmlEditor1.ToolbarContextMenuStrip = null;
             // 
@@ -552,16 +557,38 @@
             this.winFormHtmlEditor1.ToolbarFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.winFormHtmlEditor1.ToolbarFooter.Location = new System.Drawing.Point(0, 450);
             this.winFormHtmlEditor1.ToolbarFooter.Name = "WinFormHtmlEditor_ToolbarFooter";
-            this.winFormHtmlEditor1.ToolbarFooter.Size = new System.Drawing.Size(901, 25);
+            this.winFormHtmlEditor1.ToolbarFooter.Size = new System.Drawing.Size(800, 25);
             this.winFormHtmlEditor1.ToolbarFooter.TabIndex = 7;
             this.winFormHtmlEditor1.VerticalScroll = null;
             this.winFormHtmlEditor1.z__ignore = false;
             // 
+            // btnAccept
+            // 
+            this.btnAccept.Location = new System.Drawing.Point(814, 389);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(75, 34);
+            this.btnAccept.TabIndex = 1;
+            this.btnAccept.Text = "Accept";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(814, 429);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 34);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FormHelpText
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 475);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.winFormHtmlEditor1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -581,6 +608,8 @@
         #endregion
 
         private SpiceLogic.WinHTMLEditor.WinForm.WinFormHtmlEditor winFormHtmlEditor1;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnCancel;
 
     }
 }
