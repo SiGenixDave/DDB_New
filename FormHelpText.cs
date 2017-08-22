@@ -27,6 +27,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            Cancel.Query("HTML Help Text for ", this.Text);
             Close();
         }
 

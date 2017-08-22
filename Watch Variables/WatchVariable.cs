@@ -48,15 +48,9 @@ namespace DDB
                 cBoxWatchFormatString.SelectedIndex = currentWatchVar.formatString;
                 chkWatchEngViewOnly.Checked = currentWatchVar.engineeringViewOnly == 1 ? true : false;
 
+                formHelpPreview.UpdateForm(currentWatchVar.helpText);
+
                 EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), currentWatchVar);
-                if (currentWatchVar.helpText == "")
-                {
-                    btnWatchHelpAvailable.BackColor = Color.Red;
-                }
-                else
-                {
-                    btnWatchHelpAvailable.BackColor = Color.Green;
-                }
             }
             else
             {
@@ -71,7 +65,6 @@ namespace DDB
                 btnWatchAccept.Enabled = false;
                 btnWatchCancel.Enabled = false;
                 btnWatchModifyHelpText.Enabled = false;
-                btnWatchHelpAvailable.Enabled = false;
             }
         }
 
@@ -194,21 +187,8 @@ namespace DDB
             FormHelpText fh = new FormHelpText(w, "Watch Variable \"" + w.dispName + "\"");
             fh.ShowDialog();
 
-            // Always save the help text when in customer mode because Accept and Cancel are disabled in customer mode
-            if (GlobalSettings.getCustomerUseOnly())
-            {
-                w.helpText = w.preAcceptHelpText;
-            }
+            formHelpPreview.UpdateForm(w.helpText);
 
-            // Code returned here after help form closes
-            if (w.preAcceptHelpText == "")
-            {
-                btnWatchHelpAvailable.BackColor = Color.Red;
-            }
-            else
-            {
-                btnWatchHelpAvailable.BackColor = Color.Green;
-            }
         }
 
         private void cBoxWatchList_SelectedIndexChanged(object sender, EventArgs e)
@@ -292,11 +272,8 @@ namespace DDB
                     btnWatchDelete.Enabled = true;
                     btnWatchCopy.Enabled = true;
                 }
-                else
-                {
-                    // Enable modify help text only for customer
-                    btnWatchModifyHelpText.Enabled = true;
-                }
+                // Enable modify help text only for customer
+                btnWatchModifyHelpText.Enabled = true;
             }
             else
             {
@@ -337,7 +314,6 @@ namespace DDB
             {
                 w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
             }
-            w.preAcceptHelpText = w.helpText;
             WatchModifyInProgress();
         }
 
@@ -389,7 +365,6 @@ namespace DDB
             w.unitConversion = cBoxWatchUnitConversion.SelectedIndex;
             w.formatString = cBoxWatchFormatString.SelectedIndex;
             w.engineeringViewOnly = chkWatchEngViewOnly.Checked ? 1 : 0;
-            w.helpText = w.preAcceptHelpText;
             if (newVarBeingCreated)
             {
                 WatchVarList.AddVar(newWatchVar);
@@ -456,6 +431,7 @@ namespace DDB
         {
             grpBoxWatchVarList.Enabled = true;
             grpBoxWatchAttrs.Enabled = false;
+            btnWatchModifyHelpText.Enabled = false;
             if (lBoxWatchVariables.SelectedIndex != -1)
             {
                 btnWatchModify.Enabled = true;
@@ -490,7 +466,6 @@ namespace DDB
             cBoxWatchFormatString.SelectedIndex = 0;
             cBoxWatchReadWriteFlags.SelectedIndex = 0;
             chkWatchEngViewOnly.Checked = false;
-            btnWatchHelpAvailable.BackColor = Color.Red;
         }
 
         private void RefreshWatchVariableList(int prevIndex)

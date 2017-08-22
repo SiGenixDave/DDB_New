@@ -38,22 +38,17 @@ namespace DDB
             return evVars[i];
         }
 
-        static public EventTest GetEvent(String name)
+        static public EventTest GetEvent(Int32 id)
         {
             foreach (EventTest e in events)
             {
-                if (e.name == name)
+                if (e.dbId == id)
                 {
                     return e;
                 }
             }
 
             return null;
-        }
-
-        static public EventTest GetEvent(int i)
-        {
-            return events[i];
         }
 
 
@@ -140,13 +135,15 @@ namespace DDB
     }
 
 
-    public class EventTest
+    public class EventTest: iDDBHelpObject
     {
         public String name;
         public String cDefineName;
         public Int32 logId;
         public Int32 structId;
         public String helpText;
+        public Int32 dbId;
+        static Int32 idCount;
 
         public EventTest(String n, String c, Int32 l, Int32 s, String h)
         {
@@ -155,6 +152,17 @@ namespace DDB
             logId = l;
             structId = s;
             helpText = h;
+            dbId = idCount++;
+        }
+
+        public void SaveHelpText(String helpText)
+        {
+            this.helpText = helpText;
+        }
+
+        public String GetHelpText()
+        {
+            return helpText;
         }
 
         public override string ToString()

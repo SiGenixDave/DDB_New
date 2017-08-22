@@ -10,7 +10,8 @@ namespace DDB
         {
             if (GlobalSettings.getCustomerUseOnly())
             {
-
+                btnEventCreate.Enabled = false;
+                btnEventImport.Enabled = false;
             }
         }
 
@@ -26,7 +27,7 @@ namespace DDB
             lBoxEvents.Items.Clear();
             foreach (EventTest e in EventInfoTest.GetEvents())
             {
-                lBoxEvents.Items.Add(e.name);
+                lBoxEvents.Items.Add(e);
             }
         }
         private void PopulateEventStructures()
@@ -34,7 +35,7 @@ namespace DDB
             lBoxEventStructures.Items.Clear();
             foreach (EventStructureTest e in EventInfoTest.GetEventStructures())
             {
-                lBoxEventStructures.Items.Add(e.name);
+                lBoxEventStructures.Items.Add(e);
             }
         }
         private void PopulateEventVariables()
@@ -42,7 +43,7 @@ namespace DDB
             lBoxEventVars.Items.Clear();
             foreach (EventVariableTest e in EventInfoTest.GetEventVariables())
             {
-                lBoxEventVars.Items.Add(e.dispName);
+                lBoxEventVars.Items.Add(e);
             }
         }
 
@@ -89,32 +90,72 @@ namespace DDB
                 btnEventModify.Enabled = false;
                 btnEventCopy.Enabled = false;
                 btnEventDelete.Enabled = false;
+                btnEventModifyHelpText.Enabled = false;
 
                 formEventPreview.UpdateForm(null);
+                formHelpPreview.UpdateForm(null);
             }
             else if (lBoxEvents.SelectedIndices.Count == 1)
             {
-                // TODO conMenuEnums.Items[1].Enabled = true;
-
-                btnEventModify.Enabled = true;
-                btnEventCopy.Enabled = true;
-                btnEventDelete.Enabled = true;
-
-                formEventPreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
-
-                // return focus to main form so that up/down arrows still work
-                this.Focus();
+                conMenuEventLogs.Items[1].Enabled = true;
+                btnEventModifyHelpText.Enabled = true;
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventModify.Enabled = true; 
+                    btnEventCopy.Enabled = true;
+                    btnEventDelete.Enabled = true;
+                }
+                EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
+                formEventPreview.UpdateForm(ev);
+                formHelpPreview.UpdateForm(ev.helpText);
             }
             else
             {
                 // Disable the "Modify" in context menu
-                //TODO conMenuEnums.Items[1].Enabled = false;
+                conMenuEventLogs.Items[1].Enabled = false;
 
                 btnEventModify.Enabled = false;
-                btnEventCopy.Enabled = true;
-                btnEventDelete.Enabled = true;
+                btnEventModifyHelpText.Enabled = false;
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventCopy.Enabled = true;
+                    btnEventDelete.Enabled = true;
+                }
+                formEventPreview.UpdateForm(null);
+                formHelpPreview.UpdateForm(null);
             }
+
+            // return focus to main form so that up/down arrows still work
+            this.Focus();
         }
+
+        private void copyEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            CopyEvent();
+        }
+
+        private void modifyEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifyEvent();
+        }
+
+        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteEvent();
+        }
+
+
+        private void btnEventModifyHelpText_Click(object sender, EventArgs e)
+        {
+            EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
+            FormHelpText fh = new FormHelpText(ev, "Event \"" + ev.name + "\"");
+            fh.ShowDialog();
+
+            formHelpPreview.UpdateForm(ev.helpText);
+
+        }
+
+        /////////////////////////////////
 
         private void btnEventStructureCreate_Click(object sender, EventArgs e)
         {
@@ -158,33 +199,50 @@ namespace DDB
             }
             else if (lBoxEventStructures.SelectedIndices.Count == 1)
             {
-                // TODO conMenuEnums.Items[1].Enabled = true;
+                conMenuEventStructures.Items[1].Enabled = true;
 
                 btnEventStructureModify.Enabled = true;
                 btnEventStructureCopy.Enabled = true;
                 btnEventStructureDelete.Enabled = true;
 
-                //formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
-
-                // return focus to main form so that up/down arrows still work
-                this.Focus();
+                //TODO formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
             }
             else
             {
                 // Disable the "Modify" in context menu
-                //TODO conMenuEnums.Items[1].Enabled = false;
+                conMenuEventStructures.Items[1].Enabled = false;
 
                 btnEventStructureModify.Enabled = false;
                 btnEventStructureCopy.Enabled = true;
                 btnEventStructureDelete.Enabled = true;
             }
 
+            // return focus to main form so that up/down arrows still work
+            this.Focus();
         }
         
         private void lBoxEventStructures_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ModifyEventStructure();
         }
+
+        private void copyEventStrMenuItem_Click(object sender, EventArgs e)
+        {
+            CopyEventStructure();
+        }
+
+        private void modifyEventStrMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifyEventStructure();
+        }
+
+        private void deleteEventStrMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteEventStructure();
+        }
+
+
+
 
         private void lBoxEventVars_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -195,6 +253,7 @@ namespace DDB
         {
 
         }
+
 
         private void btnEventVarCreate_Click(object sender, EventArgs e)
         {
@@ -245,6 +304,7 @@ namespace DDB
         {
             lBoxEventStructures.SelectedIndex = savedEventStructureIndex;
             //formEventStructurePreview.UpdateForm(null);
+            formHelpPreview.UpdateForm(null);
         }
 
         private void gBoxEventStructures_Leave(object sender, EventArgs e)
@@ -283,15 +343,15 @@ namespace DDB
 
         private void ModifyEvent()
         {
-            EventTest e = EventInfoTest.GetEvent(lBoxEvents.SelectedItem.ToString());
+            EventTest e = (EventTest)lBoxEvents.SelectedItem;
             using (FormEventEditor frmEvEdit = new FormEventEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEvent();
-                    formEventPreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+                    formEventPreview.UpdateForm(e);
                 }
-            } 
+              } 
         }
 
         private void CopyEvent()
@@ -370,8 +430,9 @@ namespace DDB
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //e = frmEvEdit.GetEditedEvent();
-                    formEventPreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+                    EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
+                    formEventPreview.UpdateForm(ev);
+                    formHelpPreview.UpdateForm(ev.helpText);
                 }
             }
         }

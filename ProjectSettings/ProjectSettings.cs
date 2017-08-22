@@ -48,15 +48,6 @@ namespace DDB
             }
         }
 
-        private void addEventLogMenuItem_Click(object sender, EventArgs e)
-        {
-            AddNewEventLog();
-        }
-
-        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteEventLogs();
-        }
 
         private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
         {

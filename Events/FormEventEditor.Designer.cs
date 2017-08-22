@@ -38,12 +38,11 @@
             this.tBoxDefineName = new System.Windows.Forms.TextBox();
             this.cBoxEventStructs = new System.Windows.Forms.ComboBox();
             this.cBoxEventLogs = new System.Windows.Forms.ComboBox();
-            this.btnWatchModifyHelpText = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(386, 231);
+            this.btnCancel.Location = new System.Drawing.Point(438, 144);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(66, 23);
             this.btnCancel.TabIndex = 5;
@@ -53,7 +52,7 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(386, 202);
+            this.btnAccept.Location = new System.Drawing.Point(438, 105);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(66, 23);
             this.btnAccept.TabIndex = 4;
@@ -66,7 +65,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.Size = new System.Drawing.Size(100, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Event Name";
             // 
@@ -75,7 +74,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 16);
+            this.label2.Size = new System.Drawing.Size(130, 21);
             this.label2.TabIndex = 7;
             this.label2.Text = "C #define Name";
             // 
@@ -84,7 +83,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(50, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 16);
+            this.label3.Size = new System.Drawing.Size(83, 21);
             this.label3.TabIndex = 8;
             this.label3.Text = "Event Log";
             // 
@@ -93,7 +92,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(17, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 16);
+            this.label4.Size = new System.Drawing.Size(125, 21);
             this.label4.TabIndex = 9;
             this.label4.Text = "Event Structure";
             // 
@@ -101,7 +100,7 @@
             // 
             this.tBoxEventName.Location = new System.Drawing.Point(133, 21);
             this.tBoxEventName.Name = "tBoxEventName";
-            this.tBoxEventName.Size = new System.Drawing.Size(100, 23);
+            this.tBoxEventName.Size = new System.Drawing.Size(100, 27);
             this.tBoxEventName.TabIndex = 10;
             this.tBoxEventName.TextChanged += new System.EventHandler(this.tBoxEventName_TextChanged);
             // 
@@ -109,7 +108,7 @@
             // 
             this.tBoxDefineName.Location = new System.Drawing.Point(133, 59);
             this.tBoxDefineName.Name = "tBoxDefineName";
-            this.tBoxDefineName.Size = new System.Drawing.Size(100, 23);
+            this.tBoxDefineName.Size = new System.Drawing.Size(100, 27);
             this.tBoxDefineName.TabIndex = 11;
             this.tBoxDefineName.TextChanged += new System.EventHandler(this.tBoxDefineName_TextChanged);
             // 
@@ -119,7 +118,7 @@
             this.cBoxEventStructs.FormattingEnabled = true;
             this.cBoxEventStructs.Location = new System.Drawing.Point(133, 98);
             this.cBoxEventStructs.Name = "cBoxEventStructs";
-            this.cBoxEventStructs.Size = new System.Drawing.Size(247, 24);
+            this.cBoxEventStructs.Size = new System.Drawing.Size(247, 27);
             this.cBoxEventStructs.TabIndex = 12;
             // 
             // cBoxEventLogs
@@ -128,27 +127,15 @@
             this.cBoxEventLogs.FormattingEnabled = true;
             this.cBoxEventLogs.Location = new System.Drawing.Point(133, 140);
             this.cBoxEventLogs.Name = "cBoxEventLogs";
-            this.cBoxEventLogs.Size = new System.Drawing.Size(247, 24);
+            this.cBoxEventLogs.Size = new System.Drawing.Size(247, 27);
             this.cBoxEventLogs.TabIndex = 13;
-            // 
-            // btnWatchModifyHelpText
-            // 
-            this.btnWatchModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchModifyHelpText.Location = new System.Drawing.Point(133, 220);
-            this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
-            this.btnWatchModifyHelpText.Size = new System.Drawing.Size(127, 34);
-            this.btnWatchModifyHelpText.TabIndex = 19;
-            this.btnWatchModifyHelpText.Text = "Modify Help Text...";
-            this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
-            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
             // 
             // FormEventEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 266);
+            this.ClientSize = new System.Drawing.Size(516, 190);
             this.ControlBox = false;
-            this.Controls.Add(this.btnWatchModifyHelpText);
             this.Controls.Add(this.cBoxEventLogs);
             this.Controls.Add(this.cBoxEventStructs);
             this.Controls.Add(this.tBoxDefineName);
@@ -183,6 +170,5 @@
         private System.Windows.Forms.TextBox tBoxDefineName;
         private System.Windows.Forms.ComboBox cBoxEventStructs;
         private System.Windows.Forms.ComboBox cBoxEventLogs;
-        private System.Windows.Forms.Button btnWatchModifyHelpText;
     }
 }

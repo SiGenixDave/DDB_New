@@ -20,7 +20,6 @@ namespace DDB
         public Int32 readWrite;
         public Int32 engineeringViewOnly;
         public String helpText;
-        public String preAcceptHelpText;
 
         public WatchVarTest()
         {
@@ -45,7 +44,6 @@ namespace DDB
             readWrite= rw;
             engineeringViewOnly = evo;
             helpText = ht;
-            preAcceptHelpText = helpText;
         }
 
         public WatchVarTest(WatchVarTest w)
@@ -70,12 +68,12 @@ namespace DDB
 
         public void SaveHelpText(string helpText)
         {
-            this.preAcceptHelpText = helpText;
+            this.helpText = helpText;
         }
 
         public string GetHelpText()
         {
-            return preAcceptHelpText;
+            return this.helpText;
         }
 
         public override string ToString()

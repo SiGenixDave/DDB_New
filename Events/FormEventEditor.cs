@@ -7,7 +7,6 @@ namespace DDB
     public partial class FormEventEditor : Form
     {
         EventTest ev;
-        String helpText;
 
         public FormEventEditor(EventTest e)
         {
@@ -21,15 +20,6 @@ namespace DDB
             tBoxDefineName.Text = ev.cDefineName;
             cBoxEventLogs.SelectedIndex = ev.logId;
             cBoxEventStructs.SelectedIndex = ev.structId;
-            helpText = ev.helpText;
-
-            if (GlobalSettings.getCustomerUseOnly())
-            {
-                tBoxEventName.Enabled = false;
-                tBoxDefineName.Enabled = false;
-                cBoxEventLogs.Enabled = false;
-                cBoxEventStructs.Enabled = false;
-            }
         }
 
         private FormEventEditor()
@@ -43,8 +33,6 @@ namespace DDB
             ev.cDefineName = tBoxDefineName.Text;
             ev.logId = cBoxEventLogs.SelectedIndex;
             ev.structId = cBoxEventStructs.SelectedIndex;
-            ev.helpText = helpText;
-
             return ev;
         }
 
@@ -114,10 +102,5 @@ namespace DDB
             cBoxEventLogs.Items.Add("Engineering");
         }
 
-        private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
-        {
-            FormHelpText fh = new FormHelpText(null, null);
-            fh.ShowDialog();
-        }
     }
 }

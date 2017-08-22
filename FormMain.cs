@@ -9,6 +9,7 @@ namespace DDB
         private FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
         private FormEnumPreview formEnumPreview = new FormEnumPreview();
         private FormEventPreview formEventPreview = new FormEventPreview();
+        private FormHelpPreview formHelpPreview = new FormHelpPreview();
 
         private FormMain()
         { }
@@ -38,6 +39,7 @@ namespace DDB
             ProjectSettingsTest.Init();
             EventInfoTest.Init();
             InitWatchVars();
+            InitEvents();
             InitProjectSettings();
             PopulateUnits(-1);
             PopulateBitmasks(-1);
@@ -231,7 +233,18 @@ namespace DDB
             {
                 formEventPreview.Hide();
             }
+        }
 
+        private void previewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewHelpToolStripMenuItem.Checked)
+            {
+                formHelpPreview.Show();
+            }
+            else
+            {
+                formHelpPreview.Hide();
+            }
         }
 
         private void dGridURL_Leave(object sender, EventArgs e)

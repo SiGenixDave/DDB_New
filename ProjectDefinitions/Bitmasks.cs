@@ -47,6 +47,7 @@ namespace DDB
                 btnProBitmasksModify.Enabled = false;
                 btnProBitmasksCopy.Enabled = false;
                 btnProBitmasksDelete.Enabled = false;
+                btnProBitmasksLinks.Enabled = false;
             }
             else if (lBoxProjBitmasks.SelectedIndices.Count == 1)
             {
@@ -55,6 +56,7 @@ namespace DDB
                 btnProBitmasksModify.Enabled = true;
                 btnProBitmasksCopy.Enabled = true;
                 btnProBitmasksDelete.Enabled = true;
+                btnProBitmasksLinks.Enabled = true;
 
                 formBitmaskPreview.UpdateForm((BitmaskTest)lBoxProjBitmasks.SelectedItem);
             }
@@ -66,6 +68,7 @@ namespace DDB
                 btnProBitmasksModify.Enabled = false;
                 btnProBitmasksCopy.Enabled = true;
                 btnProBitmasksDelete.Enabled = true;
+                btnProBitmasksLinks.Enabled = true;
             }
         }
 

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
-            this.btnWatchHelpAvailable = new System.Windows.Forms.Button();
             this.grpBoxWatchVarList = new System.Windows.Forms.GroupBox();
             this.btnWatchFilterClear = new System.Windows.Forms.Button();
             this.cBoxWatchList = new System.Windows.Forms.ComboBox();
@@ -112,7 +111,12 @@
             this.label21 = new System.Windows.Forms.Label();
             this.btnEventStructureCreate = new System.Windows.Forms.Button();
             this.lBoxEventStructures = new System.Windows.Forms.ListBox();
+            this.conMenuEventStructures = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gBoxEvents = new System.Windows.Forms.GroupBox();
+            this.btnEventModifyHelpText = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.btnEventFilterClear = new System.Windows.Forms.Button();
@@ -125,6 +129,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnEventCreate = new System.Windows.Forms.Button();
             this.lBoxEvents = new System.Windows.Forms.ListBox();
+            this.conMenuEventLogs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
             this.gBoxProjEnums = new System.Windows.Forms.GroupBox();
@@ -193,9 +201,6 @@
             this.dGridEventLog = new System.Windows.Forms.DataGridView();
             this.eventLogEmbIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventLogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conMenuEventLogs = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProjSettingsAddEventLog = new System.Windows.Forms.Button();
             this.gBoxTargetCommunication = new System.Windows.Forms.GroupBox();
             this.gBoxURLs = new System.Windows.Forms.GroupBox();
@@ -231,10 +236,12 @@
             this.previewEventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewEventVariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewEventStructuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
+            this.btnEventVarModifyHelpText = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -247,7 +254,9 @@
             this.tabEvents.SuspendLayout();
             this.gBoxEventVariables.SuspendLayout();
             this.gBoxEventStructures.SuspendLayout();
+            this.conMenuEventStructures.SuspendLayout();
             this.gBoxEvents.SuspendLayout();
+            this.conMenuEventLogs.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.gBoxProjEnums.SuspendLayout();
             this.conMenuEnums.SuspendLayout();
@@ -259,7 +268,6 @@
             this.groupBox3.SuspendLayout();
             this.gBoxEventLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).BeginInit();
-            this.conMenuEventLogs.SuspendLayout();
             this.gBoxTargetCommunication.SuspendLayout();
             this.gBoxURLs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).BeginInit();
@@ -286,7 +294,6 @@
             // 
             // tabWatchVariables
             // 
-            this.tabWatchVariables.Controls.Add(this.btnWatchHelpAvailable);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchVarList);
             this.tabWatchVariables.Controls.Add(this.btnWatchModifyHelpText);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
@@ -298,16 +305,6 @@
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
-            // 
-            // btnWatchHelpAvailable
-            // 
-            this.btnWatchHelpAvailable.Enabled = false;
-            this.btnWatchHelpAvailable.Location = new System.Drawing.Point(697, 501);
-            this.btnWatchHelpAvailable.Name = "btnWatchHelpAvailable";
-            this.btnWatchHelpAvailable.Size = new System.Drawing.Size(127, 18);
-            this.btnWatchHelpAvailable.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.btnWatchHelpAvailable, "RED if no help text; GREEN otherwise");
-            this.btnWatchHelpAvailable.UseVisualStyleBackColor = true;
             // 
             // grpBoxWatchVarList
             // 
@@ -386,7 +383,7 @@
             this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 65);
             this.lBoxWatchVariables.Name = "lBoxWatchVariables";
             this.lBoxWatchVariables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxWatchVariables.Size = new System.Drawing.Size(273, 310);
+            this.lBoxWatchVariables.Size = new System.Drawing.Size(273, 293);
             this.lBoxWatchVariables.TabIndex = 0;
             this.lBoxWatchVariables.SelectedIndexChanged += new System.EventHandler(this.lBoxWatchVariables_SelectedIndexChanged);
             this.lBoxWatchVariables.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxWatchVariables_MouseDoubleClick);
@@ -947,15 +944,16 @@
             this.tabEvents.Controls.Add(this.gBoxEventVariables);
             this.tabEvents.Controls.Add(this.gBoxEventStructures);
             this.tabEvents.Controls.Add(this.gBoxEvents);
-            this.tabEvents.Location = new System.Drawing.Point(4, 25);
+            this.tabEvents.Location = new System.Drawing.Point(4, 26);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 526);
+            this.tabEvents.Size = new System.Drawing.Size(842, 525);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
             // 
             // gBoxEventVariables
             // 
+            this.gBoxEventVariables.Controls.Add(this.btnEventVarModifyHelpText);
             this.gBoxEventVariables.Controls.Add(this.button17);
             this.gBoxEventVariables.Controls.Add(this.button18);
             this.gBoxEventVariables.Controls.Add(this.button19);
@@ -1014,7 +1012,7 @@
             // btnEventVarImport
             // 
             this.btnEventVarImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarImport.Location = new System.Drawing.Point(171, 288);
+            this.btnEventVarImport.Location = new System.Drawing.Point(173, 213);
             this.btnEventVarImport.Name = "btnEventVarImport";
             this.btnEventVarImport.Size = new System.Drawing.Size(75, 23);
             this.btnEventVarImport.TabIndex = 28;
@@ -1109,7 +1107,7 @@
             this.lBoxEventVars.Location = new System.Drawing.Point(6, 30);
             this.lBoxEventVars.Name = "lBoxEventVars";
             this.lBoxEventVars.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEventVars.Size = new System.Drawing.Size(161, 310);
+            this.lBoxEventVars.Size = new System.Drawing.Size(161, 293);
             this.lBoxEventVars.TabIndex = 1;
             this.lBoxEventVars.SelectedIndexChanged += new System.EventHandler(this.lBoxEventVars_SelectedIndexChanged);
             this.lBoxEventVars.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventVars_MouseDoubleClick);
@@ -1174,7 +1172,7 @@
             // btnEventStructureImport
             // 
             this.btnEventStructureImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureImport.Location = new System.Drawing.Point(171, 288);
+            this.btnEventStructureImport.Location = new System.Drawing.Point(173, 213);
             this.btnEventStructureImport.Name = "btnEventStructureImport";
             this.btnEventStructureImport.Size = new System.Drawing.Size(75, 23);
             this.btnEventStructureImport.TabIndex = 28;
@@ -1262,6 +1260,7 @@
             // 
             // lBoxEventStructures
             // 
+            this.lBoxEventStructures.ContextMenuStrip = this.conMenuEventStructures;
             this.lBoxEventStructures.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxEventStructures.FormattingEnabled = true;
             this.lBoxEventStructures.HorizontalScrollbar = true;
@@ -1269,13 +1268,44 @@
             this.lBoxEventStructures.Location = new System.Drawing.Point(6, 30);
             this.lBoxEventStructures.Name = "lBoxEventStructures";
             this.lBoxEventStructures.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEventStructures.Size = new System.Drawing.Size(161, 310);
+            this.lBoxEventStructures.Size = new System.Drawing.Size(161, 293);
             this.lBoxEventStructures.TabIndex = 1;
             this.lBoxEventStructures.SelectedIndexChanged += new System.EventHandler(this.lBoxEventStructures_SelectedIndexChanged);
             this.lBoxEventStructures.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventStructures_MouseDoubleClick);
             // 
+            // conMenuEventStructures
+            // 
+            this.conMenuEventStructures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyEventStrMenuItem,
+            this.modifyEventStrMenuItem,
+            this.deleteEventStrMenuItem});
+            this.conMenuEventStructures.Name = "conMenu";
+            this.conMenuEventStructures.Size = new System.Drawing.Size(126, 76);
+            // 
+            // copyEventStrMenuItem
+            // 
+            this.copyEventStrMenuItem.Name = "copyEventStrMenuItem";
+            this.copyEventStrMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyEventStrMenuItem.Text = "Copy";
+            this.copyEventStrMenuItem.Click += new System.EventHandler(this.copyEventStrMenuItem_Click);
+            // 
+            // modifyEventStrMenuItem
+            // 
+            this.modifyEventStrMenuItem.Name = "modifyEventStrMenuItem";
+            this.modifyEventStrMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyEventStrMenuItem.Text = "Modify";
+            this.modifyEventStrMenuItem.Click += new System.EventHandler(this.modifyEventStrMenuItem_Click);
+            // 
+            // deleteEventStrMenuItem
+            // 
+            this.deleteEventStrMenuItem.Name = "deleteEventStrMenuItem";
+            this.deleteEventStrMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteEventStrMenuItem.Text = "Delete";
+            this.deleteEventStrMenuItem.Click += new System.EventHandler(this.deleteEventStrMenuItem_Click);
+            // 
             // gBoxEvents
             // 
+            this.gBoxEvents.Controls.Add(this.btnEventModifyHelpText);
             this.gBoxEvents.Controls.Add(this.button9);
             this.gBoxEvents.Controls.Add(this.button14);
             this.gBoxEvents.Controls.Add(this.btnEventFilterClear);
@@ -1297,6 +1327,18 @@
             this.gBoxEvents.Text = "Event List";
             this.gBoxEvents.Enter += new System.EventHandler(this.gBoxEvents_Enter);
             this.gBoxEvents.Leave += new System.EventHandler(this.gBoxEvents_Leave);
+            // 
+            // btnEventModifyHelpText
+            // 
+            this.btnEventModifyHelpText.Enabled = false;
+            this.btnEventModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventModifyHelpText.Location = new System.Drawing.Point(173, 270);
+            this.btnEventModifyHelpText.Name = "btnEventModifyHelpText";
+            this.btnEventModifyHelpText.Size = new System.Drawing.Size(76, 53);
+            this.btnEventModifyHelpText.TabIndex = 32;
+            this.btnEventModifyHelpText.Text = "Modify Help Text...";
+            this.btnEventModifyHelpText.UseVisualStyleBackColor = true;
+            this.btnEventModifyHelpText.Click += new System.EventHandler(this.btnEventModifyHelpText_Click);
             // 
             // button9
             // 
@@ -1334,7 +1376,7 @@
             // btnEventImport
             // 
             this.btnEventImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventImport.Location = new System.Drawing.Point(170, 288);
+            this.btnEventImport.Location = new System.Drawing.Point(174, 213);
             this.btnEventImport.Name = "btnEventImport";
             this.btnEventImport.Size = new System.Drawing.Size(75, 23);
             this.btnEventImport.TabIndex = 28;
@@ -1422,6 +1464,7 @@
             // 
             // lBoxEvents
             // 
+            this.lBoxEvents.ContextMenuStrip = this.conMenuEventLogs;
             this.lBoxEvents.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxEvents.FormattingEnabled = true;
             this.lBoxEvents.HorizontalScrollbar = true;
@@ -1429,10 +1472,40 @@
             this.lBoxEvents.Location = new System.Drawing.Point(6, 30);
             this.lBoxEvents.Name = "lBoxEvents";
             this.lBoxEvents.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEvents.Size = new System.Drawing.Size(161, 310);
+            this.lBoxEvents.Size = new System.Drawing.Size(161, 293);
             this.lBoxEvents.TabIndex = 1;
             this.lBoxEvents.SelectedIndexChanged += new System.EventHandler(this.lBoxEvents_SelectedIndexChanged);
             this.lBoxEvents.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEvents_MouseDoubleClick);
+            // 
+            // conMenuEventLogs
+            // 
+            this.conMenuEventLogs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyEventLogMenuItem,
+            this.modifyEventLogMenuItem,
+            this.deleteEventLogMenuItem});
+            this.conMenuEventLogs.Name = "conMenu";
+            this.conMenuEventLogs.Size = new System.Drawing.Size(126, 76);
+            // 
+            // copyEventLogMenuItem
+            // 
+            this.copyEventLogMenuItem.Name = "copyEventLogMenuItem";
+            this.copyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyEventLogMenuItem.Text = "Copy";
+            this.copyEventLogMenuItem.Click += new System.EventHandler(this.copyEventLogMenuItem_Click);
+            // 
+            // modifyEventLogMenuItem
+            // 
+            this.modifyEventLogMenuItem.Name = "modifyEventLogMenuItem";
+            this.modifyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyEventLogMenuItem.Text = "Modify";
+            this.modifyEventLogMenuItem.Click += new System.EventHandler(this.modifyEventLogMenuItem_Click);
+            // 
+            // deleteEventLogMenuItem
+            // 
+            this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteEventLogMenuItem.Text = "Delete";
+            this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
             // 
             // tabSelfTest
             // 
@@ -1449,10 +1522,10 @@
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjBitmask);
             this.tabProjectDefinitions.Controls.Add(this.gBoxProjUnits);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
@@ -2072,9 +2145,9 @@
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 25);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 526);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -2196,28 +2269,6 @@
             this.eventLogName.HeaderText = "Name";
             this.eventLogName.Name = "eventLogName";
             this.eventLogName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // conMenuEventLogs
-            // 
-            this.conMenuEventLogs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addEventLogMenuItem,
-            this.deleteEventLogMenuItem});
-            this.conMenuEventLogs.Name = "conMenu";
-            this.conMenuEventLogs.Size = new System.Drawing.Size(210, 52);
-            // 
-            // addEventLogMenuItem
-            // 
-            this.addEventLogMenuItem.Name = "addEventLogMenuItem";
-            this.addEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
-            this.addEventLogMenuItem.Text = "Add New Event Log";
-            this.addEventLogMenuItem.Click += new System.EventHandler(this.addEventLogMenuItem_Click);
-            // 
-            // deleteEventLogMenuItem
-            // 
-            this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
-            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
-            this.deleteEventLogMenuItem.Text = "Delete";
-            this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
             // 
             // btnProjSettingsAddEventLog
             // 
@@ -2348,7 +2399,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 400);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 399);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2442,7 +2493,7 @@
             "Display URL Alias Name"});
             this.cListBoxFunctionFlags.Location = new System.Drawing.Point(6, 23);
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
-            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 99);
+            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 80);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
@@ -2511,7 +2562,8 @@
             this.previewEnumerationsToolStripMenuItem,
             this.previewEventsToolStripMenuItem,
             this.previewEventVariablesToolStripMenuItem,
-            this.previewEventStructuresToolStripMenuItem});
+            this.previewEventStructuresToolStripMenuItem,
+            this.previewHelpToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -2566,6 +2618,14 @@
             this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
             // 
+            // previewHelpToolStripMenuItem
+            // 
+            this.previewHelpToolStripMenuItem.CheckOnClick = true;
+            this.previewHelpToolStripMenuItem.Name = "previewHelpToolStripMenuItem";
+            this.previewHelpToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.previewHelpToolStripMenuItem.Text = "Preview Help";
+            this.previewHelpToolStripMenuItem.Click += new System.EventHandler(this.previewHelpToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -2590,6 +2650,17 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
+            // btnEventVarModifyHelpText
+            // 
+            this.btnEventVarModifyHelpText.Enabled = false;
+            this.btnEventVarModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventVarModifyHelpText.Location = new System.Drawing.Point(172, 270);
+            this.btnEventVarModifyHelpText.Name = "btnEventVarModifyHelpText";
+            this.btnEventVarModifyHelpText.Size = new System.Drawing.Size(76, 53);
+            this.btnEventVarModifyHelpText.TabIndex = 33;
+            this.btnEventVarModifyHelpText.Text = "Modify Help Text...";
+            this.btnEventVarModifyHelpText.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2604,7 +2675,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8c)";
+            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8d)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -2624,8 +2695,10 @@
             this.gBoxEventVariables.PerformLayout();
             this.gBoxEventStructures.ResumeLayout(false);
             this.gBoxEventStructures.PerformLayout();
+            this.conMenuEventStructures.ResumeLayout(false);
             this.gBoxEvents.ResumeLayout(false);
             this.gBoxEvents.PerformLayout();
+            this.conMenuEventLogs.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
             this.gBoxProjEnums.ResumeLayout(false);
             this.gBoxProjEnums.PerformLayout();
@@ -2641,7 +2714,6 @@
             this.groupBox3.PerformLayout();
             this.gBoxEventLogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventLog)).EndInit();
-            this.conMenuEventLogs.ResumeLayout(false);
             this.gBoxTargetCommunication.ResumeLayout(false);
             this.gBoxURLs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGridURL)).EndInit();
@@ -2727,7 +2799,6 @@
         private System.Windows.Forms.Label lblFormatString;
         private System.Windows.Forms.CheckBox chkWatchEngViewOnly;
         private System.Windows.Forms.Button btnExitDDB;
-        private System.Windows.Forms.Button btnWatchHelpAvailable;
         private System.Windows.Forms.GroupBox gBoxProjUnits;
         private System.Windows.Forms.Button btnProUnitsCopy;
         private System.Windows.Forms.Button btnProUnitsDelete;
@@ -2809,7 +2880,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox gBoxWatchActions;
         private System.Windows.Forms.ContextMenuStrip conMenuEventLogs;
-        private System.Windows.Forms.ToolStripMenuItem addEventLogMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyEventLogMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteEventLogMenuItem;
         private System.Windows.Forms.GroupBox gBoxEvents;
         private System.Windows.Forms.Button btnEventImport;
@@ -2864,6 +2935,14 @@
         private System.Windows.Forms.Button btnProjEnumsLinks;
         private System.Windows.Forms.Button btnProBitmasksLinks;
         private System.Windows.Forms.Button btnProUnitsLinks;
+        private System.Windows.Forms.ToolStripMenuItem modifyEventLogMenuItem;
+        private System.Windows.Forms.ContextMenuStrip conMenuEventStructures;
+        private System.Windows.Forms.ToolStripMenuItem copyEventStrMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyEventStrMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteEventStrMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem previewHelpToolStripMenuItem;
+        private System.Windows.Forms.Button btnEventModifyHelpText;
+        private System.Windows.Forms.Button btnEventVarModifyHelpText;
     }
 }
 

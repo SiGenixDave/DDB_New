@@ -52,7 +52,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.Size = new System.Drawing.Size(132, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Structure Name:";
             // 
@@ -60,11 +60,11 @@
             // 
             this.lBoxUsedVars.FormattingEnabled = true;
             this.lBoxUsedVars.HorizontalScrollbar = true;
-            this.lBoxUsedVars.ItemHeight = 16;
+            this.lBoxUsedVars.ItemHeight = 19;
             this.lBoxUsedVars.Location = new System.Drawing.Point(12, 73);
             this.lBoxUsedVars.Name = "lBoxUsedVars";
             this.lBoxUsedVars.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxUsedVars.Size = new System.Drawing.Size(158, 356);
+            this.lBoxUsedVars.Size = new System.Drawing.Size(158, 346);
             this.lBoxUsedVars.TabIndex = 1;
             this.lBoxUsedVars.SelectedIndexChanged += new System.EventHandler(this.lBoxUsedVars_SelectedIndexChanged);
             this.lBoxUsedVars.Enter += new System.EventHandler(this.lBoxUsedVars_Enter);
@@ -74,11 +74,11 @@
             // 
             this.lBoxAvailableVars.FormattingEnabled = true;
             this.lBoxAvailableVars.HorizontalScrollbar = true;
-            this.lBoxAvailableVars.ItemHeight = 16;
+            this.lBoxAvailableVars.ItemHeight = 19;
             this.lBoxAvailableVars.Location = new System.Drawing.Point(256, 73);
             this.lBoxAvailableVars.Name = "lBoxAvailableVars";
             this.lBoxAvailableVars.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxAvailableVars.Size = new System.Drawing.Size(158, 356);
+            this.lBoxAvailableVars.Size = new System.Drawing.Size(158, 346);
             this.lBoxAvailableVars.TabIndex = 2;
             this.lBoxAvailableVars.Enter += new System.EventHandler(this.lBoxAvailableVars_Enter);
             this.lBoxAvailableVars.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxAvailableVars_MouseDoubleClick);
@@ -87,11 +87,12 @@
             // 
             this.tBoxStructName.Location = new System.Drawing.Point(125, 8);
             this.tBoxStructName.Name = "tBoxStructName";
-            this.tBoxStructName.Size = new System.Drawing.Size(100, 23);
+            this.tBoxStructName.Size = new System.Drawing.Size(100, 27);
             this.tBoxStructName.TabIndex = 3;
             // 
             // btnMoveDown
             // 
+            this.btnMoveDown.Enabled = false;
             this.btnMoveDown.Location = new System.Drawing.Point(95, 462);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 44);
@@ -102,6 +103,7 @@
             // 
             // btnMoveUp
             // 
+            this.btnMoveUp.Enabled = false;
             this.btnMoveUp.Location = new System.Drawing.Point(12, 462);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 44);
@@ -146,7 +148,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 16);
+            this.label2.Size = new System.Drawing.Size(189, 21);
             this.label2.TabIndex = 10;
             this.label2.Text = "Used Event Variables";
             // 
@@ -156,7 +158,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(252, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 16);
+            this.label3.Size = new System.Drawing.Size(224, 21);
             this.label3.TabIndex = 11;
             this.label3.Text = "Available Event Variables";
             // 
@@ -205,7 +207,7 @@
             this.textBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(258, 454);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 21);
+            this.textBox4.Size = new System.Drawing.Size(156, 24);
             this.textBox4.TabIndex = 33;
             // 
             // label20
@@ -214,13 +216,13 @@
             this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(255, 438);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(31, 13);
+            this.label20.Size = new System.Drawing.Size(36, 17);
             this.label20.TabIndex = 32;
             this.label20.Text = "Filter";
             // 
             // FormEventStructureEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 523);
             this.ControlBox = false;

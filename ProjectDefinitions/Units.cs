@@ -47,6 +47,7 @@ namespace DDB
                 btnProUnitsModify.Enabled = false;
                 btnProUnitsCopy.Enabled = false;
                 btnProUnitsDelete.Enabled = false;
+                btnProUnitsLinks.Enabled = false;
             }
             else if (lBoxProjUnits.SelectedIndices.Count == 1)
             {
@@ -55,6 +56,8 @@ namespace DDB
                 btnProUnitsModify.Enabled = true;
                 btnProUnitsCopy.Enabled = true;
                 btnProUnitsDelete.Enabled = true;
+                btnProUnitsLinks.Enabled = true;
+
             }
             else
             {
@@ -64,6 +67,7 @@ namespace DDB
                 btnProUnitsModify.Enabled = false;
                 btnProUnitsCopy.Enabled = true;
                 btnProUnitsDelete.Enabled = true;
+                btnProUnitsLinks.Enabled = true;
             }
         }
 
