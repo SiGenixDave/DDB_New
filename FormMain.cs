@@ -6,10 +6,10 @@ namespace DDB
 {
     public partial class FormMain : Form
     {
-        private FormBitmaskPreview formBitmaskPreview = new FormBitmaskPreview();
-        private FormEnumPreview formEnumPreview = new FormEnumPreview();
-        private FormEventPreview formEventPreview = new FormEventPreview();
-        private FormHelpPreview formHelpPreview = new FormHelpPreview();
+        private FormBitmaskPreview formBitmaskPreview;
+        private FormEnumPreview formEnumPreview;
+        private FormEventPreview formEventPreview;
+        private FormHelpPreview formHelpPreview;
 
         private FormMain()
         { }
@@ -30,6 +30,9 @@ namespace DDB
                     tabControl1.TabPages.Remove(tabProjectSettings);
                 }
             }
+
+            CreatePreviews();
+
 
             ////////////////////////////////////////////////////////
             /// FOR TEST ONLY
@@ -199,15 +202,23 @@ namespace DDB
             }
         }
 
+        private void CreatePreviews()
+        {
+            formBitmaskPreview = new FormBitmaskPreview();
+            formEnumPreview = new FormEnumPreview();
+            formEventPreview = new FormEventPreview();
+            formHelpPreview = new FormHelpPreview();
+        }
+
         private void previewBitmasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (previewBitmasksToolStripMenuItem.Checked)
             {
-                formBitmaskPreview.Show();
+                formBitmaskPreview.Visible = true;
             }
             else
             {
-                formBitmaskPreview.Hide();
+                formBitmaskPreview.Visible = false;
             }
         }
 
@@ -215,11 +226,11 @@ namespace DDB
         {
             if (previewEnumerationsToolStripMenuItem.Checked)
             {
-                formEnumPreview.Show();
+                formEnumPreview.Visible = true;
             }
             else
             {
-                formEnumPreview.Hide();
+                formEnumPreview.Visible = false;
             }
         }
 
@@ -227,11 +238,11 @@ namespace DDB
         {
             if (previewEventsToolStripMenuItem.Checked)
             {
-                formEventPreview.Show();
+                formEventPreview.Visible = true;
             }
             else
             {
-                formEventPreview.Hide();
+                formEventPreview.Visible = false;
             }
         }
 
@@ -239,11 +250,11 @@ namespace DDB
         {
             if (previewHelpToolStripMenuItem.Checked)
             {
-                formHelpPreview.Show();
+                formHelpPreview.Visible = true;
             }
             else
             {
-                formHelpPreview.Hide();
+                formHelpPreview.Visible = false;
             }
         }
 

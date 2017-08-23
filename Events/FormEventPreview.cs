@@ -33,6 +33,7 @@ namespace DDB
                 lblEventLog.Text = (e.logId == 0) ? "Propulsion" : "Engineering";
 
             }
+
         }
     }
 }

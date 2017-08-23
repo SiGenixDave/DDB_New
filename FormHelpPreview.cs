@@ -30,6 +30,7 @@ namespace DDB
                 webBrowser1.Document.OpenNew(true);
                 webBrowser1.Document.Write(helpText);
             }
+
         }
     }
 }

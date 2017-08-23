@@ -86,6 +86,7 @@
             this.btnWatchDelete = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.gBoxEventVariables = new System.Windows.Forms.GroupBox();
+            this.btnEventVarModifyHelpText = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -241,7 +242,6 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
-            this.btnEventVarModifyHelpText = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -975,6 +975,17 @@
             this.gBoxEventVariables.Text = "Event Variables";
             this.gBoxEventVariables.Enter += new System.EventHandler(this.gBoxEventVariables_Enter);
             this.gBoxEventVariables.Leave += new System.EventHandler(this.gBoxEventVariables_Leave);
+            // 
+            // btnEventVarModifyHelpText
+            // 
+            this.btnEventVarModifyHelpText.Enabled = false;
+            this.btnEventVarModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventVarModifyHelpText.Location = new System.Drawing.Point(172, 270);
+            this.btnEventVarModifyHelpText.Name = "btnEventVarModifyHelpText";
+            this.btnEventVarModifyHelpText.Size = new System.Drawing.Size(76, 53);
+            this.btnEventVarModifyHelpText.TabIndex = 33;
+            this.btnEventVarModifyHelpText.Text = "Modify Help Text...";
+            this.btnEventVarModifyHelpText.UseVisualStyleBackColor = true;
             // 
             // button17
             // 
@@ -2650,17 +2661,6 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
-            // btnEventVarModifyHelpText
-            // 
-            this.btnEventVarModifyHelpText.Enabled = false;
-            this.btnEventVarModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarModifyHelpText.Location = new System.Drawing.Point(172, 270);
-            this.btnEventVarModifyHelpText.Name = "btnEventVarModifyHelpText";
-            this.btnEventVarModifyHelpText.Size = new System.Drawing.Size(76, 53);
-            this.btnEventVarModifyHelpText.TabIndex = 33;
-            this.btnEventVarModifyHelpText.Text = "Modify Help Text...";
-            this.btnEventVarModifyHelpText.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2675,7 +2675,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB UI Validator  (v 0.0.0.8d)";
+            this.Text = "Bombardier DDB (v 0.0.0.8e)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);

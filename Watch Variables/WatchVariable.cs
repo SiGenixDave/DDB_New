@@ -49,6 +49,7 @@ namespace DDB
                 chkWatchEngViewOnly.Checked = currentWatchVar.engineeringViewOnly == 1 ? true : false;
 
                 formHelpPreview.UpdateForm(currentWatchVar.helpText);
+                lBoxWatchVariables.Focus();
 
                 EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), currentWatchVar);
             }
@@ -188,6 +189,7 @@ namespace DDB
             fh.ShowDialog();
 
             formHelpPreview.UpdateForm(w.helpText);
+            lBoxWatchVariables.Focus();
 
         }
 
@@ -299,6 +301,8 @@ namespace DDB
 
                 UpdateWatchVarDisplay(firstSelectedIndex);
             }
+
+            Console.WriteLine("Watch -> " + lBoxWatchVariables.SelectedIndices.Count);
         }
 
         private WatchVarTest currentWatchVar;

@@ -12,6 +12,9 @@ namespace DDB
             {
                 btnEventCreate.Enabled = false;
                 btnEventImport.Enabled = false;
+                lBoxEvents.MouseDoubleClick -= lBoxEvents_MouseDoubleClick;
+                lBoxEventStructures.MouseDoubleClick -= lBoxEventStructures_MouseDoubleClick;
+                lBoxEventVars.MouseDoubleClick -= lBoxEventVars_MouseDoubleClick;
             }
         }
 
@@ -108,6 +111,8 @@ namespace DDB
                 EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
                 formEventPreview.UpdateForm(ev);
                 formHelpPreview.UpdateForm(ev.helpText);
+
+                lBoxEvents.Focus();
             }
             else
             {
@@ -125,8 +130,8 @@ namespace DDB
                 formHelpPreview.UpdateForm(null);
             }
 
-            // return focus to main form so that up/down arrows still work
-            this.Focus();
+            Console.WriteLine("lBOXEVENTS SLEC CHNGE -> " + lBoxEvents.SelectedIndices.Count.ToString());
+
         }
 
         private void copyEventLogMenuItem_Click(object sender, EventArgs e)
@@ -216,9 +221,6 @@ namespace DDB
                 btnEventStructureCopy.Enabled = true;
                 btnEventStructureDelete.Enabled = true;
             }
-
-            // return focus to main form so that up/down arrows still work
-            this.Focus();
         }
         
         private void lBoxEventStructures_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -286,16 +288,13 @@ namespace DDB
 
 
 
-        private int savedEventIndex = 0;
         private void gBoxEvents_Enter(object sender, EventArgs e)
         {
-            lBoxEvents.SelectedIndex = savedEventIndex;
             formEventPreview.UpdateForm(null);
         }
 
         private void gBoxEvents_Leave(object sender, EventArgs e)
         {
-            savedEventIndex = lBoxEvents.SelectedIndex;
             lBoxEvents.SelectedIndex = -1;
         }
 
