@@ -37,10 +37,10 @@ namespace DDB
             ////////////////////////////////////////////////////////
             /// FOR TEST ONLY
             WatchVarList.Init();
-            BitmaskVarList.Init();
-            EnumVarList.Init();
-            ProjectSettingsTest.Init();
-            EventInfoTest.Init();
+            BitmaskList.Init();
+            EnumList.Init();
+            ProjectSettings.Init();
+            EventList.Init();
             InitWatchVars();
             InitEvents();
             InitProjectSettings();
@@ -58,10 +58,10 @@ namespace DDB
 
         private void PopulateUnits(int select)
         {
-            UnitsTest[] units = UnitsTestList.GetUnits();
+            Units[] units = UnitsList.GetUnits();
             cBoxWatchUnits.Items.Clear();
             lBoxProjUnits.Items.Clear();
-            foreach (UnitsTest u in units)
+            foreach (Units u in units)
             {
                 cBoxWatchUnits.Items.Add(u);
                 lBoxProjUnits.Items.Add(u);
@@ -79,9 +79,9 @@ namespace DDB
 
         private void PopulateBitmasks(int select)
         {
-            BitmaskTest[] bitmasks = BitmaskVarList.GetBitmasks();
+            Bitmask[] bitmasks = BitmaskList.GetBitmasks();
             lBoxProjBitmasks.Items.Clear();
-            foreach (BitmaskTest b in bitmasks)
+            foreach (Bitmask b in bitmasks)
             {
                 lBoxProjBitmasks.Items.Add(b);
             }
@@ -98,9 +98,9 @@ namespace DDB
 
         private void PopulateEnums(int select)
         {
-            EnumsTest[] enums = EnumVarList.GetEnums();
+            Enums[] enums = EnumList.GetEnums();
             lBoxProjEnums.Items.Clear();
-            foreach (EnumsTest e in enums)
+            foreach (Enums e in enums)
             {
                 lBoxProjEnums.Items.Add(e);
             }
@@ -117,21 +117,21 @@ namespace DDB
 
         private void PopulateProjectSettings()
         {
-            URLTest[] urls = ProjectSettingsTest.GetURLs();
+            URLTarget[] urls = ProjectSettings.GetURLs();
 
-            foreach (URLTest u in urls)
+            foreach (URLTarget u in urls)
             {
                 dGridURL.Rows.Add(u.name, u.alias);
             }
 
-            EventLogTest[] eventLogs = ProjectSettingsTest.GetEventLogs();
+            EventLog[] eventLogs = ProjectSettings.GetEventLogs();
 
-            foreach (EventLogTest e in eventLogs)
+            foreach (EventLog e in eventLogs)
             {
                 dGridEventLog.Rows.Add(e.embIndex, e.name);
             }
 
-            int ff = ProjectSettingsTest.GetFunctionFlags();
+            int ff = ProjectSettings.GetFunctionFlags();
 
             for (int index = 0; index < 32; index++)
             {

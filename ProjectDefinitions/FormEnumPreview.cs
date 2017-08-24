@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (EnumsTest enm)
+        public void UpdateForm (Enums enm)
         {
             do
             {

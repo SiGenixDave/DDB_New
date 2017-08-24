@@ -8,9 +8,9 @@ namespace DDB
         private const String formMessage = "Update the Unit name: click Accept or Cancel";
 
         private Boolean userAcceptance = false;
-        private UnitsTest myUnit;
+        private Units myUnit;
 
-        public UnitModifyObject(UnitsTest unit)
+        public UnitModifyObject(Units unit)
         {
             myUnit = unit;
             FormTextEntry formText = new FormTextEntry(formTitle, formMessage, unit.name, this);
@@ -31,7 +31,7 @@ namespace DDB
             return userAcceptance;
         }
 
-        public UnitsTest GetUnit()
+        public Units GetUnit()
         {
             return myUnit;
         }

@@ -5,61 +5,61 @@ using System.Text;
 
 namespace DDB
 {
-    class ProjectSettingsTest
+    class ProjectSettings
     {
-        static List<URLTest> urlList = new List<URLTest>();
-        static List<EventLogTest> eventLogList = new List<EventLogTest>();
+        static List<URLTarget> urlList = new List<URLTarget>();
+        static List<EventLog> eventLogList = new List<EventLog>();
         static int functionFlags = 0x11;
 
         static public void Init()
         {
 
-            urlList.Add(new URLTest("url1.com", "myAliasURL1.com"));
-            urlList.Add(new URLTest("url2.com", "myAliasURL2.com"));
-            urlList.Add(new URLTest("url3.com", "myAliasURL3.com"));
-            urlList.Add(new URLTest("url4.com", "myAliasURL4.com"));
+            urlList.Add(new URLTarget("url1.com", "myAliasURL1.com"));
+            urlList.Add(new URLTarget("url2.com", "myAliasURL2.com"));
+            urlList.Add(new URLTarget("url3.com", "myAliasURL3.com"));
+            urlList.Add(new URLTarget("url4.com", "myAliasURL4.com"));
 
-            eventLogList.Add(new EventLogTest(0, "Propulsion"));
-            eventLogList.Add(new EventLogTest(1, "Engineering"));
+            eventLogList.Add(new EventLog(0, "Propulsion"));
+            eventLogList.Add(new EventLog(1, "Engineering"));
 
         }
 
-        static public void AddURL (URLTest urlTest)
+        static public void AddURL (URLTarget urlTest)
         {
             urlList.Add(urlTest);
         }
 
-        static public void DeleteURL (URLTest urlTest)
+        static public void DeleteURL (URLTarget urlTest)
         {
             urlList.Remove(urlTest);
         }
 
-        static public URLTest[] GetURLs()
+        static public URLTarget[] GetURLs()
         {
             return urlList.ToArray();
         }
 
-        static public URLTest GetURL(int index)
+        static public URLTarget GetURL(int index)
         {
             return urlList[index];
         }
 
-        static public void AddEventLog(EventLogTest eventLogTest)
+        static public void AddEventLog(EventLog eventLogTest)
         {
             eventLogList.Add(eventLogTest);
         }
 
-        static public void DeleteEventLog(EventLogTest eventLogTest)
+        static public void DeleteEventLog(EventLog eventLogTest)
         {
             eventLogList.Remove(eventLogTest);
         }
 
-        static public EventLogTest[] GetEventLogs()
+        static public EventLog[] GetEventLogs()
         {
             return eventLogList.ToArray();
         }
 
-        static public EventLogTest GetEventLog(int index)
+        static public EventLog GetEventLog(int index)
         {
             return eventLogList[index];
         }
@@ -77,24 +77,24 @@ namespace DDB
 
     }
 
-    class URLTest
+    class URLTarget
     {
         public String name;
         public String alias;
 
-        public URLTest(String n, String a)
+        public URLTarget(String n, String a)
         {
             name = n;
             alias = a;
         }
     }
 
-    class EventLogTest
+    class EventLog
     {
         public int embIndex;
         public String name;
 
-        public EventLogTest(int e, String n)
+        public EventLog(int e, String n)
         {
             name = n;
             embIndex = e;

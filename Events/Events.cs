@@ -32,7 +32,7 @@ namespace DDB
         private void PopulateEvents()
         {
             lBoxEvents.Items.Clear();
-            foreach (EventTest e in EventInfoTest.GetEvents())
+            foreach (Events e in EventList.GetEvents())
             {
                 lBoxEvents.Items.Add(e);
             }
@@ -41,7 +41,7 @@ namespace DDB
         private void PopulateEventStructures()
         {
             lBoxEventStructures.Items.Clear();
-            foreach (EventStructureTest e in EventInfoTest.GetEventStructures())
+            foreach (EventStructures e in EventList.GetEventStructures())
             {
                 lBoxEventStructures.Items.Add(e);
             }
@@ -50,7 +50,7 @@ namespace DDB
         private void PopulateEventVariables()
         {
             lBoxEventVars.Items.Clear();
-            foreach (EventVariableTest e in EventInfoTest.GetEventVariables())
+            foreach (EventVariables e in EventList.GetEventVariables())
             {
                 lBoxEventVars.Items.Add(e);
             }
@@ -112,7 +112,7 @@ namespace DDB
                     btnEventCopy.Enabled = true;
                     btnEventDelete.Enabled = true;
                 }
-                EventTest ev = (EventTest)lBoxEvents.SelectedItem;
+                Events ev = (Events)lBoxEvents.SelectedItem;
                 formEventPreview.UpdateForm(ev);
                 formHelpPreview.UpdateForm(ev.helpText);
 
@@ -154,7 +154,7 @@ namespace DDB
 
         private void btnEventModifyHelpText_Click(object sender, EventArgs e)
         {
-            EventTest ev = (EventTest)lBoxEvents.SelectedItem;
+            Events ev = (Events)lBoxEvents.SelectedItem;
             FormHelpText fh = new FormHelpText(ev, "Event \"" + ev.name + "\"");
             fh.ShowDialog();
 
@@ -213,7 +213,7 @@ namespace DDB
                     btnEventStructureDelete.Enabled = true;
                 }
 
-                //TODO formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+                //TODO formEventStructurePreview.UpdateForm(EventList.GetEvent(lBoxEvents.SelectedIndex));
 
                 lBoxEventStructures.Focus();
             }
@@ -279,7 +279,7 @@ namespace DDB
                     btnEventVarCopy.Enabled = true;
                     btnEventVarDelete.Enabled = true;
                 }
-                //TODO formEventVariablePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+                //TODO formEventVariablePreview.UpdateForm(EventList.GetEvent(lBoxEvents.SelectedIndex));
 
                 lBoxEventVars.Focus();
 
@@ -364,13 +364,13 @@ namespace DDB
 
         private void CreateEvent()
         {
-            EventTest e = new EventTest("New Event Name", "'C' #define name", 0, 0, "");
+            Events e = new Events("New Event Name", "'C' #define name", 0, 0, "");
             using (FormEventEditor frmEvEdit = new FormEventEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEvent();
-                    EventInfoTest.AddNewEvent(e);
+                    EventList.AddNewEvent(e);
                     PopulateEvents();
                 }
             }
@@ -378,12 +378,13 @@ namespace DDB
 
         private void ModifyEvent()
         {
-            EventTest e = (EventTest)lBoxEvents.SelectedItem;
+            Events e = (Events)lBoxEvents.SelectedItem;
             using (FormEventEditor frmEvEdit = new FormEventEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEvent();
+                    PopulateEvents();
                     formEventPreview.UpdateForm(e);
                 }
             }
@@ -394,13 +395,13 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxEvents.SelectedIndices.Count)
             {
-                EventTest e = (EventTest)lBoxEvents.SelectedItems[indexCount];
-                EventTest eNew = new EventTest("Copy of " + e.name, "Copy of " + e.cDefineName, e.logId, e.structId, e.helpText);
-                EventInfoTest.AddNewEvent(eNew);
+                Events e = (Events)lBoxEvents.SelectedItems[indexCount];
+                Events eNew = new Events("Copy of " + e.name, "Copy of " + e.cDefineName, e.logId, e.structId, e.helpText);
+                EventList.AddNewEvent(eNew);
                 indexCount++;
             }
             PopulateEvents();
-            lBoxEvents.SelectedIndex = EventInfoTest.GetEvents().Length - 1;
+            lBoxEvents.SelectedIndex = EventList.GetEvents().Length - 1;
         }
 
         private void DeleteEvent()
@@ -417,20 +418,20 @@ namespace DDB
             }
 
             int indexCount = 0;
-            List<EventTest> items = new List<EventTest>();
+            List<Events> items = new List<Events>();
             while (indexCount < lBoxEvents.SelectedIndices.Count)
             {
-                items.Add((EventTest)lBoxEvents.SelectedItems[indexCount]);
+                items.Add((Events)lBoxEvents.SelectedItems[indexCount]);
                 indexCount++;
             }
 
             while (items.Count != 0)
             {
-                EventInfoTest.DeleteEvent(items[0]);
+                EventList.DeleteEvent(items[0]);
                 items.RemoveAt(0);
             }
 
-            int numEvents = EventInfoTest.GetEvents().Length;
+            int numEvents = EventList.GetEvents().Length;
             int selIndex = lBoxEvents.SelectedIndex;
             PopulateEvents();
             if (selIndex < numEvents)
@@ -445,13 +446,13 @@ namespace DDB
 
         private void CreateEventStructure()
         {
-            EventStructureTest e = new EventStructureTest("New_Event_str", new List<int>());
+            EventStructures e = new EventStructures("New_Event_str", new List<int>());
             using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEventStructure();
-                    EventInfoTest.AddNewEventStructure(e);
+                    EventList.AddNewEventStructure(e);
                     PopulateEventStructures();
                 }
             }
@@ -459,11 +460,13 @@ namespace DDB
 
         private void ModifyEventStructure()
         {
-            EventStructureTest e = (EventStructureTest)lBoxEventStructures.SelectedItem;
+            EventStructures e = (EventStructures)lBoxEventStructures.SelectedItem;
             using (FormEventStructureEditor frmEvStrEdit = new FormEventStructureEditor(e))
             {
                 if (frmEvStrEdit.ShowDialog() == DialogResult.OK)
                 {
+                    e = frmEvStrEdit.GetEditedEventStructure();
+                    PopulateEventStructures();
                     //TODO formEventStructurePreview.UpdateForm(e);
                 }
             }
@@ -474,13 +477,13 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                EventStructureTest e = (EventStructureTest)lBoxEventStructures.SelectedItems[indexCount];
-                EventStructureTest eNew = new EventStructureTest("Copy of " + e.name, e.varId);
-                EventInfoTest.AddNewEventStructure(eNew);
+                EventStructures e = (EventStructures)lBoxEventStructures.SelectedItems[indexCount];
+                EventStructures eNew = new EventStructures("Copy of " + e.name, e.varId);
+                EventList.AddNewEventStructure(eNew);
                 indexCount++;
             }
             PopulateEventStructures();
-            lBoxEventStructures.SelectedIndex = EventInfoTest.GetEventStructures().Length - 1;
+            lBoxEventStructures.SelectedIndex = EventList.GetEventStructures().Length - 1;
         }
 
         private void DeleteEventStructure()
@@ -497,20 +500,20 @@ namespace DDB
             }
 
             int indexCount = 0;
-            List<EventStructureTest> items = new List<EventStructureTest>();
+            List<EventStructures> items = new List<EventStructures>();
             while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                items.Add((EventStructureTest)(lBoxEventStructures.SelectedItems[indexCount]));
+                items.Add((EventStructures)(lBoxEventStructures.SelectedItems[indexCount]));
                 indexCount++;
             }
 
             while (items.Count != 0)
             {
-                EventInfoTest.DeleteEventStructure(items[0]);
+                EventList.DeleteEventStructure(items[0]);
                 items.RemoveAt(0);
             }
 
-            int numEvents = EventInfoTest.GetEventStructures().Length;
+            int numEvents = EventList.GetEventStructures().Length;
             int selIndex = lBoxEventStructures.SelectedIndex;
             PopulateEventStructures();
             if (selIndex < numEvents)
@@ -525,13 +528,13 @@ namespace DDB
 
         private void CreateEventVariable()
         {
-            EventVariableTest e = new EventVariableTest("New Event Var DisplayName", "New Event Var EmbeddedName", 1, 0, 1, 0, 0, 0, "<b>New Event Var Description</b>");
+            EventVariables e = new EventVariables("New Event Var DisplayName", "New Event Var EmbeddedName", 1, 0, 1, 0, 0, 0, "<b>New Event Var Description</b>");
             using (FormEventVariableEditor frmEvVarEdit = new FormEventVariableEditor(e))
             {
                 if (frmEvVarEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvVarEdit.GetEditedEventVariable();
-                    EventInfoTest.AddNewEventVariable(e);
+                    EventList.AddNewEventVariable(e);
                     PopulateEventVariables();
                 }
             }
@@ -542,13 +545,13 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxEventVars.SelectedIndices.Count)
             {
-                EventVariableTest e = (EventVariableTest)lBoxEventVars.SelectedItems[indexCount];
-                EventVariableTest eNew = new EventVariableTest("Copy of " + e.dispName, e);
-                EventInfoTest.AddNewEventVariable(eNew);
+                EventVariables e = (EventVariables)lBoxEventVars.SelectedItems[indexCount];
+                EventVariables eNew = new EventVariables("Copy of " + e.dispName, e);
+                EventList.AddNewEventVariable(eNew);
                 indexCount++;
             }
             PopulateEventVariables();
-            lBoxEventVars.SelectedIndex = EventInfoTest.GetEventVariables().Length - 1;
+            lBoxEventVars.SelectedIndex = EventList.GetEventVariables().Length - 1;
         }
 
         private void DeleteEventVariable()
@@ -565,20 +568,20 @@ namespace DDB
             }
 
             int indexCount = 0;
-            List<EventVariableTest> items = new List<EventVariableTest>();
+            List<EventVariables> items = new List<EventVariables>();
             while (indexCount < lBoxEventVars.SelectedIndices.Count)
             {
-                items.Add((EventVariableTest)lBoxEventVars.SelectedItems[indexCount]);
+                items.Add((EventVariables)lBoxEventVars.SelectedItems[indexCount]);
                 indexCount++;
             }
 
             while (items.Count != 0)
             {
-                EventInfoTest.DeleteEventVariable(items[0]);
+                EventList.DeleteEventVariable(items[0]);
                 items.RemoveAt(0);
             }
 
-            int numEvVars = EventInfoTest.GetEventVariables().Length;
+            int numEvVars = EventList.GetEventVariables().Length;
             int selIndex = lBoxEventVars.SelectedIndex;
             PopulateEventVariables();
             if (selIndex < numEvVars)
@@ -596,7 +599,7 @@ namespace DDB
 
         void ModifyEventVariable()
         {
-            EventVariableTest e = (EventVariableTest)lBoxEventVars.SelectedItem;
+            EventVariables e = (EventVariables)lBoxEventVars.SelectedItem;
             using (FormEventVariableEditor frmEvEdit = new FormEventVariableEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)

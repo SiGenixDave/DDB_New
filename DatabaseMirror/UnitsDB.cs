@@ -5,33 +5,33 @@ using System.Text;
 
 namespace DDB
 {
-    public class UnitsTestList
+    public class UnitsList
     {
         static Int32 key = 0;
-        static List<UnitsTest> list = new List<UnitsTest>() 
+        static List<Units> list = new List<Units>() 
         {
-            new UnitsTest ("NONE", key++),
-            new UnitsTest ("Volts", key++),
-            new UnitsTest ("Meters", key++),
-            new UnitsTest ("Amps", key++),
-            new UnitsTest ("MPHPS", key++),
+            new Units ("NONE", key++),
+            new Units ("Volts", key++),
+            new Units ("Meters", key++),
+            new Units ("Amps", key++),
+            new Units ("MPHPS", key++),
         };
 
-        static public UnitsTest AddUnits(UnitsTest newUnit)
+        static public Units AddUnits(Units newUnit)
         {
-            UnitsTest ut = new UnitsTest(newUnit.name, key++);
+            Units ut = new Units(newUnit.name, key++);
             list.Add(ut);
             return ut;
         }
 
-        static public UnitsTest AddUnits(String name)
+        static public Units AddUnits(String name)
         {
-            UnitsTest ut = new UnitsTest(name, key++);
+            Units ut = new Units(name, key++);
             list.Add(ut);
             return ut;
         }
 
-        static public void ModifyUnits(UnitsTest ut)
+        static public void ModifyUnits(Units ut)
         {
             Int32 index = 0;
 
@@ -44,29 +44,29 @@ namespace DDB
             }
         }
 
-        static public UnitsTest[] GetUnits()
+        static public Units[] GetUnits()
         {
             return list.ToArray();
         }
 
-        static public void Delete(UnitsTest ut)
+        static public void Delete(Units ut)
         {
             list.Remove(ut);
         }
 
     }
 
-    public class UnitsTest
+    public class Units
     {
         public Int32 key;
         public String name;
 
-        private UnitsTest()
+        private Units()
         {
 
         }
 
-        public UnitsTest(String n, Int32 k)
+        public Units(String n, Int32 k)
         {
             name = n;
             key = k;

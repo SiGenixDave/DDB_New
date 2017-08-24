@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (EventStructureTest eStruct)
+        public void UpdateForm (EventStructures eStruct)
         {
             do
             {

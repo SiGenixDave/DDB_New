@@ -9,7 +9,16 @@ namespace DDB
     {
         private void InitWatchVars()
         {
-            RefreshWatchVariableList(-1);
+            WatchVar[] vars = WatchVarList.GetWatchVars();
+
+            int index = 0;
+            while (index < vars.Length)
+            {
+                lBoxWatchVariables.Items.Add(vars[index]);
+                index++;
+            }
+
+
             // Always disable the Actions and context menu that contains actions when in customer mode
             if (GlobalSettings.getCustomerUseOnly())
             {
@@ -33,7 +42,7 @@ namespace DDB
         {
             if (index != -1)
             {
-                currentWatchVar = WatchVarList.GetWatchVar(index);
+                currentWatchVar = (WatchVar)lBoxWatchVariables.SelectedItem;
                 tBoxWatchDisplayName.Text = currentWatchVar.dispName;
                 tBoxWatchEmbName.Text = currentWatchVar.embName;
                 tBoxWatchMinChart.Text = currentWatchVar.minChart.ToString();
@@ -69,7 +78,7 @@ namespace DDB
             }
         }
 
-        private void EnableControlsOnSelectedScaleType(String scaleTypeTxt, WatchVarTest w)
+        private void EnableControlsOnSelectedScaleType(String scaleTypeTxt, WatchVar w)
         {
             switch (scaleTypeTxt)
             {
@@ -133,7 +142,7 @@ namespace DDB
         {
             cBoxWatchUnits.Items.Clear();
                 
-            foreach (UnitsTest unit in UnitsTestList.GetUnits())
+            foreach (Units unit in UnitsList.GetUnits())
             {
                 cBoxWatchUnits.Items.Add(unit);
             }
@@ -147,9 +156,9 @@ namespace DDB
             cBoxWatchUnits.Items.Clear();
 
             int index = 0;
-            while (index < BitmaskVarList.GetVarCount())
+            while (index < BitmaskList.GetVarCount())
             {
-                cBoxWatchUnits.Items.Add(BitmaskVarList.GetVar(index));
+                cBoxWatchUnits.Items.Add(BitmaskList.GetVar(index));
                 index++;
             }
             if (!useExistingIndex)
@@ -163,9 +172,9 @@ namespace DDB
             cBoxWatchUnits.Items.Clear();
 
             int index = 0;
-            while (index < EnumVarList.GetVarCount())
+            while (index < EnumList.GetVarCount())
             {
-                cBoxWatchUnits.Items.Add(EnumVarList.GetVar(index).dispName);
+                cBoxWatchUnits.Items.Add(EnumList.GetVar(index).dispName);
                 index++;
             }
             if (!useExistingIndex)
@@ -176,14 +185,14 @@ namespace DDB
 
         private void btnWatchModifyHelpText_Click(object sender, EventArgs e)
         {
-            WatchVarTest w;
+            WatchVar w;
             if (newVarBeingCreated)
             {
                 w = newWatchVar;
             }
             else
             {
-                w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
+                w = (WatchVar)lBoxWatchVariables.SelectedItem;
             }
             FormHelpText fh = new FormHelpText(w, "Watch Variable \"" + w.dispName + "\"");
             fh.ShowDialog();
@@ -195,12 +204,43 @@ namespace DDB
 
         private void cBoxWatchList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshWatchVariableList(lBoxWatchVariables.SelectedIndex);
+            int prevIndex = lBoxWatchVariables.SelectedIndex;
+
+            switch (cBoxWatchList.SelectedIndex)
+            {
+                case 0:
+                default:
+                    GlobalSettings.setWatchDisplayType(NameType.DISPLAY);
+                    break;
+
+                case 1:
+                    GlobalSettings.setWatchDisplayType(NameType.ENMBEDDED);
+                    break;
+            }
+
+            int index = 0;
+            List<WatchVar> listWatchVars = new List<WatchVar>();
+
+            while (index < lBoxWatchVariables.Items.Count)
+            {
+                listWatchVars.Add((WatchVar)lBoxWatchVariables.Items[index]);
+                index++;
+            }
+
+            lBoxWatchVariables.Items.Clear();
+            index = 0;
+            while (index < listWatchVars.Count)
+            {
+                lBoxWatchVariables.Items.Add(listWatchVars[index]);
+                index++;
+            }
+
+            lBoxWatchVariables.SelectedIndex = prevIndex;
         }
 
         private void cBoxWatchScaleType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WatchVarTest w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
+            WatchVar w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
             EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), w);
         }
 
@@ -209,12 +249,12 @@ namespace DDB
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
             {
                 formEnumPreview.UpdateForm(null);
-                formBitmaskPreview.UpdateForm(BitmaskVarList.GetVar(cBoxWatchUnits.SelectedIndex));
+                formBitmaskPreview.UpdateForm(BitmaskList.GetVar(cBoxWatchUnits.SelectedIndex));
             }
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
             {
                 formBitmaskPreview.UpdateForm(null);
-                formEnumPreview.UpdateForm(EnumVarList.GetVar(cBoxWatchUnits.SelectedIndex));
+                formEnumPreview.UpdateForm(EnumList.GetVar(cBoxWatchUnits.SelectedIndex));
             }
         }
 
@@ -305,18 +345,18 @@ namespace DDB
             Console.WriteLine("Watch -> " + lBoxWatchVariables.SelectedIndices.Count);
         }
 
-        private WatchVarTest currentWatchVar;
+        private WatchVar currentWatchVar;
 
         private void btnWatchModify_Click(object sender, EventArgs e)
         {
-            WatchVarTest w;
+            WatchVar w;
             if (newVarBeingCreated)
             {
                 w = newWatchVar;
             }
             else
             {
-                w = WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndex);
+                w = (WatchVar)lBoxWatchVariables.SelectedItem;
             }
             WatchModifyInProgress();
         }
@@ -351,11 +391,11 @@ namespace DDB
             // TODO
         }
 
-        private WatchVarTest newWatchVar;
+        private WatchVar newWatchVar;
 
         private void btnWatchAccept_Click(object sender, EventArgs e)
         {
-            WatchVarTest w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
+            WatchVar w = newVarBeingCreated == true ? newWatchVar : currentWatchVar;
             w.dispName = tBoxWatchDisplayName.Text;
             w.embName = tBoxWatchEmbName.Text;
             w.minChart = Convert.ToInt32(tBoxWatchMinChart.Text);
@@ -422,7 +462,7 @@ namespace DDB
         {
             newVarBeingCreated = true;
             PopulateNewVarDefaults();
-            newWatchVar = new WatchVarTest(tBoxWatchDisplayName.Text, tBoxWatchEmbName.Text, Convert.ToInt32(tBoxWatchMinChart.Text),
+            newWatchVar = new WatchVar(tBoxWatchDisplayName.Text, tBoxWatchEmbName.Text, Convert.ToInt32(tBoxWatchMinChart.Text),
                                             Convert.ToInt32(tBoxWatchMaxChart.Text), Convert.ToInt32(tBoxWatchMinValue.Text),
                                             Convert.ToInt32(tBoxWatchMaxValue.Text), cBoxWatchDataType.SelectedIndex, cBoxWatchScaleType.SelectedIndex,
                                             cBoxWatchUnits.SelectedIndex, cBoxWatchScaleInfo.SelectedIndex, cBoxWatchUnitConversion.SelectedIndex,
@@ -474,23 +514,14 @@ namespace DDB
 
         private void RefreshWatchVariableList(int prevIndex)
         {
-            lBoxWatchVariables.Items.Clear();
             int index = 0;
-            WatchVarTest w;
-            while (index < WatchVarList.GetWatchVarCount())
-            {
-                w = WatchVarList.GetWatchVar(index);
-                switch (cBoxWatchList.SelectedIndex)
-                {
-                    case 0:
-                    default:
-                        lBoxWatchVariables.Items.Add(w.dispName);
-                        break;
+            WatchVar[] vars = WatchVarList.GetWatchVars();
 
-                    case 1:
-                        lBoxWatchVariables.Items.Add(w.embName);
-                        break;
-                }
+            lBoxWatchVariables.Items.Clear();
+
+            while (index < vars.Length)
+            {
+                lBoxWatchVariables.Items.Add(vars[index]);
                 index++;
             }
 
@@ -502,7 +533,7 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
             {
-                WatchVarTest w = WatchVarList.GetWatchVarCopy(lBoxWatchVariables.SelectedIndices[indexCount]);
+                WatchVar w = WatchVarList.GetWatchVarCopy(lBoxWatchVariables.SelectedIndices[indexCount]);
                 w.embName = "Copy of " + w.embName;
                 w.dispName = "Copy of " + w.dispName;
                 WatchVarList.AddVar(w);
@@ -526,10 +557,10 @@ namespace DDB
             }
 
             int indexCount = 0;
-            List<WatchVarTest> watchesToDelete = new List<WatchVarTest>();
+            List<WatchVar> watchesToDelete = new List<WatchVar>();
             while (indexCount < lBoxWatchVariables.SelectedIndices.Count)
             {
-                watchesToDelete.Add(WatchVarList.GetWatchVar(lBoxWatchVariables.SelectedIndices[indexCount]));
+                watchesToDelete.Add((WatchVar)lBoxWatchVariables.SelectedItems[indexCount]);
                 indexCount++;
             }
 

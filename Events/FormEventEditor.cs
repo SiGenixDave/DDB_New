@@ -6,9 +6,9 @@ namespace DDB
 {
     public partial class FormEventEditor : Form
     {
-        EventTest ev;
+        Events ev;
 
-        public FormEventEditor(EventTest e)
+        public FormEventEditor(Events e)
         {
             InitializeComponent();
 
@@ -27,7 +27,7 @@ namespace DDB
         }
 
 
-        public EventTest GetEditedEvent()
+        public Events GetEditedEvent()
         {
             ev.name = tBoxEventName.Text;
             ev.cDefineName = tBoxDefineName.Text;
@@ -89,7 +89,7 @@ namespace DDB
 
         private void PopulateEventStructures()
         {
-            foreach (EventStructureTest e in EventInfoTest.GetEventStructures())
+            foreach (EventStructures e in EventList.GetEventStructures())
             {
                 cBoxEventStructs.Items.Add(e.name);
             }

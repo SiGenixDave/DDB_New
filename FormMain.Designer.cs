@@ -944,9 +944,9 @@
             this.tabEvents.Controls.Add(this.gBoxEventVariables);
             this.tabEvents.Controls.Add(this.gBoxEventStructures);
             this.tabEvents.Controls.Add(this.gBoxEvents);
-            this.tabEvents.Location = new System.Drawing.Point(4, 26);
+            this.tabEvents.Location = new System.Drawing.Point(4, 25);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 525);
+            this.tabEvents.Size = new System.Drawing.Size(842, 526);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -1500,21 +1500,21 @@
             // copyEventLogMenuItem
             // 
             this.copyEventLogMenuItem.Name = "copyEventLogMenuItem";
-            this.copyEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.copyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
             this.copyEventLogMenuItem.Text = "Copy";
             this.copyEventLogMenuItem.Click += new System.EventHandler(this.copyEventLogMenuItem_Click);
             // 
             // modifyEventLogMenuItem
             // 
             this.modifyEventLogMenuItem.Name = "modifyEventLogMenuItem";
-            this.modifyEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.modifyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
             this.modifyEventLogMenuItem.Text = "Modify";
             this.modifyEventLogMenuItem.Click += new System.EventHandler(this.modifyEventLogMenuItem_Click);
             // 
             // deleteEventLogMenuItem
             // 
             this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
-            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
             this.deleteEventLogMenuItem.Text = "Delete";
             this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
             // 
@@ -2675,7 +2675,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.8f)";
+            this.Text = "Bombardier DDB (v 0.0.0.8g)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);

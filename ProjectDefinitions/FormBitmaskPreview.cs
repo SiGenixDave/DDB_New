@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (BitmaskTest bm)
+        public void UpdateForm (Bitmask bm)
         {
             do
             {

@@ -136,8 +136,8 @@
     <Compile Include="ProjectSettings\ProjectSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\BitmaskTest.cs" />
-    <Compile Include="Test\EnumsTest.cs" />
+    <Compile Include="DatabaseMirror\BitmaskDB.cs" />
+    <Compile Include="DatabaseMirror\EnumsDB.cs" />
     <Compile Include="ProjectDefinitions\UnitCreateObject.cs" />
     <Compile Include="FormHelpText.cs">
       <SubType>Form</SubType>
@@ -160,15 +160,15 @@
     <Compile Include="iDDBHelpObject.cs" />
     <Compile Include="iTextEntry.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Test\EventTest.cs" />
-    <Compile Include="Test\ProjectSettingsTest.cs" />
-    <Compile Include="Test\UnitsTest.cs" />
+    <Compile Include="DatabaseMirror\EventsDB.cs" />
+    <Compile Include="DatabaseMirror\ProjectSettingsDB.cs" />
+    <Compile Include="DatabaseMirror\UnitsDB.cs" />
     <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />
     <Compile Include="ProjectDefinitions\Units.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\WatchVarTest.cs" />
+    <Compile Include="DatabaseMirror\WatchVarDB.cs" />
     <Compile Include="Watch Variables\WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>

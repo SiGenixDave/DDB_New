@@ -106,9 +106,9 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
-                UnitsTest u = (UnitsTest)lBoxProjUnits.SelectedItems[indexCount];
+                Units u = (Units)lBoxProjUnits.SelectedItems[indexCount];
                 u.name = "Copy of " + u.name;
-                UnitsTestList.AddUnits(u);
+                UnitsList.AddUnits(u);
                 lBoxProjUnits.Items.Add(u);
                 indexCount++;
             }
@@ -116,12 +116,12 @@ namespace DDB
 
         private void ModifyUnits()
         {
-            UnitModifyObject unitModify = new UnitModifyObject((UnitsTest)lBoxProjUnits.SelectedItem);
+            UnitModifyObject unitModify = new UnitModifyObject((Units)lBoxProjUnits.SelectedItem);
             if (unitModify.GetUserAcceptance())
             {
-                UnitsTest modifiedUnit = unitModify.GetUnit();
+                Units modifiedUnit = unitModify.GetUnit();
                 lBoxProjUnits.Items[lBoxProjUnits.SelectedIndex] = modifiedUnit;
-                UnitsTestList.ModifyUnits(modifiedUnit);
+                UnitsList.ModifyUnits(modifiedUnit);
             }
         }
 
@@ -130,7 +130,7 @@ namespace DDB
             UnitCreateObject unitCreate = new UnitCreateObject();
             if (unitCreate.GetUserAcceptance())
             {
-                UnitsTest u = UnitsTestList.AddUnits(unitCreate.GetUnitName());
+                Units u = UnitsList.AddUnits(unitCreate.GetUnitName());
                 lBoxProjUnits.Items.Add(u);
             }
         }
@@ -151,16 +151,16 @@ namespace DDB
             int prevSelected = lBoxProjUnits.SelectedIndices[0];
 
             int indexCount = 0;
-            List<UnitsTest> unitsToDelete = new List<UnitsTest>();
+            List<Units> unitsToDelete = new List<Units>();
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
-                unitsToDelete.Add((UnitsTest)(lBoxProjUnits.SelectedItems[indexCount]));
+                unitsToDelete.Add((Units)(lBoxProjUnits.SelectedItems[indexCount]));
                 indexCount++;
             }
 
             while (unitsToDelete.Count != 0)
             {
-                UnitsTestList.Delete(unitsToDelete[0]);
+                UnitsList.Delete(unitsToDelete[0]);
                 unitsToDelete.RemoveAt(0);
             }
 

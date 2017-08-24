@@ -6,9 +6,9 @@ namespace DDB
 {
     public partial class FormBitmaskEditor : Form
     {
-        private BitmaskTest bitmask;
+        private Bitmask bitmask;
 
-        public FormBitmaskEditor(BitmaskTest bm, Boolean createNewBitmask)
+        public FormBitmaskEditor(Bitmask bm, Boolean createNewBitmask)
         {
             InitializeComponent();
             bitmask = bm;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    internal class WatchVarTest: iDDBHelpObject
+    internal class WatchVar: iDDBHelpObject
     {
         public String dispName;
         public String embName;
@@ -21,12 +21,12 @@ namespace DDB
         public Int32 engineeringViewOnly;
         public String helpText;
 
-        public WatchVarTest()
+        public WatchVar()
         {
         }
 
 
-        public WatchVarTest(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
+        public WatchVar(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
                             Int32 u, Int32 si, Int32 uc, Int32 fs, Int32 rw, Int32 evo, String ht)
         {
             dispName = d;
@@ -46,7 +46,7 @@ namespace DDB
             helpText = ht;
         }
 
-        public WatchVarTest(WatchVarTest w)
+        public WatchVar(WatchVar w)
         {
             dispName = w.dispName;
             embName = w.embName;
@@ -78,34 +78,41 @@ namespace DDB
 
         public override string ToString()
         {
-            return dispName;
+            if (GlobalSettings.getWatchDisplayType() == NameType.DISPLAY)
+            {
+                return dispName;
+            }
+            else
+            {
+                return embName;
+            }
         }
 
     }
 
     internal class WatchVarList
     {
-        static public List<WatchVarTest> list = new List<WatchVarTest>();
+        static public List<WatchVar> list = new List<WatchVar>();
 
-        static public void AddVar(WatchVarTest w)
+        static public void AddVar(WatchVar w)
         {
             list.Add(w);
         }
 
-        static public void DeleteVar(WatchVarTest w)
+        static public void DeleteVar(WatchVar w)
         {
             list.Remove(w);
         }
 
-        static public WatchVarTest GetWatchVarCopy(int index)
+        static public WatchVar GetWatchVarCopy(int index)
         {
-            WatchVarTest w = new WatchVarTest(list[index]);
+            WatchVar w = new WatchVar(list[index]);
             return w;
         }
         
-        static public WatchVarTest GetWatchVar(int index)
+        static public WatchVar[] GetWatchVars()
         {
-            return list[index];
+            return list.ToArray();
         }
 
         static public int GetWatchVarCount()
@@ -116,11 +123,11 @@ namespace DDB
         static public void Init()
         {
 
-            list.Add(new WatchVarTest("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
-            list.Add(new WatchVarTest("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
-            list.Add(new WatchVarTest("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
-            list.Add(new WatchVarTest("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
-            list.Add(new WatchVarTest("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
+            list.Add(new WatchVar("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
+            list.Add(new WatchVar("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
+            list.Add(new WatchVar("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
+            list.Add(new WatchVar("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
+            list.Add(new WatchVar("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
         }
     }
 }
