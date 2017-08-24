@@ -56,8 +56,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\FormEventVariableEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\FormEventVariableEditor.Designer.cs">
+      <DependentUpon>FormEventVariableEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events\Events.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\FormEventStructurePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\FormEventStructurePreview.Designer.cs">
+      <DependentUpon>FormEventStructurePreview.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\FormEventEditor.cs">
       <SubType>Form</SubType>
@@ -160,6 +172,12 @@
     <Compile Include="Watch Variables\WatchVariable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="Events\FormEventVariableEditor.resx">
+      <DependentUpon>FormEventVariableEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Events\FormEventStructurePreview.resx">
+      <DependentUpon>FormEventStructurePreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Events\FormEventEditor.resx">
       <DependentUpon>FormEventEditor.cs</DependentUpon>
     </EmbeddedResource>

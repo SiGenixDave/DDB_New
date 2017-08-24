@@ -33,22 +33,10 @@ namespace DDB
         {
             return evVars.ToArray();
         }
+
         static public EventVariableTest GetEventVariable(int i)
         {
             return evVars[i];
-        }
-
-        static public EventTest GetEvent(Int32 id)
-        {
-            foreach (EventTest e in events)
-            {
-                if (e.dbId == id)
-                {
-                    return e;
-                }
-            }
-
-            return null;
         }
 
 
@@ -62,24 +50,6 @@ namespace DDB
             events.Remove(ev);
         }
 
-        static public EventStructureTest GetEventStructure(String name)
-        {
-            foreach (EventStructureTest e in evStructs)
-            {
-                if (e.name == name)
-                {
-                    return e;
-                }
-            }
-
-            return null;
-        }
-
-        static public EventStructureTest GetEventStructure(int i)
-        {
-            return evStructs[i];
-        }
-
         static public void AddNewEventStructure(EventStructureTest e)
         {
             evStructs.Add(e);
@@ -89,6 +59,17 @@ namespace DDB
         {
             evStructs.Remove(ev);
         }
+
+        static public void AddNewEventVariable(EventVariableTest ev)
+        {
+            evVars.Add(ev);
+        }
+
+        static public void DeleteEventVariable(EventVariableTest ev)
+        {
+            evVars.Remove(ev);
+        }
+
 
 
         static private void CreateEvents()
@@ -219,6 +200,20 @@ namespace DDB
             unitConversion = uc;
             formatString = fs;
             helpText = ht;
+        }
+
+        public EventVariableTest(String d, EventVariableTest e)
+        {
+            id = sId++;
+            dispName = d;
+            embName = e.embName;
+            dataType = e.dataType;
+            scaleType = e.scaleType;
+            units = e.units;
+            scaleInfo = e.scaleInfo;
+            unitConversion = e.unitConversion;
+            formatString = e.formatString;
+            helpText = e.helpText;
         }
 
         public override string ToString()

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DDB
 {
@@ -33,6 +33,7 @@ namespace DDB
                 lBoxEvents.Items.Add(e);
             }
         }
+
         private void PopulateEventStructures()
         {
             lBoxEventStructures.Items.Clear();
@@ -41,6 +42,7 @@ namespace DDB
                 lBoxEventStructures.Items.Add(e);
             }
         }
+
         private void PopulateEventVariables()
         {
             lBoxEventVars.Items.Clear();
@@ -49,8 +51,6 @@ namespace DDB
                 lBoxEventVars.Items.Add(e);
             }
         }
-
-
 
         private void btnEventCreate_Click(object sender, EventArgs e)
         {
@@ -104,11 +104,11 @@ namespace DDB
                 btnEventModifyHelpText.Enabled = true;
                 if (!GlobalSettings.getCustomerUseOnly())
                 {
-                    btnEventModify.Enabled = true; 
+                    btnEventModify.Enabled = true;
                     btnEventCopy.Enabled = true;
                     btnEventDelete.Enabled = true;
                 }
-                EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
+                EventTest ev = (EventTest)lBoxEvents.SelectedItem;
                 formEventPreview.UpdateForm(ev);
                 formHelpPreview.UpdateForm(ev.helpText);
 
@@ -130,8 +130,6 @@ namespace DDB
                 formHelpPreview.UpdateForm(null);
             }
 
-            Console.WriteLine("lBOXEVENTS SLEC CHNGE -> " + lBoxEvents.SelectedIndices.Count.ToString());
-
         }
 
         private void copyEventLogMenuItem_Click(object sender, EventArgs e)
@@ -149,15 +147,13 @@ namespace DDB
             DeleteEvent();
         }
 
-
         private void btnEventModifyHelpText_Click(object sender, EventArgs e)
         {
-            EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
+            EventTest ev = (EventTest)lBoxEvents.SelectedItem;
             FormHelpText fh = new FormHelpText(ev, "Event \"" + ev.name + "\"");
             fh.ShowDialog();
 
             formHelpPreview.UpdateForm(ev.helpText);
-
         }
 
         /////////////////////////////////
@@ -191,7 +187,6 @@ namespace DDB
             //TODO Open new form with list box of units from the XML file
         }
 
-
         private void lBoxEventStructures_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lBoxEventStructures.SelectedIndices.Count == 0)
@@ -211,6 +206,8 @@ namespace DDB
                 btnEventStructureDelete.Enabled = true;
 
                 //TODO formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+
+                lBoxEventStructures.Focus();
             }
             else
             {
@@ -222,7 +219,7 @@ namespace DDB
                 btnEventStructureDelete.Enabled = true;
             }
         }
-        
+
         private void lBoxEventStructures_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ModifyEventStructure();
@@ -243,38 +240,64 @@ namespace DDB
             DeleteEventStructure();
         }
 
-
-
-
         private void lBoxEventVars_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            ModifyEventVariable();
         }
 
         private void lBoxEventVars_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lBoxEventVars.SelectedIndices.Count == 0)
+            {
+                btnEventVarModify.Enabled = false;
+                btnEventVarCopy.Enabled = false;
+                btnEventVarDelete.Enabled = false;
+
+                //TODO formEventPreview.UpdateForm(null);
+            }
+            else if (lBoxEventVars.SelectedIndices.Count == 1)
+            {
+                //TODO conMenuEventVariables.Items[1].Enabled = true;
+
+                btnEventVarModify.Enabled = true;
+                btnEventVarCopy.Enabled = true;
+                btnEventVarDelete.Enabled = true;
+
+                //TODO formEventVariablePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
+
+                lBoxEventVars.Focus();
+
+            }
+            else
+            {
+                // Disable the "Modify" in context menu
+                //TODO conMenuEventVariables.Items[1].Enabled = false;
+
+                btnEventVarModify.Enabled = false;
+                btnEventVarCopy.Enabled = true;
+                btnEventVarDelete.Enabled = true;
+            }
 
         }
 
-
         private void btnEventVarCreate_Click(object sender, EventArgs e)
         {
-
+            CreateEventVariable();
         }
 
         private void btnEventVarCopy_Click(object sender, EventArgs e)
         {
-
+            CopyEventVariable();
         }
 
         private void btnEventVarModify_Click(object sender, EventArgs e)
         {
-
+            ModifyEventVariable();
         }
 
         private void btnEventVarDelete_Click(object sender, EventArgs e)
         {
-
+            DeleteEventVariable();
         }
 
         private void btnEventVarImport_Click(object sender, EventArgs e)
@@ -286,11 +309,10 @@ namespace DDB
             //TODO Open new form with list box of units from the XML file
         }
 
-
-
         private void gBoxEvents_Enter(object sender, EventArgs e)
         {
             formEventPreview.UpdateForm(null);
+            formHelpPreview.UpdateForm(null);
         }
 
         private void gBoxEvents_Leave(object sender, EventArgs e)
@@ -298,33 +320,26 @@ namespace DDB
             lBoxEvents.SelectedIndex = -1;
         }
 
-        private int savedEventStructureIndex = 0;
+
         private void gBoxEventStructures_Enter(object sender, EventArgs e)
         {
-            lBoxEventStructures.SelectedIndex = savedEventStructureIndex;
-            //formEventStructurePreview.UpdateForm(null);
-            formHelpPreview.UpdateForm(null);
+            // TODO formEventStructurePreview.UpdateForm(null);
         }
 
         private void gBoxEventStructures_Leave(object sender, EventArgs e)
         {
-            savedEventStructureIndex = lBoxEventStructures.SelectedIndex;
             lBoxEventStructures.SelectedIndex = -1;
         }
 
-        private int savedEventVariableIndex = 0;
         private void gBoxEventVariables_Enter(object sender, EventArgs e)
         {
-            lBoxEventVars.SelectedIndex = savedEventVariableIndex;
-            //formEventVariablePreview.UpdateForm(null);
+            //TODO formEventVariablePreview.UpdateForm(null);
         }
 
         private void gBoxEventVariables_Leave(object sender, EventArgs e)
         {
-            savedEventVariableIndex = lBoxEventVars.SelectedIndex;
             lBoxEventVars.SelectedIndex = -1;
         }
-
 
         private void CreateEvent()
         {
@@ -350,7 +365,7 @@ namespace DDB
                     e = frmEvEdit.GetEditedEvent();
                     formEventPreview.UpdateForm(e);
                 }
-              } 
+            }
         }
 
         private void CopyEvent()
@@ -358,7 +373,7 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxEvents.SelectedIndices.Count)
             {
-                EventTest e = EventInfoTest.GetEvent(lBoxEvents.SelectedIndices[indexCount]);
+                EventTest e = (EventTest)lBoxEvents.SelectedItems[indexCount];
                 EventTest eNew = new EventTest("Copy of " + e.name, "Copy of " + e.cDefineName, e.logId, e.structId, e.helpText);
                 EventInfoTest.AddNewEvent(eNew);
                 indexCount++;
@@ -384,7 +399,7 @@ namespace DDB
             List<EventTest> items = new List<EventTest>();
             while (indexCount < lBoxEvents.SelectedIndices.Count)
             {
-                items.Add(EventInfoTest.GetEvent(lBoxEvents.SelectedIndices[indexCount]));
+                items.Add((EventTest)lBoxEvents.SelectedItems[indexCount]);
                 indexCount++;
             }
 
@@ -407,7 +422,6 @@ namespace DDB
             }
         }
 
-
         private void CreateEventStructure()
         {
             EventStructureTest e = new EventStructureTest("New_Event_str", new List<int>());
@@ -424,14 +438,12 @@ namespace DDB
 
         private void ModifyEventStructure()
         {
-            EventStructureTest e = EventInfoTest.GetEventStructure(lBoxEventStructures.SelectedItem.ToString());
-            using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor(e))
+            EventStructureTest e = (EventStructureTest)lBoxEventStructures.SelectedItem;
+            using (FormEventStructureEditor frmEvStrEdit = new FormEventStructureEditor(e))
             {
-                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                if (frmEvStrEdit.ShowDialog() == DialogResult.OK)
                 {
-                    EventTest ev = EventInfoTest.GetEvent(lBoxEvents.SelectedIndex);
-                    formEventPreview.UpdateForm(ev);
-                    formHelpPreview.UpdateForm(ev.helpText);
+                    //TODO formEventStructurePreview.UpdateForm(e);
                 }
             }
         }
@@ -441,7 +453,7 @@ namespace DDB
             int indexCount = 0;
             while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                EventStructureTest e = EventInfoTest.GetEventStructure(lBoxEventStructures.SelectedIndices[indexCount]);
+                EventStructureTest e = (EventStructureTest)lBoxEventStructures.SelectedItems[indexCount];
                 EventStructureTest eNew = new EventStructureTest("Copy of " + e.name, e.varId);
                 EventInfoTest.AddNewEventStructure(eNew);
                 indexCount++;
@@ -467,7 +479,7 @@ namespace DDB
             List<EventStructureTest> items = new List<EventStructureTest>();
             while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
-                items.Add(EventInfoTest.GetEventStructure(lBoxEventStructures.SelectedIndices[indexCount]));
+                items.Add((EventStructureTest)(lBoxEventStructures.SelectedItems[indexCount]));
                 indexCount++;
             }
 
@@ -490,6 +502,90 @@ namespace DDB
             }
         }
 
+        private void CreateEventVariable()
+        {
+            EventVariableTest e = new EventVariableTest("New Event Var DisplayName", "New Event Var EmbeddedName", 1, 0, 1, 0, 0, 0, "<b>New Event Var Description</b>");
+            using (FormEventVariableEditor frmEvVarEdit = new FormEventVariableEditor(e))
+            {
+                if (frmEvVarEdit.ShowDialog() == DialogResult.OK)
+                {
+                    e = frmEvVarEdit.GetEditedEventVariable();
+                    EventInfoTest.AddNewEventVariable(e);
+                    PopulateEventVariables();
+                }
+            }
+        }
+
+        private void CopyEventVariable()
+        {
+            int indexCount = 0;
+            while (indexCount < lBoxEventVars.SelectedIndices.Count)
+            {
+                EventVariableTest e = (EventVariableTest)lBoxEventVars.SelectedItems[indexCount];
+                EventVariableTest eNew = new EventVariableTest("Copy of " + e.dispName, e);
+                EventInfoTest.AddNewEventVariable(eNew);
+                indexCount++;
+            }
+            PopulateEventVariables();
+            lBoxEventVars.SelectedIndex = EventInfoTest.GetEventVariables().Length - 1;
+        }
+
+        private void DeleteEventVariable()
+        {
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Variables(s)?",
+                                                          "Delete Event Variables(s) Confirmation",
+                                                          MessageBoxButtons.OKCancel,
+                                                          MessageBoxIcon.Warning);
+
+            // User really didn't want to delete the variables... abort delete
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            int indexCount = 0;
+            List<EventVariableTest> items = new List<EventVariableTest>();
+            while (indexCount < lBoxEventVars.SelectedIndices.Count)
+            {
+                items.Add((EventVariableTest)lBoxEventVars.SelectedItems[indexCount]);
+                indexCount++;
+            }
+
+            while (items.Count != 0)
+            {
+                EventInfoTest.DeleteEventVariable(items[0]);
+                items.RemoveAt(0);
+            }
+
+            int numEvVars = EventInfoTest.GetEventVariables().Length;
+            int selIndex = lBoxEventVars.SelectedIndex;
+            PopulateEventVariables();
+            if (selIndex < numEvVars)
+            {
+                lBoxEventVars.SelectedIndex = selIndex;
+            }
+            else
+            {
+                lBoxEventVars.SelectedIndex = selIndex - 1;
+            }
+        }
+
+
+
+
+        void ModifyEventVariable()
+        {
+            EventVariableTest e = (EventVariableTest)lBoxEventVars.SelectedItem;
+            using (FormEventVariableEditor frmEvEdit = new FormEventVariableEditor(e))
+            {
+                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                {
+                    e = frmEvEdit.GetEditedEventVariable();
+                    //formEventPreview.UpdateForm(e);
+                }
+            }
+
+        }
 
     }
 }
