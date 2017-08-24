@@ -215,6 +215,7 @@ namespace DDB
             if (previewBitmasksToolStripMenuItem.Checked)
             {
                 formBitmaskPreview.Visible = true;
+                this.Focus();
             }
             else
             {
@@ -227,6 +228,7 @@ namespace DDB
             if (previewEnumerationsToolStripMenuItem.Checked)
             {
                 formEnumPreview.Visible = true;
+                this.Focus();
             }
             else
             {
@@ -239,6 +241,7 @@ namespace DDB
             if (previewEventsToolStripMenuItem.Checked)
             {
                 formEventPreview.Visible = true;
+                this.Focus();
             }
             else
             {
@@ -251,6 +254,7 @@ namespace DDB
             if (previewHelpToolStripMenuItem.Checked)
             {
                 formHelpPreview.Visible = true;
+                this.Focus();
             }
             else
             {

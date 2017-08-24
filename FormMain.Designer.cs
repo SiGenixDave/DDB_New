@@ -130,7 +130,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnEventCreate = new System.Windows.Forms.Button();
             this.lBoxEvents = new System.Windows.Forms.ListBox();
-            this.conMenuEventLogs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.conMenuEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -256,7 +256,7 @@
             this.gBoxEventStructures.SuspendLayout();
             this.conMenuEventStructures.SuspendLayout();
             this.gBoxEvents.SuspendLayout();
-            this.conMenuEventLogs.SuspendLayout();
+            this.conMenuEvents.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.gBoxProjEnums.SuspendLayout();
             this.conMenuEnums.SuspendLayout();
@@ -1475,7 +1475,7 @@
             // 
             // lBoxEvents
             // 
-            this.lBoxEvents.ContextMenuStrip = this.conMenuEventLogs;
+            this.lBoxEvents.ContextMenuStrip = this.conMenuEvents;
             this.lBoxEvents.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxEvents.FormattingEnabled = true;
             this.lBoxEvents.HorizontalScrollbar = true;
@@ -1488,33 +1488,33 @@
             this.lBoxEvents.SelectedIndexChanged += new System.EventHandler(this.lBoxEvents_SelectedIndexChanged);
             this.lBoxEvents.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEvents_MouseDoubleClick);
             // 
-            // conMenuEventLogs
+            // conMenuEvents
             // 
-            this.conMenuEventLogs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conMenuEvents.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyEventLogMenuItem,
             this.modifyEventLogMenuItem,
             this.deleteEventLogMenuItem});
-            this.conMenuEventLogs.Name = "conMenu";
-            this.conMenuEventLogs.Size = new System.Drawing.Size(126, 76);
+            this.conMenuEvents.Name = "conMenu";
+            this.conMenuEvents.Size = new System.Drawing.Size(126, 76);
             // 
             // copyEventLogMenuItem
             // 
             this.copyEventLogMenuItem.Name = "copyEventLogMenuItem";
-            this.copyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.copyEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
             this.copyEventLogMenuItem.Text = "Copy";
             this.copyEventLogMenuItem.Click += new System.EventHandler(this.copyEventLogMenuItem_Click);
             // 
             // modifyEventLogMenuItem
             // 
             this.modifyEventLogMenuItem.Name = "modifyEventLogMenuItem";
-            this.modifyEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.modifyEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
             this.modifyEventLogMenuItem.Text = "Modify";
             this.modifyEventLogMenuItem.Click += new System.EventHandler(this.modifyEventLogMenuItem_Click);
             // 
             // deleteEventLogMenuItem
             // 
             this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
-            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(152, 24);
             this.deleteEventLogMenuItem.Text = "Delete";
             this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
             // 
@@ -2259,7 +2259,7 @@
             this.dGridEventLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eventLogEmbIndex,
             this.eventLogName});
-            this.dGridEventLog.ContextMenuStrip = this.conMenuEventLogs;
+            this.dGridEventLog.ContextMenuStrip = this.conMenuEvents;
             this.dGridEventLog.EnableHeadersVisualStyles = false;
             this.dGridEventLog.Location = new System.Drawing.Point(14, 20);
             this.dGridEventLog.Name = "dGridEventLog";
@@ -2675,7 +2675,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.8e)";
+            this.Text = "Bombardier DDB (v 0.0.0.8f)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -2698,7 +2698,7 @@
             this.conMenuEventStructures.ResumeLayout(false);
             this.gBoxEvents.ResumeLayout(false);
             this.gBoxEvents.PerformLayout();
-            this.conMenuEventLogs.ResumeLayout(false);
+            this.conMenuEvents.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
             this.gBoxProjEnums.ResumeLayout(false);
             this.gBoxProjEnums.PerformLayout();
@@ -2879,7 +2879,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox gBoxWatchActions;
-        private System.Windows.Forms.ContextMenuStrip conMenuEventLogs;
+        private System.Windows.Forms.ContextMenuStrip conMenuEvents;
         private System.Windows.Forms.ToolStripMenuItem copyEventLogMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteEventLogMenuItem;
         private System.Windows.Forms.GroupBox gBoxEvents;

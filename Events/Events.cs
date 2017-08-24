@@ -12,6 +12,10 @@ namespace DDB
             {
                 btnEventCreate.Enabled = false;
                 btnEventImport.Enabled = false;
+                btnEventStructureCreate.Enabled = false;
+                btnEventStructureImport.Enabled = false;
+                btnEventVarCreate.Enabled = false;
+                btnEventVarImport.Enabled = false; 
                 lBoxEvents.MouseDoubleClick -= lBoxEvents_MouseDoubleClick;
                 lBoxEventStructures.MouseDoubleClick -= lBoxEventStructures_MouseDoubleClick;
                 lBoxEventVars.MouseDoubleClick -= lBoxEventVars_MouseDoubleClick;
@@ -100,7 +104,7 @@ namespace DDB
             }
             else if (lBoxEvents.SelectedIndices.Count == 1)
             {
-                conMenuEventLogs.Items[1].Enabled = true;
+                conMenuEvents.Items[1].Enabled = true;
                 btnEventModifyHelpText.Enabled = true;
                 if (!GlobalSettings.getCustomerUseOnly())
                 {
@@ -113,11 +117,12 @@ namespace DDB
                 formHelpPreview.UpdateForm(ev.helpText);
 
                 lBoxEvents.Focus();
+                Console.WriteLine("lBoxEvents.Focus()");
             }
             else
             {
                 // Disable the "Modify" in context menu
-                conMenuEventLogs.Items[1].Enabled = false;
+                conMenuEvents.Items[1].Enabled = false;
 
                 btnEventModify.Enabled = false;
                 btnEventModifyHelpText.Enabled = false;
@@ -201,9 +206,12 @@ namespace DDB
             {
                 conMenuEventStructures.Items[1].Enabled = true;
 
-                btnEventStructureModify.Enabled = true;
-                btnEventStructureCopy.Enabled = true;
-                btnEventStructureDelete.Enabled = true;
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventStructureModify.Enabled = true;
+                    btnEventStructureCopy.Enabled = true;
+                    btnEventStructureDelete.Enabled = true;
+                }
 
                 //TODO formEventStructurePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
 
@@ -213,10 +221,13 @@ namespace DDB
             {
                 // Disable the "Modify" in context menu
                 conMenuEventStructures.Items[1].Enabled = false;
-
                 btnEventStructureModify.Enabled = false;
-                btnEventStructureCopy.Enabled = true;
-                btnEventStructureDelete.Enabled = true;
+
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventStructureCopy.Enabled = true;
+                    btnEventStructureDelete.Enabled = true;
+                }
             }
         }
 
@@ -249,6 +260,8 @@ namespace DDB
         {
             if (lBoxEventVars.SelectedIndices.Count == 0)
             {
+                btnEventVarModifyHelpText.Enabled = false;
+
                 btnEventVarModify.Enabled = false;
                 btnEventVarCopy.Enabled = false;
                 btnEventVarDelete.Enabled = false;
@@ -258,11 +271,14 @@ namespace DDB
             else if (lBoxEventVars.SelectedIndices.Count == 1)
             {
                 //TODO conMenuEventVariables.Items[1].Enabled = true;
+                btnEventVarModifyHelpText.Enabled = true;
 
-                btnEventVarModify.Enabled = true;
-                btnEventVarCopy.Enabled = true;
-                btnEventVarDelete.Enabled = true;
-
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventVarModify.Enabled = true;
+                    btnEventVarCopy.Enabled = true;
+                    btnEventVarDelete.Enabled = true;
+                }
                 //TODO formEventVariablePreview.UpdateForm(EventInfoTest.GetEvent(lBoxEvents.SelectedIndex));
 
                 lBoxEventVars.Focus();
@@ -272,10 +288,15 @@ namespace DDB
             {
                 // Disable the "Modify" in context menu
                 //TODO conMenuEventVariables.Items[1].Enabled = false;
+                btnEventVarModifyHelpText.Enabled = false;
 
                 btnEventVarModify.Enabled = false;
-                btnEventVarCopy.Enabled = true;
-                btnEventVarDelete.Enabled = true;
+
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnEventVarCopy.Enabled = true;
+                    btnEventVarDelete.Enabled = true;
+                }
             }
 
         }
