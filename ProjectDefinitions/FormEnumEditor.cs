@@ -101,6 +101,7 @@ namespace DDB
             // If editing value, need to convert to int so sorting is done properly
             if (e.ColumnIndex == 0)
             {
+                // TODO - need to have a check verify a number and description are present in each row
                 dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value =
                     Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
             }

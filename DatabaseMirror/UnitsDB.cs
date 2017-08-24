@@ -7,41 +7,18 @@ namespace DDB
 {
     public class UnitsList
     {
-        static Int32 key = 0;
         static List<Units> list = new List<Units>() 
         {
-            new Units ("NONE", key++),
-            new Units ("Volts", key++),
-            new Units ("Meters", key++),
-            new Units ("Amps", key++),
-            new Units ("MPHPS", key++),
+            new Units ("NONE"),
+            new Units ("Volts"),
+            new Units ("Meters"),
+            new Units ("Amps"),
+            new Units ("MPHPS"),
         };
 
-        static public Units AddUnits(Units newUnit)
+        static public void AddUnits(Units newUnit)
         {
-            Units ut = new Units(newUnit.name, key++);
-            list.Add(ut);
-            return ut;
-        }
-
-        static public Units AddUnits(String name)
-        {
-            Units ut = new Units(name, key++);
-            list.Add(ut);
-            return ut;
-        }
-
-        static public void ModifyUnits(Units ut)
-        {
-            Int32 index = 0;
-
-            while (index < list.Count)
-            {
-                if (list[index].key == ut.key)
-                {
-                    list[index] = ut;
-                }
-            }
+            list.Add(newUnit);
         }
 
         static public Units[] GetUnits()
@@ -58,18 +35,19 @@ namespace DDB
 
     public class Units
     {
-        public Int32 key;
+        public Int32 id;
         public String name;
+        static Int32 key = 0;
 
         private Units()
         {
 
         }
 
-        public Units(String n, Int32 k)
+        public Units(String n)
         {
             name = n;
-            key = k;
+            id = key++;
         }
 
         public override string ToString()

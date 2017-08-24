@@ -2027,7 +2027,7 @@
             this.btnProUnitsCopy.TabIndex = 5;
             this.btnProUnitsCopy.Text = "Copy";
             this.btnProUnitsCopy.UseVisualStyleBackColor = true;
-            this.btnProUnitsCopy.Click += new System.EventHandler(this.btnProUnitsCopy_Click);
+            this.btnProUnitsCopy.Click += new System.EventHandler(this.btnProjUnitsCopy_Click);
             // 
             // button2
             // 
@@ -2073,7 +2073,7 @@
             this.btnProUnitsModify.TabIndex = 3;
             this.btnProUnitsModify.Text = "Modify...";
             this.btnProUnitsModify.UseVisualStyleBackColor = true;
-            this.btnProUnitsModify.Click += new System.EventHandler(this.btnProUnitsModify_Click);
+            this.btnProUnitsModify.Click += new System.EventHandler(this.btnProjUnitsModify_Click);
             // 
             // textBox1
             // 
@@ -2103,7 +2103,7 @@
             this.btnProUnitsCreate.TabIndex = 2;
             this.btnProUnitsCreate.Text = "Create";
             this.btnProUnitsCreate.UseVisualStyleBackColor = true;
-            this.btnProUnitsCreate.Click += new System.EventHandler(this.btnProUnitsCreate_Click);
+            this.btnProUnitsCreate.Click += new System.EventHandler(this.btnProjUnitsCreate_Click);
             // 
             // lBoxProjUnits
             // 
@@ -2675,7 +2675,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.8g)";
+            this.Text = "Bombardier DDB (v 0.0.0.8h)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);

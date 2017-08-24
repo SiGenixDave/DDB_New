@@ -8,11 +8,11 @@ namespace DDB
         private const String formMessage = "Create the new Unit name: click Accept or Cancel";
 
         private Boolean userAcceptance = false;
-        private String unitName;
+        private String unitText;
 
         public void ConfirmedTextEntry(string text)
         {
-            unitName = text;
+            unitText = text;
             userAcceptance = true;
         }
 
@@ -27,9 +27,10 @@ namespace DDB
             return userAcceptance;
         }
 
-        public String GetUnitName()
+        public Units GetUnit()
         {
-            return unitName;
+            return new Units(unitText);
         }
+
     }
 }

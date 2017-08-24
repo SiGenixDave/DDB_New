@@ -6,17 +6,17 @@ namespace DDB
 {
     public partial class FormMain
     {
-        private void btnProUnitsCreate_Click(object sender, EventArgs e)
+        private void btnProjUnitsCreate_Click(object sender, EventArgs e)
         {
             CreateUnits();
         }
 
-        private void btnProUnitsCopy_Click(object sender, EventArgs e)
+        private void btnProjUnitsCopy_Click(object sender, EventArgs e)
         {
             CopyUnits();
         }
 
-        private void btnProUnitsModify_Click(object sender, EventArgs e)
+        private void btnProjUnitsModify_Click(object sender, EventArgs e)
         {
             ModifyUnits();
         }
@@ -71,22 +71,19 @@ namespace DDB
             }
         }
 
-        private int savedUnitsIndex = 0;
         private void gBoxProjUnits_Enter(object sender, EventArgs e)
         {
-            lBoxProjUnits.SelectedIndex = savedUnitsIndex;
             formEnumPreview.UpdateForm(null);
             formBitmaskPreview.UpdateForm(null);
         }
 
         private void gBoxProjUnits_Leave(object sender, EventArgs e)
         {
-            savedUnitsIndex = lBoxProjUnits.SelectedIndex;
             lBoxProjUnits.SelectedIndex = -1;
         }
 
 
-        private void copyUnitsMenuItem1_Click(object sender, EventArgs e)
+        private void copyUnitsMenuItem_Click(object sender, EventArgs e)
         {
             CopyUnits();
         }
@@ -107,9 +104,9 @@ namespace DDB
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
                 Units u = (Units)lBoxProjUnits.SelectedItems[indexCount];
-                u.name = "Copy of " + u.name;
-                UnitsList.AddUnits(u);
-                lBoxProjUnits.Items.Add(u);
+                Units myNewUnit = new Units("Copy of " + u.name);
+                UnitsList.AddUnits(myNewUnit);
+                lBoxProjUnits.Items.Add(myNewUnit);
                 indexCount++;
             }
         }
@@ -121,7 +118,6 @@ namespace DDB
             {
                 Units modifiedUnit = unitModify.GetUnit();
                 lBoxProjUnits.Items[lBoxProjUnits.SelectedIndex] = modifiedUnit;
-                UnitsList.ModifyUnits(modifiedUnit);
             }
         }
 
@@ -130,7 +126,8 @@ namespace DDB
             UnitCreateObject unitCreate = new UnitCreateObject();
             if (unitCreate.GetUserAcceptance())
             {
-                Units u = UnitsList.AddUnits(unitCreate.GetUnitName());
+                Units u = unitCreate.GetUnit();
+                UnitsList.AddUnits(u);
                 lBoxProjUnits.Items.Add(u);
             }
         }
