@@ -39,7 +39,7 @@ namespace DDB
             WatchVarList.Init();
             BitmaskList.Init();
             EnumList.Init();
-            ProjectSettings.Init();
+            ProjectSettingsDB.Init();
             EventList.Init();
             InitWatchVars();
             InitEvents();
@@ -117,21 +117,21 @@ namespace DDB
 
         private void PopulateProjectSettings()
         {
-            URLTarget[] urls = ProjectSettings.GetURLs();
+            URLTarget[] urls = ProjectSettingsDB.GetURLs();
 
             foreach (URLTarget u in urls)
             {
                 dGridURL.Rows.Add(u.name, u.alias);
             }
 
-            EventLog[] eventLogs = ProjectSettings.GetEventLogs();
+            EventLog[] eventLogs = ProjectSettingsDB.GetEventLogs();
 
             foreach (EventLog e in eventLogs)
             {
                 dGridEventLog.Rows.Add(e.embIndex, e.name);
             }
 
-            int ff = ProjectSettings.GetFunctionFlags();
+            int ff = ProjectSettingsDB.GetFunctionFlags();
 
             for (int index = 0; index < 32; index++)
             {
@@ -158,6 +158,10 @@ namespace DDB
             Close();
         }
 
+
+        // Make false whenever any project settings are made by the user. Make true when user clicks
+        // project settings accepted button
+        Boolean projSettingsAccepted = true;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //TODO Reload any information based on the current tab selected
@@ -198,6 +202,13 @@ namespace DDB
                     // Tab Project Settings
                     dGridURL.ClearSelection();
                     dGridEventLog.ClearSelection();
+
+                    //TODO Remove after test; code must detect when changes are made to project settings 
+                    projSettingsAccepted = false;
+                    tabWatchVariables.Enabled = false;
+                    tabEvents.Enabled = false;
+                    tabSelfTest.Enabled = false;
+                    tabProjectDefinitions.Enabled = false;
                     break;
             }
         }
@@ -294,6 +305,24 @@ namespace DDB
                     }
                 }
             }
+        }
+
+        private void btnProjSettingsAcceptChanges_Click(object sender, EventArgs e)
+        {
+            //TODO  Save All Project Settings and make other tabs visible
+            tabWatchVariables.Enabled = true;
+            tabEvents.Enabled = true;
+            tabSelfTest.Enabled = true;
+            tabProjectDefinitions.Enabled = true;
+        }
+
+        private void btnProjSettingsCancelChanges_Click(object sender, EventArgs e)
+        {
+            //TODO  Restore All Project Settings and make other tabs visible
+            tabWatchVariables.Enabled = true;
+            tabEvents.Enabled = true;
+            tabSelfTest.Enabled = true;
+            tabProjectDefinitions.Enabled = true;
         }
 
 

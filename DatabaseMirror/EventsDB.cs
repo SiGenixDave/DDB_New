@@ -29,6 +29,20 @@ namespace DDB
             return evStructs.ToArray();
         }
 
+        static public String GetEventStructureName(int structId)
+        {
+            foreach (EventStructures es in GetEventStructures())
+            {
+                if (es.id == structId)
+                {
+                    return es.name;
+                }
+            }
+            
+            return "Struct Not Found";
+        }
+
+
         static public EventVariables[] GetEventVariables()
         {
             return evVars.ToArray();
@@ -156,13 +170,13 @@ namespace DDB
     {
         public Int32 id;
         public String name;
-        public List<Int32> varId;
+        public List<Int32> varIds;
         static Int32 sId;
 
         public EventStructures(String n, List<Int32> l)
         {
             name = n;
-            varId = l;
+            varIds = l;
             id = sId++;
         }
 

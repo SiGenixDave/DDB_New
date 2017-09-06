@@ -29,11 +29,9 @@ namespace DDB
             {
                 lblEventName.Text = e.name;
                 lblCdefineName.Text = e.cDefineName;
-                lblEventStructure.Text = EventList.GetEventStructures()[e.structId].name;
+                lblEventStructure.Text = EventList.GetEventStructureName(e.structId);
                 lblEventLog.Text = (e.logId == 0) ? "Propulsion" : "Engineering";
-
             }
-
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DDB
 {
-    class ProjectSettings
+    class ProjectSettingsDB
     {
         static List<URLTarget> urlList = new List<URLTarget>();
         static List<EventLog> eventLogList = new List<EventLog>();
@@ -98,6 +98,11 @@ namespace DDB
         {
             name = n;
             embIndex = e;
+        }
+
+        public override String ToString()
+        {
+            return this.name;
         }
     }
 

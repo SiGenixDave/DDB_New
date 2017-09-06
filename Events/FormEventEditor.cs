@@ -31,8 +31,12 @@ namespace DDB
         {
             ev.name = tBoxEventName.Text;
             ev.cDefineName = tBoxDefineName.Text;
+            
             ev.logId = cBoxEventLogs.SelectedIndex;
-            ev.structId = cBoxEventStructs.SelectedIndex;
+            
+            EventStructures es = (EventStructures)(cBoxEventStructs.SelectedItem);
+            ev.structId = es.id;
+            
             return ev;
         }
 
@@ -91,15 +95,17 @@ namespace DDB
         {
             foreach (EventStructures e in EventList.GetEventStructures())
             {
-                cBoxEventStructs.Items.Add(e.name);
+                cBoxEventStructs.Items.Add(e);
             }
         }
 
 
         private void PopulateEventLogs()
         {
-            cBoxEventLogs.Items.Add("Propulsion");
-            cBoxEventLogs.Items.Add("Engineering");
+            foreach (EventLog el in ProjectSettingsDB.GetEventLogs())
+            {
+                cBoxEventLogs.Items.Add(el);
+            }
         }
 
     }

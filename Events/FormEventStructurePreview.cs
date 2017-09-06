@@ -34,7 +34,7 @@ namespace DDB
 
             this.Text = "Event Structure Preview for \"" + eStruct.name + "\"";
             int populatedRowCount = 0;
-            foreach (int eVarId in eStruct.varId.ToArray())
+            foreach (int eVarId in eStruct.varIds.ToArray())
             {
 
                 //TODO dataGridView1.Rows.Add(index, eStruct.strValues[index]);

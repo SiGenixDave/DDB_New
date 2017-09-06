@@ -137,17 +137,17 @@ namespace DDB
 
         }
 
-        private void copyEventLogMenuItem_Click(object sender, EventArgs e)
+        private void copyEventMenuItem_Click(object sender, EventArgs e)
         {
             CopyEvent();
         }
 
-        private void modifyEventLogMenuItem_Click(object sender, EventArgs e)
+        private void modifyEventMenuItem_Click(object sender, EventArgs e)
         {
             ModifyEvent();
         }
 
-        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
+        private void deleteEventMenuItem_Click(object sender, EventArgs e)
         {
             DeleteEvent();
         }
@@ -478,7 +478,7 @@ namespace DDB
             while (indexCount < lBoxEventStructures.SelectedIndices.Count)
             {
                 EventStructures e = (EventStructures)lBoxEventStructures.SelectedItems[indexCount];
-                EventStructures eNew = new EventStructures("Copy of " + e.name, e.varId);
+                EventStructures eNew = new EventStructures("Copy of " + e.name, e.varIds);
                 EventList.AddNewEventStructure(eNew);
                 indexCount++;
             }
@@ -495,6 +495,37 @@ namespace DDB
 
             // User really didn't want to delete the variables... abort delete
             if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //TODO Check if structure is part of at least 1 event, if so, can't delete and return
+            int index = 0;
+            Boolean structPartOfEvent = false; 
+            while (index < lBoxEventStructures.SelectedItems.Count)
+            {
+                foreach (Events e in EventList.GetEvents())
+                {
+                    EventStructures es = (EventStructures)(lBoxEventStructures.SelectedItems[index]);
+                    if (e.structId == es.id)
+                    {
+                        MessageBox.Show("At least one of the event structures selected are part of an event, command aborted... please use Tools...Depenedencies to discover",
+                                        "Event Structure(s) Delete Aborted",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Stop);
+                        structPartOfEvent = true;
+                        break;
+                    }
+
+                }
+                if (structPartOfEvent)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            if (structPartOfEvent)
             {
                 return;
             }

@@ -15,7 +15,6 @@ namespace DDB
             dGridURL.Columns[1].HeaderCell.Style = style;
             dGridEventLog.Columns[0].HeaderCell.Style = style;
             dGridEventLog.Columns[1].HeaderCell.Style = style;
-
         }
 
         private void cBoxCommType_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,6 +66,16 @@ namespace DDB
         private void btnProjSettingsAddEventLog_Click(object sender, EventArgs e)
         {
             AddNewEventLog();
+        }
+
+        private void addNewEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewEventLog();
+        }
+
+        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteEventLogs();
         }
 
         private void AddNewURL()

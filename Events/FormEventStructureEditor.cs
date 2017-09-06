@@ -30,11 +30,11 @@ namespace DDB
 
             // TODO get all of the vars from the Used list and add their indexes
             int index = 0;
-            evt.varId.Clear();
+            evt.varIds.Clear();
             while (index < lBoxUsedVars.Items.Count)
             {
                 EventVariables ev = (EventVariables)lBoxUsedVars.Items[index];
-                evt.varId.Add(ev.id);
+                evt.varIds.Add(ev.id);
                 index++;
             }
 
@@ -152,9 +152,9 @@ namespace DDB
         private void PopulateUsedVars()
         {
             int index = 0;
-            while (index < evt.varId.Count)
+            while (index < evt.varIds.Count)
             {
-                EventVariables ev = EventList.GetEventVariable(evt.varId[index]);
+                EventVariables ev = EventList.GetEventVariable(evt.varIds[index]);
                 lBoxUsedVars.Items.Add(ev);
                 index++;
             }
@@ -168,7 +168,7 @@ namespace DDB
             int index = 0;
             while (index < allVars.Length)
             {
-                if (!evt.varId.Contains(index))
+                if (!evt.varIds.Contains(index))
                 {
                     EventVariables ev = EventList.GetEventVariable(index);
                     lBoxAvailableVars.Items.Add(ev);
