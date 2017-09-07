@@ -222,6 +222,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tBoxProjSettingsWatchVarMax = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cBoxNumStreamVars = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cListBoxFunctionFlags = new System.Windows.Forms.CheckedListBox();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -2284,7 +2286,7 @@
             this.dGridEventLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eventLogEmbIndex,
             this.eventLogName});
-            this.dGridEventLog.ContextMenuStrip = this.conMenuEvents;
+            this.dGridEventLog.ContextMenuStrip = this.conMenuEventLogs;
             this.dGridEventLog.EnableHeadersVisualStyles = false;
             this.dGridEventLog.Location = new System.Drawing.Point(14, 20);
             this.dGridEventLog.Name = "dGridEventLog";
@@ -2429,28 +2431,28 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.43716F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.56284F));
-            this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsAppDataPath, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsSoftwareVersion, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsAppDataPath, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsSoftwareVersion, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 399);
+            this.tableLayoutPanel1.Controls.Add(this.label23, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cBoxNumStreamVars, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 386);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(366, 95);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(366, 126);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // tBoxProjSettingsAppDataPath
             // 
             this.tBoxProjSettingsAppDataPath.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 65);
+            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 95);
             this.tBoxProjSettingsAppDataPath.Name = "tBoxProjSettingsAppDataPath";
             this.tBoxProjSettingsAppDataPath.Size = new System.Drawing.Size(205, 21);
             this.tBoxProjSettingsAppDataPath.TabIndex = 6;
@@ -2458,7 +2460,7 @@
             // tBoxProjSettingsSoftwareVersion
             // 
             this.tBoxProjSettingsSoftwareVersion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 32);
+            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 62);
             this.tBoxProjSettingsSoftwareVersion.Name = "tBoxProjSettingsSoftwareVersion";
             this.tBoxProjSettingsSoftwareVersion.Size = new System.Drawing.Size(102, 21);
             this.tBoxProjSettingsSoftwareVersion.TabIndex = 5;
@@ -2480,7 +2482,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(41, 36);
+            this.label15.Location = new System.Drawing.Point(41, 66);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 13);
             this.label15.TabIndex = 2;
@@ -2491,7 +2493,7 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(15, 69);
+            this.label16.Location = new System.Drawing.Point(15, 99);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(129, 13);
             this.label16.TabIndex = 3;
@@ -2504,6 +2506,30 @@
             this.tBoxProjSettingsWatchVarMax.Name = "tBoxProjSettingsWatchVarMax";
             this.tBoxProjSettingsWatchVarMax.Size = new System.Drawing.Size(72, 21);
             this.tBoxProjSettingsWatchVarMax.TabIndex = 4;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(6, 37);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(138, 13);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Number of Stream Vars";
+            // 
+            // cBoxNumStreamVars
+            // 
+            this.cBoxNumStreamVars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxNumStreamVars.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxNumStreamVars.FormattingEnabled = true;
+            this.cBoxNumStreamVars.Items.AddRange(new object[] {
+            "8",
+            "16"});
+            this.cBoxNumStreamVars.Location = new System.Drawing.Point(151, 32);
+            this.cBoxNumStreamVars.Name = "cBoxNumStreamVars";
+            this.cBoxNumStreamVars.Size = new System.Drawing.Size(50, 21);
+            this.cBoxNumStreamVars.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -2529,7 +2555,7 @@
             "Display URL Alias Name"});
             this.cListBoxFunctionFlags.Location = new System.Drawing.Point(6, 23);
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
-            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 68);
+            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 84);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
@@ -2741,7 +2767,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.9)";
+            this.Text = "Bombardier DDB (v 0.0.0.10)";
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
             this.grpBoxWatchVarList.ResumeLayout(false);
@@ -3018,6 +3044,8 @@
         private System.Windows.Forms.ToolStripMenuItem deleteEventLogMenuItem;
         private System.Windows.Forms.Button btnProjSettingsCancelChanges;
         private System.Windows.Forms.Button btnProjSettingsAcceptChanges;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox cBoxNumStreamVars;
     }
 }
 

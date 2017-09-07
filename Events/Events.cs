@@ -364,7 +364,7 @@ namespace DDB
 
         private void CreateEvent()
         {
-            Events e = new Events("New Event Name", "'C' #define name", 0, 0, "");
+            Events e = new Events("New Event Name", "Embedded Name", 0, 0, "");
             using (FormEventEditor frmEvEdit = new FormEventEditor(e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)

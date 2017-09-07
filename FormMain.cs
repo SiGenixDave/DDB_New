@@ -23,6 +23,7 @@ namespace DDB
             {
                 if (args[0] == "CUSTOMER_USE_ONLY")
                 {
+                    this.Text += " -- (Customer Mode)";
                     GlobalSettings.setCustomerUseOnly(true);
                     importToolStripMenuItem.Enabled = false;
                     genEmbToolStripMenuItem.Enabled = false;
@@ -52,6 +53,7 @@ namespace DDB
             //////////////////////////////////////////////////////////
             cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
+            cBoxNumStreamVars.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 1;
 
         }
