@@ -29,7 +29,7 @@ namespace DDB
 
         public Units GetUnit()
         {
-            return new Units(unitText);
+            return new Units(unitText, true);
         }
 
     }

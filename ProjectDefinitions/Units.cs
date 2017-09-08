@@ -104,7 +104,7 @@ namespace DDB
             while (indexCount < lBoxProjUnits.SelectedIndices.Count)
             {
                 Units u = (Units)lBoxProjUnits.SelectedItems[indexCount];
-                Units myNewUnit = new Units("Copy of " + u.name);
+                Units myNewUnit = new Units("Copy of " + u.name, true);
                 UnitsList.AddUnits(myNewUnit);
                 lBoxProjUnits.Items.Add(myNewUnit);
                 indexCount++;

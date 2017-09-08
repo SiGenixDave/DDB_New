@@ -56,6 +56,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDeleteMe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteMe.Designer.cs">
+      <DependentUpon>FormDeleteMe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEntityEditor\UserControlEntityEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEntityEditor\UserControlEntityEditor.Designer.cs">
+      <DependentUpon>UserControlEntityEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events\FormEventVariableEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +199,9 @@
     <EmbeddedResource Include="Events\FormEventStructureEditor.resx">
       <DependentUpon>FormEventStructureEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteMe.resx">
+      <DependentUpon>FormDeleteMe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHelpPreview.resx">
       <DependentUpon>FormHelpPreview.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +239,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlEntityEditor\UserControlEntityEditor.resx">
+      <DependentUpon>UserControlEntityEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

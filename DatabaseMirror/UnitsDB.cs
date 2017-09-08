@@ -9,11 +9,11 @@ namespace DDB
     {
         static List<Units> list = new List<Units>() 
         {
-            new Units ("NONE"),
-            new Units ("Volts"),
-            new Units ("Meters"),
-            new Units ("Amps"),
-            new Units ("MPHPS"),
+            new Units ("NONE", false),
+            new Units ("Volts", false),
+            new Units ("Meters", false),
+            new Units ("Amps", false),
+            new Units ("MPHPS", false),
         };
 
         static public void AddUnits(Units newUnit)
@@ -37,16 +37,16 @@ namespace DDB
     {
         public Int32 id;
         public String name;
+        public Boolean userDefinedUnits;
         static Int32 key = 0;
 
         private Units()
-        {
+        {}
 
-        }
-
-        public Units(String n)
+        public Units(String n, Boolean udu)
         {
             name = n;
+            userDefinedUnits = udu;
             id = key++;
         }
 
