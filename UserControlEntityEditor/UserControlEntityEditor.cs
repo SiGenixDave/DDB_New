@@ -24,6 +24,11 @@ namespace DDB
             businessLogic = iBusinessLogic;
         }
 
+        public object[] GetItems()
+        {
+            return allEntities.ToArray();
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -42,13 +47,17 @@ namespace DDB
 
         public Boolean xVisibleLinksButton
         {
-            set { btnLinks.Visible = value; }
+            set { 
+                btnLinks.Visible = value; 
+            }
             get { return btnLinks.Visible; }
         }
 
         public Boolean xVisibleModifyHelpTextButton
         {
-            set { btnModifyHelpText.Visible = value; }
+            set { 
+                btnModifyHelpText.Visible = value; 
+            }
             get { return btnModifyHelpText.Visible; }
         }
 
@@ -287,13 +296,9 @@ namespace DDB
 
         void ModifyItem()
         {
-            object obj = businessLogic.Modify(listBox.SelectedItem);
-            if (obj != null)
-            {
-                listBox.Items[listBox.SelectedIndex] = obj;
-                // TODO figure out how to modify allEntities
-
-            }
+            businessLogic.Modify(listBox.SelectedItem);
+            // Need this to update in case the string was changed by the call to Modify()
+            listBox.Items[listBox.SelectedIndex] = listBox.Items[listBox.SelectedIndex];
         }
 
         void DeleteItem()
@@ -338,6 +343,18 @@ namespace DDB
 
         }
 
+        private void contextMenuStrip_Opening(object sender, CancelEventArgs e)
+        {
+            if (!xVisibleLinksButton)
+            {
+                contextMenuStrip.Items["linksToolStripMenuItem"].Visible = false;
+            }
+            if (!xVisibleModifyHelpTextButton)
+            {
+                contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Visible = false;
+            }  
+        }
+
 
 
 
@@ -356,7 +373,7 @@ namespace DDB
     public interface iEntityEditorBusinesssLogic
     {
         object Copy(object obj);
-        object Modify(object obj);
+        void Modify(object obj);
         void Delete(object obj);
         object Create();
         void Links();

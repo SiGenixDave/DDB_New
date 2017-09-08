@@ -45,57 +45,23 @@ namespace DDB
             InitWatchVars();
             InitEvents();
             InitProjectSettings();
-            PopulateUnits(-1);
-            PopulateBitmasks(-1);
-            PopulateEnums(-1);
-            PopulateProjectSettings();
-            PopulateEventLists();
-            //////////////////////////////////////////////////////////
-            cBoxWatchList.SelectedIndex = 0;
-            cBoxCommType.SelectedIndex = 0;
-            cBoxNumStreamVars.SelectedIndex = 0;
-            cBoxCommType.SelectedIndex = 1;
 
         }
 
-        private void PopulateUnits(int select)
+        private void PopulateUnits()
         {
-            Units[] units = UnitsList.GetUnits();
-            cBoxWatchUnits.Items.Clear();
-            lBoxProjUnits.Items.Clear();
-            foreach (Units u in units)
-            {
-                cBoxWatchUnits.Items.Add(u);
-                lBoxProjUnits.Items.Add(u);
-            }
+            UnitsBusinessLogic ubl = new UnitsBusinessLogic();
 
-            if (select >= lBoxProjUnits.Items.Count)
-            {
-                lBoxProjUnits.SelectedIndex = lBoxProjUnits.Items.Count - 1;
-            }
-            else
-            {
-                lBoxProjUnits.SelectedIndex = select;
-            }
+            ucEE_Units.setBusinessLogic(ubl);
+            ucEE_Units.AddListBoxItems(UnitsList.GetUnits());
+            
         }
 
-        private void PopulateBitmasks(int select)
+        private void PopulateBitmasks()
         {
-            Bitmask[] bitmasks = BitmaskList.GetBitmasks();
-            lBoxProjBitmasks.Items.Clear();
-            foreach (Bitmask b in bitmasks)
-            {
-                lBoxProjBitmasks.Items.Add(b);
-            }
-
-            if (select >= lBoxProjBitmasks.Items.Count)
-            {
-                lBoxProjBitmasks.SelectedIndex = lBoxProjBitmasks.Items.Count - 1;
-            }
-            else
-            {
-                lBoxProjBitmasks.SelectedIndex = select;
-            }
+            BitmasksBusinessLogic bbl = new BitmasksBusinessLogic(formBitmaskPreview);
+            ucEE_Bitmasks.setBusinessLogic(bbl);
+            ucEE_Bitmasks.AddListBoxItems(BitmaskList.GetBitmasks());
         }
 
         private void PopulateEnums(int select)
@@ -325,6 +291,24 @@ namespace DDB
             tabEvents.Enabled = true;
             tabSelfTest.Enabled = true;
             tabProjectDefinitions.Enabled = true;
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                PopulateUnits();
+                PopulateBitmasks();
+            }
+            PopulateEnums(-1);
+            PopulateProjectSettings();
+            PopulateEventLists();
+            //////////////////////////////////////////////////////////
+            cBoxWatchList.SelectedIndex = 0;
+            cBoxCommType.SelectedIndex = 0;
+            cBoxNumStreamVars.SelectedIndex = 0;
+            cBoxCommType.SelectedIndex = 1;
+
         }
 
 

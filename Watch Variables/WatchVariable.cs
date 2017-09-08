@@ -156,10 +156,9 @@ namespace DDB
             cBoxWatchUnits.Items.Clear();
 
             int index = 0;
-            while (index < BitmaskList.GetVarCount())
+            foreach (Bitmask b in ucEE_Bitmasks.GetItems())
             {
-                cBoxWatchUnits.Items.Add(BitmaskList.GetVar(index));
-                index++;
+                cBoxWatchUnits.Items.Add(b);
             }
             if (!useExistingIndex)
             {

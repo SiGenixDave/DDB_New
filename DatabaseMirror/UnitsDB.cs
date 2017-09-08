@@ -16,19 +16,10 @@ namespace DDB
             new Units ("MPHPS", false),
         };
 
-        static public void AddUnits(Units newUnit)
-        {
-            list.Add(newUnit);
-        }
 
         static public Units[] GetUnits()
         {
             return list.ToArray();
-        }
-
-        static public void Delete(Units ut)
-        {
-            list.Remove(ut);
         }
 
     }

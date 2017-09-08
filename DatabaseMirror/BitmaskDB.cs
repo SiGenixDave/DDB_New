@@ -61,11 +61,6 @@ namespace DDB
             return bmt;
         }
         
-        static public void DeleteVar(Bitmask w)
-        {
-            list.Remove(w);
-        }
-
 
         static public Bitmask GetVar(int index)
         {

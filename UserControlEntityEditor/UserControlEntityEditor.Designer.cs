@@ -238,6 +238,7 @@
             this.restoreAllToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(165, 248);
+            this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // createToolStripMenuItem
             // 

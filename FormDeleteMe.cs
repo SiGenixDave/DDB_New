@@ -89,11 +89,10 @@ namespace DDB
             return carNew;
         }
 
-        public object Modify(object obj)
+        public void Modify(object obj)
         {
             EntityCars e = (EntityCars)obj;
             e.carName = e.carName + "MOD";
-            return e;
         }
 
         public void Delete(object obj)
@@ -123,10 +122,9 @@ namespace DDB
             return golfBallNew;
         }
 
-        public object Modify(object obj)
-        {
-            return null;
-        }
+        public void Modify(object obj)
+        {}
+
         public void Delete(object obj)
         {
             // TODO Remove obj from DB

@@ -4,27 +4,71 @@ using System.Windows.Forms;
 
 namespace DDB
 {
+
+    public class BitmasksBusinessLogic : iEntityEditorBusinesssLogic
+    {
+        FormBitmaskPreview bmPreview;
+
+        public BitmasksBusinessLogic(FormBitmaskPreview preview)
+        {
+            bmPreview = preview;
+        }
+
+        private BitmasksBusinessLogic()
+        { }
+
+        public object Copy(object obj)
+        {
+            Bitmask bt = new Bitmask((Bitmask)obj);
+            bt.dispName = "Copy of " + bt.dispName;
+            return bt;
+        }
+
+        public void Modify(object obj)
+        {
+            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor((Bitmask)obj, false))
+            {
+                DialogResult dr = bmEdit.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    bmPreview.UpdateForm((Bitmask)obj);
+                }
+            }
+        }
+
+        public void Delete(object obj)
+        {
+            // TODO Remove obj from DB
+        }
+
+        public object Create()
+        {
+            Bitmask bmt = BitmaskList.CreateVar("New Bitmask");
+
+            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, true))
+            {
+                DialogResult dr = bmEdit.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    bmPreview.UpdateForm((Bitmask)bmt);
+                    return bmt;
+                }
+            }
+
+            return null;
+        }
+
+        public void Links()
+        { }
+        public void Import()
+        { }
+    }
+
+
+
     public partial class FormMain
     {
-        private void btnProBitmasksModify_Click(object sender, EventArgs e)
-        {
-            ModifyBitmasks(false);
-        }
-
-        private void btnProBitmasksCreate_Click(object sender, EventArgs e)
-        {
-            CreateBitmasks();
-        }
-
-        private void btnProBitmasksCopy_Click(object sender, EventArgs e)
-        {
-            CopyBitmasks();
-        }
-
-        private void btnProBitmasksDelete_Click(object sender, EventArgs e)
-        {
-            DeleteBitmasks();
-        }
+        
 
         private void btnProBitmasksImport_Click(object sender, EventArgs e)
         {
@@ -35,172 +79,14 @@ namespace DDB
             //TODO Open new form with list box of units from the XML file
         }
 
-        private void lBoxProjBitmasks_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ModifyBitmasks(false);
-        }
-
-        private void lBoxProjBitmasks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lBoxProjBitmasks.SelectedIndices.Count == 0)
-            {
-                btnProBitmasksModify.Enabled = false;
-                btnProBitmasksCopy.Enabled = false;
-                btnProBitmasksDelete.Enabled = false;
-                btnProBitmasksLinks.Enabled = false;
-            }
-            else if (lBoxProjBitmasks.SelectedIndices.Count == 1)
-            {
-                conMenuBitmasks.Items[1].Enabled = true;
-
-                btnProBitmasksModify.Enabled = true;
-                btnProBitmasksCopy.Enabled = true;
-                btnProBitmasksDelete.Enabled = true;
-                btnProBitmasksLinks.Enabled = true;
-
-                formBitmaskPreview.UpdateForm((Bitmask)lBoxProjBitmasks.SelectedItem);
-            }
-            else
-            {
-                // Disable the "Modify" in context menu
-                conMenuBitmasks.Items[1].Enabled = false;
-
-                btnProBitmasksModify.Enabled = false;
-                btnProBitmasksCopy.Enabled = true;
-                btnProBitmasksDelete.Enabled = true;
-                btnProBitmasksLinks.Enabled = true;
-            }
-        }
-
+        
         private int savedBitmaskIndex = 0;
         private void gBoxProjBitmask_Enter(object sender, EventArgs e)
         {
-            lBoxProjBitmasks.SelectedIndex = savedBitmaskIndex;
-            formEnumPreview.UpdateForm(null);
-        }
-
-        private void gBoxProjBitmask_Leave(object sender, EventArgs e)
-        {
-            savedBitmaskIndex = lBoxProjBitmasks.SelectedIndex;
-            lBoxProjBitmasks.SelectedIndex = -1;
+            //TODO formEnumPreview.UpdateForm(null);
         }
 
 
-        private void copyBitmasksMenuItem_Click(object sender, EventArgs e)
-        {
-            CopyBitmasks();
-        }
-
-        private void modifyBitmasksMenuItem_Click(object sender, EventArgs e)
-        {
-            ModifyBitmasks(false);
-        }
-
-        private void deleteBitmasksMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteBitmasks();
-        }
-
-        private void CopyBitmasks()
-        {
-            int indexCount = 0;
-            while (indexCount < lBoxProjBitmasks.SelectedIndices.Count)
-            {
-                Bitmask bt = new Bitmask((Bitmask)lBoxProjBitmasks.SelectedItems[indexCount]);
-                String b = bt.dispName;
-                b = "Copy of " + b;
-                bt.dispName = b;
-                BitmaskList.AddVar(bt);
-                lBoxProjBitmasks.Items.Add(bt);
-                indexCount++;
-            }
-        }
-
-        private Boolean ModifyBitmasks(Boolean createNewBitmask)
-        {
-            Bitmask bmt = BitmaskList.GetVar(lBoxProjBitmasks.SelectedIndex);
-
-            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, createNewBitmask))
-            {
-                DialogResult dr = bmEdit.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    formBitmaskPreview.UpdateForm((Bitmask)lBoxProjBitmasks.SelectedItem);
-
-                    PopulateBitmasks(lBoxProjBitmasks.SelectedIndex);
-
-                    return true;
-
-                }
-            }
-
-            return false;
-        }
-
-        private void CreateBitmasks()
-        {
-            Bitmask bmt = BitmaskList.CreateVar("New Bitmask");
-            lBoxProjBitmasks.Items.Add(bmt);
-
-            // Used to restore the selected bitmasks if the user decides to ABort the creation of a new variable
-            List<int> selBMs = new List<int>();
-            int indexCount = 0;
-            while (indexCount < lBoxProjBitmasks.SelectedIndices.Count)
-            {
-                selBMs.Add(lBoxProjBitmasks.SelectedIndices[indexCount]);
-                indexCount++;
-            }
-
-            // For some reason, one must set the listbox SelectedIndex to -1 prior to changing the listbox index programatically???
-            lBoxProjBitmasks.SelectedIndex = -1;
-            lBoxProjBitmasks.SelectedIndex = lBoxProjBitmasks.Items.Count - 1;
-            if (!ModifyBitmasks(true))
-            {
-                lBoxProjBitmasks.Items.Remove(bmt);
-                BitmaskList.DeleteVar(bmt);
-
-                // Restore the selected index(s) prior to the cancel
-                indexCount = 0;
-                lBoxProjBitmasks.SelectedIndices.Clear();
-                while (indexCount < selBMs.Count)
-                {
-                    lBoxProjBitmasks.SelectedIndices.Add(selBMs[indexCount]);
-                    indexCount++;
-                }
-            }
-        }
-
-        private void DeleteBitmasks()
-        {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected bitmasks(s)?",
-                                  "Delete Bitmask(s) Confirmation",
-                                  MessageBoxButtons.OKCancel,
-                                  MessageBoxIcon.Warning);
-
-            // User really didn't want to delete the variables... abort delete
-            if (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            int prevIndex = lBoxProjBitmasks.SelectedIndices[0];
-
-            int indexCount = 0;
-            List<Bitmask> bmsToDelete = new List<Bitmask>();
-            while (indexCount < lBoxProjBitmasks.SelectedIndices.Count)
-            {
-                bmsToDelete.Add((Bitmask)lBoxProjBitmasks.SelectedItems[indexCount]);
-                indexCount++;
-            }
-
-            while (bmsToDelete.Count != 0)
-            {
-                BitmaskList.DeleteVar(bmsToDelete[0]);
-                bmsToDelete.RemoveAt(0);
-            }
-
-            PopulateBitmasks(prevIndex);
-        }
 
     }
 }
