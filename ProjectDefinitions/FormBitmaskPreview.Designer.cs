@@ -69,7 +69,7 @@
             // 
             // bmDisplay
             // 
-            this.bmDisplay.HeaderText = "Bitmask Display String";
+            this.bmDisplay.HeaderText = "BitmaskDB Display String";
             this.bmDisplay.Name = "bmDisplay";
             this.bmDisplay.ReadOnly = true;
             this.bmDisplay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -84,7 +84,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormBitmaskPreview";
-            this.Text = "Bitmask Preview";
+            this.Text = "BitmaskDB Preview";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

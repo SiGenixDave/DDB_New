@@ -7,34 +7,34 @@ namespace DDB
 {
     public class UnitsList
     {
-        static List<Units> list = new List<Units>() 
+        static List<UnitsDB> list = new List<UnitsDB>() 
         {
-            new Units ("NONE", false),
-            new Units ("Volts", false),
-            new Units ("Meters", false),
-            new Units ("Amps", false),
-            new Units ("MPHPS", false),
+            new UnitsDB ("NONE", false),
+            new UnitsDB ("Volts", false),
+            new UnitsDB ("Meters", false),
+            new UnitsDB ("Amps", false),
+            new UnitsDB ("MPHPS", false),
         };
 
 
-        static public Units[] GetUnits()
+        static public UnitsDB[] GetUnits()
         {
             return list.ToArray();
         }
 
     }
 
-    public class Units
+    public class UnitsDB
     {
         public Int32 id;
         public String name;
         public Boolean userDefinedUnits;
         static Int32 key = 0;
 
-        private Units()
+        private UnitsDB()
         {}
 
-        public Units(String n, Boolean udu)
+        public UnitsDB(String n, Boolean udu)
         {
             name = n;
             userDefinedUnits = udu;

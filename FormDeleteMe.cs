@@ -110,6 +110,8 @@ namespace DDB
         {}
         public void Import()
         { }
+        public void Preview(object obj)
+        { }
     }
 
     public class GolfBallBusLogic : iEntityEditorBusinesssLogic
@@ -129,6 +131,10 @@ namespace DDB
         {
             // TODO Remove obj from DB
         }
+
+        public void Preview(object obj)
+        { }
+
         public object Create()
         {
             // TODO Add obj to DB

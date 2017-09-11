@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (Bitmask bm)
+        public void UpdateForm (BitmaskDB bm)
         {
             do
             {
@@ -29,10 +29,11 @@ namespace DDB
 
             if (bm == null)
             {
+                this.Text = "BitmaskDB Preview";
                 return;
             }
 
-            this.Text = "Bitmask Preview for \"" + bm.dispName + "\"";
+            this.Text = "BitmaskDB Preview for \"" + bm.dispName + "\"";
             int populatedRowCount = 0;
             for (int index = 31; index >= 0; index--)
             {

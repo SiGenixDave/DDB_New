@@ -139,7 +139,7 @@ namespace DDB
                     // Tab Watch
                     if (cBoxWatchScaleType.SelectedItem != null)
                     {
-                        if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
+                        if (cBoxWatchScaleType.SelectedItem.ToString() == "BitmaskDB")
                         {
                             int savedIndex = cBoxWatchUnits.SelectedIndex;
                             LoadBitmasksIntoComboBox(true);

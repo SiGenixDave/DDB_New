@@ -73,14 +73,14 @@
             // 
             // bmValue
             // 
-            this.bmValue.HeaderText = "Bitmask Hex Value";
+            this.bmValue.HeaderText = "BitmaskDB Hex Value";
             this.bmValue.Name = "bmValue";
             this.bmValue.ReadOnly = true;
             this.bmValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // bmDisplay
             // 
-            this.bmDisplay.HeaderText = "Bitmask Display String";
+            this.bmDisplay.HeaderText = "BitmaskDB Display String";
             this.bmDisplay.Name = "bmDisplay";
             this.bmDisplay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -113,14 +113,14 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Bitmask Hex Value";
+            this.dataGridViewTextBoxColumn2.HeaderText = "BitmaskDB Hex Value";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Bitmask Display String";
+            this.dataGridViewTextBoxColumn3.HeaderText = "BitmaskDB Display String";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -179,7 +179,7 @@
             this.KeyPreview = true;
             this.Name = "FormBitmaskEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Bitmask Editor";
+            this.Text = "BitmaskDB Editor";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormBitmaskEditor_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

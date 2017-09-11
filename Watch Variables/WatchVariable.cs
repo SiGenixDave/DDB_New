@@ -89,7 +89,7 @@ namespace DDB
                     cBoxWatchUnitConversion.Visible = false;
                     lblWatchScaleInfo.Visible = false;
                     cBoxWatchScaleInfo.Visible = false;
-                    lblWatchUnitsEnumBitmask.Text = "Units";
+                    lblWatchUnitsEnumBitmask.Text = "UnitsDB";
                     LoadUnitsIntoComboBox();
                     break;
 
@@ -105,7 +105,7 @@ namespace DDB
                     cBoxWatchUnitConversion.SelectedIndex = w.unitConversion;
                     cBoxWatchScaleInfo.SelectedIndex = w.scaleInfo;
 
-                    lblWatchUnitsEnumBitmask.Text = "Units";
+                    lblWatchUnitsEnumBitmask.Text = "UnitsDB";
                     LoadUnitsIntoComboBox();
                     break;
 
@@ -122,7 +122,7 @@ namespace DDB
                     LoadEnumsIntoComboBox(false);
                     break;
 
-                case "Bitmask":
+                case "BitmaskDB":
                     lblFormatString.Visible = false;
                     cBoxWatchFormatString.Visible = false;
                     lblWatchUnitConversion.Visible = false;
@@ -130,7 +130,7 @@ namespace DDB
                     lblWatchScaleInfo.Visible = false;
                     cBoxWatchScaleInfo.Visible = false;
 
-                    lblWatchUnitsEnumBitmask.Text = "Bitmask";
+                    lblWatchUnitsEnumBitmask.Text = "BitmaskDB";
                     LoadBitmasksIntoComboBox(false);
 
 
@@ -142,7 +142,7 @@ namespace DDB
         {
             cBoxWatchUnits.Items.Clear();
                 
-            foreach (Units unit in UnitsList.GetUnits())
+            foreach (UnitsDB unit in UnitsList.GetUnits())
             {
                 cBoxWatchUnits.Items.Add(unit);
             }
@@ -156,7 +156,7 @@ namespace DDB
             cBoxWatchUnits.Items.Clear();
 
             int index = 0;
-            foreach (Bitmask b in ucEE_Bitmasks.GetItems())
+            foreach (BitmaskDB b in ucEE_Bitmasks.GetItems())
             {
                 cBoxWatchUnits.Items.Add(b);
             }
@@ -248,7 +248,7 @@ namespace DDB
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
             {
                 formEnumPreview.UpdateForm(null);
-                formBitmaskPreview.UpdateForm(BitmaskList.GetVar(cBoxWatchUnits.SelectedIndex));
+                formBitmaskPreview.UpdateForm((BitmaskDB)cBoxWatchUnits.SelectedItem);
             }
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
             {

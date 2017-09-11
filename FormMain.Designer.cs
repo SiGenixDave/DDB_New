@@ -596,7 +596,7 @@
             "NONE",
             "Scalar",
             "Enumeration",
-            "Bitmask"});
+            "BitmaskDB"});
             this.cBoxWatchScaleType.Location = new System.Drawing.Point(349, 160);
             this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
             this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 21);
@@ -610,7 +610,7 @@
             this.lblWatchUnitsEnumBitmask.Name = "lblWatchUnitsEnumBitmask";
             this.lblWatchUnitsEnumBitmask.Size = new System.Drawing.Size(93, 17);
             this.lblWatchUnitsEnumBitmask.TabIndex = 14;
-            this.lblWatchUnitsEnumBitmask.Text = "Units";
+            this.lblWatchUnitsEnumBitmask.Text = "UnitsDB";
             this.lblWatchUnitsEnumBitmask.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cBoxWatchUnits
@@ -1530,7 +1530,7 @@
             this.ucEE_Units.Name = "ucEE_Units";
             this.ucEE_Units.Size = new System.Drawing.Size(270, 456);
             this.ucEE_Units.TabIndex = 21;
-            this.ucEE_Units.xGroupBoxTitle = "Units";
+            this.ucEE_Units.xGroupBoxTitle = "UnitsDB";
             this.ucEE_Units.xVisibleImportButton = true;
             this.ucEE_Units.xVisibleLinksButton = true;
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;

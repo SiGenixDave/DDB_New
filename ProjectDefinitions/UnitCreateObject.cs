@@ -27,9 +27,9 @@ namespace DDB
             return userAcceptance;
         }
 
-        public Units GetUnit()
+        public UnitsDB GetUnit()
         {
-            return new Units(unitText, true);
+            return new UnitsDB(unitText, true);
         }
 
     }

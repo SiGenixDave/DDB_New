@@ -171,6 +171,9 @@ namespace DDB
                 btnDelete.Enabled = false;
                 btnLinks.Enabled = false;
                 btnModifyHelpText.Enabled = false;
+
+                businessLogic.Preview(null);
+
             }
             else if (listBox.SelectedIndices.Count == 1)
             {
@@ -182,6 +185,8 @@ namespace DDB
                 btnDelete.Enabled = true;
                 btnLinks.Enabled = true;
                 btnModifyHelpText.Enabled = true;
+
+                businessLogic.Preview(listBox.SelectedItem);
             }
             else
             {
@@ -194,6 +199,9 @@ namespace DDB
                 btnDelete.Enabled = true;
                 btnLinks.Enabled = true;
                 btnModifyHelpText.Enabled = false;
+
+                businessLogic.Preview(null);
+
             }
         }
         
@@ -355,16 +363,6 @@ namespace DDB
             }  
         }
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -376,6 +374,7 @@ namespace DDB
         void Modify(object obj);
         void Delete(object obj);
         object Create();
+        void Preview(object obj);
         void Links();
         void Import();
     }

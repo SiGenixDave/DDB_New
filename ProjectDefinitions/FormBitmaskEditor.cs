@@ -6,9 +6,9 @@ namespace DDB
 {
     public partial class FormBitmaskEditor : Form
     {
-        private Bitmask bitmask;
+        private BitmaskDB bitmask;
 
-        public FormBitmaskEditor(Bitmask bm, Boolean createNewBitmask)
+        public FormBitmaskEditor(BitmaskDB bm, Boolean createNewBitmask)
         {
             InitializeComponent();
             bitmask = bm;
@@ -20,7 +20,7 @@ namespace DDB
             {
                 this.Text = "Modify";
             }
-            this.Text += " Bitmask " + "\"" + bm.dispName + "\"";
+            this.Text += " BitmaskDB " + "\"" + bm.dispName + "\"";
             InitDataGrid(dataGridView1, 31);
             InitDataGrid(dataGridView2, 15);
             LoadInfo();
@@ -69,7 +69,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Bitmask", bitmask.dispName))
+            if (Cancel.Query("BitmaskDB", bitmask.dispName))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

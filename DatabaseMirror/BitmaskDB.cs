@@ -3,39 +3,38 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    public class Bitmask
+    public class BitmaskDB
     {
         public String dispName;
-        public Int32 key;
+        public Int32 fKey;
         public String[] strValues = new String[32];
+        static Int32 key;
 
-        private Bitmask()
-        {
-        }
+        private BitmaskDB()
+        {}
 
-        public Bitmask(String dName, String[] sValues, Int32 k)
+        public BitmaskDB(String dName, String[] sValues)
         {
             dispName = dName;
-            key = k;
+            fKey = key++;
             for (int index = 0; index < sValues.Length; index++)
             {
                 strValues[index] = sValues[index];
             }
         }
 
-        public Bitmask(String dName)
+        public BitmaskDB(String dName)
         {
             dispName = dName;
-        }
-
-        public Bitmask(Bitmask w)
-        {
-            dispName = w.dispName;
-            for (int index = 0; index < w.strValues.Length; index++)
+            fKey = key++;
+            for (int index = 0; index < strValues.Length; index++)
             {
-                strValues[index] = w.strValues[index];
+                strValues[index] = null;
             }
         }
+
+        public BitmaskDB(BitmaskDB w): this(w.dispName, w.strValues)
+        {}
 
         public override string ToString()
         {
@@ -45,34 +44,9 @@ namespace DDB
 
     public class BitmaskList
     {
-        static public List<Bitmask> list = new List<Bitmask>();
-        static public Int32 key = 0;
+        static public List<BitmaskDB> list = new List<BitmaskDB>();
 
-        static public void AddVar(Bitmask w)
-        {
-            w.key = key++;
-            list.Add(w);
-        }
-
-        static public Bitmask CreateVar(String disp)
-        {
-            Bitmask bmt = new Bitmask(disp);
-            AddVar(bmt);
-            return bmt;
-        }
-        
-
-        static public Bitmask GetVar(int index)
-        {
-            return list[index];
-        }
-
-        static public int GetVarCount()
-        {
-            return list.Count;
-        }
-
-        static public Bitmask[] GetBitmasks()
+        static public BitmaskDB[] GetBitmasks()
         {
             return list.ToArray();
         }
@@ -80,12 +54,12 @@ namespace DDB
         static public void Init()
         {
             String[] val = new String[32];
-            list.Add(new Bitmask("BitMask 01", val, key++));
-            list.Add(new Bitmask("BitMask 02", val, key++));
-            list.Add(new Bitmask("BitMask 03", val, key++));
-            list.Add(new Bitmask("BitMask 04", val, key++));
-            list.Add(new Bitmask("BitMask 05", val, key++));
-            list.Add(new Bitmask("BitMask 06", val, key++));
+            list.Add(new BitmaskDB("BitMask 01", val));
+            list.Add(new BitmaskDB("BitMask 02", val));
+            list.Add(new BitmaskDB("BitMask 03", val));
+            list.Add(new BitmaskDB("BitMask 04", val));
+            list.Add(new BitmaskDB("BitMask 05", val));
+            list.Add(new BitmaskDB("BitMask 06", val));
         }
 
     }

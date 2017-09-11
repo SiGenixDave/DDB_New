@@ -9,14 +9,14 @@ namespace DDB
     {
         public object Copy(object obj)
         {
-            Units u = (Units)obj;
-            Units myNewUnit = new Units("Copy of " + u.name, true);
+            UnitsDB u = (UnitsDB)obj;
+            UnitsDB myNewUnit = new UnitsDB("Copy of " + u.name, true);
             return myNewUnit;
         }
 
         public void Modify(object obj)
         {
-            UnitModifyObject unitModify = new UnitModifyObject((Units)obj);
+            UnitModifyObject unitModify = new UnitModifyObject((UnitsDB)obj);
             if (unitModify.GetUserAcceptance())
             {
                 obj = unitModify;
@@ -33,7 +33,7 @@ namespace DDB
             UnitCreateObject unitCreate = new UnitCreateObject();
             if (unitCreate.GetUserAcceptance())
             {
-                Units u = unitCreate.GetUnit();
+                UnitsDB u = unitCreate.GetUnit();
                 return u;
             }
 
@@ -43,6 +43,9 @@ namespace DDB
         public void Links()
         { }
         public void Import()
+        { }
+
+        public void Preview(object obj)
         { }
     }
 
@@ -54,7 +57,7 @@ namespace DDB
 
         private void btnProjUnitsImport_Click(object sender, EventArgs e)
         {
-            FormImport iForm = new FormImport("Units");
+            FormImport iForm = new FormImport("UnitsDB");
             iForm.ShowDialog();
             //TODO Open File dialog (xml file default)
 

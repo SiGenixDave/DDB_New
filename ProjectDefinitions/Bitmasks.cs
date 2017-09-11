@@ -19,19 +19,19 @@ namespace DDB
 
         public object Copy(object obj)
         {
-            Bitmask bt = new Bitmask((Bitmask)obj);
+            BitmaskDB bt = new BitmaskDB((BitmaskDB)obj);
             bt.dispName = "Copy of " + bt.dispName;
             return bt;
         }
 
         public void Modify(object obj)
         {
-            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor((Bitmask)obj, false))
+            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor((BitmaskDB)obj, false))
             {
                 DialogResult dr = bmEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    bmPreview.UpdateForm((Bitmask)obj);
+                    bmPreview.UpdateForm((BitmaskDB)obj);
                 }
             }
         }
@@ -43,19 +43,24 @@ namespace DDB
 
         public object Create()
         {
-            Bitmask bmt = BitmaskList.CreateVar("New Bitmask");
+            BitmaskDB bmt = new BitmaskDB ("New BitmaskDB");
 
             using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, true))
             {
                 DialogResult dr = bmEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    bmPreview.UpdateForm((Bitmask)bmt);
+                    bmPreview.UpdateForm((BitmaskDB)bmt);
                     return bmt;
                 }
             }
 
             return null;
+        }
+
+        public void Preview(object obj)
+        {
+            bmPreview.UpdateForm((BitmaskDB)obj);
         }
 
         public void Links()
@@ -85,8 +90,6 @@ namespace DDB
         {
             //TODO formEnumPreview.UpdateForm(null);
         }
-
-
 
     }
 }
