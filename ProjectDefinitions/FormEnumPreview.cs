@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (Enums enm)
+        public void UpdateForm (EnumsDB enm)
         {
             do
             {
@@ -29,6 +29,7 @@ namespace DDB
 
             if (enm == null)
             {
+                this.Text = "Enumeration Preview"; 
                 return;
             }
 

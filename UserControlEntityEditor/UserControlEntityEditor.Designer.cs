@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.labelSortOrder = new System.Windows.Forms.Label();
             this.btnLinks = new System.Windows.Forms.Button();
             this.btnModifyHelpText = new System.Windows.Forms.Button();
             this.btnFilterClear = new System.Windows.Forms.Button();
@@ -47,16 +48,14 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.modifyHelpTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.sortAscendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortDescendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelSortOrder = new System.Windows.Forms.Label();
-            this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.unsortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +83,15 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Group Box Title";
             this.groupBox.Leave += new System.EventHandler(this.groupBox_Leave);
+            // 
+            // labelSortOrder
+            // 
+            this.labelSortOrder.AutoSize = true;
+            this.labelSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSortOrder.Location = new System.Drawing.Point(170, 18);
+            this.labelSortOrder.Name = "labelSortOrder";
+            this.labelSortOrder.Size = new System.Drawing.Size(0, 33);
+            this.labelSortOrder.TabIndex = 34;
             // 
             // btnLinks
             // 
@@ -227,17 +235,16 @@
             this.copyToolStripMenuItem,
             this.modifyToolStripMenuItem,
             this.deleteToolStripMenuItem,
-            this.toolStripSeparator2,
+            this.toolStripSeparator1,
             this.linksToolStripMenuItem,
-            this.toolStripSeparator3,
+            this.toolStripSeparator2,
             this.modifyHelpTextToolStripMenuItem,
-            this.toolStripSeparator4,
+            this.toolStripSeparator3,
             this.sortAscendingToolStripMenuItem,
             this.sortDescendingToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.restoreAllToolStripMenuItem});
+            this.unsortToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(165, 248);
+            this.contextMenuStrip.Size = new System.Drawing.Size(165, 242);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // createToolStripMenuItem
@@ -269,11 +276,21 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
+            // 
             // linksToolStripMenuItem
             // 
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
             this.linksToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.linksToolStripMenuItem.Text = "Links...";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
             // 
             // modifyHelpTextToolStripMenuItem
             // 
@@ -282,55 +299,31 @@
             this.modifyHelpTextToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modifyHelpTextToolStripMenuItem.Text = "Modify Help Text";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            // 
             // sortAscendingToolStripMenuItem
             // 
             this.sortAscendingToolStripMenuItem.Name = "sortAscendingToolStripMenuItem";
             this.sortAscendingToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.sortAscendingToolStripMenuItem.Text = "Sort Ascending";
+            this.sortAscendingToolStripMenuItem.Text = "Sort A to Z";
             this.sortAscendingToolStripMenuItem.Click += new System.EventHandler(this.sortAscendingToolStripMenuItem_Click);
             // 
             // sortDescendingToolStripMenuItem
             // 
             this.sortDescendingToolStripMenuItem.Name = "sortDescendingToolStripMenuItem";
             this.sortDescendingToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.sortDescendingToolStripMenuItem.Text = "Sort Descending";
+            this.sortDescendingToolStripMenuItem.Text = "Sort Z to A";
             this.sortDescendingToolStripMenuItem.Click += new System.EventHandler(this.sortDescendingToolStripMenuItem_Click);
             // 
-            // labelSortOrder
+            // unsortToolStripMenuItem
             // 
-            this.labelSortOrder.AutoSize = true;
-            this.labelSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSortOrder.Location = new System.Drawing.Point(170, 18);
-            this.labelSortOrder.Name = "labelSortOrder";
-            this.labelSortOrder.Size = new System.Drawing.Size(0, 33);
-            this.labelSortOrder.TabIndex = 34;
-            // 
-            // restoreAllToolStripMenuItem
-            // 
-            this.restoreAllToolStripMenuItem.Name = "restoreAllToolStripMenuItem";
-            this.restoreAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.restoreAllToolStripMenuItem.Text = "Restore All";
-            this.restoreAllToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            this.unsortToolStripMenuItem.Name = "unsortToolStripMenuItem";
+            this.unsortToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.unsortToolStripMenuItem.Text = "Unsorted";
+            this.unsortToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
             // 
             // UserControlEntityEditor
             // 
@@ -371,10 +364,9 @@
         private System.Windows.Forms.ToolStripMenuItem sortAscendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortDescendingToolStripMenuItem;
         private System.Windows.Forms.Label labelSortOrder;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem restoreAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unsortToolStripMenuItem;
     }
 }

@@ -124,9 +124,7 @@
     <Compile Include="ProjectDefinitions\FormEnumEditor.Designer.cs">
       <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectDefinitions\Enumerations.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ProjectDefinitions\Enumerations.cs" />
     <Compile Include="ProjectDefinitions\FormBitmaskPreview.cs">
       <SubType>Form</SubType>
     </Compile>

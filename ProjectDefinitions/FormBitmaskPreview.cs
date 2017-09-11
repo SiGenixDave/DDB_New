@@ -29,11 +29,11 @@ namespace DDB
 
             if (bm == null)
             {
-                this.Text = "BitmaskDB Preview";
+                this.Text = "Bitmask Preview";
                 return;
             }
 
-            this.Text = "BitmaskDB Preview for \"" + bm.dispName + "\"";
+            this.Text = "Bitmask Preview for \"" + bm.dispName + "\"";
             int populatedRowCount = 0;
             for (int index = 31; index >= 0; index--)
             {

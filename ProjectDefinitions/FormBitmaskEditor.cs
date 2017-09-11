@@ -20,7 +20,7 @@ namespace DDB
             {
                 this.Text = "Modify";
             }
-            this.Text += " BitmaskDB " + "\"" + bm.dispName + "\"";
+            this.Text += " Bitmask " + "\"" + bm.dispName + "\"";
             InitDataGrid(dataGridView1, 31);
             InitDataGrid(dataGridView2, 15);
             LoadInfo();
@@ -69,7 +69,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("BitmaskDB", bitmask.dispName))
+            if (Cancel.Query("Bitmask", bitmask.dispName))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

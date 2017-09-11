@@ -191,7 +191,7 @@
             "NONE",
             "Scalar",
             "Enumeration",
-            "BitmaskDB"});
+            "Bitmask"});
             this.cBoxWatchScaleType.Location = new System.Drawing.Point(113, 168);
             this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
             this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 25);

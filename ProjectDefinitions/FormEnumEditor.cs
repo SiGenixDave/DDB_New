@@ -6,9 +6,9 @@ namespace DDB
 {
     public partial class FormEnumsEditor : Form
     {
-        private Enums enm;
+        private EnumsDB enm;
 
-        public FormEnumsEditor(Enums em, Boolean modifyNewEnum)
+        public FormEnumsEditor(EnumsDB em, Boolean modifyNewEnum)
         {
             InitializeComponent();
             enm = em;

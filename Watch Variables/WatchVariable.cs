@@ -122,7 +122,7 @@ namespace DDB
                     LoadEnumsIntoComboBox(false);
                     break;
 
-                case "BitmaskDB":
+                case "Bitmask":
                     lblFormatString.Visible = false;
                     cBoxWatchFormatString.Visible = false;
                     lblWatchUnitConversion.Visible = false;
@@ -155,7 +155,6 @@ namespace DDB
         {
             cBoxWatchUnits.Items.Clear();
 
-            int index = 0;
             foreach (BitmaskDB b in ucEE_Bitmasks.GetItems())
             {
                 cBoxWatchUnits.Items.Add(b);
@@ -170,12 +169,11 @@ namespace DDB
         {
             cBoxWatchUnits.Items.Clear();
 
-            int index = 0;
-            while (index < EnumList.GetVarCount())
+            foreach (EnumsDB e in ucEE_Enumerations.GetItems())
             {
-                cBoxWatchUnits.Items.Add(EnumList.GetVar(index).dispName);
-                index++;
+                cBoxWatchUnits.Items.Add(e);
             }
+
             if (!useExistingIndex)
             {
                 cBoxWatchUnits.SelectedIndex = 0;
@@ -253,7 +251,7 @@ namespace DDB
             if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
             {
                 formBitmaskPreview.UpdateForm(null);
-                formEnumPreview.UpdateForm(EnumList.GetVar(cBoxWatchUnits.SelectedIndex));
+                formEnumPreview.UpdateForm((EnumsDB)cBoxWatchUnits.SelectedItem);
             }
         }
 

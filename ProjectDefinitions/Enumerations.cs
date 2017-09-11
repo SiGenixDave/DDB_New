@@ -4,209 +4,69 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    public partial class FormMain
+    public class EnumsBusinessLogic : iEntityEditorBusinesssLogic
     {
-        private void lBoxProjEnums_SelectedIndexChanged(object sender, EventArgs e)
+        FormEnumPreview enumPreview;
+
+        public EnumsBusinessLogic(FormEnumPreview preview)
         {
-            if (lBoxProjEnums.SelectedIndices.Count == 0)
-            {
-                btnProjEnumsModify.Enabled = false;
-                btnProjEnumsCopy.Enabled = false;
-                btnProjEnumsDelete.Enabled = false;
-                btnProjEnumsLinks.Enabled = false;
-            }
-            else if (lBoxProjEnums.SelectedIndices.Count == 1)
-            {
-                conMenuEnums.Items[1].Enabled = true;
-
-                btnProjEnumsModify.Enabled = true;
-                btnProjEnumsCopy.Enabled = true;
-                btnProjEnumsDelete.Enabled = true;
-                btnProjEnumsLinks.Enabled = true;
-
-                formEnumPreview.UpdateForm(EnumList.GetVar(lBoxProjEnums.SelectedIndex));
-            }
-            else
-            {
-                // Disable the "Modify" in context menu
-                conMenuEnums.Items[1].Enabled = false;
-
-                btnProjEnumsModify.Enabled = false;
-                btnProjEnumsCopy.Enabled = true;
-                btnProjEnumsDelete.Enabled = true;
-                btnProjEnumsLinks.Enabled = true;
-            }
-
+            enumPreview = preview;
         }
 
-        private int savedEnums = 0;
-        private void gBoxProjEnums_Enter(object sender, EventArgs e)
+        private EnumsBusinessLogic()
+        { }
+
+        public object Copy(object obj)
         {
-            lBoxProjEnums.SelectedIndex = savedEnums;
-            formBitmaskPreview.UpdateForm(null);
+            EnumsDB enm = new EnumsDB((EnumsDB)obj);
+            enm.dispName = "Copy of " + enm.dispName;
+            return enm;
         }
 
-        private void gBoxProjEnums_Leave(object sender, EventArgs e)
+        public void Modify(object obj)
         {
-            savedEnums = lBoxProjEnums.SelectedIndex;
-            lBoxProjEnums.SelectedIndex = -1;
-        }
-
-
-        private void lBoxProjEnums_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ModifyEnums(false);
-        }
-
-        private void btnProjEnumsImport_Click(object sender, EventArgs e)
-        {
-            FormImport iForm = new FormImport("Enumerations");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with list box of units from the XML file
-        }
-
-        private void btnProjEnumsDelete_Click(object sender, EventArgs e)
-        {
-            DeleteEnums();
-        }
-
-        private void btnProjEnumsModify_Click(object sender, EventArgs e)
-        {
-            ModifyEnums(false);
-        }
-
-        private void btnProjEnumsCopy_Click(object sender, EventArgs e)
-        {
-            CopyEnums();
-        }
-
-        private void btnProjEnumsCreate_Click(object sender, EventArgs e)
-        {
-            CreateEnums();
-        }
-
-        private void copyEnumsMenuItem_Click(object sender, EventArgs e)
-        {
-            CopyEnums();
-        }
-
-        private void modifyEnumsMenuItem_Click(object sender, EventArgs e)
-        {
-            ModifyEnums(false);
-        }
-
-        private void deleteEnumsMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteEnums();
-        }
-
-        private void CopyEnums()
-        {
-            int indexCount = 0;
-            while (indexCount < lBoxProjEnums.SelectedIndices.Count)
-            {
-
-                Enums enm = (Enums)lBoxProjEnums.SelectedItems[indexCount];
-                enm = EnumList.CreateVar(enm.dispName, enm.intValues.ToArray(), enm.strValues.ToArray());
-                enm.dispName = "Copy of " + enm.dispName;
-                EnumList.AddVar(enm);
-                lBoxProjEnums.Items.Add(enm);
-                indexCount++;
-            }
-        }
-
-        private Boolean ModifyEnums(Boolean modifyNewEnum)
-        {
-            Enums emt = EnumList.GetVar(lBoxProjEnums.SelectedIndex);
-
-            using (FormEnumsEditor emEdit = new FormEnumsEditor(emt, modifyNewEnum))
+            using (FormEnumsEditor emEdit = new FormEnumsEditor((EnumsDB)obj, false))
             {
                 DialogResult dr = emEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    formEnumPreview.UpdateForm((Enums)lBoxProjEnums.SelectedItem);
-
-                    PopulateEnums(lBoxProjEnums.SelectedIndex);
-
-                    return true;
-
+                    enumPreview.UpdateForm((EnumsDB)obj);
                 }
             }
-
-            return false;
         }
 
-        private void CreateEnums()
+        public void Delete(object obj)
         {
-            Enums et = EnumList.CreateVar("New Enum", new int[] {0}, new String[] {"Description"});
-            lBoxProjEnums.Items.Add(et);
-            EnumList.AddVar(et);
+            // TODO Remove obj from DB
+        }
 
-            // Needed to restore selected items if user aborts
-            List<int> selEnums = new List<int>();
-            int indexCount = 0;
-            while (indexCount < lBoxProjEnums.SelectedIndices.Count)
+        public object Create()
+        {
+            EnumsDB enm = new EnumsDB("New Enumration");
+
+            using (FormEnumsEditor emEdit = new FormEnumsEditor(enm, true))
             {
-                selEnums.Add(lBoxProjEnums.SelectedIndices[indexCount]);
-                indexCount++;
-            }
-
-            // For some reason, one must set the listbox SelectedIndex to -1 prior to changing the listbox index programatically???
-            lBoxProjEnums.SelectedIndex = -1;
-            lBoxProjEnums.SelectedIndex = lBoxProjEnums.Items.Count - 1;
-            if (!ModifyEnums(true))
-            {
-               lBoxProjEnums.Items.Remove(et);
-                EnumList.DeleteVar(et);
-
-                // Restore the selected index(s) prior to the cancel
-                indexCount = 0;
-                lBoxProjEnums.SelectedIndices.Clear();
-                while (indexCount < selEnums.Count)
+                DialogResult dr = emEdit.ShowDialog();
+                if (dr == DialogResult.OK)
                 {
-                    lBoxProjEnums.SelectedIndices.Add(selEnums[indexCount]);
-                    indexCount++;
+                    enumPreview.UpdateForm((EnumsDB)enm);
+                    return enm;
                 }
             }
 
+            return null;
 
         }
 
-        private void DeleteEnums()
+        public void Preview(object obj)
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(s)?",
-                                  "Delete Enumeration(s) Confirmation",
-                                  MessageBoxButtons.OKCancel,
-                                  MessageBoxIcon.Warning);
-
-            // User really didn't want to delete the variables... abort delete
-            if (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            int prevIndex = lBoxProjEnums.SelectedIndices[0];
-
-            int indexCount = 0;
-            List<Enums> enumsToDelete = new List<Enums>();
-            while (indexCount < lBoxProjEnums.SelectedIndices.Count)
-            {
-                enumsToDelete.Add((Enums)(lBoxProjEnums.SelectedItems[indexCount]));
-                indexCount++;
-            }
-
-            while (enumsToDelete.Count != 0)
-            {
-                EnumList.DeleteVar(enumsToDelete[0]);
-                enumsToDelete.RemoveAt(0);
-            }
-
-            PopulateEnums(prevIndex);
+            enumPreview.UpdateForm((EnumsDB)obj);
         }
 
-
-
+        public void Links()
+        { }
+        public void Import()
+        { }
     }
+
 }

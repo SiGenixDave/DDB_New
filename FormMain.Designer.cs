@@ -136,26 +136,6 @@
             this.deleteEventMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
-            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
-            this.ucEE_Units = new DDB.UserControlEntityEditor();
-            this.gBoxProjEnums = new System.Windows.Forms.GroupBox();
-            this.btnProjEnumsLinks = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.btnProjEnumsImport = new System.Windows.Forms.Button();
-            this.btnProjEnumsCopy = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.btnProjEnumsDelete = new System.Windows.Forms.Button();
-            this.btnProjEnumsModify = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnProjEnumsCreate = new System.Windows.Forms.Button();
-            this.lBoxProjEnums = new System.Windows.Forms.ListBox();
-            this.conMenuEnums = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyEnumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyEnumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteEnumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
             this.btnProjSettingsCancelChanges = new System.Windows.Forms.Button();
             this.btnProjSettingsAcceptChanges = new System.Windows.Forms.Button();
@@ -195,10 +175,6 @@
             this.cBoxNumStreamVars = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cListBoxFunctionFlags = new System.Windows.Forms.CheckedListBox();
-            this.conMenuBitmasks = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteBitmasksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -222,6 +198,9 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
+            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
+            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
+            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -238,8 +217,6 @@
             this.gBoxEvents.SuspendLayout();
             this.conMenuEvents.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
-            this.gBoxProjEnums.SuspendLayout();
-            this.conMenuEnums.SuspendLayout();
             this.tabProjectSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gBoxEventLogs.SuspendLayout();
@@ -251,7 +228,6 @@
             this.conMenuURL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.conMenuBitmasks.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -596,7 +572,7 @@
             "NONE",
             "Scalar",
             "Enumeration",
-            "BitmaskDB"});
+            "Bitmask"});
             this.cBoxWatchScaleType.Location = new System.Drawing.Point(349, 160);
             this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
             this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 21);
@@ -1501,9 +1477,9 @@
             // 
             // tabProjectDefinitions
             // 
+            this.tabProjectDefinitions.Controls.Add(this.ucEE_Enumerations);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Bitmasks);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Units);
-            this.tabProjectDefinitions.Controls.Add(this.gBoxProjEnums);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
@@ -1512,231 +1488,6 @@
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
-            // 
-            // ucEE_Bitmasks
-            // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(265, 3);
-            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 456);
-            this.ucEE_Bitmasks.TabIndex = 22;
-            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
-            this.ucEE_Bitmasks.xVisibleImportButton = true;
-            this.ucEE_Bitmasks.xVisibleLinksButton = true;
-            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Units
-            // 
-            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
-            this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(270, 456);
-            this.ucEE_Units.TabIndex = 21;
-            this.ucEE_Units.xGroupBoxTitle = "UnitsDB";
-            this.ucEE_Units.xVisibleImportButton = true;
-            this.ucEE_Units.xVisibleLinksButton = true;
-            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
-            // 
-            // gBoxProjEnums
-            // 
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsLinks);
-            this.gBoxProjEnums.Controls.Add(this.button8);
-            this.gBoxProjEnums.Controls.Add(this.button15);
-            this.gBoxProjEnums.Controls.Add(this.button11);
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsImport);
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsCopy);
-            this.gBoxProjEnums.Controls.Add(this.button10);
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsDelete);
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsModify);
-            this.gBoxProjEnums.Controls.Add(this.textBox3);
-            this.gBoxProjEnums.Controls.Add(this.label13);
-            this.gBoxProjEnums.Controls.Add(this.btnProjEnumsCreate);
-            this.gBoxProjEnums.Controls.Add(this.lBoxProjEnums);
-            this.gBoxProjEnums.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxProjEnums.Location = new System.Drawing.Point(560, 20);
-            this.gBoxProjEnums.Name = "gBoxProjEnums";
-            this.gBoxProjEnums.Size = new System.Drawing.Size(247, 499);
-            this.gBoxProjEnums.TabIndex = 20;
-            this.gBoxProjEnums.TabStop = false;
-            this.gBoxProjEnums.Text = "Enumerations";
-            this.gBoxProjEnums.Enter += new System.EventHandler(this.gBoxProjEnums_Enter);
-            this.gBoxProjEnums.Leave += new System.EventHandler(this.gBoxProjEnums_Leave);
-            // 
-            // btnProjEnumsLinks
-            // 
-            this.btnProjEnumsLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsLinks.Location = new System.Drawing.Point(168, 251);
-            this.btnProjEnumsLinks.Name = "btnProjEnumsLinks";
-            this.btnProjEnumsLinks.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsLinks.TabIndex = 22;
-            this.btnProjEnumsLinks.Text = "Links...";
-            this.toolTip1.SetToolTip(this.btnProjEnumsLinks, "\"TODO Show vars that use this Enumeration\"");
-            this.btnProjEnumsLinks.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(168, 461);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(72, 23);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Sort Des";
-            this.toolTip1.SetToolTip(this.button8, "\"Not yet Implemeneted\"");
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(87, 462);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 20;
-            this.button15.Text = "Clear Filter";
-            this.toolTip1.SetToolTip(this.button15, "\"Not yet Implemeneted\"");
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(168, 432);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(72, 23);
-            this.button11.TabIndex = 22;
-            this.button11.Text = "Sort Asc";
-            this.toolTip1.SetToolTip(this.button11, "\"Not yet Implemeneted\"");
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // btnProjEnumsImport
-            // 
-            this.btnProjEnumsImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsImport.Location = new System.Drawing.Point(167, 349);
-            this.btnProjEnumsImport.Name = "btnProjEnumsImport";
-            this.btnProjEnumsImport.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsImport.TabIndex = 18;
-            this.btnProjEnumsImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnProjEnumsImport, "\"TODO Import units from another XML file\"");
-            this.btnProjEnumsImport.UseVisualStyleBackColor = true;
-            this.btnProjEnumsImport.Click += new System.EventHandler(this.btnProjEnumsImport_Click);
-            // 
-            // btnProjEnumsCopy
-            // 
-            this.btnProjEnumsCopy.Enabled = false;
-            this.btnProjEnumsCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsCopy.Location = new System.Drawing.Point(167, 164);
-            this.btnProjEnumsCopy.Name = "btnProjEnumsCopy";
-            this.btnProjEnumsCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsCopy.TabIndex = 5;
-            this.btnProjEnumsCopy.Text = "Copy";
-            this.btnProjEnumsCopy.UseVisualStyleBackColor = true;
-            this.btnProjEnumsCopy.Click += new System.EventHandler(this.btnProjEnumsCopy_Click);
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(6, 462);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 15;
-            this.button10.Text = "Apply Filter";
-            this.toolTip1.SetToolTip(this.button10, "\"Not yet Implemeneted\"");
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // btnProjEnumsDelete
-            // 
-            this.btnProjEnumsDelete.Enabled = false;
-            this.btnProjEnumsDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsDelete.Location = new System.Drawing.Point(167, 222);
-            this.btnProjEnumsDelete.Name = "btnProjEnumsDelete";
-            this.btnProjEnumsDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsDelete.TabIndex = 4;
-            this.btnProjEnumsDelete.Text = "Delete";
-            this.btnProjEnumsDelete.UseVisualStyleBackColor = true;
-            this.btnProjEnumsDelete.Click += new System.EventHandler(this.btnProjEnumsDelete_Click);
-            // 
-            // btnProjEnumsModify
-            // 
-            this.btnProjEnumsModify.Enabled = false;
-            this.btnProjEnumsModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsModify.Location = new System.Drawing.Point(168, 193);
-            this.btnProjEnumsModify.Name = "btnProjEnumsModify";
-            this.btnProjEnumsModify.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsModify.TabIndex = 3;
-            this.btnProjEnumsModify.Text = "Modify...";
-            this.btnProjEnumsModify.UseVisualStyleBackColor = true;
-            this.btnProjEnumsModify.Click += new System.EventHandler(this.btnProjEnumsModify_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(6, 432);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 21);
-            this.textBox3.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.textBox3, "\"Not yet Implemeneted\"");
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 416);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Filter";
-            // 
-            // btnProjEnumsCreate
-            // 
-            this.btnProjEnumsCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjEnumsCreate.Location = new System.Drawing.Point(167, 135);
-            this.btnProjEnumsCreate.Name = "btnProjEnumsCreate";
-            this.btnProjEnumsCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnProjEnumsCreate.TabIndex = 2;
-            this.btnProjEnumsCreate.Text = "Create";
-            this.btnProjEnumsCreate.UseVisualStyleBackColor = true;
-            this.btnProjEnumsCreate.Click += new System.EventHandler(this.btnProjEnumsCreate_Click);
-            // 
-            // lBoxProjEnums
-            // 
-            this.lBoxProjEnums.ContextMenuStrip = this.conMenuEnums;
-            this.lBoxProjEnums.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBoxProjEnums.FormattingEnabled = true;
-            this.lBoxProjEnums.HorizontalScrollbar = true;
-            this.lBoxProjEnums.ItemHeight = 17;
-            this.lBoxProjEnums.Location = new System.Drawing.Point(6, 27);
-            this.lBoxProjEnums.Name = "lBoxProjEnums";
-            this.lBoxProjEnums.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxProjEnums.Size = new System.Drawing.Size(155, 361);
-            this.lBoxProjEnums.TabIndex = 1;
-            this.lBoxProjEnums.SelectedIndexChanged += new System.EventHandler(this.lBoxProjEnums_SelectedIndexChanged);
-            this.lBoxProjEnums.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxProjEnums_MouseDoubleClick);
-            // 
-            // conMenuEnums
-            // 
-            this.conMenuEnums.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyEnumsMenuItem,
-            this.modifyEnumsMenuItem,
-            this.deleteEnumsMenuItem});
-            this.conMenuEnums.Name = "conMenuUnits";
-            this.conMenuEnums.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyEnumsMenuItem
-            // 
-            this.copyEnumsMenuItem.Name = "copyEnumsMenuItem";
-            this.copyEnumsMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyEnumsMenuItem.Text = "Copy";
-            this.copyEnumsMenuItem.Click += new System.EventHandler(this.copyEnumsMenuItem_Click);
-            // 
-            // modifyEnumsMenuItem
-            // 
-            this.modifyEnumsMenuItem.Name = "modifyEnumsMenuItem";
-            this.modifyEnumsMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyEnumsMenuItem.Text = "Modify";
-            this.modifyEnumsMenuItem.Click += new System.EventHandler(this.modifyEnumsMenuItem_Click);
-            // 
-            // deleteEnumsMenuItem
-            // 
-            this.deleteEnumsMenuItem.Name = "deleteEnumsMenuItem";
-            this.deleteEnumsMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteEnumsMenuItem.Text = "Delete";
-            this.deleteEnumsMenuItem.Click += new System.EventHandler(this.deleteEnumsMenuItem_Click);
             // 
             // tabProjectSettings
             // 
@@ -2166,33 +1917,6 @@
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
             // 
-            // conMenuBitmasks
-            // 
-            this.conMenuBitmasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyBitmasksMenuItem,
-            this.modifyBitmasksMenuItem,
-            this.deleteBitmasksMenuItem});
-            this.conMenuBitmasks.Name = "conMenuUnits";
-            this.conMenuBitmasks.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyBitmasksMenuItem
-            // 
-            this.copyBitmasksMenuItem.Name = "copyBitmasksMenuItem";
-            this.copyBitmasksMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyBitmasksMenuItem.Text = "Copy";
-            // 
-            // modifyBitmasksMenuItem
-            // 
-            this.modifyBitmasksMenuItem.Name = "modifyBitmasksMenuItem";
-            this.modifyBitmasksMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyBitmasksMenuItem.Text = "Modify";
-            // 
-            // deleteBitmasksMenuItem
-            // 
-            this.deleteBitmasksMenuItem.Name = "deleteBitmasksMenuItem";
-            this.deleteBitmasksMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteBitmasksMenuItem.Text = "Delete";
-            // 
             // mainMenuStrip
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -2364,6 +2088,39 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
+            // ucEE_Enumerations
+            // 
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
+            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Enumerations.TabIndex = 23;
+            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
+            this.ucEE_Enumerations.xVisibleImportButton = true;
+            this.ucEE_Enumerations.xVisibleLinksButton = true;
+            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Bitmasks
+            // 
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
+            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Bitmasks.TabIndex = 22;
+            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
+            this.ucEE_Bitmasks.xVisibleImportButton = true;
+            this.ucEE_Bitmasks.xVisibleLinksButton = true;
+            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Units
+            // 
+            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
+            this.ucEE_Units.Name = "ucEE_Units";
+            this.ucEE_Units.Size = new System.Drawing.Size(270, 421);
+            this.ucEE_Units.TabIndex = 21;
+            this.ucEE_Units.xGroupBoxTitle = "Units";
+            this.ucEE_Units.xVisibleImportButton = true;
+            this.ucEE_Units.xVisibleLinksButton = true;
+            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2404,9 +2161,6 @@
             this.gBoxEvents.PerformLayout();
             this.conMenuEvents.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
-            this.gBoxProjEnums.ResumeLayout(false);
-            this.gBoxProjEnums.PerformLayout();
-            this.conMenuEnums.ResumeLayout(false);
             this.tabProjectSettings.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -2420,7 +2174,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.conMenuBitmasks.ResumeLayout(false);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -2501,26 +2254,8 @@
         private System.Windows.Forms.Button btnExitDDB;
         private System.Windows.Forms.Button btnWatchImport;
         private System.Windows.Forms.TabPage tabProjectSettings;
-        private System.Windows.Forms.ContextMenuStrip conMenuBitmasks;
-        private System.Windows.Forms.ToolStripMenuItem copyBitmasksMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyBitmasksMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteBitmasksMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewBitmasksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEnumerationsToolStripMenuItem;
-        private System.Windows.Forms.GroupBox gBoxProjEnums;
-        private System.Windows.Forms.Button btnProjEnumsImport;
-        private System.Windows.Forms.Button btnProjEnumsCopy;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button btnProjEnumsDelete;
-        private System.Windows.Forms.Button btnProjEnumsModify;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnProjEnumsCreate;
-        private System.Windows.Forms.ListBox lBoxProjEnums;
-        private System.Windows.Forms.ContextMenuStrip conMenuEnums;
-        private System.Windows.Forms.ToolStripMenuItem copyEnumsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyEnumsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteEnumsMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -2586,9 +2321,6 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.GroupBox gBoxEventVariables;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
@@ -2602,7 +2334,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button btnEventVarCreate;
         private System.Windows.Forms.ListBox lBoxEventVars;
-        private System.Windows.Forms.Button btnProjEnumsLinks;
         private System.Windows.Forms.ToolStripMenuItem modifyEventMenuItem;
         private System.Windows.Forms.ContextMenuStrip conMenuEventStructures;
         private System.Windows.Forms.ToolStripMenuItem copyEventStrMenuItem;
@@ -2623,6 +2354,7 @@
         private System.Windows.Forms.ComboBox cBoxNumStreamVars;
         private UserControlEntityEditor ucEE_Units;
         private UserControlEntityEditor ucEE_Bitmasks;
+        private UserControlEntityEditor ucEE_Enumerations;
     }
 }
 

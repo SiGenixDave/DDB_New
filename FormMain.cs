@@ -64,23 +64,11 @@ namespace DDB
             ucEE_Bitmasks.AddListBoxItems(BitmaskList.GetBitmasks());
         }
 
-        private void PopulateEnums(int select)
+        private void PopulateEnums()
         {
-            Enums[] enums = EnumList.GetEnums();
-            lBoxProjEnums.Items.Clear();
-            foreach (Enums e in enums)
-            {
-                lBoxProjEnums.Items.Add(e);
-            }
-
-            if (select >= lBoxProjEnums.Items.Count)
-            {
-                lBoxProjEnums.SelectedIndex = lBoxProjEnums.Items.Count - 1;
-            }
-            else
-            {
-                lBoxProjEnums.SelectedIndex = select;
-            }
+            EnumsBusinessLogic ebl = new EnumsBusinessLogic(formEnumPreview);
+            ucEE_Enumerations.setBusinessLogic(ebl);
+            ucEE_Enumerations.AddListBoxItems(EnumList.GetEnums());
         }
 
         private void PopulateProjectSettings()
@@ -139,7 +127,7 @@ namespace DDB
                     // Tab Watch
                     if (cBoxWatchScaleType.SelectedItem != null)
                     {
-                        if (cBoxWatchScaleType.SelectedItem.ToString() == "BitmaskDB")
+                        if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
                         {
                             int savedIndex = cBoxWatchUnits.SelectedIndex;
                             LoadBitmasksIntoComboBox(true);
@@ -300,7 +288,7 @@ namespace DDB
                 PopulateUnits();
                 PopulateBitmasks();
             }
-            PopulateEnums(-1);
+            PopulateEnums();
             PopulateProjectSettings();
             PopulateEventLists();
             //////////////////////////////////////////////////////////
