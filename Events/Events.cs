@@ -9,11 +9,13 @@ namespace DDB
     {
         FormEventPreview evPreview;
         FormMain formMain;
+        FormHelpPreview formHelpPreview;
 
-        public EventsBusinessLogic(FormMain fMain, FormEventPreview preview)
+        public EventsBusinessLogic(FormMain fMain, FormEventPreview preview, FormHelpPreview helpPreview)
         {
             formMain = fMain;
             evPreview = preview;
+            formHelpPreview = helpPreview;
         }
 
         private EventsBusinessLogic()
@@ -70,6 +72,25 @@ namespace DDB
         { }
         public void Import()
         { }
+        public void HelpModify(object obj)
+        {
+            EventDB e = (EventDB)obj;
+            FormHelpText fh = new FormHelpText(e, "Event \"" + e.name + "\"");
+            fh.ShowDialog();
+
+            HelpPreview(obj);
+
+        }
+
+        public void HelpPreview(object obj)
+        {
+            EventDB e = (EventDB)obj;
+            formHelpPreview.UpdateForm(e.helpText);            
+        }
+
+
+
+
     }
 
 
@@ -136,10 +157,89 @@ namespace DDB
         { }
         public void Import()
         { }
+        public void HelpModify(object obj)
+        { }
+        public void HelpPreview(object obj)
+        { }
+
+
+
     }
 
 
 
+    public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
+    {
+#if TODO
+        FormEventVariablePreview evPreview;
+
+        public EventVariablesBusinessLogic(FormEventVariablePreview preview)
+        {
+            evPreview = preview;
+        }
+#endif
+
+        private EventVariablesBusinessLogic()
+        { }
+
+        public object Copy(object obj)
+        {
+            EventStructureDB ev = new EventStructureDB((EventStructureDB)obj);
+            ev.name = "Copy of " + ev.name;
+            return ev;
+        }
+
+        public void Modify(object obj)
+        {
+            using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor((EventStructureDB)obj))
+            {
+                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                {
+                    EventStructureDB e = frmEvEdit.GetEditedEventStructure();
+                    //TODO evPreview.UpdateForm(e);
+                }
+            }
+
+        }
+
+        public void Delete(object obj)
+        {
+            // TODO Remove obj from DB
+        }
+
+        public object Create()
+        {
+            EventStructureDB e = new EventStructureDB("New Structure Name", null);
+            using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor(e))
+            {
+                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                {
+                    e = frmEvEdit.GetEditedEventStructure();
+                    //TODO evPreview.UpdateForm(e);
+                    return e;
+                }
+            }
+
+            return null;
+
+        }
+
+        public void Preview(object obj)
+        {
+            //TODO evPreview.UpdateForm((EventStructureDB)obj);
+        }
+
+        public void Links()
+        { }
+        public void Import()
+        { }
+        public void HelpModify(object obj)
+        { }
+        public void HelpPreview(object obj)
+        { }
+
+
+    }
 
 
 
@@ -175,7 +275,7 @@ namespace DDB
 
         private void PopulateEvents()
         {
-            EventsBusinessLogic ebl = new EventsBusinessLogic(this, formEventPreview);
+            EventsBusinessLogic ebl = new EventsBusinessLogic(this, formEventPreview, formHelpPreview);
             ucEE_Events.setBusinessLogic(ebl);
             ucEE_Events.AddListBoxItems(EventList.GetEvents());
         }
@@ -232,120 +332,7 @@ namespace DDB
         }
 
 
-        private void CreateEventStructure()
-        {
-            EventStructureDB e = new EventStructureDB("New_Event_str", new List<int>());
-            using (FormEventStructureEditor frmEvEdit = new FormEventStructureEditor(e))
-            {
-                if (frmEvEdit.ShowDialog() == DialogResult.OK)
-                {
-                    e = frmEvEdit.GetEditedEventStructure();
-                    //TODO EventList.AddNewEventStructure(e);
-                    PopulateEventStructures();
-                }
-            }
-        }
-
-        private void ModifyEventStructure()
-        {
-            EventStructureDB e = (EventStructureDB)lBoxEventStructures.SelectedItem;
-            using (FormEventStructureEditor frmEvStrEdit = new FormEventStructureEditor(e))
-            {
-                if (frmEvStrEdit.ShowDialog() == DialogResult.OK)
-                {
-                    e = frmEvStrEdit.GetEditedEventStructure();
-                    PopulateEventStructures();
-                    //TODO formEventStructurePreview.UpdateForm(e);
-                }
-            }
-        }
-
-        private void CopyEventStructure()
-        {
-            int indexCount = 0;
-            while (indexCount < lBoxEventStructures.SelectedIndices.Count)
-            {
-                EventStructureDB e = (EventStructureDB)lBoxEventStructures.SelectedItems[indexCount];
-                EventStructureDB eNew = new EventStructureDB("Copy of " + e.name, e.variableListFKey);
-                EventList.AddNewEventStructure(eNew);
-                indexCount++;
-            }
-            PopulateEventStructures();
-            lBoxEventStructures.SelectedIndex = EventList.GetEventStructures().Length - 1;
-        }
-
-        private void DeleteEventStructure()
-        {
-
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Structure(s)?",
-                                                          "Delete Event Structure(s) Confirmation",
-                                                          MessageBoxButtons.OKCancel,
-                                                          MessageBoxIcon.Warning);
-
-            // User really didn't want to delete the variables... abort delete
-            if (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            //TODO Check if structure is part of at least 1 event, if so, can't delete and return
-            int index = 0;
-            Boolean structPartOfEvent = false; 
-            while (index < lBoxEventStructures.SelectedItems.Count)
-            {
-                foreach (EventDB e in EventList.GetEvents())
-                {
-                    EventStructureDB es = (EventStructureDB)(lBoxEventStructures.SelectedItems[index]);
-                    if (e.structFKey == es.fKey)
-                    {
-                        MessageBox.Show("At least one of the event structures selected are part of an event, command aborted... please use Tools...Depenedencies to discover",
-                                        "Event Structure(s) Delete Aborted",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Stop);
-                        structPartOfEvent = true;
-                        break;
-                    }
-
-                }
-                if (structPartOfEvent)
-                {
-                    break;
-                }
-                index++;
-            }
-
-            if (structPartOfEvent)
-            {
-                return;
-            }
-
-            int indexCount = 0;
-            List<EventStructureDB> items = new List<EventStructureDB>();
-            while (indexCount < lBoxEventStructures.SelectedIndices.Count)
-            {
-                items.Add((EventStructureDB)(lBoxEventStructures.SelectedItems[indexCount]));
-                indexCount++;
-            }
-
-            while (items.Count != 0)
-            {
-                EventList.DeleteEventStructure(items[0]);
-                items.RemoveAt(0);
-            }
-
-            int numEvents = EventList.GetEventStructures().Length;
-            int selIndex = lBoxEventStructures.SelectedIndex;
-            PopulateEventStructures();
-            if (selIndex < numEvents)
-            {
-                lBoxEventStructures.SelectedIndex = selIndex;
-            }
-            else
-            {
-                lBoxEventStructures.SelectedIndex = selIndex - 1;
-            }
-        }
-
+        
         private void CreateEventVariable()
         {
             EventVariableDB e = new EventVariableDB("New Event Var DisplayName", "New Event Var EmbeddedName", 1, 0, 1, 0, 0, 0, "<b>New Event Var Description</b>");
@@ -378,9 +365,6 @@ namespace DDB
         {
             
         }
-
-
-
 
         void ModifyEventVariable()
         {

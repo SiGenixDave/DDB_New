@@ -67,6 +67,12 @@ namespace DDB
         { }
         public void Import()
         { }
+        public void HelpModify(object obj)
+        { }
+        public void HelpPreview(object obj)
+        { }
+
+
     }
 
 }

@@ -47,6 +47,16 @@ namespace DDB
 
         public void Preview(object obj)
         { }
+
+        public void HelpModify(object obj)
+        { }
+
+        public void HelpPreview(object obj)
+        { }
+
+
+
+
     }
 
 

@@ -61,6 +61,23 @@ namespace DDB
             get { return btnModifyHelpText.Visible; }
         }
 
+        public Boolean xVisibleMoveUpButton
+        {
+            set
+            {
+                btnMoveUp.Visible = value;
+            }
+            get { return btnMoveUp.Visible; }
+        }
+
+        public Boolean xVisibleMoveDownButton
+        {
+            set
+            {
+                btnMoveDown.Visible = value;
+            }
+            get { return btnMoveDown.Visible; }
+        }
 
         ///////////////////////////////////////////////////////////////////////////////////////
         // This allows user to add items
@@ -111,7 +128,7 @@ namespace DDB
 
         private void btnModifyHelpText_Click(object sender, EventArgs e)
         {
-
+            businessLogic.HelpModify(listBox.SelectedItem);
         }
 
         private void btnFilterApply_Click(object sender, EventArgs e)
@@ -153,6 +170,40 @@ namespace DDB
 
         }
 
+        private void btnMoveUp_Click(object sender, EventArgs e)
+        {
+            MoveItem(-1);
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            MoveItem(1);
+        }
+
+
+        public void MoveItem(int direction)
+        {
+            // Checking selected item
+            //if (lBoxUsedVars.SelectedItem == null || lBoxUsedVars.SelectedIndex < 0)
+            //    return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = listBox.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= listBox.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = listBox.SelectedItem;
+
+            // Removing removable element
+            listBox.Items.Remove(selected);
+            // Insert it in new position
+            listBox.Items.Insert(newIndex, selected);
+            // Restore selection
+            listBox.SetSelected(newIndex, true);
+        }
+
 
         private void listBox_DoubleClick(object sender, EventArgs e)
         {
@@ -186,7 +237,8 @@ namespace DDB
                 btnLinks.Enabled = true;
                 btnModifyHelpText.Enabled = true;
 
-                // TODO businessLogic.Preview(listBox.SelectedItem);
+                businessLogic.Preview(listBox.SelectedItem);
+                businessLogic.HelpPreview(listBox.SelectedItem);
             }
             else
             {
@@ -377,6 +429,8 @@ namespace DDB
         void Preview(object obj);
         void Links();
         void Import();
+        void HelpModify(object obj);
+        void HelpPreview(object obj);
     }
 
 }

@@ -112,6 +112,12 @@ namespace DDB
         { }
         public void Preview(object obj)
         { }
+        public void HelpModify(object obj)
+        { }
+        public void HelpPreview(object obj)
+        { }
+
+
     }
 
     public class GolfBallBusLogic : iEntityEditorBusinesssLogic
@@ -144,6 +150,13 @@ namespace DDB
         { }
         public void Import()
         { }
+        public void HelpModify(object obj)
+        { }
+        public void HelpPreview(object obj)
+        { }
+
+
+
     }
 
 }
