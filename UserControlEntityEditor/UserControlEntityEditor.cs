@@ -131,45 +131,6 @@ namespace DDB
             businessLogic.HelpModify(listBox.SelectedItem);
         }
 
-        private void btnFilterApply_Click(object sender, EventArgs e)
-        {
-            List<object> filteredList = new List<object>();
-
-            foreach (object obj in listBox.Items)
-            {
-                if (obj.ToString().Contains(txtBoxFilter.Text))
-                {
-                    filteredList.Add(obj);
-                }
-            }
-
-            if (filteredList.Count != 0)
-            {
-                listBox.Items.Clear();
-                listBox.Items.AddRange(filteredList.ToArray());
-                btnFilterApply.Enabled = false;
-                btnFilterClear.Enabled = true;
-                txtBoxFilter.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("No items available");
-            }
-
-
-        }
-
-        private void btnFilterClear_Click(object sender, EventArgs e)
-        {
-            listBox.Items.Clear();
-            listBox.Items.AddRange(allEntities.ToArray());
-            btnFilterApply.Enabled = true;
-            btnFilterClear.Enabled = false;
-            txtBoxFilter.Text = "";
-            txtBoxFilter.Enabled = true;
-
-        }
-
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
             MoveItem(-1);
@@ -289,12 +250,18 @@ namespace DDB
 
         private void sortAscendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            object selItem = listBox.SelectedItem;
+            
             listBox.Sorted = true;
             labelSortOrder.Text = "\u2B63";
+
+            listBox.SelectedItem = selItem;
         }
 
         private void sortDescendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            object selItem = listBox.SelectedItem;
+
             List<object> reverseSort = new List<object>();
             listBox.Sorted = true;
             foreach (object obj in listBox.Items)
@@ -309,6 +276,8 @@ namespace DDB
 
             labelSortOrder.Text = "\u2B61";
 
+            listBox.SelectedItem = selItem;
+
         }
 
         private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -318,8 +287,6 @@ namespace DDB
 
             labelSortOrder.Text = "";
 
-            btnFilterClear.Enabled = false;
-            btnFilterApply.Enabled = true;
             txtBoxFilter.Text = "";
             txtBoxFilter.Enabled = true;
         }
@@ -413,6 +380,32 @@ namespace DDB
             {
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Visible = false;
             }  
+        }
+
+        private void txtBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            listBox.Items.Clear();
+            if (txtBoxFilter.Text == "")
+            {
+                listBox.Items.AddRange(allEntities.ToArray());
+            }
+            else
+            {
+                List<object> filteredList = new List<object>();
+
+                foreach (object obj in allEntities)
+                {
+                    if (obj.ToString().Contains(txtBoxFilter.Text))
+                    {
+                        filteredList.Add(obj);
+                    }
+                }
+
+                if (filteredList.Count != 0)
+                {
+                    listBox.Items.AddRange(filteredList.ToArray());
+                }
+            }
         }
 
     }

@@ -33,10 +33,8 @@
             this.labelSortOrder = new System.Windows.Forms.Label();
             this.btnLinks = new System.Windows.Forms.Button();
             this.btnModifyHelpText = new System.Windows.Forms.Button();
-            this.btnFilterClear = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.btnFilterApply = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.txtBoxFilter = new System.Windows.Forms.TextBox();
@@ -69,10 +67,8 @@
             this.groupBox.Controls.Add(this.labelSortOrder);
             this.groupBox.Controls.Add(this.btnLinks);
             this.groupBox.Controls.Add(this.btnModifyHelpText);
-            this.groupBox.Controls.Add(this.btnFilterClear);
             this.groupBox.Controls.Add(this.btnImport);
             this.groupBox.Controls.Add(this.btnCopy);
-            this.groupBox.Controls.Add(this.btnFilterApply);
             this.groupBox.Controls.Add(this.btnDelete);
             this.groupBox.Controls.Add(this.btnModify);
             this.groupBox.Controls.Add(this.txtBoxFilter);
@@ -100,7 +96,7 @@
             // btnLinks
             // 
             this.btnLinks.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLinks.Location = new System.Drawing.Point(170, 226);
+            this.btnLinks.Location = new System.Drawing.Point(169, 251);
             this.btnLinks.Name = "btnLinks";
             this.btnLinks.Size = new System.Drawing.Size(75, 23);
             this.btnLinks.TabIndex = 33;
@@ -111,7 +107,7 @@
             // 
             this.btnModifyHelpText.Enabled = false;
             this.btnModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifyHelpText.Location = new System.Drawing.Point(170, 267);
+            this.btnModifyHelpText.Location = new System.Drawing.Point(170, 280);
             this.btnModifyHelpText.Name = "btnModifyHelpText";
             this.btnModifyHelpText.Size = new System.Drawing.Size(75, 53);
             this.btnModifyHelpText.TabIndex = 32;
@@ -119,22 +115,10 @@
             this.btnModifyHelpText.UseVisualStyleBackColor = true;
             this.btnModifyHelpText.Click += new System.EventHandler(this.btnModifyHelpText_Click);
             // 
-            // btnFilterClear
-            // 
-            this.btnFilterClear.Enabled = false;
-            this.btnFilterClear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilterClear.Location = new System.Drawing.Point(122, 392);
-            this.btnFilterClear.Name = "btnFilterClear";
-            this.btnFilterClear.Size = new System.Drawing.Size(75, 23);
-            this.btnFilterClear.TabIndex = 29;
-            this.btnFilterClear.Text = "Clear Filter";
-            this.btnFilterClear.UseVisualStyleBackColor = true;
-            this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
-            // 
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(170, 188);
+            this.btnImport.Location = new System.Drawing.Point(170, 197);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 28;
@@ -146,7 +130,7 @@
             // 
             this.btnCopy.Enabled = false;
             this.btnCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(170, 83);
+            this.btnCopy.Location = new System.Drawing.Point(170, 87);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(75, 23);
             this.btnCopy.TabIndex = 22;
@@ -154,22 +138,11 @@
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
-            // btnFilterApply
-            // 
-            this.btnFilterApply.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilterApply.Location = new System.Drawing.Point(41, 392);
-            this.btnFilterApply.Name = "btnFilterApply";
-            this.btnFilterApply.Size = new System.Drawing.Size(75, 23);
-            this.btnFilterApply.TabIndex = 25;
-            this.btnFilterApply.Text = "Apply Filter";
-            this.btnFilterApply.UseVisualStyleBackColor = true;
-            this.btnFilterApply.Click += new System.EventHandler(this.btnFilterApply_Click);
-            // 
             // btnDelete
             // 
             this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(170, 141);
+            this.btnDelete.Location = new System.Drawing.Point(170, 145);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 21;
@@ -181,7 +154,7 @@
             // 
             this.btnModify.Enabled = false;
             this.btnModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.Location = new System.Drawing.Point(170, 112);
+            this.btnModify.Location = new System.Drawing.Point(170, 116);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 20;
@@ -192,16 +165,17 @@
             // txtBoxFilter
             // 
             this.txtBoxFilter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxFilter.Location = new System.Drawing.Point(41, 365);
+            this.txtBoxFilter.Location = new System.Drawing.Point(43, 394);
             this.txtBoxFilter.Name = "txtBoxFilter";
             this.txtBoxFilter.Size = new System.Drawing.Size(156, 21);
             this.txtBoxFilter.TabIndex = 24;
+            this.txtBoxFilter.TextChanged += new System.EventHandler(this.txtBoxFilter_TextChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(4, 368);
+            this.label20.Location = new System.Drawing.Point(6, 397);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(31, 13);
             this.label20.TabIndex = 23;
@@ -210,7 +184,7 @@
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(170, 54);
+            this.btnCreate.Location = new System.Drawing.Point(170, 58);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 19;
@@ -224,7 +198,7 @@
             this.listBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox.FormattingEnabled = true;
             this.listBox.HorizontalScrollbar = true;
-            this.listBox.Location = new System.Drawing.Point(6, 30);
+            this.listBox.Location = new System.Drawing.Point(8, 59);
             this.listBox.Name = "listBox";
             this.listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox.Size = new System.Drawing.Size(161, 290);
@@ -332,7 +306,7 @@
             // btnMoveUp
             // 
             this.btnMoveUp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveUp.Location = new System.Drawing.Point(7, 327);
+            this.btnMoveUp.Location = new System.Drawing.Point(9, 356);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
             this.btnMoveUp.TabIndex = 35;
@@ -343,7 +317,7 @@
             // btnMoveDown
             // 
             this.btnMoveDown.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveDown.Location = new System.Drawing.Point(92, 326);
+            this.btnMoveDown.Location = new System.Drawing.Point(94, 355);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
             this.btnMoveDown.TabIndex = 36;
@@ -370,10 +344,8 @@
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Button btnLinks;
         private System.Windows.Forms.Button btnModifyHelpText;
-        private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnCopy;
-        private System.Windows.Forms.Button btnFilterApply;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.TextBox txtBoxFilter;
