@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using System.ComponentModel;
 
 namespace DDB
 {
@@ -10,6 +10,7 @@ namespace DDB
         private FormEnumPreview formEnumPreview;
         private FormEventPreview formEventPreview;
         private FormHelpPreview formHelpPreview;
+        private FormEventStructurePreview formEventStructurePreview;
 
         private FormMain()
         { }
@@ -34,7 +35,6 @@ namespace DDB
 
             CreatePreviews();
 
-
             ////////////////////////////////////////////////////////
             /// FOR TEST ONLY
             WatchVarList.Init();
@@ -42,10 +42,12 @@ namespace DDB
             EnumList.Init();
             ProjectSettingsDB.Init();
             EventList.Init();
+            EventStructureList.Init();
+            EventVariableList.Init();
+            EventLogList.Init();
             InitWatchVars();
             InitEvents();
             InitProjectSettings();
-
         }
 
         private void PopulateUnits()
@@ -54,7 +56,6 @@ namespace DDB
 
             ucEE_Units.setBusinessLogic(ubl);
             ucEE_Units.AddListBoxItems(UnitsList.GetUnits());
-            
         }
 
         private void PopulateBitmasks()
@@ -80,11 +81,11 @@ namespace DDB
                 dGridURL.Rows.Add(u.name, u.alias);
             }
 
-            EventLog[] eventLogs = ProjectSettingsDB.GetEventLogs();
+            EventLogDB[] eventLogs = EventLogList.GetEventLogs();
 
-            foreach (EventLog e in eventLogs)
+            foreach (EventLogDB e in eventLogs)
             {
-                dGridEventLog.Rows.Add(e.embIndex, e.name);
+                dGridEventLog.Rows.Add(e.embeddedId, e.name);
             }
 
             int ff = ProjectSettingsDB.GetFunctionFlags();
@@ -114,10 +115,6 @@ namespace DDB
             Close();
         }
 
-
-        // Make false whenever any project settings are made by the user. Make true when user clicks
-        // project settings accepted button
-        Boolean projSettingsAccepted = true;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //TODO Reload any information based on the current tab selected
@@ -158,13 +155,6 @@ namespace DDB
                     // Tab Project Settings
                     dGridURL.ClearSelection();
                     dGridEventLog.ClearSelection();
-
-                    //TODO Remove after test; code must detect when changes are made to project settings 
-                    projSettingsAccepted = false;
-                    tabWatchVariables.Enabled = false;
-                    tabEvents.Enabled = false;
-                    tabSelfTest.Enabled = false;
-                    tabProjectDefinitions.Enabled = false;
                     break;
             }
         }
@@ -174,6 +164,7 @@ namespace DDB
             formBitmaskPreview = new FormBitmaskPreview();
             formEnumPreview = new FormEnumPreview();
             formEventPreview = new FormEventPreview();
+            formEventStructurePreview = new FormEventStructurePreview();
             formHelpPreview = new FormHelpPreview();
         }
 
@@ -265,6 +256,9 @@ namespace DDB
 
         private void btnProjSettingsAcceptChanges_Click(object sender, EventArgs e)
         {
+
+            SaveEventLogs();
+
             //TODO  Save All Project Settings and make other tabs visible
             tabWatchVariables.Enabled = true;
             tabEvents.Enabled = true;
@@ -283,11 +277,8 @@ namespace DDB
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            if (this.Visible)
-            {
-                PopulateUnits();
-                PopulateBitmasks();
-            }
+            PopulateUnits();
+            PopulateBitmasks();
             PopulateEnums();
             PopulateProjectSettings();
             PopulateEventLists();
@@ -296,7 +287,14 @@ namespace DDB
             cBoxCommType.SelectedIndex = 0;
             cBoxNumStreamVars.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 1;
+        }
 
+
+        private void tabEvents_Leave(object sender, EventArgs e)
+        {
+            EventList.Update(ucEE_Events.GetItems());
+            EventStructureList.Update(ucEE_EventStructures.GetItems());
+            EventVariableList.Update(ucEE_EventVariables.GetItems());
         }
 
 

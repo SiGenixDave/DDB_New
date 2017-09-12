@@ -13,7 +13,7 @@ namespace DDB
             InitDataGrid();
         }
 
-        public void UpdateForm (EventStructures eStruct)
+        public void UpdateForm (EventStructureDB eStruct)
         {
             do
             {
@@ -34,7 +34,7 @@ namespace DDB
 
             this.Text = "Event Structure Preview for \"" + eStruct.name + "\"";
             int populatedRowCount = 0;
-            foreach (int eVarId in eStruct.varIds.ToArray())
+            foreach (int eVarId in eStruct.variableListFKey.ToArray())
             {
 
                 //TODO dataGridView1.Rows.Add(index, eStruct.strValues[index]);

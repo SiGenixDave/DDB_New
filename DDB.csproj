@@ -56,6 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseMirror\EventLogDB.cs" />
+    <Compile Include="DatabaseMirror\EventVariableDB.cs" />
+    <Compile Include="DatabaseMirror\EventStructureDB.cs" />
     <Compile Include="FormDeleteMe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,7 +173,7 @@
     <Compile Include="iDDBHelpObject.cs" />
     <Compile Include="iTextEntry.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="DatabaseMirror\EventsDB.cs" />
+    <Compile Include="DatabaseMirror\EventDB.cs" />
     <Compile Include="DatabaseMirror\ProjectSettingsDB.cs" />
     <Compile Include="DatabaseMirror\UnitsDB.cs" />
     <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />

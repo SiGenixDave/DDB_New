@@ -6,9 +6,9 @@ namespace DDB
 {
     public partial class FormEventVariableEditor : Form
     {
-        EventVariables ev;
+        EventVariableDB ev;
 
-        public FormEventVariableEditor(EventVariables e)
+        public FormEventVariableEditor(EventVariableDB e)
         {
             InitializeComponent();
 
@@ -20,12 +20,12 @@ namespace DDB
         }
 
 
-        public EventVariables GetEditedEventVariable()
+        public EventVariableDB GetEditedEventVariable()
         {
             //ev.name = tBoxEventName.Text;
-            //ev.cDefineName = tBoxDefineName.Text;
-            //ev.logId = cBoxEventLogs.SelectedIndex;
-            //ev.structId = cBoxEventStructs.SelectedIndex;
+            //ev.embeddedName = tBoxDefineName.Text;
+            //ev.logFKey = cBoxEventLogs.SelectedIndex;
+            //ev.structFKey = cBoxEventStructs.SelectedIndex;
             return ev;
         }
 

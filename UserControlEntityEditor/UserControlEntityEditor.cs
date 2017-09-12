@@ -78,7 +78,7 @@ namespace DDB
 
 
         ///////////////////////////////////////////////////////////////////////////////////////
-        // Auto generated Events
+        // Auto generated EventDB
         private void btnCreate_Click(object sender, EventArgs e)
         {
             CreateItem();
@@ -186,7 +186,7 @@ namespace DDB
                 btnLinks.Enabled = true;
                 btnModifyHelpText.Enabled = true;
 
-                businessLogic.Preview(listBox.SelectedItem);
+                // TODO businessLogic.Preview(listBox.SelectedItem);
             }
             else
             {

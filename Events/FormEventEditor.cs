@@ -6,20 +6,23 @@ namespace DDB
 {
     public partial class FormEventEditor : Form
     {
-        Events ev;
+        EventDB ev;
+        FormMain formMain;
 
-        public FormEventEditor(Events e)
+        public FormEventEditor(FormMain fMain, EventDB e)
         {
             InitializeComponent();
+
+            this.ev = e;
+            this.formMain = fMain;
 
             PopulateEventStructures();
             PopulateEventLogs();
 
-            this.ev = e;
             tBoxEventName.Text = ev.name;
-            tBoxDefineName.Text = ev.cDefineName;
-            cBoxEventLogs.SelectedIndex = ev.logId;
-            cBoxEventStructs.SelectedIndex = ev.structId;
+            tBoxDefineName.Text = ev.embeddedName;
+            cBoxEventLogs.SelectedItem = EventLogList.GetEventObject(ev.logFKey);
+            cBoxEventStructs.SelectedItem = EventStructureList.GetEventObject(ev.structFKey);
         }
 
         private FormEventEditor()
@@ -27,15 +30,15 @@ namespace DDB
         }
 
 
-        public Events GetEditedEvent()
+        public EventDB GetEditedEvent()
         {
             ev.name = tBoxEventName.Text;
-            ev.cDefineName = tBoxDefineName.Text;
+            ev.embeddedName = tBoxDefineName.Text;
             
-            ev.logId = cBoxEventLogs.SelectedIndex;
+            ev.logFKey = cBoxEventLogs.SelectedIndex;
             
-            EventStructures es = (EventStructures)(cBoxEventStructs.SelectedItem);
-            ev.structId = es.id;
+            EventStructureDB es = (EventStructureDB)(cBoxEventStructs.SelectedItem);
+            ev.structFKey = es.fKey;
             
             return ev;
         }
@@ -93,7 +96,7 @@ namespace DDB
 
         private void PopulateEventStructures()
         {
-            foreach (EventStructures e in EventList.GetEventStructures())
+            foreach (EventStructureDB e in formMain.GetEventStructures())
             {
                 cBoxEventStructs.Items.Add(e);
             }
@@ -102,7 +105,7 @@ namespace DDB
 
         private void PopulateEventLogs()
         {
-            foreach (EventLog el in ProjectSettingsDB.GetEventLogs())
+            foreach (EventLogDB el in EventLogList.GetEventLogs())
             {
                 cBoxEventLogs.Items.Add(el);
             }

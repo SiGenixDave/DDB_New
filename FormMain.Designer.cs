@@ -85,57 +85,14 @@
             this.btnWatchModify = new System.Windows.Forms.Button();
             this.btnWatchDelete = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
-            this.gBoxEventVariables = new System.Windows.Forms.GroupBox();
-            this.btnEventVarModifyHelpText = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.btnEventVarImport = new System.Windows.Forms.Button();
-            this.btnEventVarCopy = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.btnEventVarDelete = new System.Windows.Forms.Button();
-            this.btnEventVarModify = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnEventVarCreate = new System.Windows.Forms.Button();
-            this.lBoxEventVars = new System.Windows.Forms.ListBox();
-            this.gBoxEventStructures = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.btnEventStructFilterClear = new System.Windows.Forms.Button();
-            this.btnEventStructureImport = new System.Windows.Forms.Button();
-            this.btnEventStructureCopy = new System.Windows.Forms.Button();
-            this.btnEventStructFilterApply = new System.Windows.Forms.Button();
-            this.btnEventStructureDelete = new System.Windows.Forms.Button();
-            this.btnEventStructureModify = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.btnEventStructureCreate = new System.Windows.Forms.Button();
-            this.lBoxEventStructures = new System.Windows.Forms.ListBox();
-            this.conMenuEventStructures = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteEventStrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gBoxEvents = new System.Windows.Forms.GroupBox();
-            this.btnEventModifyHelpText = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.btnEventFilterClear = new System.Windows.Forms.Button();
-            this.btnEventImport = new System.Windows.Forms.Button();
-            this.btnEventCopy = new System.Windows.Forms.Button();
-            this.btnEventFilterApply = new System.Windows.Forms.Button();
-            this.btnEventDelete = new System.Windows.Forms.Button();
-            this.btnEventModify = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnEventCreate = new System.Windows.Forms.Button();
-            this.lBoxEvents = new System.Windows.Forms.ListBox();
-            this.conMenuEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyEventMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyEventMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteEventMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
+            this.ucEE_Events = new DDB.UserControlEntityEditor();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
+            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
+            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
+            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
             this.btnProjSettingsCancelChanges = new System.Windows.Forms.Button();
             this.btnProjSettingsAcceptChanges = new System.Windows.Forms.Button();
@@ -198,9 +155,6 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
-            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
-            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
-            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchVarList.SuspendLayout();
@@ -211,11 +165,6 @@
             this.groupBox1.SuspendLayout();
             this.gBoxWatchActions.SuspendLayout();
             this.tabEvents.SuspendLayout();
-            this.gBoxEventVariables.SuspendLayout();
-            this.gBoxEventStructures.SuspendLayout();
-            this.conMenuEventStructures.SuspendLayout();
-            this.gBoxEvents.SuspendLayout();
-            this.conMenuEvents.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.tabProjectSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -894,577 +843,49 @@
             // 
             // tabEvents
             // 
-            this.tabEvents.Controls.Add(this.gBoxEventVariables);
-            this.tabEvents.Controls.Add(this.gBoxEventStructures);
-            this.tabEvents.Controls.Add(this.gBoxEvents);
+            this.tabEvents.Controls.Add(this.ucEE_EventVariables);
+            this.tabEvents.Controls.Add(this.ucEE_EventStructures);
+            this.tabEvents.Controls.Add(this.ucEE_Events);
             this.tabEvents.Location = new System.Drawing.Point(4, 22);
             this.tabEvents.Name = "tabEvents";
             this.tabEvents.Size = new System.Drawing.Size(842, 529);
             this.tabEvents.TabIndex = 3;
-            this.tabEvents.Text = "Events";
+            this.tabEvents.Text = "Event";
             this.tabEvents.UseVisualStyleBackColor = true;
-            // 
-            // gBoxEventVariables
-            // 
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarModifyHelpText);
-            this.gBoxEventVariables.Controls.Add(this.button17);
-            this.gBoxEventVariables.Controls.Add(this.button18);
-            this.gBoxEventVariables.Controls.Add(this.button19);
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarImport);
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarCopy);
-            this.gBoxEventVariables.Controls.Add(this.button22);
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarDelete);
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarModify);
-            this.gBoxEventVariables.Controls.Add(this.textBox6);
-            this.gBoxEventVariables.Controls.Add(this.label22);
-            this.gBoxEventVariables.Controls.Add(this.btnEventVarCreate);
-            this.gBoxEventVariables.Controls.Add(this.lBoxEventVars);
-            this.gBoxEventVariables.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxEventVariables.Location = new System.Drawing.Point(558, 32);
-            this.gBoxEventVariables.Name = "gBoxEventVariables";
-            this.gBoxEventVariables.Size = new System.Drawing.Size(255, 444);
-            this.gBoxEventVariables.TabIndex = 33;
-            this.gBoxEventVariables.TabStop = false;
-            this.gBoxEventVariables.Text = "Event Variables";
-            this.gBoxEventVariables.Enter += new System.EventHandler(this.gBoxEventVariables_Enter);
-            this.gBoxEventVariables.Leave += new System.EventHandler(this.gBoxEventVariables_Leave);
-            // 
-            // btnEventVarModifyHelpText
-            // 
-            this.btnEventVarModifyHelpText.Enabled = false;
-            this.btnEventVarModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarModifyHelpText.Location = new System.Drawing.Point(172, 270);
-            this.btnEventVarModifyHelpText.Name = "btnEventVarModifyHelpText";
-            this.btnEventVarModifyHelpText.Size = new System.Drawing.Size(76, 53);
-            this.btnEventVarModifyHelpText.TabIndex = 33;
-            this.btnEventVarModifyHelpText.Text = "Modify Help Text...";
-            this.btnEventVarModifyHelpText.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(171, 404);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(72, 23);
-            this.button17.TabIndex = 32;
-            this.button17.Text = "Sort Des";
-            this.toolTip1.SetToolTip(this.button17, "\"Not yet Implemeneted\"");
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(171, 375);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(72, 23);
-            this.button18.TabIndex = 31;
-            this.button18.Text = "Sort Asc";
-            this.toolTip1.SetToolTip(this.button18, "\"Not yet Implemeneted\"");
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            this.button19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(92, 404);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 23);
-            this.button19.TabIndex = 30;
-            this.button19.Text = "Clear Filter";
-            this.toolTip1.SetToolTip(this.button19, "\"Not yet Implemeneted\"");
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // btnEventVarImport
-            // 
-            this.btnEventVarImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarImport.Location = new System.Drawing.Point(173, 213);
-            this.btnEventVarImport.Name = "btnEventVarImport";
-            this.btnEventVarImport.Size = new System.Drawing.Size(75, 23);
-            this.btnEventVarImport.TabIndex = 28;
-            this.btnEventVarImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnEventVarImport, "\"TODO Import units from another XML file\"");
-            this.btnEventVarImport.UseVisualStyleBackColor = true;
-            this.btnEventVarImport.Click += new System.EventHandler(this.btnEventVarImport_Click);
-            // 
-            // btnEventVarCopy
-            // 
-            this.btnEventVarCopy.Enabled = false;
-            this.btnEventVarCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarCopy.Location = new System.Drawing.Point(173, 126);
-            this.btnEventVarCopy.Name = "btnEventVarCopy";
-            this.btnEventVarCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnEventVarCopy.TabIndex = 22;
-            this.btnEventVarCopy.Text = "Copy";
-            this.btnEventVarCopy.UseVisualStyleBackColor = true;
-            this.btnEventVarCopy.Click += new System.EventHandler(this.btnEventVarCopy_Click);
-            // 
-            // button22
-            // 
-            this.button22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.Location = new System.Drawing.Point(11, 405);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 23);
-            this.button22.TabIndex = 25;
-            this.button22.Text = "Apply Filter";
-            this.toolTip1.SetToolTip(this.button22, "\"Not yet Implemeneted\"");
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // btnEventVarDelete
-            // 
-            this.btnEventVarDelete.Enabled = false;
-            this.btnEventVarDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarDelete.Location = new System.Drawing.Point(173, 184);
-            this.btnEventVarDelete.Name = "btnEventVarDelete";
-            this.btnEventVarDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnEventVarDelete.TabIndex = 21;
-            this.btnEventVarDelete.Text = "Delete";
-            this.btnEventVarDelete.UseVisualStyleBackColor = true;
-            this.btnEventVarDelete.Click += new System.EventHandler(this.btnEventVarDelete_Click);
-            // 
-            // btnEventVarModify
-            // 
-            this.btnEventVarModify.Enabled = false;
-            this.btnEventVarModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarModify.Location = new System.Drawing.Point(174, 155);
-            this.btnEventVarModify.Name = "btnEventVarModify";
-            this.btnEventVarModify.Size = new System.Drawing.Size(75, 23);
-            this.btnEventVarModify.TabIndex = 20;
-            this.btnEventVarModify.Text = "Modify...";
-            this.btnEventVarModify.UseVisualStyleBackColor = true;
-            this.btnEventVarModify.Click += new System.EventHandler(this.btnEventVarModify_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(11, 375);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(156, 21);
-            this.textBox6.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.textBox6, "\"Not yet Implemeneted\"");
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(8, 359);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 13);
-            this.label22.TabIndex = 23;
-            this.label22.Text = "Filter";
-            // 
-            // btnEventVarCreate
-            // 
-            this.btnEventVarCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventVarCreate.Location = new System.Drawing.Point(173, 97);
-            this.btnEventVarCreate.Name = "btnEventVarCreate";
-            this.btnEventVarCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnEventVarCreate.TabIndex = 19;
-            this.btnEventVarCreate.Text = "Create";
-            this.btnEventVarCreate.UseVisualStyleBackColor = true;
-            this.btnEventVarCreate.Click += new System.EventHandler(this.btnEventVarCreate_Click);
-            // 
-            // lBoxEventVars
-            // 
-            this.lBoxEventVars.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBoxEventVars.FormattingEnabled = true;
-            this.lBoxEventVars.HorizontalScrollbar = true;
-            this.lBoxEventVars.Location = new System.Drawing.Point(6, 30);
-            this.lBoxEventVars.Name = "lBoxEventVars";
-            this.lBoxEventVars.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEventVars.Size = new System.Drawing.Size(161, 290);
-            this.lBoxEventVars.TabIndex = 1;
-            this.lBoxEventVars.SelectedIndexChanged += new System.EventHandler(this.lBoxEventVars_SelectedIndexChanged);
-            this.lBoxEventVars.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventVars_MouseDoubleClick);
-            // 
-            // gBoxEventStructures
-            // 
-            this.gBoxEventStructures.Controls.Add(this.button12);
-            this.gBoxEventStructures.Controls.Add(this.button16);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructFilterClear);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructureImport);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructureCopy);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructFilterApply);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructureDelete);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructureModify);
-            this.gBoxEventStructures.Controls.Add(this.textBox5);
-            this.gBoxEventStructures.Controls.Add(this.label21);
-            this.gBoxEventStructures.Controls.Add(this.btnEventStructureCreate);
-            this.gBoxEventStructures.Controls.Add(this.lBoxEventStructures);
-            this.gBoxEventStructures.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxEventStructures.Location = new System.Drawing.Point(288, 32);
-            this.gBoxEventStructures.Name = "gBoxEventStructures";
-            this.gBoxEventStructures.Size = new System.Drawing.Size(255, 444);
-            this.gBoxEventStructures.TabIndex = 29;
-            this.gBoxEventStructures.TabStop = false;
-            this.gBoxEventStructures.Text = "Event Structures";
-            this.gBoxEventStructures.Enter += new System.EventHandler(this.gBoxEventStructures_Enter);
-            this.gBoxEventStructures.Leave += new System.EventHandler(this.gBoxEventStructures_Leave);
-            // 
-            // button12
-            // 
-            this.button12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(171, 404);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(72, 23);
-            this.button12.TabIndex = 32;
-            this.button12.Text = "Sort Des";
-            this.toolTip1.SetToolTip(this.button12, "\"Not yet Implemeneted\"");
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(171, 375);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(72, 23);
-            this.button16.TabIndex = 31;
-            this.button16.Text = "Sort Asc";
-            this.toolTip1.SetToolTip(this.button16, "\"Not yet Implemeneted\"");
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // btnEventStructFilterClear
-            // 
-            this.btnEventStructFilterClear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructFilterClear.Location = new System.Drawing.Point(92, 404);
-            this.btnEventStructFilterClear.Name = "btnEventStructFilterClear";
-            this.btnEventStructFilterClear.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructFilterClear.TabIndex = 30;
-            this.btnEventStructFilterClear.Text = "Clear Filter";
-            this.toolTip1.SetToolTip(this.btnEventStructFilterClear, "\"Not yet Implemeneted\"");
-            this.btnEventStructFilterClear.UseVisualStyleBackColor = true;
-            // 
-            // btnEventStructureImport
-            // 
-            this.btnEventStructureImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureImport.Location = new System.Drawing.Point(173, 213);
-            this.btnEventStructureImport.Name = "btnEventStructureImport";
-            this.btnEventStructureImport.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructureImport.TabIndex = 28;
-            this.btnEventStructureImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnEventStructureImport, "\"TODO Import units from another XML file\"");
-            this.btnEventStructureImport.UseVisualStyleBackColor = true;
-            this.btnEventStructureImport.Click += new System.EventHandler(this.btnEventStructureImport_Click);
-            // 
-            // btnEventStructureCopy
-            // 
-            this.btnEventStructureCopy.Enabled = false;
-            this.btnEventStructureCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureCopy.Location = new System.Drawing.Point(173, 126);
-            this.btnEventStructureCopy.Name = "btnEventStructureCopy";
-            this.btnEventStructureCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructureCopy.TabIndex = 22;
-            this.btnEventStructureCopy.Text = "Copy";
-            this.btnEventStructureCopy.UseVisualStyleBackColor = true;
-            this.btnEventStructureCopy.Click += new System.EventHandler(this.btnEventStructureCopy_Click);
-            // 
-            // btnEventStructFilterApply
-            // 
-            this.btnEventStructFilterApply.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructFilterApply.Location = new System.Drawing.Point(11, 405);
-            this.btnEventStructFilterApply.Name = "btnEventStructFilterApply";
-            this.btnEventStructFilterApply.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructFilterApply.TabIndex = 25;
-            this.btnEventStructFilterApply.Text = "Apply Filter";
-            this.toolTip1.SetToolTip(this.btnEventStructFilterApply, "\"Not yet Implemeneted\"");
-            this.btnEventStructFilterApply.UseVisualStyleBackColor = true;
-            // 
-            // btnEventStructureDelete
-            // 
-            this.btnEventStructureDelete.Enabled = false;
-            this.btnEventStructureDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureDelete.Location = new System.Drawing.Point(173, 184);
-            this.btnEventStructureDelete.Name = "btnEventStructureDelete";
-            this.btnEventStructureDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructureDelete.TabIndex = 21;
-            this.btnEventStructureDelete.Text = "Delete";
-            this.btnEventStructureDelete.UseVisualStyleBackColor = true;
-            this.btnEventStructureDelete.Click += new System.EventHandler(this.btnEventStructureDelete_Click);
-            // 
-            // btnEventStructureModify
-            // 
-            this.btnEventStructureModify.Enabled = false;
-            this.btnEventStructureModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureModify.Location = new System.Drawing.Point(174, 155);
-            this.btnEventStructureModify.Name = "btnEventStructureModify";
-            this.btnEventStructureModify.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructureModify.TabIndex = 20;
-            this.btnEventStructureModify.Text = "Modify...";
-            this.btnEventStructureModify.UseVisualStyleBackColor = true;
-            this.btnEventStructureModify.Click += new System.EventHandler(this.btnEventStructureModify_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(11, 375);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(156, 21);
-            this.textBox5.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.textBox5, "\"Not yet Implemeneted\"");
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(8, 359);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(31, 13);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "Filter";
-            // 
-            // btnEventStructureCreate
-            // 
-            this.btnEventStructureCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventStructureCreate.Location = new System.Drawing.Point(173, 97);
-            this.btnEventStructureCreate.Name = "btnEventStructureCreate";
-            this.btnEventStructureCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnEventStructureCreate.TabIndex = 19;
-            this.btnEventStructureCreate.Text = "Create";
-            this.btnEventStructureCreate.UseVisualStyleBackColor = true;
-            this.btnEventStructureCreate.Click += new System.EventHandler(this.btnEventStructureCreate_Click);
-            // 
-            // lBoxEventStructures
-            // 
-            this.lBoxEventStructures.ContextMenuStrip = this.conMenuEventStructures;
-            this.lBoxEventStructures.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBoxEventStructures.FormattingEnabled = true;
-            this.lBoxEventStructures.HorizontalScrollbar = true;
-            this.lBoxEventStructures.Location = new System.Drawing.Point(6, 30);
-            this.lBoxEventStructures.Name = "lBoxEventStructures";
-            this.lBoxEventStructures.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEventStructures.Size = new System.Drawing.Size(161, 290);
-            this.lBoxEventStructures.TabIndex = 1;
-            this.lBoxEventStructures.SelectedIndexChanged += new System.EventHandler(this.lBoxEventStructures_SelectedIndexChanged);
-            this.lBoxEventStructures.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEventStructures_MouseDoubleClick);
-            // 
-            // conMenuEventStructures
-            // 
-            this.conMenuEventStructures.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyEventStrMenuItem,
-            this.modifyEventStrMenuItem,
-            this.deleteEventStrMenuItem});
-            this.conMenuEventStructures.Name = "conMenu";
-            this.conMenuEventStructures.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyEventStrMenuItem
-            // 
-            this.copyEventStrMenuItem.Name = "copyEventStrMenuItem";
-            this.copyEventStrMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyEventStrMenuItem.Text = "Copy";
-            this.copyEventStrMenuItem.Click += new System.EventHandler(this.copyEventStrMenuItem_Click);
-            // 
-            // modifyEventStrMenuItem
-            // 
-            this.modifyEventStrMenuItem.Name = "modifyEventStrMenuItem";
-            this.modifyEventStrMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyEventStrMenuItem.Text = "Modify";
-            this.modifyEventStrMenuItem.Click += new System.EventHandler(this.modifyEventStrMenuItem_Click);
-            // 
-            // deleteEventStrMenuItem
-            // 
-            this.deleteEventStrMenuItem.Name = "deleteEventStrMenuItem";
-            this.deleteEventStrMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteEventStrMenuItem.Text = "Delete";
-            this.deleteEventStrMenuItem.Click += new System.EventHandler(this.deleteEventStrMenuItem_Click);
-            // 
-            // gBoxEvents
-            // 
-            this.gBoxEvents.Controls.Add(this.btnEventModifyHelpText);
-            this.gBoxEvents.Controls.Add(this.button9);
-            this.gBoxEvents.Controls.Add(this.button14);
-            this.gBoxEvents.Controls.Add(this.btnEventFilterClear);
-            this.gBoxEvents.Controls.Add(this.btnEventImport);
-            this.gBoxEvents.Controls.Add(this.btnEventCopy);
-            this.gBoxEvents.Controls.Add(this.btnEventFilterApply);
-            this.gBoxEvents.Controls.Add(this.btnEventDelete);
-            this.gBoxEvents.Controls.Add(this.btnEventModify);
-            this.gBoxEvents.Controls.Add(this.textBox4);
-            this.gBoxEvents.Controls.Add(this.label20);
-            this.gBoxEvents.Controls.Add(this.btnEventCreate);
-            this.gBoxEvents.Controls.Add(this.lBoxEvents);
-            this.gBoxEvents.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxEvents.Location = new System.Drawing.Point(12, 32);
-            this.gBoxEvents.Name = "gBoxEvents";
-            this.gBoxEvents.Size = new System.Drawing.Size(255, 444);
-            this.gBoxEvents.TabIndex = 2;
-            this.gBoxEvents.TabStop = false;
-            this.gBoxEvents.Text = "Event List";
-            this.gBoxEvents.Enter += new System.EventHandler(this.gBoxEvents_Enter);
-            this.gBoxEvents.Leave += new System.EventHandler(this.gBoxEvents_Leave);
-            // 
-            // btnEventModifyHelpText
-            // 
-            this.btnEventModifyHelpText.Enabled = false;
-            this.btnEventModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventModifyHelpText.Location = new System.Drawing.Point(173, 270);
-            this.btnEventModifyHelpText.Name = "btnEventModifyHelpText";
-            this.btnEventModifyHelpText.Size = new System.Drawing.Size(76, 53);
-            this.btnEventModifyHelpText.TabIndex = 32;
-            this.btnEventModifyHelpText.Text = "Modify Help Text...";
-            this.btnEventModifyHelpText.UseVisualStyleBackColor = true;
-            this.btnEventModifyHelpText.Click += new System.EventHandler(this.btnEventModifyHelpText_Click);
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(173, 404);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(72, 23);
-            this.button9.TabIndex = 31;
-            this.button9.Text = "Sort Des";
-            this.toolTip1.SetToolTip(this.button9, "\"Not yet Implemeneted\"");
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(173, 375);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(72, 23);
-            this.button14.TabIndex = 30;
-            this.button14.Text = "Sort Asc";
-            this.toolTip1.SetToolTip(this.button14, "\"Not yet Implemeneted\"");
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // btnEventFilterClear
-            // 
-            this.btnEventFilterClear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventFilterClear.Location = new System.Drawing.Point(92, 405);
-            this.btnEventFilterClear.Name = "btnEventFilterClear";
-            this.btnEventFilterClear.Size = new System.Drawing.Size(75, 23);
-            this.btnEventFilterClear.TabIndex = 29;
-            this.btnEventFilterClear.Text = "Clear Filter";
-            this.toolTip1.SetToolTip(this.btnEventFilterClear, "\"Not yet Implemeneted\"");
-            this.btnEventFilterClear.UseVisualStyleBackColor = true;
-            // 
-            // btnEventImport
-            // 
-            this.btnEventImport.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventImport.Location = new System.Drawing.Point(174, 213);
-            this.btnEventImport.Name = "btnEventImport";
-            this.btnEventImport.Size = new System.Drawing.Size(75, 23);
-            this.btnEventImport.TabIndex = 28;
-            this.btnEventImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnEventImport, "\"TODO Import units from another XML file\"");
-            this.btnEventImport.UseVisualStyleBackColor = true;
-            this.btnEventImport.Click += new System.EventHandler(this.btnEventImport_Click);
-            // 
-            // btnEventCopy
-            // 
-            this.btnEventCopy.Enabled = false;
-            this.btnEventCopy.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventCopy.Location = new System.Drawing.Point(173, 126);
-            this.btnEventCopy.Name = "btnEventCopy";
-            this.btnEventCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnEventCopy.TabIndex = 22;
-            this.btnEventCopy.Text = "Copy";
-            this.btnEventCopy.UseVisualStyleBackColor = true;
-            this.btnEventCopy.Click += new System.EventHandler(this.btnEventCopy_Click);
-            // 
-            // btnEventFilterApply
-            // 
-            this.btnEventFilterApply.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventFilterApply.Location = new System.Drawing.Point(11, 405);
-            this.btnEventFilterApply.Name = "btnEventFilterApply";
-            this.btnEventFilterApply.Size = new System.Drawing.Size(75, 23);
-            this.btnEventFilterApply.TabIndex = 25;
-            this.btnEventFilterApply.Text = "Apply Filter";
-            this.toolTip1.SetToolTip(this.btnEventFilterApply, "\"Not yet Implemeneted\"");
-            this.btnEventFilterApply.UseVisualStyleBackColor = true;
-            // 
-            // btnEventDelete
-            // 
-            this.btnEventDelete.Enabled = false;
-            this.btnEventDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventDelete.Location = new System.Drawing.Point(173, 184);
-            this.btnEventDelete.Name = "btnEventDelete";
-            this.btnEventDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnEventDelete.TabIndex = 21;
-            this.btnEventDelete.Text = "Delete";
-            this.btnEventDelete.UseVisualStyleBackColor = true;
-            this.btnEventDelete.Click += new System.EventHandler(this.btnEventDelete_Click);
-            // 
-            // btnEventModify
-            // 
-            this.btnEventModify.Enabled = false;
-            this.btnEventModify.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventModify.Location = new System.Drawing.Point(174, 155);
-            this.btnEventModify.Name = "btnEventModify";
-            this.btnEventModify.Size = new System.Drawing.Size(75, 23);
-            this.btnEventModify.TabIndex = 20;
-            this.btnEventModify.Text = "Modify...";
-            this.btnEventModify.UseVisualStyleBackColor = true;
-            this.btnEventModify.Click += new System.EventHandler(this.btnEventModify_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(11, 375);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 21);
-            this.textBox4.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.textBox4, "\"Not yet Implemeneted\"");
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(8, 359);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(31, 13);
-            this.label20.TabIndex = 23;
-            this.label20.Text = "Filter";
-            // 
-            // btnEventCreate
-            // 
-            this.btnEventCreate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventCreate.Location = new System.Drawing.Point(173, 97);
-            this.btnEventCreate.Name = "btnEventCreate";
-            this.btnEventCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnEventCreate.TabIndex = 19;
-            this.btnEventCreate.Text = "Create";
-            this.btnEventCreate.UseVisualStyleBackColor = true;
-            this.btnEventCreate.Click += new System.EventHandler(this.btnEventCreate_Click);
-            // 
-            // lBoxEvents
-            // 
-            this.lBoxEvents.ContextMenuStrip = this.conMenuEvents;
-            this.lBoxEvents.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBoxEvents.FormattingEnabled = true;
-            this.lBoxEvents.HorizontalScrollbar = true;
-            this.lBoxEvents.Location = new System.Drawing.Point(6, 30);
-            this.lBoxEvents.Name = "lBoxEvents";
-            this.lBoxEvents.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxEvents.Size = new System.Drawing.Size(161, 290);
-            this.lBoxEvents.TabIndex = 1;
-            this.lBoxEvents.SelectedIndexChanged += new System.EventHandler(this.lBoxEvents_SelectedIndexChanged);
-            this.lBoxEvents.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxEvents_MouseDoubleClick);
-            // 
-            // conMenuEvents
-            // 
-            this.conMenuEvents.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyEventMenuItem,
-            this.modifyEventMenuItem,
-            this.deleteEventMenuItem});
-            this.conMenuEvents.Name = "conMenu";
-            this.conMenuEvents.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyEventMenuItem
-            // 
-            this.copyEventMenuItem.Name = "copyEventMenuItem";
-            this.copyEventMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyEventMenuItem.Text = "Copy";
-            // 
-            // modifyEventMenuItem
-            // 
-            this.modifyEventMenuItem.Name = "modifyEventMenuItem";
-            this.modifyEventMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyEventMenuItem.Text = "Modify";
-            // 
-            // deleteEventMenuItem
-            // 
-            this.deleteEventMenuItem.Name = "deleteEventMenuItem";
-            this.deleteEventMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteEventMenuItem.Text = "Delete";
-            this.deleteEventMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
+            this.tabEvents.Leave += new System.EventHandler(this.tabEvents_Leave);
+            // 
+            // ucEE_EventVariables
+            // 
+            this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
+            this.ucEE_EventVariables.Name = "ucEE_EventVariables";
+            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_EventVariables.TabIndex = 36;
+            this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
+            this.ucEE_EventVariables.xVisibleImportButton = false;
+            this.ucEE_EventVariables.xVisibleLinksButton = false;
+            this.ucEE_EventVariables.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_EventStructures
+            // 
+            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
+            this.ucEE_EventStructures.Name = "ucEE_EventStructures";
+            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_EventStructures.TabIndex = 35;
+            this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
+            this.ucEE_EventStructures.xVisibleImportButton = false;
+            this.ucEE_EventStructures.xVisibleLinksButton = false;
+            this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Events
+            // 
+            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
+            this.ucEE_Events.Name = "ucEE_Events";
+            this.ucEE_Events.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_Events.TabIndex = 34;
+            this.ucEE_Events.xGroupBoxTitle = "Events";
+            this.ucEE_Events.xVisibleImportButton = false;
+            this.ucEE_Events.xVisibleLinksButton = false;
+            this.ucEE_Events.xVisibleModifyHelpTextButton = false;
             // 
             // tabSelfTest
             // 
@@ -1488,6 +909,39 @@
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
+            // 
+            // ucEE_Enumerations
+            // 
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
+            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Enumerations.TabIndex = 23;
+            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
+            this.ucEE_Enumerations.xVisibleImportButton = false;
+            this.ucEE_Enumerations.xVisibleLinksButton = false;
+            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Bitmasks
+            // 
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
+            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Bitmasks.TabIndex = 22;
+            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
+            this.ucEE_Bitmasks.xVisibleImportButton = false;
+            this.ucEE_Bitmasks.xVisibleLinksButton = false;
+            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Units
+            // 
+            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
+            this.ucEE_Units.Name = "ucEE_Units";
+            this.ucEE_Units.Size = new System.Drawing.Size(270, 421);
+            this.ucEE_Units.TabIndex = 21;
+            this.ucEE_Units.xGroupBoxTitle = "Units";
+            this.ucEE_Units.xVisibleImportButton = false;
+            this.ucEE_Units.xVisibleLinksButton = false;
+            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
             // 
             // tabProjectSettings
             // 
@@ -2039,7 +1493,7 @@
             this.previewEventsToolStripMenuItem.CheckOnClick = true;
             this.previewEventsToolStripMenuItem.Name = "previewEventsToolStripMenuItem";
             this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.previewEventsToolStripMenuItem.Text = "Preview Events";
+            this.previewEventsToolStripMenuItem.Text = "Preview Event";
             this.previewEventsToolStripMenuItem.Click += new System.EventHandler(this.previewEventsToolStripMenuItem_Click);
             // 
             // previewEventVariablesToolStripMenuItem
@@ -2088,39 +1542,6 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
-            // ucEE_Enumerations
-            // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
-            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 421);
-            this.ucEE_Enumerations.TabIndex = 23;
-            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
-            this.ucEE_Enumerations.xVisibleImportButton = true;
-            this.ucEE_Enumerations.xVisibleLinksButton = true;
-            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Bitmasks
-            // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
-            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 421);
-            this.ucEE_Bitmasks.TabIndex = 22;
-            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
-            this.ucEE_Bitmasks.xVisibleImportButton = true;
-            this.ucEE_Bitmasks.xVisibleLinksButton = true;
-            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Units
-            // 
-            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
-            this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(270, 421);
-            this.ucEE_Units.TabIndex = 21;
-            this.ucEE_Units.xGroupBoxTitle = "Units";
-            this.ucEE_Units.xVisibleImportButton = true;
-            this.ucEE_Units.xVisibleLinksButton = true;
-            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2152,14 +1573,6 @@
             this.groupBox1.PerformLayout();
             this.gBoxWatchActions.ResumeLayout(false);
             this.tabEvents.ResumeLayout(false);
-            this.gBoxEventVariables.ResumeLayout(false);
-            this.gBoxEventVariables.PerformLayout();
-            this.gBoxEventStructures.ResumeLayout(false);
-            this.gBoxEventStructures.PerformLayout();
-            this.conMenuEventStructures.ResumeLayout(false);
-            this.gBoxEvents.ResumeLayout(false);
-            this.gBoxEvents.PerformLayout();
-            this.conMenuEvents.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
             this.tabProjectSettings.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -2288,60 +1701,11 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox gBoxWatchActions;
-        private System.Windows.Forms.ContextMenuStrip conMenuEvents;
-        private System.Windows.Forms.ToolStripMenuItem copyEventMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteEventMenuItem;
-        private System.Windows.Forms.GroupBox gBoxEvents;
-        private System.Windows.Forms.Button btnEventImport;
-        private System.Windows.Forms.Button btnEventCopy;
-        private System.Windows.Forms.Button btnEventFilterApply;
-        private System.Windows.Forms.Button btnEventDelete;
-        private System.Windows.Forms.Button btnEventModify;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button btnEventCreate;
-        private System.Windows.Forms.ListBox lBoxEvents;
         private System.Windows.Forms.ToolStripMenuItem previewEventsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventVariablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventStructuresToolStripMenuItem;
-        private System.Windows.Forms.GroupBox gBoxEventStructures;
-        private System.Windows.Forms.Button btnEventStructureImport;
-        private System.Windows.Forms.Button btnEventStructureCopy;
-        private System.Windows.Forms.Button btnEventStructFilterApply;
-        private System.Windows.Forms.Button btnEventStructureDelete;
-        private System.Windows.Forms.Button btnEventStructureModify;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button btnEventStructureCreate;
-        private System.Windows.Forms.ListBox lBoxEventStructures;
         private System.Windows.Forms.Button btnWatchFilterClear;
-        private System.Windows.Forms.Button btnEventStructFilterClear;
-        private System.Windows.Forms.Button btnEventFilterClear;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.GroupBox gBoxEventVariables;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button btnEventVarImport;
-        private System.Windows.Forms.Button btnEventVarCopy;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button btnEventVarDelete;
-        private System.Windows.Forms.Button btnEventVarModify;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button btnEventVarCreate;
-        private System.Windows.Forms.ListBox lBoxEventVars;
-        private System.Windows.Forms.ToolStripMenuItem modifyEventMenuItem;
-        private System.Windows.Forms.ContextMenuStrip conMenuEventStructures;
-        private System.Windows.Forms.ToolStripMenuItem copyEventStrMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyEventStrMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteEventStrMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewHelpToolStripMenuItem;
-        private System.Windows.Forms.Button btnEventModifyHelpText;
-        private System.Windows.Forms.Button btnEventVarModifyHelpText;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -2355,6 +1719,9 @@
         private UserControlEntityEditor ucEE_Units;
         private UserControlEntityEditor ucEE_Bitmasks;
         private UserControlEntityEditor ucEE_Enumerations;
+        private UserControlEntityEditor ucEE_Events;
+        private UserControlEntityEditor ucEE_EventVariables;
+        private UserControlEntityEditor ucEE_EventStructures;
     }
 }
 

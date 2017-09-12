@@ -16,8 +16,9 @@ namespace DDB
             InitializeComponent();
         }
 
-        public void UpdateForm(Events e)
+        public void UpdateForm(EventDB e)
         {
+#if TODO
             if (e == null)
             {
                 lblEventName.Text = "";
@@ -28,10 +29,11 @@ namespace DDB
             else
             {
                 lblEventName.Text = e.name;
-                lblCdefineName.Text = e.cDefineName;
-                lblEventStructure.Text = EventList.GetEventStructureName(e.structId);
-                lblEventLog.Text = (e.logId == 0) ? "Propulsion" : "Engineering";
+                lblCdefineName.Text = e.embeddedName;
+                lblEventStructure.Text = EventList.GetEventStructureName(e.structFKey);
+                lblEventLog.Text = (e.logFKey == 0) ? "Propulsion" : "Engineering";
             }
+#endif
         }
     }
 }

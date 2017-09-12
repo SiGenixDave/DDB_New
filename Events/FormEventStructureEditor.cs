@@ -11,8 +11,8 @@ namespace DDB
 {
     public partial class FormEventStructureEditor : Form
     {
-        EventStructures evt;
-        public FormEventStructureEditor(EventStructures ev)
+        EventStructureDB evt;
+        public FormEventStructureEditor(EventStructureDB ev)
         {
             InitializeComponent();
             evt = ev;
@@ -24,17 +24,17 @@ namespace DDB
 
         }
 
-        public EventStructures GetEditedEventStructure()
+        public EventStructureDB GetEditedEventStructure()
         {
             evt.name = tBoxStructName.Text;
 
             // TODO get all of the vars from the Used list and add their indexes
             int index = 0;
-            evt.varIds.Clear();
+            evt.variableListFKey.Clear();
             while (index < lBoxUsedVars.Items.Count)
             {
-                EventVariables ev = (EventVariables)lBoxUsedVars.Items[index];
-                evt.varIds.Add(ev.id);
+                EventVariableDB ev = (EventVariableDB)lBoxUsedVars.Items[index];
+                evt.variableListFKey.Add(ev.fKey);
                 index++;
             }
 
@@ -123,11 +123,11 @@ namespace DDB
         private void MoveHorizontal(ListBox from, ListBox to)
         {
             int index = 0;
-            List<EventVariables> selIndices = new List<EventVariables>();
+            List<EventVariableDB> selIndices = new List<EventVariableDB>();
             while (index < from.SelectedIndices.Count)
             {
                 to.Items.Add(from.Items[from.SelectedIndices[index]]);
-                selIndices.Add((EventVariables)from.Items[from.SelectedIndices[index]]);
+                selIndices.Add((EventVariableDB)from.Items[from.SelectedIndices[index]]);
                 index++;
             }
             index = 0;
@@ -152,25 +152,38 @@ namespace DDB
         private void PopulateUsedVars()
         {
             int index = 0;
-            while (index < evt.varIds.Count)
+
+            if (evt.variableListFKey == null)
             {
-                EventVariables ev = EventList.GetEventVariable(evt.varIds[index]);
+                return;
+            }
+
+            while (index < evt.variableListFKey.Count)
+            {
+                EventVariableDB ev = EventVariableList.GetEventObject(evt.variableListFKey[index]);
                 lBoxUsedVars.Items.Add(ev);
                 index++;
             }
-
         }
 
         private void PopulateUnusedVars()
         {
-            EventVariables []allVars = EventList.GetEventVariables();
+            EventVariableDB[] allVars = EventVariableList.GetEventVariables();
 
             int index = 0;
             while (index < allVars.Length)
             {
-                if (!evt.varIds.Contains(index))
+                if (evt.variableListFKey != null)
                 {
-                    EventVariables ev = EventList.GetEventVariable(index);
+                    if (!evt.variableListFKey.Contains(index))
+                    {
+                        EventVariableDB ev = EventVariableList.GetEventObject(index);
+                        lBoxAvailableVars.Items.Add(ev);
+                    }
+                }
+                else
+                {
+                    EventVariableDB ev = EventVariableList.GetEventObject(index);
                     lBoxAvailableVars.Items.Add(ev);
                 }
                 index++;

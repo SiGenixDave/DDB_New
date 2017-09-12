@@ -150,7 +150,22 @@ namespace DDB
             }
         }
 
+        private void SaveEventLogs()
+        {
+            List<EventLogDB> eList = new List<EventLogDB>();
+            EventLogDB.key = 0;
+            foreach (DataGridViewRow r in dGridEventLog.Rows)
+            {
+                int embValue;
+                int.TryParse(r.Cells[0].Value.ToString(), out embValue);
 
+                String name = r.Cells[1].Value.ToString();
+                EventLogDB e = new EventLogDB(name, embValue);
+                eList.Add(e);
+            }
+
+            EventLogList.Update(eList.ToArray());
+        }
 
     }
 }
