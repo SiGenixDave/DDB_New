@@ -27,17 +27,18 @@ namespace DDB
                 }
             } while (dataGridView1.Rows.Count > 0);
 
+            this.Text = "Event Structure Preview "; 
             if (eStruct == null)
             {
                 return;
             }
 
-            this.Text = "Event Structure Preview for \"" + eStruct.name + "\"";
+            this.Text += "for \"" + eStruct.name + "\"";
             int populatedRowCount = 0;
-            foreach (int eVarId in eStruct.variableListFKey.ToArray())
+            foreach (int eVarIdFKey in eStruct.variableListFKey.ToArray())
             {
-
-                //TODO dataGridView1.Rows.Add(index, eStruct.strValues[index]);
+                EventVariableDB evVar = EventVariableList.GetEventObject(eVarIdFKey);
+                dataGridView1.Rows.Add(evVar.dispName, evVar.embName);
                 populatedRowCount++;
             }
 
@@ -47,7 +48,7 @@ namespace DDB
 
         private void InitDataGrid()
         {
-            dataGridView1.Columns[0].Width = 30;
+            dataGridView1.Columns[0].Width = 100;
             dataGridView1.Columns[1].Width = dataGridView1.Width - (dataGridView1.Columns[0].Width);
 
             DataGridViewCellStyle style = new DataGridViewCellStyle();

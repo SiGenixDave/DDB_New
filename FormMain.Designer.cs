@@ -339,7 +339,7 @@
             // 
             this.chkWatchEngViewOnly.AutoSize = true;
             this.chkWatchEngViewOnly.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkWatchEngViewOnly.Location = new System.Drawing.Point(12, 327);
+            this.chkWatchEngViewOnly.Location = new System.Drawing.Point(12, 379);
             this.chkWatchEngViewOnly.Name = "chkWatchEngViewOnly";
             this.chkWatchEngViewOnly.Size = new System.Drawing.Size(147, 17);
             this.chkWatchEngViewOnly.TabIndex = 16;
@@ -381,6 +381,7 @@
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
             this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchUnits.TabIndex = 13;
+            this.cBoxWatchUnits.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchUnits_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -403,7 +404,7 @@
             "Read Only",
             "Read/Write [Level 1]",
             "Read/Write [Level 2]"});
-            this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(11, 379);
+            this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(11, 347);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
             this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
@@ -413,7 +414,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 357);
+            this.label9.Location = new System.Drawing.Point(9, 325);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 13);
             this.label9.TabIndex = 12;
@@ -667,7 +668,7 @@
             // 
             this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 421);
             this.ucEE_Enumerations.TabIndex = 23;
             this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
             this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
@@ -676,7 +677,7 @@
             // 
             this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 421);
             this.ucEE_Bitmasks.TabIndex = 22;
             this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
             this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
@@ -685,7 +686,7 @@
             // 
             this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
             this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_Units.Size = new System.Drawing.Size(276, 421);
             this.ucEE_Units.TabIndex = 21;
             this.ucEE_Units.xGroupBoxTitle = "Units";
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;
@@ -1211,8 +1212,8 @@
             this.previewBitmasksToolStripMenuItem,
             this.previewEnumerationsToolStripMenuItem,
             this.previewEventsToolStripMenuItem,
-            this.previewEventVariablesToolStripMenuItem,
             this.previewEventStructuresToolStripMenuItem,
+            this.previewEventVariablesToolStripMenuItem,
             this.previewHelpToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
@@ -1283,6 +1284,7 @@
             this.previewEventStructuresToolStripMenuItem.Name = "previewEventStructuresToolStripMenuItem";
             this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
+            this.previewEventStructuresToolStripMenuItem.Click += new System.EventHandler(this.previewEventStructuresToolStripMenuItem_Click);
             // 
             // previewHelpToolStripMenuItem
             // 
@@ -1330,7 +1332,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.11)";
+            this.Text = "Bombardier DDB (v 0.0.0.12)";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);

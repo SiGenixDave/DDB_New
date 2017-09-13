@@ -56,9 +56,17 @@ namespace DDB
         }
 
         public void Links()
-        { }
+        {
+            //TODO 
+        }
         public void Import()
-        { }
+        {
+            FormImport iForm = new FormImport("Watch Variables");
+            iForm.ShowDialog();
+            //TODO Open File dialog (xml file default)
+
+            //TODO Open new form with list box of units from the XML file        
+        }
         public void HelpModify(object obj)
         {
             WatchVarDB var = (WatchVarDB)obj;
@@ -71,8 +79,15 @@ namespace DDB
 
         public void HelpPreview(object obj)
         {
-            WatchVarDB e = (WatchVarDB)obj;
-            formHelpPreview.UpdateForm(e.helpText);
+            if (obj == null)
+            {
+                formHelpPreview.UpdateForm(String.Empty);
+            }
+            else
+            {
+                WatchVarDB e = (WatchVarDB)obj;
+                formHelpPreview.UpdateForm(e.helpText);
+            }
         }
 
         public void ChangeDisplayName(int name)
@@ -121,11 +136,10 @@ namespace DDB
                 cBoxWatchFormatString.SelectedIndex = watchVar.formatString;
                 chkWatchEngViewOnly.Checked = watchVar.engineeringViewOnly == 1 ? true : false;
 
-                //TODOformHelpPreview.UpdateForm(currentWatchVar.helpText);
+                formHelpPreview.UpdateForm(watchVar.helpText);
 
                 EnableControlsOnSelectedScaleType(cBoxWatchScaleType.SelectedItem.ToString(), watchVar);
             }
-#if DAS
             else
             {
                 // Handle the case where no watch vars selected
@@ -135,11 +149,7 @@ namespace DDB
                 tBoxWatchMaxChart.Text = "";
                 tBoxWatchMinValue.Text = "";
                 tBoxWatchMaxValue.Text = "";
-
-                btnWatchAccept.Enabled = false;
-                btnWatchCancel.Enabled = false;
             }
-#endif
         }
 
 
@@ -154,6 +164,13 @@ namespace DDB
             grpBoxWatchAttrs.Enabled = true;
             ucEE_WatchVariables.Enabled = false;
             watchModifyAccepted = false;
+
+            tabEvents.Enabled = false;
+            tabSelfTest.Enabled = false;
+            tabProjectDefinitions.Enabled = false;
+            tabProjectSettings.Enabled = false;
+            btnExitDDB.Enabled = false;
+
 
             while (watchModifyInProgress)
             {
@@ -269,9 +286,6 @@ namespace DDB
             }
 
         }
-
-
-
         
         private void cBoxWatchScaleType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -334,15 +348,6 @@ namespace DDB
             }
         }
 
-        private void btnWatchImport_Click(object sender, EventArgs e)
-        {
-            FormImport iForm = new FormImport("Watch Variables");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with list box of units from the XML file
-        }
-
 
         public WatchVarDB WatchVarCreate()
         {
@@ -367,6 +372,13 @@ namespace DDB
 
             watchModifyAccepted = accepted;
             ucEE_WatchVariables.SetSelectedItem(modifiedWatchVar);
+
+            tabEvents.Enabled = true;
+            tabSelfTest.Enabled = true;
+            tabProjectDefinitions.Enabled = true;
+            tabProjectSettings.Enabled = true;
+            btnExitDDB.Enabled = true;
+
         }
 
         private void PopulateNewVarDefaults()

@@ -84,8 +84,15 @@ namespace DDB
 
         public void HelpPreview(object obj)
         {
-            EventDB e = (EventDB)obj;
-            formHelpPreview.UpdateForm(e.helpText);            
+            if (obj == null)
+            {
+                formHelpPreview.UpdateForm(String.Empty);
+            }
+            else
+            {
+                EventDB e = (EventDB)obj;
+                formHelpPreview.UpdateForm(e.helpText);
+            }
         }
 
         public void ChangeDisplayName(int name)
@@ -166,10 +173,7 @@ namespace DDB
         public void ChangeDisplayName(int name)
         { }
 
-
     }
-
-
 
     public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
@@ -239,7 +243,18 @@ namespace DDB
         public void HelpModify(object obj)
         { }
         public void HelpPreview(object obj)
-        { }
+        {
+#if TODO
+            if (obj == null)
+            {
+                formHelpPreview.UpdateForm(String.Empty);
+            }
+            else
+            {
+                //TODO
+            }
+#endif        
+        }
         public void ChangeDisplayName(int name)
         {
             NameType nameType = NameType.DISPLAY;
@@ -254,31 +269,8 @@ namespace DDB
 
     }
 
-
-
-
-
-
     public partial class FormMain
     {
-        private void InitEvents()
-        {
-            if (GlobalSettings.getCustomerUseOnly())
-            {
-#if TODO
-                btnEventCreate.Enabled = false;
-                btnEventImport.Enabled = false;
-                btnEventStructureCreate.Enabled = false;
-                btnEventStructureImport.Enabled = false;
-                btnEventVarCreate.Enabled = false;
-                btnEventVarImport.Enabled = false; 
-                lBoxEvents.MouseDoubleClick -= lBoxEvents_MouseDoubleClick;
-                lBoxEventStructures.MouseDoubleClick -= lBoxEventStructures_MouseDoubleClick;
-                lBoxEventVars.MouseDoubleClick -= lBoxEventVars_MouseDoubleClick;
-#endif
-            }
-        }
-
         private void PopulateEventLists()
         {
             PopulateEvents();
@@ -321,20 +313,9 @@ namespace DDB
         {
             return ucEE_EventVariables.GetItems();
         }
-#if TODO
-
-        private void btnEventModifyHelpText_Click(object sender, EventArgs e)
-        {
-            EventDB ev = (EventDB)lBoxEvents.SelectedItem;
-            FormHelpText fh = new FormHelpText(ev, "Event \"" + ev.name + "\"");
-            fh.ShowDialog();
-
-            formHelpPreview.UpdateForm(ev.helpText);
-
-        }
 
         /////////////////////////////////
-        
+#if TODO        
         private void btnEventVarImport_Click(object sender, EventArgs e)
         {
             FormImport iForm = new FormImport("Event Variables");

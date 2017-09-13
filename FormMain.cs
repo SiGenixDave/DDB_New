@@ -17,20 +17,24 @@ namespace DDB
 
         public FormMain(string[] args)
         {
-            InitializeComponent();
-
             GlobalSettings.setCustomerUseOnly(false);
             if (args.Length == 1)
             {
                 if (args[0] == "CUSTOMER_USE_ONLY")
                 {
-                    this.Text += " -- (Customer Mode)";
                     GlobalSettings.setCustomerUseOnly(true);
-                    importToolStripMenuItem.Enabled = false;
-                    genEmbToolStripMenuItem.Enabled = false;
-                    tabControl1.TabPages.Remove(tabProjectDefinitions);
-                    tabControl1.TabPages.Remove(tabProjectSettings);
                 }
+            }
+            
+            InitializeComponent();
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                this.Text += " -- (Customer Mode)";
+                GlobalSettings.setCustomerUseOnly(true);
+                importToolStripMenuItem.Enabled = false;
+                genEmbToolStripMenuItem.Enabled = false;
+                tabControl1.TabPages.Remove(tabProjectDefinitions);
+                tabControl1.TabPages.Remove(tabProjectSettings);
             }
 
             CreatePreviews();
@@ -45,7 +49,6 @@ namespace DDB
             EventStructureList.Init();
             EventVariableList.Init();
             EventLogList.Init();
-            InitEvents();
             InitProjectSettings();
         }
 
@@ -204,6 +207,20 @@ namespace DDB
             {
                 formEventPreview.Visible = false;
             }
+        }
+
+        private void previewEventStructuresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewEventStructuresToolStripMenuItem.Checked)
+            {
+                formEventStructurePreview.Visible = true;
+                this.Focus();
+            }
+            else
+            {
+                formEventStructurePreview.Visible = false;
+            }
+
         }
 
         private void previewHelpToolStripMenuItem_Click(object sender, EventArgs e)

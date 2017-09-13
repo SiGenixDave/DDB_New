@@ -18,6 +18,18 @@ namespace DDB
         {
             InitializeComponent();
 
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                btnCopy.Enabled = false;
+                btnCreate.Enabled = false;
+                btnModify.Enabled = false;
+                btnDelete.Enabled = false;
+                btnImport.Enabled = false;
+                btnLinks.Enabled = false;
+                contextMenuStrip.Enabled = false;
+                listBox.DoubleClick -= listBox_DoubleClick;
+            }
+
             // set default values
             xVisibleCreateButton = true;
             xVisibleCopyButton = true;
@@ -250,8 +262,11 @@ namespace DDB
                 btnLinks.Enabled = false;
                 btnModifyHelpText.Enabled = false;
 
-                businessLogic.Preview(null);
-
+                if (listBox.Enabled)
+                {
+                    businessLogic.Preview(null);
+                    businessLogic.HelpPreview(null);
+                }
             }
             else if (listBox.SelectedIndices.Count == 1)
             {
@@ -260,10 +275,13 @@ namespace DDB
                 contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = true;
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = true;
 
-                btnModify.Enabled = true;
-                btnCopy.Enabled = true;
-                btnDelete.Enabled = true;
-                btnLinks.Enabled = true;
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnModify.Enabled = true;
+                    btnCopy.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnLinks.Enabled = true;
+                }
                 btnModifyHelpText.Enabled = true;
 
                 businessLogic.Preview(listBox.SelectedItem);
@@ -277,13 +295,20 @@ namespace DDB
                 contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = true;
                 contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = true;
 
+                if (!GlobalSettings.getCustomerUseOnly())
+                {
+                    btnCopy.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnLinks.Enabled = true;
+                }
                 btnModify.Enabled = false;
-                btnCopy.Enabled = true;
-                btnDelete.Enabled = true;
-                btnLinks.Enabled = true;
                 btnModifyHelpText.Enabled = false;
 
-                businessLogic.Preview(null);
+                if (listBox.Enabled)
+                {
+                    businessLogic.Preview(null);
+                    businessLogic.HelpPreview(null);
+                }
 
             }
         }
@@ -479,6 +504,8 @@ namespace DDB
         private void txtBoxFilter_TextChanged(object sender, EventArgs e)
         {
             listBox.Items.Clear();
+            listBox_SelectedIndexChanged(null, null);
+
             if (txtBoxFilter.Text == "")
             {
                 listBox.Items.AddRange(allEntities.ToArray());
