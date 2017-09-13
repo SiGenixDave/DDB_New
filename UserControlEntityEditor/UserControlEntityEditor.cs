@@ -187,6 +187,11 @@ namespace DDB
             return allEntities.ToArray();
         }
 
+        public void SetSelectedItem(object obj)
+        {
+            listBox.SelectedItem = obj;
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////
         // Auto generated EventDB
         private void btnCreate_Click(object sender, EventArgs e)
@@ -234,6 +239,8 @@ namespace DDB
         {
             if (listBox.SelectedIndices.Count == 0)
             {
+                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = false;
+                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = false;
                 contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = false;
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = false;
 
@@ -248,6 +255,8 @@ namespace DDB
             }
             else if (listBox.SelectedIndices.Count == 1)
             {
+                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = true;
+                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = true;
                 contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = true;
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = true;
 
@@ -265,6 +274,8 @@ namespace DDB
                 // Disable the "Modify" in context menu
                 contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = false;
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = false;
+                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = true;
+                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = true;
 
                 btnModify.Enabled = false;
                 btnCopy.Enabled = true;
@@ -401,8 +412,12 @@ namespace DDB
         private void ModifyItem()
         {
             businessLogic.Modify(listBox.SelectedItem);
-            // Need this to update in case the string was changed by the call to Modify()
-            listBox.Items[listBox.SelectedIndex] = listBox.Items[listBox.SelectedIndex];
+
+            if (listBox.SelectedIndex != -1)
+            {
+                // Need this to update in case the string was changed by the call to Modify()
+                listBox.Items[listBox.SelectedIndex] = listBox.Items[listBox.SelectedIndex];
+            }
         }
 
         private void DeleteItem()

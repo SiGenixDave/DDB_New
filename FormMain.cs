@@ -45,7 +45,6 @@ namespace DDB
             EventStructureList.Init();
             EventVariableList.Init();
             EventLogList.Init();
-            InitWatchVars();
             InitEvents();
             InitProjectSettings();
         }
@@ -235,24 +234,6 @@ namespace DDB
             cListBoxFunctionFlags.SelectedIndex = -1;
         }
 
-        // Handle <Escape> and <CR> keys
-        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (tabControl1.SelectedIndex == 0)
-            {
-                if (grpBoxWatchAttrs.Enabled)
-                {
-                    if (e.KeyCode == Keys.Return)
-                    {
-                        btnWatchAccept_Click(null, null);
-                    }
-                    else if (e.KeyCode == Keys.Escape)
-                    {
-                        btnWatchCancel_Click(null, null);
-                    }
-                }
-            }
-        }
 
         private void btnProjSettingsAcceptChanges_Click(object sender, EventArgs e)
         {
@@ -277,13 +258,13 @@ namespace DDB
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            PopulateWatchVars();
             PopulateUnits();
             PopulateBitmasks();
             PopulateEnums();
             PopulateProjectSettings();
             PopulateEventLists();
             //////////////////////////////////////////////////////////
-            cBoxWatchList.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 0;
             cBoxNumStreamVars.SelectedIndex = 0;
             cBoxCommType.SelectedIndex = 1;

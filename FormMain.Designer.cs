@@ -31,20 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
-            this.grpBoxWatchVarList = new System.Windows.Forms.GroupBox();
-            this.btnWatchFilterClear = new System.Windows.Forms.Button();
-            this.cBoxWatchList = new System.Windows.Forms.ComboBox();
-            this.btnWatchSortDes = new System.Windows.Forms.Button();
-            this.btnWatchFilterApply = new System.Windows.Forms.Button();
-            this.lBoxWatchVariables = new System.Windows.Forms.ListBox();
-            this.conMenuWatchVarList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tBoxWatchFilter = new System.Windows.Forms.TextBox();
-            this.btnWatchSortAsc = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnWatchModifyHelpText = new System.Windows.Forms.Button();
+            this.ucEE_WatchVariables = new DDB.UserControlEntityEditor();
             this.grpBoxWatchAttrs = new System.Windows.Forms.GroupBox();
             this.cBoxWatchUnitConversion = new System.Windows.Forms.ComboBox();
             this.btnWatchAccept = new System.Windows.Forms.Button();
@@ -78,12 +65,6 @@
             this.tBoxWatchEmbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tBoxWatchDisplayName = new System.Windows.Forms.TextBox();
-            this.gBoxWatchActions = new System.Windows.Forms.GroupBox();
-            this.btnWatchCopy = new System.Windows.Forms.Button();
-            this.btnWatchImport = new System.Windows.Forms.Button();
-            this.btnWatchCreate = new System.Windows.Forms.Button();
-            this.btnWatchModify = new System.Windows.Forms.Button();
-            this.btnWatchDelete = new System.Windows.Forms.Button();
             this.tabEvents = new System.Windows.Forms.TabPage();
             this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
             this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
@@ -132,6 +113,10 @@
             this.cBoxNumStreamVars = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cListBoxFunctionFlags = new System.Windows.Forms.CheckedListBox();
+            this.conMenuWatchVarList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,13 +142,10 @@
             this.btnExitDDB = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
-            this.grpBoxWatchVarList.SuspendLayout();
-            this.conMenuWatchVarList.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
             this.gBoxWatchVarMod.SuspendLayout();
             this.gBoxWatchChartScaling.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.gBoxWatchActions.SuspendLayout();
             this.tabEvents.SuspendLayout();
             this.tabProjectDefinitions.SuspendLayout();
             this.tabProjectSettings.SuspendLayout();
@@ -177,6 +159,7 @@
             this.conMenuURL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.conMenuWatchVarList.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,14 +176,11 @@
             this.tabControl1.Size = new System.Drawing.Size(850, 555);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             // 
             // tabWatchVariables
             // 
-            this.tabWatchVariables.Controls.Add(this.grpBoxWatchVarList);
-            this.tabWatchVariables.Controls.Add(this.btnWatchModifyHelpText);
+            this.tabWatchVariables.Controls.Add(this.ucEE_WatchVariables);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
-            this.tabWatchVariables.Controls.Add(this.gBoxWatchActions);
             this.tabWatchVariables.Location = new System.Drawing.Point(4, 22);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
@@ -209,159 +189,15 @@
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
             // 
-            // grpBoxWatchVarList
+            // ucEE_WatchVariables
             // 
-            this.grpBoxWatchVarList.Controls.Add(this.btnWatchFilterClear);
-            this.grpBoxWatchVarList.Controls.Add(this.cBoxWatchList);
-            this.grpBoxWatchVarList.Controls.Add(this.btnWatchSortDes);
-            this.grpBoxWatchVarList.Controls.Add(this.btnWatchFilterApply);
-            this.grpBoxWatchVarList.Controls.Add(this.lBoxWatchVariables);
-            this.grpBoxWatchVarList.Controls.Add(this.tBoxWatchFilter);
-            this.grpBoxWatchVarList.Controls.Add(this.btnWatchSortAsc);
-            this.grpBoxWatchVarList.Controls.Add(this.label11);
-            this.grpBoxWatchVarList.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxWatchVarList.Location = new System.Drawing.Point(6, 27);
-            this.grpBoxWatchVarList.Name = "grpBoxWatchVarList";
-            this.grpBoxWatchVarList.Size = new System.Drawing.Size(286, 478);
-            this.grpBoxWatchVarList.TabIndex = 2;
-            this.grpBoxWatchVarList.TabStop = false;
-            this.grpBoxWatchVarList.Text = "Watch Variable List";
-            // 
-            // btnWatchFilterClear
-            // 
-            this.btnWatchFilterClear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchFilterClear.Location = new System.Drawing.Point(123, 444);
-            this.btnWatchFilterClear.Name = "btnWatchFilterClear";
-            this.btnWatchFilterClear.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchFilterClear.TabIndex = 15;
-            this.btnWatchFilterClear.Text = "Clear Filter";
-            this.toolTip1.SetToolTip(this.btnWatchFilterClear, "\"Not yet Implemeneted\"");
-            this.btnWatchFilterClear.UseVisualStyleBackColor = true;
-            // 
-            // cBoxWatchList
-            // 
-            this.cBoxWatchList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxWatchList.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxWatchList.FormattingEnabled = true;
-            this.cBoxWatchList.Items.AddRange(new object[] {
-            "Display Name",
-            "Embedded Name"});
-            this.cBoxWatchList.Location = new System.Drawing.Point(6, 34);
-            this.cBoxWatchList.Name = "cBoxWatchList";
-            this.cBoxWatchList.Size = new System.Drawing.Size(132, 21);
-            this.cBoxWatchList.TabIndex = 14;
-            this.cBoxWatchList.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchList_SelectedIndexChanged);
-            // 
-            // btnWatchSortDes
-            // 
-            this.btnWatchSortDes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchSortDes.Location = new System.Drawing.Point(207, 444);
-            this.btnWatchSortDes.Name = "btnWatchSortDes";
-            this.btnWatchSortDes.Size = new System.Drawing.Size(72, 23);
-            this.btnWatchSortDes.TabIndex = 12;
-            this.btnWatchSortDes.Text = "Sort Des";
-            this.toolTip1.SetToolTip(this.btnWatchSortDes, "\"Not yet Implemeneted\"");
-            this.btnWatchSortDes.UseVisualStyleBackColor = true;
-            this.btnWatchSortDes.Click += new System.EventHandler(this.btnWatchSortZtoA_Click);
-            // 
-            // btnWatchFilterApply
-            // 
-            this.btnWatchFilterApply.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchFilterApply.Location = new System.Drawing.Point(6, 444);
-            this.btnWatchFilterApply.Name = "btnWatchFilterApply";
-            this.btnWatchFilterApply.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchFilterApply.TabIndex = 9;
-            this.btnWatchFilterApply.Text = "Apply Filter";
-            this.toolTip1.SetToolTip(this.btnWatchFilterApply, "\"Not yet Implemeneted\"");
-            this.btnWatchFilterApply.UseVisualStyleBackColor = true;
-            this.btnWatchFilterApply.Click += new System.EventHandler(this.btnWatchFilterApply_Click);
-            // 
-            // lBoxWatchVariables
-            // 
-            this.lBoxWatchVariables.ContextMenuStrip = this.conMenuWatchVarList;
-            this.lBoxWatchVariables.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBoxWatchVariables.FormattingEnabled = true;
-            this.lBoxWatchVariables.HorizontalScrollbar = true;
-            this.lBoxWatchVariables.Location = new System.Drawing.Point(6, 65);
-            this.lBoxWatchVariables.Name = "lBoxWatchVariables";
-            this.lBoxWatchVariables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lBoxWatchVariables.Size = new System.Drawing.Size(273, 290);
-            this.lBoxWatchVariables.TabIndex = 0;
-            this.lBoxWatchVariables.SelectedIndexChanged += new System.EventHandler(this.lBoxWatchVariables_SelectedIndexChanged);
-            this.lBoxWatchVariables.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lBoxWatchVariables_MouseDoubleClick);
-            // 
-            // conMenuWatchVarList
-            // 
-            this.conMenuWatchVarList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyWatchMenuItem,
-            this.modifyWatchMenuItem,
-            this.deleteWatchMenuItem});
-            this.conMenuWatchVarList.Name = "contextMenuStrip1";
-            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyWatchMenuItem
-            // 
-            this.copyWatchMenuItem.Name = "copyWatchMenuItem";
-            this.copyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyWatchMenuItem.Text = "Copy";
-            this.copyWatchMenuItem.Click += new System.EventHandler(this.copyWatchMenuItem_Click);
-            // 
-            // modifyWatchMenuItem
-            // 
-            this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
-            this.modifyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyWatchMenuItem.Text = "Modify";
-            this.modifyWatchMenuItem.Click += new System.EventHandler(this.modifyWatchMenuItem_Click);
-            // 
-            // deleteWatchMenuItem
-            // 
-            this.deleteWatchMenuItem.Name = "deleteWatchMenuItem";
-            this.deleteWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteWatchMenuItem.Text = "Delete";
-            this.deleteWatchMenuItem.Click += new System.EventHandler(this.deleteWatchMenuItem_Click);
-            // 
-            // tBoxWatchFilter
-            // 
-            this.tBoxWatchFilter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxWatchFilter.Location = new System.Drawing.Point(6, 414);
-            this.tBoxWatchFilter.Name = "tBoxWatchFilter";
-            this.tBoxWatchFilter.Size = new System.Drawing.Size(192, 21);
-            this.tBoxWatchFilter.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.tBoxWatchFilter, "\"Not yet Implemeneted\"");
-            // 
-            // btnWatchSortAsc
-            // 
-            this.btnWatchSortAsc.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchSortAsc.Location = new System.Drawing.Point(207, 414);
-            this.btnWatchSortAsc.Name = "btnWatchSortAsc";
-            this.btnWatchSortAsc.Size = new System.Drawing.Size(72, 23);
-            this.btnWatchSortAsc.TabIndex = 11;
-            this.btnWatchSortAsc.Text = "Sort Asc";
-            this.toolTip1.SetToolTip(this.btnWatchSortAsc, "\"Not yet Implemeneted\"");
-            this.btnWatchSortAsc.UseVisualStyleBackColor = true;
-            this.btnWatchSortAsc.Click += new System.EventHandler(this.btnWatchSortAtoZ_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 398);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Filter";
-            // 
-            // btnWatchModifyHelpText
-            // 
-            this.btnWatchModifyHelpText.Enabled = false;
-            this.btnWatchModifyHelpText.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchModifyHelpText.Location = new System.Drawing.Point(697, 456);
-            this.btnWatchModifyHelpText.Name = "btnWatchModifyHelpText";
-            this.btnWatchModifyHelpText.Size = new System.Drawing.Size(127, 34);
-            this.btnWatchModifyHelpText.TabIndex = 18;
-            this.btnWatchModifyHelpText.Text = "Modify Help Text...";
-            this.btnWatchModifyHelpText.UseVisualStyleBackColor = true;
-            this.btnWatchModifyHelpText.Click += new System.EventHandler(this.btnWatchModifyHelpText_Click);
+            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 15);
+            this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
+            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_WatchVariables.TabIndex = 7;
+            this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
+            this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
+            this.ucEE_WatchVariables.xVisibleLinksButton = false;
             // 
             // grpBoxWatchAttrs
             // 
@@ -387,9 +223,9 @@
             this.grpBoxWatchAttrs.Controls.Add(this.groupBox1);
             this.grpBoxWatchAttrs.Enabled = false;
             this.grpBoxWatchAttrs.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxWatchAttrs.Location = new System.Drawing.Point(298, 27);
+            this.grpBoxWatchAttrs.Location = new System.Drawing.Point(298, 30);
             this.grpBoxWatchAttrs.Name = "grpBoxWatchAttrs";
-            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(528, 411);
+            this.grpBoxWatchAttrs.Size = new System.Drawing.Size(528, 422);
             this.grpBoxWatchAttrs.TabIndex = 6;
             this.grpBoxWatchAttrs.TabStop = false;
             this.grpBoxWatchAttrs.Text = "Attributes";
@@ -412,9 +248,8 @@
             // 
             // btnWatchAccept
             // 
-            this.btnWatchAccept.Enabled = false;
             this.btnWatchAccept.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchAccept.Location = new System.Drawing.Point(294, 366);
+            this.btnWatchAccept.Location = new System.Drawing.Point(294, 379);
             this.btnWatchAccept.Name = "btnWatchAccept";
             this.btnWatchAccept.Size = new System.Drawing.Size(99, 34);
             this.btnWatchAccept.TabIndex = 7;
@@ -452,9 +287,8 @@
             // 
             // btnWatchCancel
             // 
-            this.btnWatchCancel.Enabled = false;
             this.btnWatchCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchCancel.Location = new System.Drawing.Point(399, 366);
+            this.btnWatchCancel.Location = new System.Drawing.Point(399, 379);
             this.btnWatchCancel.Name = "btnWatchCancel";
             this.btnWatchCancel.Size = new System.Drawing.Size(99, 34);
             this.btnWatchCancel.TabIndex = 8;
@@ -535,7 +369,7 @@
             this.lblWatchUnitsEnumBitmask.Name = "lblWatchUnitsEnumBitmask";
             this.lblWatchUnitsEnumBitmask.Size = new System.Drawing.Size(93, 17);
             this.lblWatchUnitsEnumBitmask.TabIndex = 14;
-            this.lblWatchUnitsEnumBitmask.Text = "UnitsDB";
+            this.lblWatchUnitsEnumBitmask.Text = "Units";
             this.lblWatchUnitsEnumBitmask.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cBoxWatchUnits
@@ -547,7 +381,6 @@
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
             this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 21);
             this.cBoxWatchUnits.TabIndex = 13;
-            this.cBoxWatchUnits.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchUnits_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -767,80 +600,6 @@
             this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 21);
             this.tBoxWatchDisplayName.TabIndex = 0;
             // 
-            // gBoxWatchActions
-            // 
-            this.gBoxWatchActions.Controls.Add(this.btnWatchCopy);
-            this.gBoxWatchActions.Controls.Add(this.btnWatchImport);
-            this.gBoxWatchActions.Controls.Add(this.btnWatchCreate);
-            this.gBoxWatchActions.Controls.Add(this.btnWatchModify);
-            this.gBoxWatchActions.Controls.Add(this.btnWatchDelete);
-            this.gBoxWatchActions.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxWatchActions.Location = new System.Drawing.Point(298, 444);
-            this.gBoxWatchActions.Name = "gBoxWatchActions";
-            this.gBoxWatchActions.Size = new System.Drawing.Size(273, 79);
-            this.gBoxWatchActions.TabIndex = 25;
-            this.gBoxWatchActions.TabStop = false;
-            this.gBoxWatchActions.Text = "Actions";
-            // 
-            // btnWatchCopy
-            // 
-            this.btnWatchCopy.Enabled = false;
-            this.btnWatchCopy.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchCopy.Location = new System.Drawing.Point(11, 49);
-            this.btnWatchCopy.Name = "btnWatchCopy";
-            this.btnWatchCopy.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchCopy.TabIndex = 4;
-            this.btnWatchCopy.Text = "Copy";
-            this.btnWatchCopy.UseVisualStyleBackColor = true;
-            this.btnWatchCopy.Click += new System.EventHandler(this.btnWatchCopy_Click);
-            // 
-            // btnWatchImport
-            // 
-            this.btnWatchImport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchImport.Location = new System.Drawing.Point(192, 24);
-            this.btnWatchImport.Name = "btnWatchImport";
-            this.btnWatchImport.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchImport.TabIndex = 7;
-            this.btnWatchImport.Text = "Import...";
-            this.toolTip1.SetToolTip(this.btnWatchImport, "\"TODO Import watch variables from another XML file\"");
-            this.btnWatchImport.UseVisualStyleBackColor = true;
-            this.btnWatchImport.Click += new System.EventHandler(this.btnWatchImport_Click);
-            // 
-            // btnWatchCreate
-            // 
-            this.btnWatchCreate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchCreate.Location = new System.Drawing.Point(11, 20);
-            this.btnWatchCreate.Name = "btnWatchCreate";
-            this.btnWatchCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchCreate.TabIndex = 2;
-            this.btnWatchCreate.Text = "Create";
-            this.btnWatchCreate.UseVisualStyleBackColor = true;
-            this.btnWatchCreate.Click += new System.EventHandler(this.btnWatchCreate_Click);
-            // 
-            // btnWatchModify
-            // 
-            this.btnWatchModify.Enabled = false;
-            this.btnWatchModify.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchModify.Location = new System.Drawing.Point(92, 20);
-            this.btnWatchModify.Name = "btnWatchModify";
-            this.btnWatchModify.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchModify.TabIndex = 3;
-            this.btnWatchModify.Text = "Modify";
-            this.btnWatchModify.UseVisualStyleBackColor = true;
-            this.btnWatchModify.Click += new System.EventHandler(this.btnWatchModify_Click);
-            // 
-            // btnWatchDelete
-            // 
-            this.btnWatchDelete.Enabled = false;
-            this.btnWatchDelete.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWatchDelete.Location = new System.Drawing.Point(92, 49);
-            this.btnWatchDelete.Name = "btnWatchDelete";
-            this.btnWatchDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnWatchDelete.TabIndex = 5;
-            this.btnWatchDelete.Text = "Delete";
-            this.btnWatchDelete.UseVisualStyleBackColor = true;
-            this.btnWatchDelete.Click += new System.EventHandler(this.btnWatchDelete_Click);
-            // 
             // tabEvents
             // 
             this.tabEvents.Controls.Add(this.ucEE_EventVariables);
@@ -908,7 +667,7 @@
             // 
             this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 416);
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 456);
             this.ucEE_Enumerations.TabIndex = 23;
             this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
             this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
@@ -917,7 +676,7 @@
             // 
             this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 416);
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 456);
             this.ucEE_Bitmasks.TabIndex = 22;
             this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
             this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
@@ -926,7 +685,7 @@
             // 
             this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
             this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(270, 416);
+            this.ucEE_Units.Size = new System.Drawing.Size(276, 456);
             this.ucEE_Units.TabIndex = 21;
             this.ucEE_Units.xGroupBoxTitle = "Units";
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;
@@ -1359,6 +1118,33 @@
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
             // 
+            // conMenuWatchVarList
+            // 
+            this.conMenuWatchVarList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyWatchMenuItem,
+            this.modifyWatchMenuItem,
+            this.deleteWatchMenuItem});
+            this.conMenuWatchVarList.Name = "contextMenuStrip1";
+            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
+            // 
+            // copyWatchMenuItem
+            // 
+            this.copyWatchMenuItem.Name = "copyWatchMenuItem";
+            this.copyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.copyWatchMenuItem.Text = "Copy";
+            // 
+            // modifyWatchMenuItem
+            // 
+            this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
+            this.modifyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.modifyWatchMenuItem.Text = "Modify";
+            // 
+            // deleteWatchMenuItem
+            // 
+            this.deleteWatchMenuItem.Name = "deleteWatchMenuItem";
+            this.deleteWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteWatchMenuItem.Text = "Delete";
+            // 
             // mainMenuStrip
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1548,9 +1334,6 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
-            this.grpBoxWatchVarList.ResumeLayout(false);
-            this.grpBoxWatchVarList.PerformLayout();
-            this.conMenuWatchVarList.ResumeLayout(false);
             this.grpBoxWatchAttrs.ResumeLayout(false);
             this.grpBoxWatchAttrs.PerformLayout();
             this.gBoxWatchVarMod.ResumeLayout(false);
@@ -1559,7 +1342,6 @@
             this.gBoxWatchChartScaling.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.gBoxWatchActions.ResumeLayout(false);
             this.tabEvents.ResumeLayout(false);
             this.tabProjectDefinitions.ResumeLayout(false);
             this.tabProjectSettings.ResumeLayout(false);
@@ -1575,6 +1357,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.conMenuWatchVarList.ResumeLayout(false);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1596,8 +1379,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem genEmbToolStripMenuItem;
-        private System.Windows.Forms.ListBox lBoxWatchVariables;
-        private System.Windows.Forms.Button btnWatchCreate;
         private System.Windows.Forms.GroupBox grpBoxWatchAttrs;
         private System.Windows.Forms.GroupBox gBoxWatchChartScaling;
         private System.Windows.Forms.Label label4;
@@ -1609,9 +1390,6 @@
         private System.Windows.Forms.TextBox tBoxWatchEmbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBoxWatchDisplayName;
-        private System.Windows.Forms.Button btnWatchDelete;
-        private System.Windows.Forms.Button btnWatchCopy;
-        private System.Windows.Forms.Button btnWatchModify;
         private System.Windows.Forms.GroupBox gBoxWatchVarMod;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tBoxWatchMaxValue;
@@ -1624,23 +1402,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cBoxWatchUnits;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnWatchSortDes;
-        private System.Windows.Forms.Button btnWatchSortAsc;
-        private System.Windows.Forms.Button btnWatchFilterApply;
-        private System.Windows.Forms.TextBox tBoxWatchFilter;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ContextMenuStrip conMenuWatchVarList;
         private System.Windows.Forms.ToolStripMenuItem copyWatchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyWatchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteWatchMenuItem;
-        private System.Windows.Forms.GroupBox grpBoxWatchVarList;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem genHelpFileToolStripMenuItem;
         private System.Windows.Forms.TabPage tabEvents;
         private System.Windows.Forms.TabPage tabSelfTest;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ComboBox cBoxWatchList;
         private System.Windows.Forms.ComboBox cBoxWatchReadWriteFlags;
         private System.Windows.Forms.ComboBox cBoxWatchScaleType;
         private System.Windows.Forms.Label lblWatchUnitsEnumBitmask;
@@ -1649,11 +1420,9 @@
         private System.Windows.Forms.Label lblWatchUnitConversion;
         private System.Windows.Forms.Label lblWatchScaleInfo;
         private System.Windows.Forms.ComboBox cBoxWatchFormatString;
-        private System.Windows.Forms.Button btnWatchModifyHelpText;
         private System.Windows.Forms.Label lblFormatString;
         private System.Windows.Forms.CheckBox chkWatchEngViewOnly;
         private System.Windows.Forms.Button btnExitDDB;
-        private System.Windows.Forms.Button btnWatchImport;
         private System.Windows.Forms.TabPage tabProjectSettings;
         private System.Windows.Forms.ToolStripMenuItem previewBitmasksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEnumerationsToolStripMenuItem;
@@ -1688,11 +1457,9 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.GroupBox gBoxWatchActions;
         private System.Windows.Forms.ToolStripMenuItem previewEventsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventVariablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventStructuresToolStripMenuItem;
-        private System.Windows.Forms.Button btnWatchFilterClear;
         private System.Windows.Forms.ToolStripMenuItem previewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -1710,6 +1477,7 @@
         private UserControlEntityEditor ucEE_Events;
         private UserControlEntityEditor ucEE_EventVariables;
         private UserControlEntityEditor ucEE_EventStructures;
+        private UserControlEntityEditor ucEE_WatchVariables;
     }
 }
 

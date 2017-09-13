@@ -3,7 +3,28 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    internal class WatchVar: iDDBHelpObject
+    public class WatchVarList
+    {
+        static public void Init()
+        {
+
+            list.Add(new WatchVarDB("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
+            list.Add(new WatchVarDB("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
+            list.Add(new WatchVarDB("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
+            list.Add(new WatchVarDB("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
+            list.Add(new WatchVarDB("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
+        }
+
+        static public List<WatchVarDB> list = new List<WatchVarDB>();
+
+        static public WatchVarDB[] GetWatchVars()
+        {
+            return list.ToArray();
+        }
+
+    }
+    
+    public class WatchVarDB: iDDBHelpObject
     {
         public String dispName;
         public String embName;
@@ -20,13 +41,15 @@ namespace DDB
         public Int32 readWrite;
         public Int32 engineeringViewOnly;
         public String helpText;
+        public Int32 fKey;
+        static Int32 key;
 
-        public WatchVar()
+        private WatchVarDB()
         {
         }
 
 
-        public WatchVar(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
+        public WatchVarDB(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
                             Int32 u, Int32 si, Int32 uc, Int32 fs, Int32 rw, Int32 evo, String ht)
         {
             dispName = d;
@@ -44,9 +67,10 @@ namespace DDB
             readWrite= rw;
             engineeringViewOnly = evo;
             helpText = ht;
+            fKey = key++;
         }
 
-        public WatchVar(WatchVar w)
+        public WatchVarDB(WatchVarDB w)
         {
             dispName = w.dispName;
             embName = w.embName;
@@ -63,7 +87,7 @@ namespace DDB
             readWrite = w.readWrite;
             engineeringViewOnly = w.engineeringViewOnly;
             helpText = w.helpText;
-
+            fKey = key++;
         }
 
         public void SaveHelpText(string helpText)
@@ -90,44 +114,4 @@ namespace DDB
 
     }
 
-    internal class WatchVarList
-    {
-        static public List<WatchVar> list = new List<WatchVar>();
-
-        static public void AddVar(WatchVar w)
-        {
-            list.Add(w);
-        }
-
-        static public void DeleteVar(WatchVar w)
-        {
-            list.Remove(w);
-        }
-
-        static public WatchVar GetWatchVarCopy(int index)
-        {
-            WatchVar w = new WatchVar(list[index]);
-            return w;
-        }
-        
-        static public WatchVar[] GetWatchVars()
-        {
-            return list.ToArray();
-        }
-
-        static public int GetWatchVarCount()
-        {
-            return list.Count;
-        }
-
-        static public void Init()
-        {
-
-            list.Add(new WatchVar("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
-            list.Add(new WatchVar("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
-            list.Add(new WatchVar("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
-            list.Add(new WatchVar("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
-            list.Add(new WatchVar("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
-        }
-    }
 }
