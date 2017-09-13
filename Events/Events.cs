@@ -88,6 +88,8 @@ namespace DDB
             formHelpPreview.UpdateForm(e.helpText);            
         }
 
+        public void ChangeDisplayName(int name)
+        { }
 
 
 
@@ -161,7 +163,8 @@ namespace DDB
         { }
         public void HelpPreview(object obj)
         { }
-
+        public void ChangeDisplayName(int name)
+        { }
 
 
     }
@@ -170,14 +173,14 @@ namespace DDB
 
     public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
-#if TODO
-        FormEventVariablePreview evPreview;
+        //TODO FormEventVariablePreview evPreview;
+        object evPreview;
 
-        public EventVariablesBusinessLogic(FormEventVariablePreview preview)
+        //TODO public EventVariablesBusinessLogic(FormEventVariablePreview preview)
+        public EventVariablesBusinessLogic(object preview)
         {
             evPreview = preview;
         }
-#endif
 
         private EventVariablesBusinessLogic()
         { }
@@ -237,7 +240,17 @@ namespace DDB
         { }
         public void HelpPreview(object obj)
         { }
+        public void ChangeDisplayName(int name)
+        {
+            NameType nameType = NameType.DISPLAY;
+            if (name == 1)
+            {
+                nameType = NameType.ENMBEDDED;
+            }
 
+            GlobalSettings.setEventVariableDisplayType(nameType);
+
+        }
 
     }
 
@@ -299,8 +312,8 @@ namespace DDB
 
         private void PopulateEventVariables()
         {
-            //TODO EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(formEventVariablePreview);
-            //TODO ucEE_EventStructures.setBusinessLogic(ebl);
+            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(null);
+            ucEE_EventVariables.setBusinessLogic(ebl);
             ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
         }
 

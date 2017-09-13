@@ -137,7 +137,7 @@ namespace DDB
             {
                 Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
 
-                tBoxName.Width = size.Width;
+                tBoxName.Width = size.Width + 10;
                 tBoxName.Height = size.Height;
             }
         }

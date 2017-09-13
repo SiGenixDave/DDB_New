@@ -17,21 +17,21 @@ namespace DDB
         public UserControlEntityEditor()
         {
             InitializeComponent();
-        }
 
-        public void setBusinessLogic (iEntityEditorBusinesssLogic iBusinessLogic)
-        {
-            businessLogic = iBusinessLogic;
-        }
+            // set default values
+            xVisibleCreateButton = true;
+            xVisibleCopyButton = true;
+            xVisibleModifyButton = true;
+            xVisibleDeleteButton = true;
+            xVisibleImportButton = true;
+            xVisibleLinksButton = true;
+            xVisibleModifyHelpTextButton = true;
+            xVisibleDispEmbComboBox = false;
 
-        public object[] GetItems()
-        {
-            return allEntities.ToArray();
+            cBoxDispEmb.SelectedIndex = 0;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////
-
-
         // Properties
         public String xGroupBoxTitle
         {
@@ -39,45 +39,129 @@ namespace DDB
             get { return groupBox.Text; }
         }
 
-        public Boolean xVisibleImportButton
+        bool _btnCreateVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleCreateButton
         {
-            set { btnImport.Visible = value; }
-            get { return btnImport.Visible; }
-        }
-
-        public Boolean xVisibleLinksButton
-        {
-            set { 
-                btnLinks.Visible = value; 
+            get
+            {
+                return _btnCreateVisible;
             }
-            get { return btnLinks.Visible; }
-        }
-
-        public Boolean xVisibleModifyHelpTextButton
-        {
-            set { 
-                btnModifyHelpText.Visible = value; 
-            }
-            get { return btnModifyHelpText.Visible; }
-        }
-
-        public Boolean xVisibleMoveUpButton
-        {
             set
             {
-                btnMoveUp.Visible = value;
+                _btnCreateVisible = value;
+                btnCreate.Visible = value;
             }
-            get { return btnMoveUp.Visible; }
         }
 
-        public Boolean xVisibleMoveDownButton
+        bool _btnCopyVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleCopyButton
         {
+            get
+            {
+                return _btnCopyVisible;
+            }
             set
             {
-                btnMoveDown.Visible = value;
+                _btnCopyVisible = value;
+                btnCopy.Visible = value;
             }
-            get { return btnMoveDown.Visible; }
         }
+
+
+        bool _btnModifyVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleModifyButton
+        {
+            get
+            {
+                return _btnModifyVisible;
+            }
+            set
+            {
+                _btnModifyVisible = value;
+                btnModify.Visible = value;
+            }
+        }
+
+        bool _btnDeleteVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleDeleteButton
+        {
+            get
+            {
+                return _btnDeleteVisible;
+            }
+            set
+            {
+                _btnDeleteVisible = value;
+                btnDelete.Visible = value;
+            }
+        }
+
+        bool _btnImportVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleImportButton
+        {
+            get
+            {
+                return _btnImportVisible;
+            }
+            set
+            {
+                _btnImportVisible = value;
+                btnImport.Visible = value;
+            }
+        }
+
+
+        bool _btnLinksVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleLinksButton
+        {
+            get
+            {
+                return _btnLinksVisible;
+            }
+            set
+            {
+                _btnLinksVisible = value;
+                btnLinks.Visible = value;
+            }
+        }
+
+
+        bool _btnModifyHelpTextVisible = true;
+        [DefaultValue(true)]
+        public bool xVisibleModifyHelpTextButton
+        {
+            get
+            {
+                return _btnModifyHelpTextVisible;
+            }
+            set
+            {
+                _btnModifyHelpTextVisible = value;
+                btnModifyHelpText.Visible = value;
+            }
+        }
+
+        bool _cBoxDispEmbVisible = false;
+        [DefaultValue(false)]
+        public bool xVisibleDispEmbComboBox
+        {
+            get
+            {
+                return _cBoxDispEmbVisible;
+            }
+            set
+            {
+                _cBoxDispEmbVisible = value;
+                cBoxDispEmb.Visible = value;
+            }
+        }
+
 
         ///////////////////////////////////////////////////////////////////////////////////////
         // This allows user to add items
@@ -93,6 +177,15 @@ namespace DDB
             allEntities.AddRange(items);
         }
 
+        public void setBusinessLogic(iEntityEditorBusinesssLogic iBusinessLogic)
+        {
+            businessLogic = iBusinessLogic;
+        }
+
+        public object[] GetItems()
+        {
+            return allEntities.ToArray();
+        }
 
         ///////////////////////////////////////////////////////////////////////////////////////
         // Auto generated EventDB
@@ -118,53 +211,19 @@ namespace DDB
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not Yet Implemented"); 
         }
 
         private void btnLinks_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not Yet Implemented"); 
         }
+
 
         private void btnModifyHelpText_Click(object sender, EventArgs e)
         {
             businessLogic.HelpModify(listBox.SelectedItem);
         }
-
-        private void btnMoveUp_Click(object sender, EventArgs e)
-        {
-            MoveItem(-1);
-        }
-
-        private void btnMoveDown_Click(object sender, EventArgs e)
-        {
-            MoveItem(1);
-        }
-
-
-        public void MoveItem(int direction)
-        {
-            // Checking selected item
-            //if (lBoxUsedVars.SelectedItem == null || lBoxUsedVars.SelectedIndex < 0)
-            //    return; // No selected item - nothing to do
-
-            // Calculate new index using move direction
-            int newIndex = listBox.SelectedIndex + direction;
-
-            // Checking bounds of the range
-            if (newIndex < 0 || newIndex >= listBox.Items.Count)
-                return; // Index out of range - nothing to do
-
-            object selected = listBox.SelectedItem;
-
-            // Removing removable element
-            listBox.Items.Remove(selected);
-            // Insert it in new position
-            listBox.Items.Insert(newIndex, selected);
-            // Restore selection
-            listBox.SetSelected(newIndex, true);
-        }
-
 
         private void listBox_DoubleClick(object sender, EventArgs e)
         {
@@ -248,6 +307,18 @@ namespace DDB
             DeleteItem();
         }
 
+        private void modifyHelpTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            businessLogic.HelpModify(listBox.SelectedItem);
+        }
+
+        private enum UCSort
+        {
+            UNSORTED,
+            SORT_ASC,
+            SORT_DES
+        }
+        private UCSort currentSort = UCSort.UNSORTED;
         private void sortAscendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             object selItem = listBox.SelectedItem;
@@ -256,6 +327,8 @@ namespace DDB
             labelSortOrder.Text = "\u2B63";
 
             listBox.SelectedItem = selItem;
+
+            currentSort = UCSort.SORT_ASC;
         }
 
         private void sortDescendingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -278,6 +351,8 @@ namespace DDB
 
             listBox.SelectedItem = selItem;
 
+            currentSort = UCSort.SORT_DES;
+
         }
 
         private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -289,6 +364,8 @@ namespace DDB
 
             txtBoxFilter.Text = "";
             txtBoxFilter.Enabled = true;
+
+            currentSort = UCSort.UNSORTED;
         }
 
 
@@ -296,7 +373,7 @@ namespace DDB
         /////////////////////////////////////////////////////////////////////////////////////////
         // Methods
 
-        void CreateItem()
+        private void CreateItem()
         {
             object objNew = businessLogic.Create();
             if (objNew != null)
@@ -306,7 +383,7 @@ namespace DDB
             }
         }
 
-        void CopyItem()
+        private void CopyItem()
         {
             int indexCount = 0;
             while (indexCount < listBox.SelectedIndices.Count)
@@ -321,14 +398,14 @@ namespace DDB
             }
         }
 
-        void ModifyItem()
+        private void ModifyItem()
         {
             businessLogic.Modify(listBox.SelectedItem);
             // Need this to update in case the string was changed by the call to Modify()
             listBox.Items[listBox.SelectedIndex] = listBox.Items[listBox.SelectedIndex];
         }
 
-        void DeleteItem()
+        private void DeleteItem()
         {
             DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected items(s)?",
                                   "Delete Items(s) Confirmation",
@@ -375,9 +452,11 @@ namespace DDB
             if (!xVisibleLinksButton)
             {
                 contextMenuStrip.Items["linksToolStripMenuItem"].Visible = false;
+                contextMenuStrip.Items["toolStripSeparatorAboveLinks"].Visible = false;
             }
             if (!xVisibleModifyHelpTextButton)
             {
+                contextMenuStrip.Items["toolStripSeparatorAboveHelp"].Visible = false;
                 contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Visible = false;
             }  
         }
@@ -406,7 +485,37 @@ namespace DDB
                     listBox.Items.AddRange(filteredList.ToArray());
                 }
             }
+
+            if (currentSort == UCSort.SORT_DES)
+            {
+                sortDescendingToolStripMenuItem_Click(null, null);
+            }
         }
+
+        private void cBoxDispEmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (businessLogic != null)
+            {
+                businessLogic.ChangeDisplayName(cBoxDispEmb.SelectedIndex);
+                RefreshListbox();
+            }
+        }
+
+        private void RefreshListbox()
+        {
+            String filterValue = txtBoxFilter.Text;
+            txtBoxFilter.Text = "";
+            listBox.Items.Clear();
+
+            foreach (object obj in allEntities)
+            {
+                listBox.Items.Add(obj);
+            }
+
+            txtBoxFilter.Text = filterValue;
+
+        }
+
 
     }
 
@@ -422,6 +531,7 @@ namespace DDB
         void Preview(object obj);
         void Links();
         void Import();
+        void ChangeDisplayName(int nameId);
         void HelpModify(object obj);
         void HelpPreview(object obj);
     }

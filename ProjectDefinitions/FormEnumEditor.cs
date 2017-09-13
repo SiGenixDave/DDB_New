@@ -72,7 +72,7 @@ namespace DDB
             if ((tBoxName.Text.Length > 0) && (tBoxName.Text.Length < 80))
             {
                 Size size = TextRenderer.MeasureText(tBoxName.Text, tBoxName.Font);
-                tBoxName.Width = size.Width;
+                tBoxName.Width = size.Width + 10;
                 tBoxName.Height = size.Height;
             }
         }

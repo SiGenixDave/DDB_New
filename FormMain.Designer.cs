@@ -861,11 +861,7 @@
             this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 456);
             this.ucEE_EventVariables.TabIndex = 36;
             this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
-            this.ucEE_EventVariables.xVisibleImportButton = true;
-            this.ucEE_EventVariables.xVisibleLinksButton = true;
-            this.ucEE_EventVariables.xVisibleModifyHelpTextButton = true;
-            this.ucEE_EventVariables.xVisibleMoveDownButton = false;
-            this.ucEE_EventVariables.xVisibleMoveUpButton = false;
+            this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
             // 
             // ucEE_EventStructures
             // 
@@ -874,11 +870,7 @@
             this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 456);
             this.ucEE_EventStructures.TabIndex = 35;
             this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
-            this.ucEE_EventStructures.xVisibleImportButton = true;
-            this.ucEE_EventStructures.xVisibleLinksButton = true;
             this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
-            this.ucEE_EventStructures.xVisibleMoveDownButton = false;
-            this.ucEE_EventStructures.xVisibleMoveUpButton = false;
             // 
             // ucEE_Events
             // 
@@ -887,11 +879,7 @@
             this.ucEE_Events.Size = new System.Drawing.Size(276, 456);
             this.ucEE_Events.TabIndex = 34;
             this.ucEE_Events.xGroupBoxTitle = "Events";
-            this.ucEE_Events.xVisibleImportButton = true;
             this.ucEE_Events.xVisibleLinksButton = false;
-            this.ucEE_Events.xVisibleModifyHelpTextButton = true;
-            this.ucEE_Events.xVisibleMoveDownButton = false;
-            this.ucEE_Events.xVisibleMoveUpButton = false;
             // 
             // tabSelfTest
             // 
@@ -920,40 +908,28 @@
             // 
             this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 424);
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 416);
             this.ucEE_Enumerations.TabIndex = 23;
             this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
-            this.ucEE_Enumerations.xVisibleImportButton = false;
-            this.ucEE_Enumerations.xVisibleLinksButton = false;
             this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
-            this.ucEE_Enumerations.xVisibleMoveDownButton = false;
-            this.ucEE_Enumerations.xVisibleMoveUpButton = false;
             // 
             // ucEE_Bitmasks
             // 
             this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 405);
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 416);
             this.ucEE_Bitmasks.TabIndex = 22;
             this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
-            this.ucEE_Bitmasks.xVisibleImportButton = false;
-            this.ucEE_Bitmasks.xVisibleLinksButton = false;
             this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
-            this.ucEE_Bitmasks.xVisibleMoveDownButton = false;
-            this.ucEE_Bitmasks.xVisibleMoveUpButton = false;
             // 
             // ucEE_Units
             // 
             this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
             this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(270, 405);
+            this.ucEE_Units.Size = new System.Drawing.Size(270, 416);
             this.ucEE_Units.TabIndex = 21;
             this.ucEE_Units.xGroupBoxTitle = "Units";
-            this.ucEE_Units.xVisibleImportButton = false;
-            this.ucEE_Units.xVisibleLinksButton = false;
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;
-            this.ucEE_Units.xVisibleMoveDownButton = false;
-            this.ucEE_Units.xVisibleMoveUpButton = false;
             // 
             // tabProjectSettings
             // 
@@ -1568,7 +1544,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.10)";
+            this.Text = "Bombardier DDB (v 0.0.0.11)";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);

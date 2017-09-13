@@ -54,6 +54,9 @@ namespace DDB
         public void HelpPreview(object obj)
         { }
 
+        public void ChangeDisplayName(int name)
+        { }
+
 
 
 

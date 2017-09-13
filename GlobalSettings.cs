@@ -12,6 +12,7 @@ namespace DDB
     {
         private static Boolean customerUseOnly;
         private static NameType watchVar = NameType.DISPLAY;
+        private static NameType eventVar = NameType.DISPLAY;
 
         static public void setCustomerUseOnly(Boolean setting)
         {
@@ -31,6 +32,16 @@ namespace DDB
         static public NameType getWatchDisplayType()
         {
             return watchVar;
+        }
+
+        static public void setEventVariableDisplayType(NameType n)
+        {
+            eventVar = n;
+        }
+
+        static public NameType getEventVariableDisplayType()
+        {
+            return eventVar;
         }
 
     }

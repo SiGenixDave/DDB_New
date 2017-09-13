@@ -103,7 +103,14 @@ namespace DDB
 
         public override string ToString()
         {
-            return dispName;
+            if (GlobalSettings.getEventVariableDisplayType() == NameType.DISPLAY)
+            {
+                return dispName;
+            }
+            else
+            {
+                return embName;
+            }
         }
     }
 }

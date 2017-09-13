@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.cBoxDispEmb = new System.Windows.Forms.ComboBox();
             this.labelSortOrder = new System.Windows.Forms.Label();
             this.btnLinks = new System.Windows.Forms.Button();
             this.btnModifyHelpText = new System.Windows.Forms.Button();
@@ -46,24 +47,21 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparatorAboveLinks = new System.Windows.Forms.ToolStripSeparator();
             this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparatorAboveHelp = new System.Windows.Forms.ToolStripSeparator();
             this.modifyHelpTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.sortAscendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortDescendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unsortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMoveUp = new System.Windows.Forms.Button();
-            this.btnMoveDown = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.btnMoveDown);
-            this.groupBox.Controls.Add(this.btnMoveUp);
+            this.groupBox.Controls.Add(this.cBoxDispEmb);
             this.groupBox.Controls.Add(this.labelSortOrder);
             this.groupBox.Controls.Add(this.btnLinks);
             this.groupBox.Controls.Add(this.btnModifyHelpText);
@@ -84,6 +82,20 @@
             this.groupBox.Text = "Group Box Title";
             this.groupBox.Leave += new System.EventHandler(this.groupBox_Leave);
             // 
+            // cBoxDispEmb
+            // 
+            this.cBoxDispEmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxDispEmb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxDispEmb.FormattingEnabled = true;
+            this.cBoxDispEmb.Items.AddRange(new object[] {
+            "Display Name",
+            "Embedded Name"});
+            this.cBoxDispEmb.Location = new System.Drawing.Point(9, 22);
+            this.cBoxDispEmb.Name = "cBoxDispEmb";
+            this.cBoxDispEmb.Size = new System.Drawing.Size(132, 21);
+            this.cBoxDispEmb.TabIndex = 37;
+            this.cBoxDispEmb.SelectedIndexChanged += new System.EventHandler(this.cBoxDispEmb_SelectedIndexChanged);
+            // 
             // labelSortOrder
             // 
             this.labelSortOrder.AutoSize = true;
@@ -102,6 +114,7 @@
             this.btnLinks.TabIndex = 33;
             this.btnLinks.Text = "Links...";
             this.btnLinks.UseVisualStyleBackColor = true;
+            this.btnLinks.Click += new System.EventHandler(this.btnLinks_Click);
             // 
             // btnModifyHelpText
             // 
@@ -213,9 +226,9 @@
             this.copyToolStripMenuItem,
             this.modifyToolStripMenuItem,
             this.deleteToolStripMenuItem,
-            this.toolStripSeparator1,
+            this.toolStripSeparatorAboveLinks,
             this.linksToolStripMenuItem,
-            this.toolStripSeparator2,
+            this.toolStripSeparatorAboveHelp,
             this.modifyHelpTextToolStripMenuItem,
             this.toolStripSeparator3,
             this.sortAscendingToolStripMenuItem,
@@ -254,10 +267,10 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparatorAboveLinks
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparatorAboveLinks.Name = "toolStripSeparatorAboveLinks";
+            this.toolStripSeparatorAboveLinks.Size = new System.Drawing.Size(161, 6);
             // 
             // linksToolStripMenuItem
             // 
@@ -265,10 +278,10 @@
             this.linksToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.linksToolStripMenuItem.Text = "Links...";
             // 
-            // toolStripSeparator2
+            // toolStripSeparatorAboveHelp
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparatorAboveHelp.Name = "toolStripSeparatorAboveHelp";
+            this.toolStripSeparatorAboveHelp.Size = new System.Drawing.Size(161, 6);
             // 
             // modifyHelpTextToolStripMenuItem
             // 
@@ -276,6 +289,7 @@
             this.modifyHelpTextToolStripMenuItem.Name = "modifyHelpTextToolStripMenuItem";
             this.modifyHelpTextToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modifyHelpTextToolStripMenuItem.Text = "Modify Help Text";
+            this.modifyHelpTextToolStripMenuItem.Click += new System.EventHandler(this.modifyHelpTextToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -302,28 +316,6 @@
             this.unsortToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.unsortToolStripMenuItem.Text = "Unsorted";
             this.unsortToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
-            // 
-            // btnMoveUp
-            // 
-            this.btnMoveUp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveUp.Location = new System.Drawing.Point(9, 356);
-            this.btnMoveUp.Name = "btnMoveUp";
-            this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveUp.TabIndex = 35;
-            this.btnMoveUp.Text = "Move Up";
-            this.btnMoveUp.UseVisualStyleBackColor = true;
-            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
-            // 
-            // btnMoveDown
-            // 
-            this.btnMoveDown.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveDown.Location = new System.Drawing.Point(94, 355);
-            this.btnMoveDown.Name = "btnMoveDown";
-            this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveDown.TabIndex = 36;
-            this.btnMoveDown.Text = "Move Down";
-            this.btnMoveDown.UseVisualStyleBackColor = true;
-            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
             // UserControlEntityEditor
             // 
@@ -362,11 +354,10 @@
         private System.Windows.Forms.ToolStripMenuItem sortAscendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortDescendingToolStripMenuItem;
         private System.Windows.Forms.Label labelSortOrder;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorAboveLinks;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorAboveHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem unsortToolStripMenuItem;
-        private System.Windows.Forms.Button btnMoveDown;
-        private System.Windows.Forms.Button btnMoveUp;
+        private System.Windows.Forms.ComboBox cBoxDispEmb;
     }
 }

@@ -65,6 +65,12 @@
     <Compile Include="FormDeleteMe.Designer.cs">
       <DependentUpon>FormDeleteMe.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlEntityEditor\UserControlDualSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEntityEditor\UserControlDualSelector.Designer.cs">
+      <DependentUpon>UserControlDualSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlEntityEditor\UserControlEntityEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +246,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlEntityEditor\UserControlDualSelector.resx">
+      <DependentUpon>UserControlDualSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlEntityEditor\UserControlEntityEditor.resx">
       <DependentUpon>UserControlEntityEditor.cs</DependentUpon>
     </EmbeddedResource>

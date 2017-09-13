@@ -77,7 +77,7 @@ namespace DDB
             {
                 Size size = TextRenderer.MeasureText(tBoxEventName.Text, tBoxEventName.Font);
 
-                tBoxEventName.Width = size.Width;
+                tBoxEventName.Width = size.Width + 10;
                 tBoxEventName.Height = size.Height;
             }
         }
