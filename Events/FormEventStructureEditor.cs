@@ -32,34 +32,26 @@ namespace DDB
         {
             mEventStructure.name = tBoxStructName.Text;
 
-            int index = 0;
-            mEventStructure.variableListFKey.Clear();
+            mEventStructure.variableList.Clear();
 
-            object[] usedVars = ucDS_UsedEventVars.GetItems();
-            while (index < usedVars.Length)
+            foreach (EventVariableDB var in ucDS_UsedEventVars.GetItems())
             {
-                EventVariableDB evVar = (EventVariableDB)usedVars[index];
-                mEventStructure.variableListFKey.Add(evVar.fKey);
-                index++;
+                mEventStructure.variableList.Add(var);
             }
 
             return mEventStructure;
         }
 
-         private void PopulateUsedVars()
+        private void PopulateUsedVars()
         {
-            int index = 0;
-
-            if (mEventStructure.variableListFKey == null)
+            if (mEventStructure.variableList == null)
             {
                 return;
             }
 
-            while (index < mEventStructure.variableListFKey.Count)
+            foreach (EventVariableDB ev in mEventStructure.variableList)
             {
-                EventVariableDB ev = EventVariableList.GetEventObject(mEventStructure.variableListFKey[index]);
                 ucDS_UsedEventVars.AddListBoxItem(ev);
-                index++;
             }
         }
 
@@ -67,23 +59,19 @@ namespace DDB
         {
             EventVariableDB[] allVars = EventVariableList.GetEventVariables();
 
-            int index = 0;
-            while (index < allVars.Length)
+            foreach (EventVariableDB var in EventVariableList.GetEventVariables())
             {
-                if (mEventStructure.variableListFKey != null)
+                if (mEventStructure.variableList != null)
                 {
-                    if (!mEventStructure.variableListFKey.Contains(index))
+                    if (!mEventStructure.variableList.Contains(var))
                     {
-                        EventVariableDB ev = EventVariableList.GetEventObject(index);
-                        ucDS_AvailEventVars.AddListBoxItem(ev);
+                        ucDS_AvailEventVars.AddListBoxItem(var);
                     }
                 }
                 else
                 {
-                    EventVariableDB ev = EventVariableList.GetEventObject(index);
-                    ucDS_AvailEventVars.AddListBoxItem(ev);
+                    ucDS_AvailEventVars.AddListBoxItem(var);
                 }
-                index++;
             }
         }
 

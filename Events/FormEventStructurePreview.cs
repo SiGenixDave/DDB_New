@@ -35,10 +35,9 @@ namespace DDB
 
             this.Text += "for \"" + eStruct.name + "\"";
             int populatedRowCount = 0;
-            foreach (int eVarIdFKey in eStruct.variableListFKey.ToArray())
+            foreach (EventVariableDB var in eStruct.variableList)
             {
-                EventVariableDB evVar = EventVariableList.GetEventObject(eVarIdFKey);
-                dataGridView1.Rows.Add(evVar.dispName, evVar.embName);
+                dataGridView1.Rows.Add(var.dispName, var.embName);
                 populatedRowCount++;
             }
 

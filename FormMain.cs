@@ -45,10 +45,14 @@ namespace DDB
             BitmaskList.Init();
             EnumList.Init();
             ProjectSettingsDB.Init();
-            EventList.Init();
-            EventStructureList.Init();
+
+            // Must be this order
             EventVariableList.Init();
-            EventLogList.Init();
+            EventStructureList.Init();
+            EventLogList.Init(); 
+            EventList.Init();
+
+
             InitProjectSettings();
         }
 

@@ -21,8 +21,8 @@ namespace DDB
 
             tBoxEventName.Text = ev.name;
             tBoxDefineName.Text = ev.embeddedName;
-            cBoxEventLogs.SelectedItem = EventLogList.GetEventObject(ev.logFKey);
-            cBoxEventStructs.SelectedItem = EventStructureList.GetEventObject(ev.structFKey);
+            cBoxEventLogs.SelectedItem = ev.eventLogDB;
+            cBoxEventStructs.SelectedItem = ev.eventStructureDB;
         }
 
         private FormEventEditor()
@@ -34,12 +34,9 @@ namespace DDB
         {
             ev.name = tBoxEventName.Text;
             ev.embeddedName = tBoxDefineName.Text;
-            
-            ev.logFKey = cBoxEventLogs.SelectedIndex;
-            
-            EventStructureDB es = (EventStructureDB)(cBoxEventStructs.SelectedItem);
-            ev.structFKey = es.fKey;
-            
+            ev.eventLogDB = (EventLogDB)cBoxEventLogs.SelectedItem;
+            ev.eventStructureDB = (EventStructureDB)(cBoxEventStructs.SelectedItem);
+           
             return ev;
         }
 

@@ -29,8 +29,8 @@ namespace DDB
             {
                 lblEventName.Text = e.name;
                 lblCdefineName.Text = e.embeddedName;
-                lblEventStructure.Text = EventStructureList.GetEventObject(e.structFKey).ToString();
-                lblEventLog.Text = (e.logFKey == 0) ? "Propulsion" : "Engineering";
+                lblEventStructure.Text = e.eventStructureDB.ToString();
+                lblEventLog.Text = e.eventLogDB.ToString();
             }
         }
     }

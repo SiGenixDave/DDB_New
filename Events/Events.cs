@@ -48,7 +48,7 @@ namespace DDB
 
         public object Create()
         {
-            EventDB e = new EventDB("New Event Name", "Embedded Name", 0, 0, "");
+            EventDB e = new EventDB("New Event Name", "Embedded Name", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(0), "");
             using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
