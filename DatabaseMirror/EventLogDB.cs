@@ -8,24 +8,24 @@ namespace DDB
 
     public class EventLogList
     {
-        static List<EventLogDB> evList = new List<EventLogDB>();
+        static List<EventLogDB> list = new List<EventLogDB>();
 
         static public void Init()
         {
-            evList.Add(new EventLogDB("Propulsion", 0));
-            evList.Add(new EventLogDB("Engineering", 1));
+            list.Add(new EventLogDB("Propulsion", 0));
+            list.Add(new EventLogDB("Engineering", 1));
         }
 
         static public EventLogDB[] GetEventLogs()
         {
-            return evList.ToArray();
+            return list.ToArray();
         }
 
         static public EventLogDB GetEventObject(int fkey)
         {
             EventLogDB ev = null;
 
-            foreach (EventLogDB e in evList)
+            foreach (EventLogDB e in list)
             {
                 if (e.fKey == fkey)
                 {
@@ -39,8 +39,8 @@ namespace DDB
 
         static public void Update(EventLogDB[] updatedList)
         {
-            evList.Clear();
-            evList.AddRange(updatedList);
+            list.Clear();
+            list.AddRange(updatedList);
         }
 
 

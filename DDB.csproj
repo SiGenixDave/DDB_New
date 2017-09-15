@@ -56,9 +56,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseMirror\SelfTestDB.cs" />
+    <Compile Include="DatabaseMirror\SelfTestVariableDB.cs" />
     <Compile Include="DatabaseMirror\EventLogDB.cs" />
     <Compile Include="DatabaseMirror\EventVariableDB.cs" />
     <Compile Include="DatabaseMirror\EventStructureDB.cs" />
+    <Compile Include="SelfTest\FormSelfTestEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelfTest\FormSelfTestEditor.Designer.cs">
+      <DependentUpon>FormSelfTestEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelfTest\SelfTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserControlEntityEditor\UserControlDualSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,6 +248,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelfTest\FormSelfTestEditor.resx">
+      <DependentUpon>FormSelfTestEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlEntityEditor\UserControlDualSelector.resx">
       <DependentUpon>UserControlDualSelector.cs</DependentUpon>
     </EmbeddedResource>

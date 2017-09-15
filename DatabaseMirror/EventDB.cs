@@ -8,27 +8,27 @@ namespace DDB
 
     public class EventList
     {
-        static List<EventDB> evList = new List<EventDB>();
+        static List<EventDB> list = new List<EventDB>();
 
         static public void Init()
         {
-            evList.Add(new EventDB("Event 1", "EV_1", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(0), "<b>Event 1 Description</b>"));
-            evList.Add(new EventDB("Event 2", "EV_2", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(1), "<i>Event 2 Description</i>"));
-            evList.Add(new EventDB("Event 3", "EV_3", EventLogList.GetEventObject(1), EventStructureList.GetEventObject(2), "<u>Event 3 Description</u>"));
-            evList.Add(new EventDB("Event 4", "EV_4", EventLogList.GetEventObject(1), EventStructureList.GetEventObject(3), "<em>Event 4 Description</em>"));
+            list.Add(new EventDB("Event 1", "EV_1", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(0), "<b>Event 1 Description</b>"));
+            list.Add(new EventDB("Event 2", "EV_2", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(1), "<i>Event 2 Description</i>"));
+            list.Add(new EventDB("Event 3", "EV_3", EventLogList.GetEventObject(1), EventStructureList.GetEventObject(2), "<u>Event 3 Description</u>"));
+            list.Add(new EventDB("Event 4", "EV_4", EventLogList.GetEventObject(1), EventStructureList.GetEventObject(3), "<em>Event 4 Description</em>"));
         }
 
         static public EventDB[] GetEvents()
         {
-            return evList.ToArray();
+            return list.ToArray();
         }
 
         static public void Update(object[] updatedList)
         {
-            evList.Clear();
+            list.Clear();
             foreach (EventDB e in updatedList)
             {
-                evList.Add(e);
+                list.Add(e);
             }
         }
 

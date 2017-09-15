@@ -22,10 +22,10 @@ namespace DDB
 
         public EventVariableDB GetEditedEventVariable()
         {
-            //ev.name = tBoxEventName.Text;
-            //ev.embeddedName = tBoxDefineName.Text;
-            //ev.logFKey = cBoxEventLogs.SelectedIndex;
-            //ev.structFKey = cBoxEventStructs.SelectedIndex;
+            //st.name = tBoxEventName.Text;
+            //st.embeddedName = tBoxDefineName.Text;
+            //st.logFKey = cBoxEventLogs.SelectedIndex;
+            //st.structFKey = cBoxEventStructs.SelectedIndex;
             return ev;
         }
 

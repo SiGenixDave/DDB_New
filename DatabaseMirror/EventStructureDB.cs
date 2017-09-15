@@ -8,26 +8,26 @@ namespace DDB
 
     public class EventStructureList
     {
-        static List<EventStructureDB> evList = new List<EventStructureDB>();
+        static List<EventStructureDB> list = new List<EventStructureDB>();
 
         static public void Init()
         {
-            evList.Add(new EventStructureDB("Event_1_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(0), EventVariableList.GetEventObject(1) }));
-            evList.Add(new EventStructureDB("Event_2_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(4), EventVariableList.GetEventObject(5) }));
-            evList.Add(new EventStructureDB("Event_3_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(8), EventVariableList.GetEventObject(18) }));
-            evList.Add(new EventStructureDB("Event_4_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(9) }));
+            list.Add(new EventStructureDB("Event_1_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(0), EventVariableList.GetEventObject(1) }));
+            list.Add(new EventStructureDB("Event_2_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(4), EventVariableList.GetEventObject(5) }));
+            list.Add(new EventStructureDB("Event_3_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(8), EventVariableList.GetEventObject(18) }));
+            list.Add(new EventStructureDB("Event_4_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(9) }));
         }
 
         static public EventStructureDB[] GetEventStructures()
         {
-            return evList.ToArray();
+            return list.ToArray();
         }
 
         static public EventStructureDB GetEventObject(int fkey)
         {
             EventStructureDB ev = null;
 
-            foreach (EventStructureDB e in evList)
+            foreach (EventStructureDB e in list)
             {
                 if (e.fKey == fkey)
                 {
@@ -41,10 +41,10 @@ namespace DDB
 
         static public void Update(object[] updatedList)
         {
-            evList.Clear();
+            list.Clear();
             foreach (EventStructureDB e in updatedList)
             {
-                evList.Add(e);
+                list.Add(e);
             }
         }
 

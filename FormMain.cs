@@ -52,6 +52,8 @@ namespace DDB
             EventLogList.Init(); 
             EventList.Init();
 
+            SelfTestList.Init();
+
 
             InitProjectSettings();
         }
@@ -285,6 +287,7 @@ namespace DDB
             PopulateEnums();
             PopulateProjectSettings();
             PopulateEventLists();
+            PopulateSelfTestLists();
             //////////////////////////////////////////////////////////
             cBoxCommType.SelectedIndex = 0;
             cBoxNumStreamVars.SelectedIndex = 0;

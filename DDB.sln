@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDB", "DDB.csproj", "{B1945A11-6EDA-49BF-ABA1-7FB032AA2963}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUserControl", "..\TestUserControl\TestUserControl.csproj", "{602FF621-BBD7-4AD0-84BF-DC8E793DF6EE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTabControl", "..\TestTabControl\TestTabControl.csproj", "{C51F1426-E4C0-4D42-B889-D98726FBF062}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -17,14 +13,6 @@ Global
 		{B1945A11-6EDA-49BF-ABA1-7FB032AA2963}.Debug|x86.Build.0 = Debug|x86
 		{B1945A11-6EDA-49BF-ABA1-7FB032AA2963}.Release|x86.ActiveCfg = Release|x86
 		{B1945A11-6EDA-49BF-ABA1-7FB032AA2963}.Release|x86.Build.0 = Release|x86
-		{602FF621-BBD7-4AD0-84BF-DC8E793DF6EE}.Debug|x86.ActiveCfg = Debug|x86
-		{602FF621-BBD7-4AD0-84BF-DC8E793DF6EE}.Debug|x86.Build.0 = Debug|x86
-		{602FF621-BBD7-4AD0-84BF-DC8E793DF6EE}.Release|x86.ActiveCfg = Release|x86
-		{602FF621-BBD7-4AD0-84BF-DC8E793DF6EE}.Release|x86.Build.0 = Release|x86
-		{C51F1426-E4C0-4D42-B889-D98726FBF062}.Debug|x86.ActiveCfg = Debug|x86
-		{C51F1426-E4C0-4D42-B889-D98726FBF062}.Debug|x86.Build.0 = Debug|x86
-		{C51F1426-E4C0-4D42-B889-D98726FBF062}.Release|x86.ActiveCfg = Release|x86
-		{C51F1426-E4C0-4D42-B889-D98726FBF062}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
