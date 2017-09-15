@@ -124,17 +124,17 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genEmbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genHelpFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.genDocsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.previewBitmasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewEnumerationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewEventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.previewEventVariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewEventStructuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewEventVariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -402,8 +402,9 @@
             this.cBoxWatchReadWriteFlags.FormattingEnabled = true;
             this.cBoxWatchReadWriteFlags.Items.AddRange(new object[] {
             "Read Only",
-            "Read/Write [Level 1]",
-            "Read/Write [Level 2]"});
+            "Maintenence [R/W]",
+            "Engineering [R/W]",
+            "Factory [R/W]"});
             this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(11, 347);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
             this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(143, 21);
@@ -746,27 +747,27 @@
             // tBoxPasswordLevel3
             // 
             this.tBoxPasswordLevel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxPasswordLevel3.Location = new System.Drawing.Point(72, 79);
+            this.tBoxPasswordLevel3.Location = new System.Drawing.Point(104, 79);
             this.tBoxPasswordLevel3.Name = "tBoxPasswordLevel3";
-            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(166, 21);
             this.tBoxPasswordLevel3.TabIndex = 5;
             this.tBoxPasswordLevel3.Text = "aeg3";
             // 
             // tBoxPasswordLevel2
             // 
             this.tBoxPasswordLevel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxPasswordLevel2.Location = new System.Drawing.Point(72, 49);
+            this.tBoxPasswordLevel2.Location = new System.Drawing.Point(104, 49);
             this.tBoxPasswordLevel2.Name = "tBoxPasswordLevel2";
-            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(166, 21);
             this.tBoxPasswordLevel2.TabIndex = 4;
             this.tBoxPasswordLevel2.Text = "aeg2";
             // 
             // tBoxPasswordLevel1
             // 
             this.tBoxPasswordLevel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxPasswordLevel1.Location = new System.Drawing.Point(72, 20);
+            this.tBoxPasswordLevel1.Location = new System.Drawing.Point(104, 20);
             this.tBoxPasswordLevel1.Name = "tBoxPasswordLevel1";
-            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(198, 21);
+            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(166, 21);
             this.tBoxPasswordLevel1.TabIndex = 3;
             this.tBoxPasswordLevel1.Text = "aeg1";
             // 
@@ -774,21 +775,21 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(18, 82);
+            this.label19.Location = new System.Drawing.Point(48, 82);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 2;
-            this.label19.Text = "Level3";
+            this.label19.Text = "Factory";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(18, 52);
+            this.label18.Location = new System.Drawing.Point(25, 52);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 13);
+            this.label18.Size = new System.Drawing.Size(73, 13);
             this.label18.TabIndex = 1;
-            this.label18.Text = "Level2";
+            this.label18.Text = "Engineering";
             // 
             // label17
             // 
@@ -796,9 +797,9 @@
             this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(18, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 13);
+            this.label17.Size = new System.Drawing.Size(80, 13);
             this.label17.TabIndex = 0;
-            this.label17.Text = "Level1";
+            this.label17.Text = "Maintenence";
             // 
             // gBoxEventLogs
             // 
@@ -1165,7 +1166,8 @@
             this.importToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.newToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -1201,13 +1203,18 @@
             this.exitToolStripMenuItem.Text = "Exit..";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.genEmbToolStripMenuItem,
             this.genHelpFileToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem1,
+            this.genDocsToolStripMenuItem,
             this.toolStripSeparator2,
             this.previewBitmasksToolStripMenuItem,
             this.previewEnumerationsToolStripMenuItem,
@@ -1231,16 +1238,11 @@
             this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.genHelpFileToolStripMenuItem.Text = "Generate Help File (.chm)";
             // 
-            // toolStripSeparator1
+            // genDocsToolStripMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(205, 6);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
-            this.toolStripMenuItem1.Text = "Dependencies...";
+            this.genDocsToolStripMenuItem.Name = "genDocsToolStripMenuItem";
+            this.genDocsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genDocsToolStripMenuItem.Text = "Generate Docs...";
             // 
             // toolStripSeparator2
             // 
@@ -1271,13 +1273,6 @@
             this.previewEventsToolStripMenuItem.Text = "Preview Event";
             this.previewEventsToolStripMenuItem.Click += new System.EventHandler(this.previewEventsToolStripMenuItem_Click);
             // 
-            // previewEventVariablesToolStripMenuItem
-            // 
-            this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
-            this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
-            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.previewEventVariablesToolStripMenuItem.Text = "Preview Event Variables";
-            // 
             // previewEventStructuresToolStripMenuItem
             // 
             this.previewEventStructuresToolStripMenuItem.CheckOnClick = true;
@@ -1285,6 +1280,13 @@
             this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
             this.previewEventStructuresToolStripMenuItem.Click += new System.EventHandler(this.previewEventStructuresToolStripMenuItem_Click);
+            // 
+            // previewEventVariablesToolStripMenuItem
+            // 
+            this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
+            this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
+            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventVariablesToolStripMenuItem.Text = "Preview Event Variables";
             // 
             // previewHelpToolStripMenuItem
             // 
@@ -1463,8 +1465,6 @@
         private System.Windows.Forms.ToolStripMenuItem previewEventVariablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEventStructuresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewHelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ContextMenuStrip conMenuEventLogs;
         private System.Windows.Forms.ToolStripMenuItem addNewEventLogMenuItem;
@@ -1480,6 +1480,8 @@
         private UserControlEntityEditor ucEE_EventVariables;
         private UserControlEntityEditor ucEE_EventStructures;
         private UserControlEntityEditor ucEE_WatchVariables;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genDocsToolStripMenuItem;
     }
 }
 

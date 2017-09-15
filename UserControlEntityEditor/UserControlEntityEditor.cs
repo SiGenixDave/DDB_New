@@ -26,7 +26,13 @@ namespace DDB
                 btnDelete.Enabled = false;
                 btnImport.Enabled = false;
                 btnLinks.Enabled = false;
-                contextMenuStrip.Enabled = false;
+
+                createToolStripMenuItem.Enabled = false;
+                copyToolStripMenuItem.Enabled = false;
+                modifyToolStripMenuItem.Enabled = false;
+                deleteToolStripMenuItem.Enabled = false;
+                linksToolStripMenuItem.Enabled = false;
+                
                 listBox.DoubleClick -= listBox_DoubleClick;
             }
 
@@ -251,10 +257,10 @@ namespace DDB
         {
             if (listBox.SelectedIndices.Count == 0)
             {
-                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = false;
-                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = false;
-                contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = false;
-                contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = false;
+                copyToolStripMenuItem.Enabled = false;
+                deleteToolStripMenuItem.Enabled = false;
+                modifyToolStripMenuItem.Enabled = false;
+                modifyHelpTextToolStripMenuItem.Enabled = false;
 
                 btnModify.Enabled = false;
                 btnCopy.Enabled = false;
@@ -270,17 +276,20 @@ namespace DDB
             }
             else if (listBox.SelectedIndices.Count == 1)
             {
-                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = true;
-                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = true;
-                contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = true;
-                contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = true;
+
+                modifyHelpTextToolStripMenuItem.Enabled = true;
 
                 if (!GlobalSettings.getCustomerUseOnly())
                 {
+                    copyToolStripMenuItem.Enabled = true;
+                    deleteToolStripMenuItem.Enabled = true;
+                    modifyToolStripMenuItem.Enabled = true;                
+                    
                     btnModify.Enabled = true;
                     btnCopy.Enabled = true;
                     btnDelete.Enabled = true;
                     btnLinks.Enabled = true;
+
                 }
                 btnModifyHelpText.Enabled = true;
 
@@ -290,16 +299,17 @@ namespace DDB
             else
             {
                 // Disable the "Modify" in context menu
-                contextMenuStrip.Items["modifyToolStripMenuItem"].Enabled = false;
-                contextMenuStrip.Items["modifyHelpTextToolStripMenuItem"].Enabled = false;
-                contextMenuStrip.Items["deleteToolStripMenuItem"].Enabled = true;
-                contextMenuStrip.Items["copyToolStripMenuItem"].Enabled = true;
+                modifyToolStripMenuItem.Enabled = false;
+                modifyHelpTextToolStripMenuItem.Enabled = false;
 
                 if (!GlobalSettings.getCustomerUseOnly())
                 {
                     btnCopy.Enabled = true;
                     btnDelete.Enabled = true;
                     btnLinks.Enabled = true;
+
+                    deleteToolStripMenuItem.Enabled = true;
+                    copyToolStripMenuItem.Enabled = true;                
                 }
                 btnModify.Enabled = false;
                 btnModifyHelpText.Enabled = false;
