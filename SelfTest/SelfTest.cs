@@ -123,5 +123,12 @@ namespace DDB
             //TODO ucEE_SelfTest.setBusinessLogic(sbl); 
             ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
         }
+
+        private void btnEditSelfTestLists_Click(object sender, EventArgs e)
+        {
+            FormSelfTestListEditor formSTLE = new FormSelfTestListEditor();
+            formSTLE.ShowDialog();
+        }
+
     }
 }

@@ -8,6 +8,7 @@ namespace DDB
     {
         SelfTestDB st;
         FormMain formMain;
+        FormHelpPreview fhp = new FormHelpPreview();
 
         const String STR_APPEND = "Append";
         const String STR_MODIFY = "Modify";
@@ -35,6 +36,8 @@ namespace DDB
             PopulateUsedVars();
             PopulateUnusedVars();
             PopulateActionCheckBox();
+
+            fhp.Owner = this;
 
         }
 
@@ -282,6 +285,8 @@ namespace DDB
                     st.messageList.Add(potentialNewTestStep);
                     // Since the user accepted, force the combo box to be updated to the next step
                     PopulateTestStepAppend();
+
+                    CompileHelpTextAndShow();
                 }
             }
         }
@@ -291,6 +296,8 @@ namespace DDB
             FormHelpText fh = new FormHelpText((SelfTestMessageDB)cBoxTestStep.SelectedItem,
                                                "Self Test Message \"" + cBoxTestStep.SelectedItem.ToString() + "\"");
             fh.ShowDialog();
+
+            CompileHelpTextAndShow();
         }
 
         private void InsertTestStep(Boolean before)
@@ -317,6 +324,8 @@ namespace DDB
                     // Since the user accepted, force the combo box to be updated to the next step
                     PopulateTestStepInsertModifyDelete();
                     SetTestStepSelection();
+
+                    CompileHelpTextAndShow();
                 }
             }
 
@@ -345,10 +354,17 @@ namespace DDB
             PopulateTestStepInsertModifyDelete();
             SetTestStepSelection();
 
+            CompileHelpTextAndShow();
+
         }
 
         private void ReorderTestSteps()
         {
+            if (checkBoxViewEntireTest.Checked)
+            {
+                fhp.Visible = false;
+            }
+
             using (FormReorderTestSteps fReorder = new FormReorderTestSteps(st))
             {
                 if (fReorder.ShowDialog() == DialogResult.OK)
@@ -357,7 +373,39 @@ namespace DDB
                     ReNumberTestSteps();
                 }
             }
+
+            if (checkBoxViewEntireTest.Checked)
+            {
+                fhp.Visible = true;
+                CompileHelpTextAndShow();
+            }
                 
+        }
+
+        private void checkBoxViewEntireTest_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxViewEntireTest.Checked)
+            {
+                fhp.Visible = true;
+                CompileHelpTextAndShow();
+            }
+            else
+            {
+                fhp.Visible = false;
+            }
+
+        }
+
+        private void CompileHelpTextAndShow()
+        {
+            String helpText = st.descriptionText;
+
+            foreach (SelfTestMessageDB s in st.messageList)
+            {
+                helpText += s.messageText;
+            }
+
+            fhp.UpdateForm(helpText);
         }
 
     }

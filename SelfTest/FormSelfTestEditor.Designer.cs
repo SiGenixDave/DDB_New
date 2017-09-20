@@ -155,6 +155,7 @@
             this.checkBoxViewEntireTest.TabIndex = 20;
             this.checkBoxViewEntireTest.Text = "View Entire Test (Description and Messages)";
             this.checkBoxViewEntireTest.UseVisualStyleBackColor = true;
+            this.checkBoxViewEntireTest.CheckedChanged += new System.EventHandler(this.checkBoxViewEntireTest_CheckedChanged);
             // 
             // btnGo
             // 

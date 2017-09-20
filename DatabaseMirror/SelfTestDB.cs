@@ -20,11 +20,34 @@ namespace DDB
             list.Add(new SelfTestDB("Self Test 2", 102, "ST_102", 
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
                                     new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 102 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 3", 201, "ST_201",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 201 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 4", 202, "ST_202",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 202 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 5", 203, "ST_203",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 203 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 6", 301, "ST_301",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 301 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 7", 302, "ST_302",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 302 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 8", 303, "ST_303",
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 303 Description</b></br>"));
         }
 
         static public SelfTestDB[] GetObjects()
         {
             return list.ToArray();
+        }
+
+        static public SelfTestDB GetObject(Int32 index)
+        {
+            return list[index];
         }
 
         static public void Update(object[] updatedList)

@@ -45,6 +45,13 @@ namespace DDB
             dualSelectorSupport = support;
         }
 
+        public void ClearAllItems()
+        {
+            allEntities.Clear();
+            listBox.Items.Clear();
+
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////
 
         // Properties

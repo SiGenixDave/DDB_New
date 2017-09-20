@@ -87,8 +87,8 @@ namespace DDB
 
         private void DeleteUrls()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected URL(s)?",
-                                  "Delete URL(s) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected URL(stl)?",
+                                  "Delete URL(stl) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 
@@ -133,8 +133,8 @@ namespace DDB
 
         private void DeleteEventLogs()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Log(s)?",
-                                  "Delete Event Log(s) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Log(stl)?",
+                                  "Delete Event Log(stl) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 

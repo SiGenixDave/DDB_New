@@ -125,8 +125,8 @@ namespace DDB
 
         private void DeleteItems()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(s)?",
-                                  "Delete Enumeration(s) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(stl)?",
+                                  "Delete Enumeration(stl) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 

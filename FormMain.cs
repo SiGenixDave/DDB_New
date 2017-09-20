@@ -52,8 +52,10 @@ namespace DDB
             EventLogList.Init(); 
             EventList.Init();
 
+            // Must be this order
             SelfTestVariableList.Init();
             SelfTestList.Init();
+            SelfTestListList.Init();
 
 
             InitProjectSettings();
@@ -302,6 +304,8 @@ namespace DDB
             EventStructureList.Update(ucEE_EventStructures.GetItems());
             EventVariableList.Update(ucEE_EventVariables.GetItems());
         }
+
+
 
 
     }

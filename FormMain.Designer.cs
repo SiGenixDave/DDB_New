@@ -70,6 +70,8 @@
             this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
             this.ucEE_Events = new DDB.UserControlEntityEditor();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
+            this.btnEditSelfTestErrorMessages = new System.Windows.Forms.Button();
+            this.btnEditSelfTestLists = new System.Windows.Forms.Button();
             this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
             this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
@@ -647,6 +649,8 @@
             // 
             // tabSelfTest
             // 
+            this.tabSelfTest.Controls.Add(this.btnEditSelfTestErrorMessages);
+            this.tabSelfTest.Controls.Add(this.btnEditSelfTestLists);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTestVariables);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTest);
             this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
@@ -655,6 +659,25 @@
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
+            // 
+            // btnEditSelfTestErrorMessages
+            // 
+            this.btnEditSelfTestErrorMessages.Location = new System.Drawing.Point(640, 224);
+            this.btnEditSelfTestErrorMessages.Name = "btnEditSelfTestErrorMessages";
+            this.btnEditSelfTestErrorMessages.Size = new System.Drawing.Size(168, 42);
+            this.btnEditSelfTestErrorMessages.TabIndex = 3;
+            this.btnEditSelfTestErrorMessages.Text = "Edit Self Test Error Messages...";
+            this.btnEditSelfTestErrorMessages.UseVisualStyleBackColor = true;
+            // 
+            // btnEditSelfTestLists
+            // 
+            this.btnEditSelfTestLists.Location = new System.Drawing.Point(640, 170);
+            this.btnEditSelfTestLists.Name = "btnEditSelfTestLists";
+            this.btnEditSelfTestLists.Size = new System.Drawing.Size(168, 36);
+            this.btnEditSelfTestLists.TabIndex = 2;
+            this.btnEditSelfTestLists.Text = "Edit Self Test Lists...";
+            this.btnEditSelfTestLists.UseVisualStyleBackColor = true;
+            this.btnEditSelfTestLists.Click += new System.EventHandler(this.btnEditSelfTestLists_Click);
             // 
             // ucEE_SelfTestVariables
             // 
@@ -1508,6 +1531,8 @@
         private System.Windows.Forms.ToolStripMenuItem genDocsToolStripMenuItem;
         private UserControlEntityEditor ucEE_SelfTest;
         private UserControlEntityEditor ucEE_SelfTestVariables;
+        private System.Windows.Forms.Button btnEditSelfTestLists;
+        private System.Windows.Forms.Button btnEditSelfTestErrorMessages;
     }
 }
 
