@@ -61,6 +61,12 @@
     <Compile Include="DatabaseMirror\EventLogDB.cs" />
     <Compile Include="DatabaseMirror\EventVariableDB.cs" />
     <Compile Include="DatabaseMirror\EventStructureDB.cs" />
+    <Compile Include="SelfTest\FormReorderTestSteps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelfTest\FormReorderTestSteps.Designer.cs">
+      <DependentUpon>FormReorderTestSteps.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelfTest\FormSelfTestEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelfTest\FormReorderTestSteps.resx">
+      <DependentUpon>FormReorderTestSteps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelfTest\FormSelfTestEditor.resx">
       <DependentUpon>FormSelfTestEditor.cs</DependentUpon>
     </EmbeddedResource>

@@ -70,6 +70,8 @@
             this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
             this.ucEE_Events = new DDB.UserControlEntityEditor();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
+            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
             this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
             this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
@@ -140,8 +142,6 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
-            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
-            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
@@ -655,6 +655,24 @@
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
+            // 
+            // ucEE_SelfTestVariables
+            // 
+            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 30);
+            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
+            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_SelfTestVariables.TabIndex = 1;
+            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
+            // 
+            // ucEE_SelfTest
+            // 
+            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 30);
+            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
+            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_SelfTest.TabIndex = 0;
+            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
+            this.ucEE_SelfTest.xVisibleLinksButton = false;
+            this.ucEE_SelfTest.xVisibleModifyHelpTextButton = false;
             // 
             // tabProjectDefinitions
             // 
@@ -1324,23 +1342,6 @@
             this.btnExitDDB.Text = "Exit DDB";
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
-            // 
-            // ucEE_SelfTest
-            // 
-            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 30);
-            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
-            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 456);
-            this.ucEE_SelfTest.TabIndex = 0;
-            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
-            this.ucEE_SelfTest.xVisibleLinksButton = false;
-            // 
-            // ucEE_SelfTestVariables
-            // 
-            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 30);
-            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
-            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 456);
-            this.ucEE_SelfTestVariables.TabIndex = 1;
-            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
             // 
             // FormMain
             // 

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DDB
@@ -30,7 +24,6 @@ namespace DDB
                 webBrowser1.Document.OpenNew(true);
                 webBrowser1.Document.Write(helpText);
             }
-
         }
     }
 }

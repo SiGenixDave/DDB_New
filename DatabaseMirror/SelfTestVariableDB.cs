@@ -24,12 +24,12 @@ namespace DDB
             list.Add(new SelfTestVariableDB("Var 09", "stVar09", 1, 0, 1, 0, 0, 0, "<b>Self Test Var 09 Description</b>"));
         }
 
-        static public SelfTestVariableDB[] GetEventVariables()
+        static public SelfTestVariableDB[] GetSelfTestVariables()
         {
             return list.ToArray();
         }
 
-        static public SelfTestVariableDB GetEventObject(int fkey)
+        static public SelfTestVariableDB GetObject(int fkey)
         {
             SelfTestVariableDB ev = null;
 

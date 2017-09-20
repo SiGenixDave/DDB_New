@@ -76,10 +76,10 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ucDS_UsedEventVars
+            // ucDS_SelfTestMessageList
             // 
             this.ucDS_UsedEventVars.Location = new System.Drawing.Point(12, 32);
-            this.ucDS_UsedEventVars.Name = "ucDS_UsedEventVars";
+            this.ucDS_UsedEventVars.Name = "ucDS_SelfTestMessageList";
             this.ucDS_UsedEventVars.Size = new System.Drawing.Size(276, 456);
             this.ucDS_UsedEventVars.TabIndex = 12;
             this.ucDS_UsedEventVars.xFilterVisible = false;

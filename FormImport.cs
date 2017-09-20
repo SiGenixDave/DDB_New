@@ -40,7 +40,7 @@ namespace DDB
             }
             else
             {
-                //TODO populate list box with watch variables
+                //TODO populate vList box with watch variables
                 this.Text = "Select " + import;
                 lbl.Text = "Import " + import + " from file " + System.Environment.NewLine + fileName;
             }

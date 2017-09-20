@@ -52,6 +52,7 @@ namespace DDB
             EventLogList.Init(); 
             EventList.Init();
 
+            SelfTestVariableList.Init();
             SelfTestList.Init();
 
 

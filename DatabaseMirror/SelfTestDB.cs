@@ -12,7 +12,14 @@ namespace DDB
 
         static public void Init()
         {
-            list.Add(new SelfTestDB("Self Test 1", 101, "ST_101", new List<SelfTestVariableDB>() { SelfTestVariableList.GetEventObject(0), SelfTestVariableList.GetEventObject(1) }, "<b>Sef Test 1 Description</b>"));
+            SelfTestMessageDB msg1 = new SelfTestMessageDB(1, "Step (1) Message</br>");
+            SelfTestMessageDB msg2 = new SelfTestMessageDB(2, "Step (2) Message</br>");
+            list.Add(new SelfTestDB("Self Test 1", 101, "ST_101", 
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(0), SelfTestVariableList.GetObject(1) }, 
+                                    new List<SelfTestMessageDB>(), "<b>Self Test 101 Description</b></br>"));
+            list.Add(new SelfTestDB("Self Test 2", 102, "ST_102", 
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 102 Description</b></br>"));
         }
 
         static public SelfTestDB[] GetObjects()
@@ -38,22 +45,24 @@ namespace DDB
         public Int32 number; 
         public String embeddedName;
         public List<SelfTestVariableDB> variableList;
-        public String helpText;
+        public List<SelfTestMessageDB> messageList;
+        public String descriptionText;
         public Int32 fKey;
         static Int32 key;
 
-        public SelfTestDB(String n, Int32 num, String c, List<SelfTestVariableDB> list, String h)
+        public SelfTestDB(String n, Int32 num, String c, List<SelfTestVariableDB> vList, List<SelfTestMessageDB> mList, String h)
         {
             name = n;
             number = num;
             embeddedName = c;
-            variableList = list;
-            helpText = h;
+            variableList = vList;
+            messageList = mList;
+            descriptionText = h;
             fKey = key++;
         }
 
-        public SelfTestDB(SelfTestDB ev)
-            : this(ev.name, ev.number, ev.embeddedName, ev.variableList, ev.helpText)
+        public SelfTestDB(SelfTestDB st)
+            : this(st.name, st.number, st.embeddedName, st.variableList, st.messageList, st.descriptionText)
         {}
 
         private SelfTestDB()
@@ -61,12 +70,12 @@ namespace DDB
 
         public void SaveHelpText(String helpText)
         {
-            this.helpText = helpText;
+            this.descriptionText = helpText;
         }
 
         public String GetHelpText()
         {
-            return helpText;
+            return descriptionText;
         }
 
         public override string ToString()
@@ -74,6 +83,45 @@ namespace DDB
             return number.ToString() + " - " + name;
         }
      }
+
+    public class SelfTestMessageDB : iDDBHelpObject
+    {
+        public Int32 number;
+        public String messageText;
+        public Int32 fKey;
+        static Int32 key;
+
+        public SelfTestMessageDB(Int32 num, String m)
+        {
+            number = num;
+            messageText = m;
+            fKey = key++;
+        }
+
+        public SelfTestMessageDB(SelfTestMessageDB st)
+            : this(st.number, st.messageText)
+        { }
+
+        private SelfTestMessageDB()
+        { }
+
+        public void SaveHelpText(String helpText)
+        {
+            this.messageText = helpText;
+        }
+
+        public String GetHelpText()
+        {
+            return messageText;
+        }
+
+        public override string ToString()
+        {
+            return number.ToString();
+        }
+
+    }
+
 
 
 }

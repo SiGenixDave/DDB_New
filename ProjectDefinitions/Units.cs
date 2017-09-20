@@ -74,7 +74,7 @@ namespace DDB
             iForm.ShowDialog();
             //TODO Open File dialog (xml file default)
 
-            //TODO Open new form with list box of units from the XML file
+            //TODO Open new form with vList box of units from the XML file
         }
 
         private void gBoxProjUnits_Enter(object sender, EventArgs e)

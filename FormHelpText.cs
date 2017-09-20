@@ -21,14 +21,19 @@ namespace DDB
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+            // This saves the help text to the object
             ddbHelpObject.SaveHelpText(winFormHtmlEditor1.BodyHtml);
             Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Cancel.Query("HTML Help Text for ", this.Text);
-            Close();
+            if (Cancel.Query("HTML Help Text for ", this.Text))
+            {
+                this.DialogResult = DialogResult.Cancel;
+                Close();
+            }
         }
 
     }

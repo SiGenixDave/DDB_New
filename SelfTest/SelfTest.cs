@@ -32,16 +32,14 @@ namespace DDB
 
         public void Modify(object obj)
         {
-#if TODO
-            using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, (SelfTestDB)obj))
+            using (FormSelfTestEditor frmStEdit = new FormSelfTestEditor(formMain, (SelfTestDB)obj))
             {
-                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                if (frmStEdit.ShowDialog() == DialogResult.OK)
                 {
-                    SelfTestDB e = frmEvEdit.GetEditedEvent();
-                    evPreview.UpdateForm(e);
+                    //SelfTestDB e = frmStEdit.GetEditedEvent();
+                    //evPreview.UpdateForm(e);
                 }
             }
-#endif
         }
 
         public void Delete(object obj)
@@ -51,7 +49,7 @@ namespace DDB
 
         public object Create()
         {
-            SelfTestDB s = new SelfTestDB("New Self Test Name", 0, "New Embedded Name", new List<SelfTestVariableDB>(), "<b>New Self Test</b>");
+            SelfTestDB s = new SelfTestDB("New Self Test Name", 0, "New Embedded Name", new List<SelfTestVariableDB>(), new List<SelfTestMessageDB>(), "<b>New Self Test</b>");
 #if TODO
             using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, e))
             {
@@ -95,7 +93,7 @@ namespace DDB
             else
             {
                 SelfTestDB s = (SelfTestDB)obj;
-                formHelpPreview.UpdateForm(s.helpText);
+                formHelpPreview.UpdateForm(s.descriptionText);
             }
         }
 
@@ -120,6 +118,10 @@ namespace DDB
             SelfTestsBusinessLogic sbl = new SelfTestsBusinessLogic(this, formEventPreview, formHelpPreview);
             ucEE_SelfTest.setBusinessLogic(sbl);
             ucEE_SelfTest.AddListBoxItems(SelfTestList.GetObjects());
+
+            //TODO SelfTestsBusinessLogic sbl = new SelfTestsBusinessLogic(this, formEventPreview, formHelpPreview);
+            //TODO ucEE_SelfTest.setBusinessLogic(sbl); 
+            ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
         }
     }
 }

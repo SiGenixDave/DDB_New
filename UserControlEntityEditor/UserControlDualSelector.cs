@@ -11,8 +11,9 @@ namespace DDB
 {
     public partial class UserControlDualSelector : UserControl
     {
-        private UserControlDualSelector otherSelector;
+        private UserControlDualSelector otherSelector = null;
         private List<object> allEntities = new List<object>(); 
+        private iDualSelectorSupport dualSelectorSupport = null;
 
         public UserControlDualSelector()
         {
@@ -24,9 +25,24 @@ namespace DDB
             return allEntities.ToArray();
         }
 
+        public object[] GetReorderItems()
+        {
+            List<object> listBoxObjects = new List<object>();
+            foreach (object obj in listBox.Items)
+            {
+                listBoxObjects.Add(obj);
+            }
+            return listBoxObjects.ToArray();
+        }
+
         public void SetOtherSelector(UserControlDualSelector other)
         {
             otherSelector = other;
+        }
+
+        public void SetDualSelectorSupport(iDualSelectorSupport support)
+        {
+            dualSelectorSupport = support;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////
@@ -99,11 +115,19 @@ namespace DDB
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
             MoveItem(-1);
+            if (dualSelectorSupport != null)
+            {
+                dualSelectorSupport.MoveUp(listBox.SelectedItem);
+            }
         }
 
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
             MoveItem(1);
+            if (dualSelectorSupport != null)
+            {
+                dualSelectorSupport.MoveDown(listBox.SelectedItem);
+            }
         }
 
 
@@ -253,6 +277,12 @@ namespace DDB
                 contextMenuStrip.Items["sortDescendingToolStripMenuItem"].Visible = false;
                 contextMenuStrip.Items["unsortToolStripMenuItem"].Visible = false;
             }
+
+            if (otherSelector == null)
+            {
+                contextMenuStrip.Items["moveSelectedToolStripMenuItem"].Visible = false;
+                contextMenuStrip.Items["toolStripSeparator3"].Visible = false;
+            }
         
         }
 
@@ -290,24 +320,32 @@ namespace DDB
 
         private void MoveItemsToOtherSelector()
         {
-            int index = 0;
-            List<EventVariableDB> selIndices = new List<EventVariableDB>();
-            while (index < listBox.SelectedIndices.Count)
+            // Support the user control when it doesn't have a partner
+            if (otherSelector != null)
             {
-                otherSelector.AddListBoxItem(listBox.Items[listBox.SelectedIndices[index]]);
-                selIndices.Add((EventVariableDB)listBox.Items[listBox.SelectedIndices[index]]);
-                index++;
-            }
-            index = 0;
-            while (index < selIndices.Count)
-            {
-                listBox.Items.Remove(selIndices[index]);
-                index++;
+                int index = 0;
+                List<object> selIndices = new List<object>();
+                while (index < listBox.SelectedIndices.Count)
+                {
+                    otherSelector.AddListBoxItem(listBox.Items[listBox.SelectedIndices[index]]);
+                    selIndices.Add(listBox.Items[listBox.SelectedIndices[index]]);
+                    index++;
+                }
+                index = 0;
+                while (index < selIndices.Count)
+                {
+                    listBox.Items.Remove(selIndices[index]);
+                    index++;
+                }
             }
         }
 
+    }
 
-
+    public interface iDualSelectorSupport
+    {
+        void MoveUp(object obj);
+        void MoveDown(object obj);
     }
 
 }
