@@ -113,6 +113,7 @@
             this.tBoxSelfTestNumber.Name = "tBoxSelfTestNumber";
             this.tBoxSelfTestNumber.Size = new System.Drawing.Size(69, 21);
             this.tBoxSelfTestNumber.TabIndex = 13;
+            this.tBoxSelfTestNumber.TextChanged += new System.EventHandler(this.tBoxSelfTestNumber_TextChanged);
             // 
             // label3
             // 
@@ -149,11 +150,11 @@
             // 
             this.checkBoxViewEntireTest.AutoSize = true;
             this.checkBoxViewEntireTest.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxViewEntireTest.Location = new System.Drawing.Point(12, 345);
+            this.checkBoxViewEntireTest.Location = new System.Drawing.Point(9, 160);
             this.checkBoxViewEntireTest.Name = "checkBoxViewEntireTest";
-            this.checkBoxViewEntireTest.Size = new System.Drawing.Size(238, 17);
+            this.checkBoxViewEntireTest.Size = new System.Drawing.Size(193, 17);
             this.checkBoxViewEntireTest.TabIndex = 20;
-            this.checkBoxViewEntireTest.Text = "View Entire Test (Description and Messages)";
+            this.checkBoxViewEntireTest.Text = "View Description and All Messages)";
             this.checkBoxViewEntireTest.UseVisualStyleBackColor = true;
             this.checkBoxViewEntireTest.CheckedChanged += new System.EventHandler(this.checkBoxViewEntireTest_CheckedChanged);
             // 
@@ -170,6 +171,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblStepNumber);
+            this.groupBox1.Controls.Add(this.checkBoxViewEntireTest);
             this.groupBox1.Controls.Add(this.lblAction);
             this.groupBox1.Controls.Add(this.btnGo);
             this.groupBox1.Controls.Add(this.cBoxMessageAction);
@@ -179,7 +181,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 179);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 151);
+            this.groupBox1.Size = new System.Drawing.Size(223, 183);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Test";
@@ -258,7 +260,6 @@
             this.ClientSize = new System.Drawing.Size(789, 481);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.checkBoxViewEntireTest);
             this.Controls.Add(this.ucDS_AvailableVars);
             this.Controls.Add(this.ucDS_UsedVars);
             this.Controls.Add(this.tBoxSelfTestNumber);

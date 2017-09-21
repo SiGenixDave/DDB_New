@@ -36,8 +36,9 @@ namespace DDB
             {
                 if (frmStEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //SelfTestDB e = frmStEdit.GetEditedEvent();
-                    //evPreview.UpdateForm(e);
+                    // calling this code updates the self test object (form controls copied to object)
+                    // avoids having to make a copy of the self test object prior to passing to form
+                    frmStEdit.GetEditedSelfTest();
                 }
             }
         }
@@ -50,17 +51,16 @@ namespace DDB
         public object Create()
         {
             SelfTestDB s = new SelfTestDB("New Self Test Name", 0, "New Embedded Name", new List<SelfTestVariableDB>(), new List<SelfTestMessageDB>(), "<b>New Self Test</b>");
-#if TODO
-            using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, e))
+            using (FormSelfTestEditor frmStEdit = new FormSelfTestEditor(formMain, s))
             {
-                if (frmEvEdit.ShowDialog() == DialogResult.OK)
+                if (frmStEdit.ShowDialog() == DialogResult.OK)
                 {
-                    e = frmEvEdit.GetEditedEvent();
-                    evPreview.UpdateForm(e);
-                    return e;
+                    // calling this code updates the self test object (form controls copied to object)
+                    // avoids having to make a copy of the self test object prior to passing to form
+                    s = frmStEdit.GetEditedSelfTest();
+                    return s;
                 }
             }
-#endif
             return null;
 
         }
@@ -75,14 +75,7 @@ namespace DDB
         public void Import()
         { }
         public void HelpModify(object obj)
-        {
-            SelfTestDB e = (SelfTestDB)obj;
-            FormHelpText fh = new FormHelpText(e, "Event \"" + e.name + "\"");
-            fh.ShowDialog();
-
-            HelpPreview(obj);
-
-        }
+        {}
 
         public void HelpPreview(object obj)
         {
@@ -111,6 +104,7 @@ namespace DDB
         private void PopulateSelfTestLists()
         {
             PopulateSelfTests();
+            ucEE_SelfTest.EnableModify();
         }
 
         private void PopulateSelfTests()

@@ -18,6 +18,7 @@ namespace DDB
         const String STR_REORDER = "Reorder";
 
         readonly String[] action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
+        readonly String[] customerOnlyAction = { STR_MODIFY };
 
         public FormSelfTestEditor(FormMain fMain, SelfTestDB e)
         {
@@ -37,6 +38,15 @@ namespace DDB
             PopulateUnusedVars();
             PopulateActionCheckBox();
 
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                tBoxSelfTestName.Enabled = false;
+                tBoxSelfTestNumber.Enabled = false;
+                tBoxDefineName.Enabled = false;
+                ucDS_UsedVars.Enabled = false;
+                ucDS_AvailableVars.Enabled = false;
+            }
+
             fhp.Owner = this;
 
         }
@@ -52,7 +62,14 @@ namespace DDB
             st.number = Convert.ToInt32(tBoxSelfTestNumber.Text);
             st.embeddedName = tBoxDefineName.Text;
 
-            //TODO compile the variable vList
+            st.variableList.Clear();
+            if ((st.number >= 200) && (st.number <= 299))
+            {
+                foreach (SelfTestVariableDB stv in ucDS_UsedVars.GetItems())
+                {
+                    st.variableList.Add(stv);
+                }
+            }
 
             return st;
         }
@@ -259,7 +276,14 @@ namespace DDB
         private void PopulateActionCheckBox()
         {
             cBoxMessageAction.Items.Clear();
-            cBoxMessageAction.Items.AddRange(action);
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                cBoxMessageAction.Items.AddRange(customerOnlyAction);
+            }
+            else
+            {
+                cBoxMessageAction.Items.AddRange(action);
+            }
         }
 
 
@@ -406,6 +430,29 @@ namespace DDB
             }
 
             fhp.UpdateForm(helpText);
+        }
+
+        private void tBoxSelfTestNumber_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 testNumber = Convert.ToInt32(tBoxSelfTestNumber.Text);
+                if ((testNumber >= 200 && testNumber <= 299) && (!GlobalSettings.getCustomerUseOnly()))
+                {
+                    ucDS_AvailableVars.Enabled = true;
+                    ucDS_UsedVars.Enabled = true;
+                }
+                else
+                {
+                    ucDS_AvailableVars.Enabled = false;
+                    ucDS_UsedVars.Enabled = false;
+                }
+            }
+            catch
+            {
+                ucDS_AvailableVars.Enabled = false;
+                ucDS_UsedVars.Enabled = false;
+            }
         }
 
     }
