@@ -15,29 +15,37 @@ namespace DDB
             SelfTestMessageDB msg1 = new SelfTestMessageDB(1, "Step (1) Message</br>");
             SelfTestMessageDB msg2 = new SelfTestMessageDB(2, "Step (2) Message</br>");
             list.Add(new SelfTestDB("Self Test 1", 101, "ST_101", 
-                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(0), SelfTestVariableList.GetObject(1) }, 
-                                    new List<SelfTestMessageDB>(), "<b>Self Test 101 Description</b></br>"));
+                                    new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(0), SelfTestVariableList.GetObject(1) },
+                                    new List<SelfTestMessageDB>(), 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 101 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 2", 102, "ST_102", 
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 102 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 102 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 3", 201, "ST_201",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 201 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 201 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 4", 202, "ST_202",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 202 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 202 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 5", 203, "ST_203",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 203 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 203 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 6", 301, "ST_301",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 301 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 301 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 7", 302, "ST_302",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 302 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 302 Description</b></br>")));
             list.Add(new SelfTestDB("Self Test 8", 303, "ST_303",
                                     new List<SelfTestVariableDB>() { SelfTestVariableList.GetObject(2) },
-                                    new List<SelfTestMessageDB>() { msg1, msg2 }, "<b>Self Test 303 Description</b></br>"));
+                                    new List<SelfTestMessageDB>() { msg1, msg2 }, 
+                                    new SelfTestMessageDB(0 ,"<b>Self Test 303 Description</b></br>")));
         }
 
         static public SelfTestDB[] GetObjects()
@@ -69,23 +77,23 @@ namespace DDB
         public String embeddedName;
         public List<SelfTestVariableDB> variableList;
         public List<SelfTestMessageDB> messageList;
-        public String descriptionText;
+        public SelfTestMessageDB description;
         public Int32 fKey;
         static Int32 key;
 
-        public SelfTestDB(String n, Int32 num, String c, List<SelfTestVariableDB> vList, List<SelfTestMessageDB> mList, String h)
+        public SelfTestDB(String n, Int32 num, String c, List<SelfTestVariableDB> vList, List<SelfTestMessageDB> mList, SelfTestMessageDB d)
         {
             name = n;
             number = num;
             embeddedName = c;
             variableList = vList;
             messageList = mList;
-            descriptionText = h;
+            description = d;
             fKey = key++;
         }
 
         public SelfTestDB(SelfTestDB st)
-            : this(st.name, st.number, st.embeddedName, st.variableList, st.messageList, st.descriptionText)
+            : this(st.name, st.number, st.embeddedName, st.variableList, st.messageList, st.description)
         {}
 
         private SelfTestDB()
@@ -93,12 +101,12 @@ namespace DDB
 
         public void SaveHelpText(String helpText)
         {
-            this.descriptionText = helpText;
+            this.description.messageText = helpText;
         }
 
         public String GetHelpText()
         {
-            return descriptionText;
+            return description.messageText;
         }
 
         public override string ToString()

@@ -30,10 +30,10 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.ucDS_AvailableTests = new DDB.UserControlDualSelector();
-            this.ucDS_UsedTests = new DDB.UserControlDualSelector();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cBoxTestList = new System.Windows.Forms.ComboBox();
+            this.ucDS_UsedTests = new DDB.UserControlDualSelector();
+            this.ucDS_AvailableTests = new DDB.UserControlDualSelector();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,27 +59,6 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // ucDS_AvailableTests
-            // 
-            this.ucDS_AvailableTests.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucDS_AvailableTests.Location = new System.Drawing.Point(275, 20);
-            this.ucDS_AvailableTests.Name = "ucDS_AvailableTests";
-            this.ucDS_AvailableTests.Size = new System.Drawing.Size(237, 451);
-            this.ucDS_AvailableTests.TabIndex = 16;
-            this.ucDS_AvailableTests.xGroupBoxTitle = "Available";
-            this.ucDS_AvailableTests.xVisibleMoveDownButton = false;
-            this.ucDS_AvailableTests.xVisibleMoveUpButton = false;
-            // 
-            // ucDS_UsedTests
-            // 
-            this.ucDS_UsedTests.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucDS_UsedTests.Location = new System.Drawing.Point(32, 20);
-            this.ucDS_UsedTests.Name = "ucDS_UsedTests";
-            this.ucDS_UsedTests.Size = new System.Drawing.Size(237, 451);
-            this.ucDS_UsedTests.TabIndex = 15;
-            this.ucDS_UsedTests.xFilterVisible = false;
-            this.ucDS_UsedTests.xGroupBoxTitle = "Used";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ucDS_UsedTests);
@@ -98,13 +77,36 @@
             this.cBoxTestList.FormattingEnabled = true;
             this.cBoxTestList.Location = new System.Drawing.Point(12, 12);
             this.cBoxTestList.Name = "cBoxTestList";
-            this.cBoxTestList.Size = new System.Drawing.Size(177, 21);
+            this.cBoxTestList.Size = new System.Drawing.Size(177, 25);
             this.cBoxTestList.TabIndex = 19;
             this.cBoxTestList.SelectedIndexChanged += new System.EventHandler(this.cBoxTestList_SelectedIndexChanged);
             // 
+            // ucDS_UsedTests
+            // 
+            this.ucDS_UsedTests.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucDS_UsedTests.Location = new System.Drawing.Point(32, 20);
+            this.ucDS_UsedTests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucDS_UsedTests.Name = "ucDS_UsedTests";
+            this.ucDS_UsedTests.Size = new System.Drawing.Size(237, 451);
+            this.ucDS_UsedTests.TabIndex = 15;
+            this.ucDS_UsedTests.xFilterVisible = false;
+            this.ucDS_UsedTests.xGroupBoxTitle = "Used";
+            // 
+            // ucDS_AvailableTests
+            // 
+            this.ucDS_AvailableTests.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucDS_AvailableTests.Location = new System.Drawing.Point(275, 20);
+            this.ucDS_AvailableTests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucDS_AvailableTests.Name = "ucDS_AvailableTests";
+            this.ucDS_AvailableTests.Size = new System.Drawing.Size(237, 451);
+            this.ucDS_AvailableTests.TabIndex = 16;
+            this.ucDS_AvailableTests.xGroupBoxTitle = "Available";
+            this.ucDS_AvailableTests.xVisibleMoveDownButton = false;
+            this.ucDS_AvailableTests.xVisibleMoveUpButton = false;
+            // 
             // FormSelfTestListEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 555);
             this.ControlBox = false;
@@ -118,7 +120,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSelfTestListEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Self Test Editor";
+            this.Text = "Self Test List Editor";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

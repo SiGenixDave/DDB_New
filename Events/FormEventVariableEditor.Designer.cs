@@ -96,7 +96,7 @@
             // btnAccept
             // 
             this.btnAccept.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(383, 168);
+            this.btnAccept.Location = new System.Drawing.Point(383, 254);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(99, 34);
             this.btnAccept.TabIndex = 7;
@@ -135,7 +135,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(383, 210);
+            this.btnCancel.Location = new System.Drawing.Point(383, 308);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 34);
             this.btnCancel.TabIndex = 8;

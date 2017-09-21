@@ -5,6 +5,27 @@ using System.Windows.Forms;
 namespace DDB
 {
 
+    public partial class FormMain
+    {
+
+        private void btnProBitmasksImport_Click(object sender, EventArgs e)
+        {
+            FormImport iForm = new FormImport("Bitmasks");
+            iForm.ShowDialog();
+            //TODO Open File dialog (xml file default)
+
+            //TODO Open new form with vList box of units from the XML file
+        }
+
+        
+        private int savedBitmaskIndex = 0;
+        private void gBoxProjBitmask_Enter(object sender, EventArgs e)
+        {
+            //TODO formEnumPreview.UpdateForm(null);
+        }
+
+    }
+
     public class BitmasksBusinessLogic : iEntityEditorBusinesssLogic
     {
         FormBitmaskPreview bmPreview;
@@ -37,13 +58,11 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        {}
 
         public object Create()
         {
-            BitmaskDB bmt = new BitmaskDB ("New BitmaskDB");
+            BitmaskDB bmt = new BitmaskDB("New BitmaskDB");
 
             using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, true))
             {
@@ -78,25 +97,4 @@ namespace DDB
 
 
 
-    public partial class FormMain
-    {
-        
-
-        private void btnProBitmasksImport_Click(object sender, EventArgs e)
-        {
-            FormImport iForm = new FormImport("Bitmasks");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with vList box of units from the XML file
-        }
-
-        
-        private int savedBitmaskIndex = 0;
-        private void gBoxProjBitmask_Enter(object sender, EventArgs e)
-        {
-            //TODO formEnumPreview.UpdateForm(null);
-        }
-
-    }
 }

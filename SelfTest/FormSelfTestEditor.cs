@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace DDB
 {
     public partial class FormSelfTestEditor : Form
     {
-        SelfTestDB st;
-        FormMain formMain;
-        FormHelpPreview fhp = new FormHelpPreview();
+        SelfTestDB m_SelfTestObj;
+        SelfTestMessageDB m_TestDescription;
+        List<SelfTestMessageDB> m_TestMessageList = new List<SelfTestMessageDB>();
+        FormMain m_FormMain;
+        FormHelpPreview m_FormHelpPreview = new FormHelpPreview();
 
         const String STR_APPEND = "Append";
         const String STR_MODIFY = "Modify";
@@ -17,19 +20,25 @@ namespace DDB
         const String STR_DELETE = "Delete";
         const String STR_REORDER = "Reorder";
 
-        readonly String[] action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
-        readonly String[] customerOnlyAction = { STR_MODIFY };
+        readonly String[] mCONST_Action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
+        readonly String[] mCONST_CustomerOnlyAction = { STR_MODIFY };
 
-        public FormSelfTestEditor(FormMain fMain, SelfTestDB e)
+        public FormSelfTestEditor(FormMain fMain, SelfTestDB st)
         {
             InitializeComponent();
 
-            this.st = e;
-            this.formMain = fMain;
+            this.m_SelfTestObj = st;
+            this.m_FormMain = fMain;
 
-            tBoxSelfTestName.Text = st.name;
-            tBoxSelfTestNumber.Text = st.number.ToString();
-            tBoxDefineName.Text = st.embeddedName;
+            m_TestDescription = st.description;
+            foreach (SelfTestMessageDB s in st.messageList)
+            {
+                m_TestMessageList.Add(s);
+            }
+
+            tBoxSelfTestName.Text = m_SelfTestObj.name;
+            tBoxSelfTestNumber.Text = m_SelfTestObj.number.ToString();
+            tBoxDefineName.Text = m_SelfTestObj.embeddedName;
 
             ucDS_UsedVars.SetOtherSelector(ucDS_AvailableVars);
             ucDS_AvailableVars.SetOtherSelector(ucDS_UsedVars);
@@ -47,31 +56,37 @@ namespace DDB
                 ucDS_AvailableVars.Enabled = false;
             }
 
-            fhp.Owner = this;
+            m_FormHelpPreview.Owner = this;
 
         }
 
         private FormSelfTestEditor()
-        {
-        }
+        {}
 
 
         public SelfTestDB GetEditedSelfTest()
         {
-            st.name = tBoxSelfTestName.Text;
-            st.number = Convert.ToInt32(tBoxSelfTestNumber.Text);
-            st.embeddedName = tBoxDefineName.Text;
+            m_SelfTestObj.name = tBoxSelfTestName.Text;
+            m_SelfTestObj.number = Convert.ToInt32(tBoxSelfTestNumber.Text);
+            m_SelfTestObj.embeddedName = tBoxDefineName.Text;
 
-            st.variableList.Clear();
-            if ((st.number >= 200) && (st.number <= 299))
+            m_SelfTestObj.variableList.Clear();
+            if ((m_SelfTestObj.number >= 200) && (m_SelfTestObj.number <= 299))
             {
                 foreach (SelfTestVariableDB stv in ucDS_UsedVars.GetItems())
                 {
-                    st.variableList.Add(stv);
+                    m_SelfTestObj.variableList.Add(stv);
                 }
             }
 
-            return st;
+            m_SelfTestObj.description = m_TestDescription;
+            m_SelfTestObj.messageList.Clear();
+            foreach (SelfTestMessageDB s in m_TestMessageList)
+            {
+                m_SelfTestObj.messageList.Add(s);
+            }
+
+            return m_SelfTestObj;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -82,7 +97,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Self Test", st.name))
+            if (Cancel.Query("Self Test", m_SelfTestObj.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();
@@ -92,12 +107,12 @@ namespace DDB
 
         private void PopulateUsedVars()
         {
-            if (st.variableList == null)
+            if (m_SelfTestObj.variableList == null)
             {
                 return;
             }
 
-            foreach (SelfTestVariableDB var in st.variableList)
+            foreach (SelfTestVariableDB var in m_SelfTestObj.variableList)
             {
                 ucDS_UsedVars.AddListBoxItem(var);
             }
@@ -109,9 +124,9 @@ namespace DDB
 
             foreach (SelfTestVariableDB var in SelfTestVariableList.GetSelfTestVariables())
             {
-                if (st.variableList != null)
+                if (m_SelfTestObj.variableList != null)
                 {
-                    if (!st.variableList.Contains(var))
+                    if (!m_SelfTestObj.variableList.Contains(var))
                     {
                         ucDS_AvailableVars.AddListBoxItem(var);
                     }
@@ -147,7 +162,7 @@ namespace DDB
 
             if (rbTestDescription.Checked)
             {
-                fh = new FormHelpText(st, "Self Test \"" + st.name + "\"" + " Test Description");
+                fh = new FormHelpText(m_SelfTestObj, "Self Test \"" + m_SelfTestObj.name + "\"" + " Test Description");
                 fh.ShowDialog();
             }
             else if (rbMessage.Checked)
@@ -215,13 +230,13 @@ namespace DDB
             int newStepNumber;
 
             // Find the last test step number, add 1 and then populate
-            if ((st.messageList == null) || (st.messageList.Count == 0))
+            if ((m_TestMessageList == null) || (m_TestMessageList.Count == 0))
             {
                 newStepNumber = 1;
             }
             else
             {
-                newStepNumber = st.messageList.Count + 1;
+                newStepNumber = m_TestMessageList.Count + 1;
             }
 
             SelfTestMessageDB stm = new SelfTestMessageDB(newStepNumber, String.Empty);
@@ -236,14 +251,14 @@ namespace DDB
             cBoxTestStep.Items.Clear();
 
             // Find the last test step number, add 1 and then populate
-            if ((st.messageList == null) || (st.messageList.Count == 0))
+            if ((m_TestMessageList == null) || (m_TestMessageList.Count == 0))
             {
                 btnGo.Enabled = false;
             }
             else
             {
                 btnGo.Enabled = true;
-                foreach (SelfTestMessageDB stm in st.messageList)
+                foreach (SelfTestMessageDB stm in m_TestMessageList)
                 {
                     cBoxTestStep.Items.Add(stm);
                 }
@@ -278,11 +293,11 @@ namespace DDB
             cBoxMessageAction.Items.Clear();
             if (GlobalSettings.getCustomerUseOnly())
             {
-                cBoxMessageAction.Items.AddRange(customerOnlyAction);
+                cBoxMessageAction.Items.AddRange(mCONST_CustomerOnlyAction);
             }
             else
             {
-                cBoxMessageAction.Items.AddRange(action);
+                cBoxMessageAction.Items.AddRange(mCONST_Action);
             }
         }
 
@@ -291,7 +306,7 @@ namespace DDB
         {
             // Assume steps are ordered properly
             Int32 testStep = 1;
-            foreach (SelfTestMessageDB stm in st.messageList)
+            foreach (SelfTestMessageDB stm in m_TestMessageList)
             {
                 stm.number = testStep;
                 testStep++;
@@ -306,7 +321,7 @@ namespace DDB
             {
                 if (fh.ShowDialog() == DialogResult.OK)
                 {
-                    st.messageList.Add(potentialNewTestStep);
+                    m_TestMessageList.Add(potentialNewTestStep);
                     // Since the user accepted, force the combo box to be updated to the next step
                     PopulateTestStepAppend();
 
@@ -341,7 +356,7 @@ namespace DDB
                         testStepNum--;
                     }
                     // Insert the new test step
-                    st.messageList.Insert(testStepNum, potentialNewTestStep);
+                    m_TestMessageList.Insert(testStepNum, potentialNewTestStep);
 
                     // Renumber the following test steps
                     ReNumberTestSteps();
@@ -371,7 +386,7 @@ namespace DDB
             SelfTestMessageDB stm = (SelfTestMessageDB)cBoxTestStep.SelectedItem;
             Int32 testNum = stm.number;
 
-            st.messageList.Remove(stm);
+            m_TestMessageList.Remove(stm);
 
             ReNumberTestSteps();
 
@@ -386,21 +401,21 @@ namespace DDB
         {
             if (checkBoxViewEntireTest.Checked)
             {
-                fhp.Visible = false;
+                m_FormHelpPreview.Visible = false;
             }
 
-            using (FormReorderTestSteps fReorder = new FormReorderTestSteps(st))
+            using (FormReorderTestSteps fReorder = new FormReorderTestSteps(m_SelfTestObj))
             {
                 if (fReorder.ShowDialog() == DialogResult.OK)
                 {
-                    st.messageList = fReorder.GetEditedSelfTestList();
+                    m_TestMessageList = fReorder.GetEditedSelfTestList();
                     ReNumberTestSteps();
                 }
             }
 
             if (checkBoxViewEntireTest.Checked)
             {
-                fhp.Visible = true;
+                m_FormHelpPreview.Visible = true;
                 CompileHelpTextAndShow();
             }
                 
@@ -410,26 +425,26 @@ namespace DDB
         {
             if (checkBoxViewEntireTest.Checked)
             {
-                fhp.Visible = true;
+                m_FormHelpPreview.Visible = true;
                 CompileHelpTextAndShow();
             }
             else
             {
-                fhp.Visible = false;
+                m_FormHelpPreview.Visible = false;
             }
 
         }
 
         private void CompileHelpTextAndShow()
         {
-            String helpText = st.descriptionText;
+            String helpText = m_SelfTestObj.description.messageText;
 
-            foreach (SelfTestMessageDB s in st.messageList)
+            foreach (SelfTestMessageDB s in m_TestMessageList)
             {
                 helpText += s.messageText;
             }
 
-            fhp.UpdateForm(helpText);
+            m_FormHelpPreview.UpdateForm(helpText);
         }
 
         private void tBoxSelfTestNumber_TextChanged(object sender, EventArgs e)

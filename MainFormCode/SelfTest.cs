@@ -44,13 +44,12 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        {}
 
         public object Create()
         {
-            SelfTestDB s = new SelfTestDB("New Self Test Name", 0, "New Embedded Name", new List<SelfTestVariableDB>(), new List<SelfTestMessageDB>(), "<b>New Self Test</b>");
+            SelfTestDB s = new SelfTestDB("New Self Test Name", 0, "New Embedded Name", new List<SelfTestVariableDB>(), new List<SelfTestMessageDB>(), 
+                                          new SelfTestMessageDB(0 ,"<b>New Self Test</b>"));
             using (FormSelfTestEditor frmStEdit = new FormSelfTestEditor(formMain, s))
             {
                 if (frmStEdit.ShowDialog() == DialogResult.OK)
@@ -86,12 +85,21 @@ namespace DDB
             else
             {
                 SelfTestDB s = (SelfTestDB)obj;
-                formHelpPreview.UpdateForm(s.descriptionText);
+                formHelpPreview.UpdateForm(s.description.messageText);
             }
         }
 
         public void ChangeDisplayName(int name)
-        { }
+        {
+            NameType nameType = NameType.DISPLAY;
+            if (name == 1)
+            {
+                nameType = NameType.ENMBEDDED;
+            }
+
+            GlobalSettings.setSelfTestVariableDisplayType(nameType);        
+        
+        }
 
 
 
@@ -104,7 +112,6 @@ namespace DDB
         private void PopulateSelfTestLists()
         {
             PopulateSelfTests();
-            ucEE_SelfTest.EnableModify();
         }
 
         private void PopulateSelfTests()

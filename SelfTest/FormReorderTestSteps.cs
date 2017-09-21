@@ -13,7 +13,7 @@ namespace DDB
     {
         List<SelfTestMessageDB> m_StmList;
         String m_Name;
-        String m_Description;
+        SelfTestMessageDB m_Description;
         FormHelpPreview fhp = new FormHelpPreview();
 
         public FormReorderTestSteps(SelfTestDB st)
@@ -22,7 +22,7 @@ namespace DDB
 
             m_StmList = new List<SelfTestMessageDB>(st.messageList);
             m_Name = st.name;
-            m_Description = st.descriptionText;
+            m_Description = st.description;
             
             PopulateSelfTestMessages();
 
@@ -100,7 +100,7 @@ namespace DDB
 
         private void CompileHelpTextAndShow()
         {
-            String helpText = m_Description;
+            String helpText = m_Description.messageText;
 
             foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
             {

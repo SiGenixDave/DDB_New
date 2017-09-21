@@ -186,19 +186,20 @@
             // 
             this.tabWatchVariables.Controls.Add(this.ucEE_WatchVariables);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
-            this.tabWatchVariables.Location = new System.Drawing.Point(4, 22);
+            this.tabWatchVariables.Location = new System.Drawing.Point(4, 26);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWatchVariables.Size = new System.Drawing.Size(842, 529);
+            this.tabWatchVariables.Size = new System.Drawing.Size(842, 525);
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
             // 
             // ucEE_WatchVariables
             // 
-            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 15);
+            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
+            this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
-            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 738);
             this.ucEE_WatchVariables.TabIndex = 7;
             this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
             this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
@@ -248,7 +249,7 @@
             "MILESTOKILOMETERS"});
             this.cBoxWatchUnitConversion.Location = new System.Drawing.Point(349, 270);
             this.cBoxWatchUnitConversion.Name = "cBoxWatchUnitConversion";
-            this.cBoxWatchUnitConversion.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchUnitConversion.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnitConversion.TabIndex = 23;
             // 
             // btnWatchAccept
@@ -277,7 +278,7 @@
             "MUL1000"});
             this.cBoxWatchScaleInfo.Location = new System.Drawing.Point(349, 231);
             this.cBoxWatchScaleInfo.Name = "cBoxWatchScaleInfo";
-            this.cBoxWatchScaleInfo.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchScaleInfo.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchScaleInfo.TabIndex = 22;
             // 
             // lblWatchUnitConversion
@@ -307,7 +308,7 @@
             this.lblWatchScaleInfo.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWatchScaleInfo.Location = new System.Drawing.Point(280, 235);
             this.lblWatchScaleInfo.Name = "lblWatchScaleInfo";
-            this.lblWatchScaleInfo.Size = new System.Drawing.Size(63, 13);
+            this.lblWatchScaleInfo.Size = new System.Drawing.Size(77, 17);
             this.lblWatchScaleInfo.TabIndex = 20;
             this.lblWatchScaleInfo.Text = "Scale Info";
             this.lblWatchScaleInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -327,7 +328,7 @@
             "8Dot8"});
             this.cBoxWatchFormatString.Location = new System.Drawing.Point(349, 306);
             this.cBoxWatchFormatString.Name = "cBoxWatchFormatString";
-            this.cBoxWatchFormatString.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchFormatString.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchFormatString.TabIndex = 19;
             // 
             // lblFormatString
@@ -346,7 +347,7 @@
             this.chkWatchEngViewOnly.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkWatchEngViewOnly.Location = new System.Drawing.Point(12, 379);
             this.chkWatchEngViewOnly.Name = "chkWatchEngViewOnly";
-            this.chkWatchEngViewOnly.Size = new System.Drawing.Size(147, 17);
+            this.chkWatchEngViewOnly.Size = new System.Drawing.Size(182, 21);
             this.chkWatchEngViewOnly.TabIndex = 16;
             this.chkWatchEngViewOnly.Text = "Engineering Only Visibility";
             this.chkWatchEngViewOnly.UseVisualStyleBackColor = true;
@@ -363,7 +364,7 @@
             "Bitmask"});
             this.cBoxWatchScaleType.Location = new System.Drawing.Point(349, 160);
             this.cBoxWatchScaleType.Name = "cBoxWatchScaleType";
-            this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchScaleType.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchScaleType.TabIndex = 15;
             this.cBoxWatchScaleType.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchScaleType_SelectedIndexChanged);
             // 
@@ -384,7 +385,7 @@
             this.cBoxWatchUnits.FormattingEnabled = true;
             this.cBoxWatchUnits.Location = new System.Drawing.Point(349, 197);
             this.cBoxWatchUnits.Name = "cBoxWatchUnits";
-            this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchUnits.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchUnits.TabIndex = 13;
             this.cBoxWatchUnits.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchUnits_SelectedIndexChanged);
             // 
@@ -394,7 +395,7 @@
             this.label10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(274, 165);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
+            this.label10.Size = new System.Drawing.Size(81, 17);
             this.label10.TabIndex = 12;
             this.label10.Text = "Scale Type";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -412,7 +413,7 @@
             "Factory [R/W]"});
             this.cBoxWatchReadWriteFlags.Location = new System.Drawing.Point(11, 347);
             this.cBoxWatchReadWriteFlags.Name = "cBoxWatchReadWriteFlags";
-            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchReadWriteFlags.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchReadWriteFlags.TabIndex = 13;
             this.cBoxWatchReadWriteFlags.SelectedIndexChanged += new System.EventHandler(this.cBoxWatchReadWriteFlags_SelectedIndexChanged);
             // 
@@ -422,7 +423,7 @@
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(9, 325);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 13);
+            this.label9.Size = new System.Drawing.Size(123, 17);
             this.label9.TabIndex = 12;
             this.label9.Text = "Read Write Flags";
             // 
@@ -443,7 +444,7 @@
             "DOUBLE"});
             this.cBoxWatchDataType.Location = new System.Drawing.Point(349, 127);
             this.cBoxWatchDataType.Name = "cBoxWatchDataType";
-            this.cBoxWatchDataType.Size = new System.Drawing.Size(143, 21);
+            this.cBoxWatchDataType.Size = new System.Drawing.Size(143, 25);
             this.cBoxWatchDataType.TabIndex = 11;
             // 
             // label8
@@ -452,7 +453,7 @@
             this.label8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(277, 131);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 13);
+            this.label8.Size = new System.Drawing.Size(78, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "Data Type";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -477,7 +478,7 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(7, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "Maximum Value";
             // 
@@ -486,7 +487,7 @@
             this.tBoxWatchMaxValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMaxValue.Location = new System.Drawing.Point(102, 60);
             this.tBoxWatchMaxValue.Name = "tBoxWatchMaxValue";
-            this.tBoxWatchMaxValue.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMaxValue.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMaxValue.TabIndex = 2;
             // 
             // label7
@@ -495,7 +496,7 @@
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(10, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.Size = new System.Drawing.Size(98, 17);
             this.label7.TabIndex = 1;
             this.label7.Text = "Minimum Value";
             // 
@@ -504,7 +505,7 @@
             this.tBoxWatchMinValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMinValue.Location = new System.Drawing.Point(102, 31);
             this.tBoxWatchMinValue.Name = "tBoxWatchMinValue";
-            this.tBoxWatchMinValue.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMinValue.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMinValue.TabIndex = 0;
             // 
             // gBoxWatchChartScaling
@@ -527,7 +528,7 @@
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(7, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.Size = new System.Drawing.Size(103, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Maximum Value";
             // 
@@ -536,7 +537,7 @@
             this.tBoxWatchMaxChart.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMaxChart.Location = new System.Drawing.Point(102, 60);
             this.tBoxWatchMaxChart.Name = "tBoxWatchMaxChart";
-            this.tBoxWatchMaxChart.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMaxChart.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMaxChart.TabIndex = 2;
             // 
             // label5
@@ -545,7 +546,7 @@
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(10, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.Size = new System.Drawing.Size(98, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Minimum Value";
             // 
@@ -554,7 +555,7 @@
             this.tBoxWatchMinChart.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchMinChart.Location = new System.Drawing.Point(102, 31);
             this.tBoxWatchMinChart.Name = "tBoxWatchMinChart";
-            this.tBoxWatchMinChart.Size = new System.Drawing.Size(107, 21);
+            this.tBoxWatchMinChart.Size = new System.Drawing.Size(107, 24);
             this.tBoxWatchMinChart.TabIndex = 0;
             // 
             // groupBox1
@@ -577,7 +578,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Embedded";
             // 
@@ -586,7 +587,7 @@
             this.tBoxWatchEmbName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchEmbName.Location = new System.Drawing.Point(76, 60);
             this.tBoxWatchEmbName.Name = "tBoxWatchEmbName";
-            this.tBoxWatchEmbName.Size = new System.Drawing.Size(404, 21);
+            this.tBoxWatchEmbName.Size = new System.Drawing.Size(404, 24);
             this.tBoxWatchEmbName.TabIndex = 2;
             // 
             // label2
@@ -595,7 +596,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(16, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Display";
             // 
@@ -604,7 +605,7 @@
             this.tBoxWatchDisplayName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxWatchDisplayName.Location = new System.Drawing.Point(76, 31);
             this.tBoxWatchDisplayName.Name = "tBoxWatchDisplayName";
-            this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 21);
+            this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 24);
             this.tBoxWatchDisplayName.TabIndex = 0;
             // 
             // tabEvents
@@ -612,9 +613,9 @@
             this.tabEvents.Controls.Add(this.ucEE_EventVariables);
             this.tabEvents.Controls.Add(this.ucEE_EventStructures);
             this.tabEvents.Controls.Add(this.ucEE_Events);
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Location = new System.Drawing.Point(4, 25);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 529);
+            this.tabEvents.Size = new System.Drawing.Size(842, 526);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Event";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -623,8 +624,9 @@
             // ucEE_EventVariables
             // 
             this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
+            this.ucEE_EventVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_EventVariables.Name = "ucEE_EventVariables";
-            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 738);
             this.ucEE_EventVariables.TabIndex = 36;
             this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
             this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
@@ -632,8 +634,9 @@
             // ucEE_EventStructures
             // 
             this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
+            this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_EventStructures.Name = "ucEE_EventStructures";
-            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 738);
             this.ucEE_EventStructures.TabIndex = 35;
             this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
             this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
@@ -641,8 +644,9 @@
             // ucEE_Events
             // 
             this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
+            this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Events.Name = "ucEE_Events";
-            this.ucEE_Events.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_Events.Size = new System.Drawing.Size(276, 738);
             this.ucEE_Events.TabIndex = 34;
             this.ucEE_Events.xGroupBoxTitle = "Events";
             this.ucEE_Events.xVisibleLinksButton = false;
@@ -653,9 +657,9 @@
             this.tabSelfTest.Controls.Add(this.btnEditSelfTestLists);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTestVariables);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTest);
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 26);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 525);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -681,17 +685,20 @@
             // 
             // ucEE_SelfTestVariables
             // 
-            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 30);
+            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 48);
+            this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
-            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 738);
             this.ucEE_SelfTestVariables.TabIndex = 1;
             this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
+            this.ucEE_SelfTestVariables.xVisibleDispEmbComboBox = true;
             // 
             // ucEE_SelfTest
             // 
-            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 30);
+            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 48);
+            this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_SelfTest.Name = "ucEE_SelfTest";
-            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 456);
+            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 738);
             this.ucEE_SelfTest.TabIndex = 0;
             this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
             this.ucEE_SelfTest.xVisibleLinksButton = false;
@@ -703,28 +710,30 @@
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Bitmasks);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Units);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
             // 
             // ucEE_Enumerations
             // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(560, 6);
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(192, 6);
+            this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(95, 421);
             this.ucEE_Enumerations.TabIndex = 23;
             this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
             this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
             // 
             // ucEE_Bitmasks
             // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(278, 6);
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(95, 6);
+            this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(95, 421);
             this.ucEE_Bitmasks.TabIndex = 22;
             this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
             this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
@@ -732,8 +741,9 @@
             // ucEE_Units
             // 
             this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
+            this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(276, 421);
+            this.ucEE_Units.Size = new System.Drawing.Size(95, 421);
             this.ucEE_Units.TabIndex = 21;
             this.ucEE_Units.xGroupBoxTitle = "Units";
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;
@@ -747,9 +757,9 @@
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 25);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 526);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -795,7 +805,7 @@
             this.tBoxPasswordLevel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel3.Location = new System.Drawing.Point(104, 79);
             this.tBoxPasswordLevel3.Name = "tBoxPasswordLevel3";
-            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel3.TabIndex = 5;
             this.tBoxPasswordLevel3.Text = "aeg3";
             // 
@@ -804,7 +814,7 @@
             this.tBoxPasswordLevel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel2.Location = new System.Drawing.Point(104, 49);
             this.tBoxPasswordLevel2.Name = "tBoxPasswordLevel2";
-            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel2.TabIndex = 4;
             this.tBoxPasswordLevel2.Text = "aeg2";
             // 
@@ -813,7 +823,7 @@
             this.tBoxPasswordLevel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel1.Location = new System.Drawing.Point(104, 20);
             this.tBoxPasswordLevel1.Name = "tBoxPasswordLevel1";
-            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel1.TabIndex = 3;
             this.tBoxPasswordLevel1.Text = "aeg1";
             // 
@@ -823,7 +833,7 @@
             this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(48, 82);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.Size = new System.Drawing.Size(60, 17);
             this.label19.TabIndex = 2;
             this.label19.Text = "Factory";
             // 
@@ -833,7 +843,7 @@
             this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(25, 52);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(73, 13);
+            this.label18.Size = new System.Drawing.Size(90, 17);
             this.label18.TabIndex = 1;
             this.label18.Text = "Engineering";
             // 
@@ -843,7 +853,7 @@
             this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(18, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 13);
+            this.label17.Size = new System.Drawing.Size(95, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Maintenence";
             // 
@@ -898,19 +908,19 @@
             this.addNewEventLogMenuItem,
             this.deleteEventLogMenuItem});
             this.conMenuEventLogs.Name = "conMenu";
-            this.conMenuEventLogs.Size = new System.Drawing.Size(179, 48);
+            this.conMenuEventLogs.Size = new System.Drawing.Size(210, 52);
             // 
             // addNewEventLogMenuItem
             // 
             this.addNewEventLogMenuItem.Name = "addNewEventLogMenuItem";
-            this.addNewEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.addNewEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
             this.addNewEventLogMenuItem.Text = "Add New Event Log";
             this.addNewEventLogMenuItem.Click += new System.EventHandler(this.addNewEventLogMenuItem_Click);
             // 
             // deleteEventLogMenuItem
             // 
             this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
-            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
             this.deleteEventLogMenuItem.Text = "Delete";
             this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
             // 
@@ -988,19 +998,19 @@
             this.addNewURLMenuItem,
             this.deleteURLMenuItem});
             this.conMenuURL.Name = "conMenu";
-            this.conMenuURL.Size = new System.Drawing.Size(148, 48);
+            this.conMenuURL.Size = new System.Drawing.Size(171, 52);
             // 
             // addNewURLMenuItem
             // 
             this.addNewURLMenuItem.Name = "addNewURLMenuItem";
-            this.addNewURLMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addNewURLMenuItem.Size = new System.Drawing.Size(170, 24);
             this.addNewURLMenuItem.Text = "Add New URL";
             this.addNewURLMenuItem.Click += new System.EventHandler(this.addNewURLMenuItem_Click);
             // 
             // deleteURLMenuItem
             // 
             this.deleteURLMenuItem.Name = "deleteURLMenuItem";
-            this.deleteURLMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.deleteURLMenuItem.Size = new System.Drawing.Size(170, 24);
             this.deleteURLMenuItem.Text = "Delete";
             this.deleteURLMenuItem.Click += new System.EventHandler(this.deleteURLMenuItem_Click);
             // 
@@ -1026,7 +1036,7 @@
             "Serial & TCP"});
             this.cBoxCommType.Location = new System.Drawing.Point(6, 20);
             this.cBoxCommType.Name = "cBoxCommType";
-            this.cBoxCommType.Size = new System.Drawing.Size(101, 21);
+            this.cBoxCommType.Size = new System.Drawing.Size(101, 25);
             this.cBoxCommType.TabIndex = 0;
             this.cBoxCommType.SelectedIndexChanged += new System.EventHandler(this.cBoxCommType_SelectedIndexChanged);
             // 
@@ -1045,7 +1055,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tBoxProjSettingsWatchVarMax, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label23, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cBoxNumStreamVars, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 386);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 385);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1058,17 +1068,17 @@
             // tBoxProjSettingsAppDataPath
             // 
             this.tBoxProjSettingsAppDataPath.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 95);
+            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 102);
             this.tBoxProjSettingsAppDataPath.Name = "tBoxProjSettingsAppDataPath";
-            this.tBoxProjSettingsAppDataPath.Size = new System.Drawing.Size(205, 21);
+            this.tBoxProjSettingsAppDataPath.Size = new System.Drawing.Size(205, 24);
             this.tBoxProjSettingsAppDataPath.TabIndex = 6;
             // 
             // tBoxProjSettingsSoftwareVersion
             // 
             this.tBoxProjSettingsSoftwareVersion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 62);
+            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 69);
             this.tBoxProjSettingsSoftwareVersion.Name = "tBoxProjSettingsSoftwareVersion";
-            this.tBoxProjSettingsSoftwareVersion.Size = new System.Drawing.Size(102, 21);
+            this.tBoxProjSettingsSoftwareVersion.Size = new System.Drawing.Size(102, 24);
             this.tBoxProjSettingsSoftwareVersion.TabIndex = 5;
             // 
             // label14
@@ -1076,9 +1086,9 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(43, 1);
+            this.label14.Location = new System.Drawing.Point(23, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(101, 26);
+            this.label14.Size = new System.Drawing.Size(121, 34);
             this.label14.TabIndex = 1;
             this.label14.Text = "Displayed Watch Variables (max)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1088,9 +1098,9 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(41, 66);
+            this.label15.Location = new System.Drawing.Point(17, 72);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 13);
+            this.label15.Size = new System.Drawing.Size(127, 17);
             this.label15.TabIndex = 2;
             this.label15.Text = "Software Version";
             // 
@@ -1099,18 +1109,18 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(15, 99);
+            this.label16.Location = new System.Drawing.Point(20, 97);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(129, 13);
+            this.label16.Size = new System.Drawing.Size(124, 34);
             this.label16.TabIndex = 3;
             this.label16.Text = "Application Data Path";
             // 
             // tBoxProjSettingsWatchVarMax
             // 
             this.tBoxProjSettingsWatchVarMax.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsWatchVarMax.Location = new System.Drawing.Point(151, 4);
+            this.tBoxProjSettingsWatchVarMax.Location = new System.Drawing.Point(151, 6);
             this.tBoxProjSettingsWatchVarMax.Name = "tBoxProjSettingsWatchVarMax";
-            this.tBoxProjSettingsWatchVarMax.Size = new System.Drawing.Size(72, 21);
+            this.tBoxProjSettingsWatchVarMax.Size = new System.Drawing.Size(72, 24);
             this.tBoxProjSettingsWatchVarMax.TabIndex = 4;
             // 
             // label23
@@ -1118,9 +1128,9 @@
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 37);
+            this.label23.Location = new System.Drawing.Point(4, 36);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(138, 13);
+            this.label23.Size = new System.Drawing.Size(140, 29);
             this.label23.TabIndex = 2;
             this.label23.Text = "Number of Stream Vars";
             // 
@@ -1132,9 +1142,9 @@
             this.cBoxNumStreamVars.Items.AddRange(new object[] {
             "8",
             "16"});
-            this.cBoxNumStreamVars.Location = new System.Drawing.Point(151, 32);
+            this.cBoxNumStreamVars.Location = new System.Drawing.Point(151, 39);
             this.cBoxNumStreamVars.Name = "cBoxNumStreamVars";
-            this.cBoxNumStreamVars.Size = new System.Drawing.Size(50, 21);
+            this.cBoxNumStreamVars.Size = new System.Drawing.Size(50, 25);
             this.cBoxNumStreamVars.TabIndex = 7;
             // 
             // groupBox2
@@ -1161,7 +1171,7 @@
             "Display URL Alias Name"});
             this.cListBoxFunctionFlags.Location = new System.Drawing.Point(6, 23);
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
-            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 84);
+            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 80);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
@@ -1173,24 +1183,24 @@
             this.modifyWatchMenuItem,
             this.deleteWatchMenuItem});
             this.conMenuWatchVarList.Name = "contextMenuStrip1";
-            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
+            this.conMenuWatchVarList.Size = new System.Drawing.Size(126, 76);
             // 
             // copyWatchMenuItem
             // 
             this.copyWatchMenuItem.Name = "copyWatchMenuItem";
-            this.copyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.copyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
             this.copyWatchMenuItem.Text = "Copy";
             // 
             // modifyWatchMenuItem
             // 
             this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
-            this.modifyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.modifyWatchMenuItem.Size = new System.Drawing.Size(125, 24);
             this.modifyWatchMenuItem.Text = "Modify";
             // 
             // deleteWatchMenuItem
             // 
             this.deleteWatchMenuItem.Name = "deleteWatchMenuItem";
-            this.deleteWatchMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteWatchMenuItem.Size = new System.Drawing.Size(125, 24);
             this.deleteWatchMenuItem.Text = "Delete";
             // 
             // mainMenuStrip
@@ -1201,7 +1211,7 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(871, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(871, 28);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -1215,44 +1225,44 @@
             this.exitToolStripMenuItem,
             this.newToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.importToolStripMenuItem.Text = "Import...";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.exitToolStripMenuItem.Text = "Exit..";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // toolsToolStripMenuItem
@@ -1269,37 +1279,37 @@
             this.previewEventVariablesToolStripMenuItem,
             this.previewHelpToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // genEmbToolStripMenuItem
             // 
             this.genEmbToolStripMenuItem.Name = "genEmbToolStripMenuItem";
-            this.genEmbToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genEmbToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genEmbToolStripMenuItem.Text = "Generate Emb Code";
             // 
             // genHelpFileToolStripMenuItem
             // 
             this.genHelpFileToolStripMenuItem.Name = "genHelpFileToolStripMenuItem";
-            this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genHelpFileToolStripMenuItem.Text = "Generate Help File (.chm)";
             // 
             // genDocsToolStripMenuItem
             // 
             this.genDocsToolStripMenuItem.Name = "genDocsToolStripMenuItem";
-            this.genDocsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genDocsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genDocsToolStripMenuItem.Text = "Generate Docs...";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(243, 6);
             // 
             // previewBitmasksToolStripMenuItem
             // 
             this.previewBitmasksToolStripMenuItem.CheckOnClick = true;
             this.previewBitmasksToolStripMenuItem.Name = "previewBitmasksToolStripMenuItem";
-            this.previewBitmasksToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewBitmasksToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewBitmasksToolStripMenuItem.Text = "Preview Bitmasks";
             this.previewBitmasksToolStripMenuItem.Click += new System.EventHandler(this.previewBitmasksToolStripMenuItem_Click);
             // 
@@ -1307,7 +1317,7 @@
             // 
             this.previewEnumerationsToolStripMenuItem.CheckOnClick = true;
             this.previewEnumerationsToolStripMenuItem.Name = "previewEnumerationsToolStripMenuItem";
-            this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEnumerationsToolStripMenuItem.Text = "Preview Enumerations";
             this.previewEnumerationsToolStripMenuItem.Click += new System.EventHandler(this.previewEnumerationsToolStripMenuItem_Click);
             // 
@@ -1315,7 +1325,7 @@
             // 
             this.previewEventsToolStripMenuItem.CheckOnClick = true;
             this.previewEventsToolStripMenuItem.Name = "previewEventsToolStripMenuItem";
-            this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventsToolStripMenuItem.Text = "Preview Event";
             this.previewEventsToolStripMenuItem.Click += new System.EventHandler(this.previewEventsToolStripMenuItem_Click);
             // 
@@ -1323,7 +1333,7 @@
             // 
             this.previewEventStructuresToolStripMenuItem.CheckOnClick = true;
             this.previewEventStructuresToolStripMenuItem.Name = "previewEventStructuresToolStripMenuItem";
-            this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
             this.previewEventStructuresToolStripMenuItem.Click += new System.EventHandler(this.previewEventStructuresToolStripMenuItem_Click);
             // 
@@ -1331,14 +1341,14 @@
             // 
             this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
             this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
-            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventVariablesToolStripMenuItem.Text = "Preview Event Variables";
             // 
             // previewHelpToolStripMenuItem
             // 
             this.previewHelpToolStripMenuItem.CheckOnClick = true;
             this.previewHelpToolStripMenuItem.Name = "previewHelpToolStripMenuItem";
-            this.previewHelpToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewHelpToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewHelpToolStripMenuItem.Text = "Preview Help";
             this.previewHelpToolStripMenuItem.Click += new System.EventHandler(this.previewHelpToolStripMenuItem_Click);
             // 
@@ -1347,13 +1357,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(128, 24);
             this.aboutToolStripMenuItem1.Text = "About...";
             // 
             // btnExitDDB

@@ -210,13 +210,6 @@ namespace DDB
             listBox.SelectedItem = obj;
         }
 
-        Boolean enableModify = false;
-        public void EnableModify()
-        {
-            enableModify = true;
-            listBox.DoubleClick += listBox_DoubleClick;
-        }
-
         ///////////////////////////////////////////////////////////////////////////////////////
         // Auto generated EventDB
         private void btnCreate_Click(object sender, EventArgs e)
@@ -297,11 +290,6 @@ namespace DDB
                     btnDelete.Enabled = true;
                     btnLinks.Enabled = true;
 
-                }
-                if (enableModify)
-                {
-                    modifyToolStripMenuItem.Enabled = true;
-                    btnModify.Enabled = true;
                 }
 
                 btnModifyHelpText.Enabled = true;
