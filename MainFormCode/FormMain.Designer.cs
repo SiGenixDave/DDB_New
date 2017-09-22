@@ -199,7 +199,7 @@
             this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
             this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
-            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 500);
             this.ucEE_WatchVariables.TabIndex = 7;
             this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
             this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
@@ -613,9 +613,9 @@
             this.tabEvents.Controls.Add(this.ucEE_EventVariables);
             this.tabEvents.Controls.Add(this.ucEE_EventStructures);
             this.tabEvents.Controls.Add(this.ucEE_Events);
-            this.tabEvents.Location = new System.Drawing.Point(4, 25);
+            this.tabEvents.Location = new System.Drawing.Point(4, 26);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 526);
+            this.tabEvents.Size = new System.Drawing.Size(842, 525);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Event";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -710,30 +710,30 @@
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Bitmasks);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Units);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
             // 
             // ucEE_Enumerations
             // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(192, 6);
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(533, 7);
             this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(95, 421);
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(293, 421);
             this.ucEE_Enumerations.TabIndex = 23;
             this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
             this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
             // 
             // ucEE_Bitmasks
             // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(95, 6);
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(266, 7);
             this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(95, 421);
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(300, 421);
             this.ucEE_Bitmasks.TabIndex = 22;
             this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
             this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
@@ -743,7 +743,7 @@
             this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
             this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(95, 421);
+            this.ucEE_Units.Size = new System.Drawing.Size(282, 512);
             this.ucEE_Units.TabIndex = 21;
             this.ucEE_Units.xGroupBoxTitle = "Units";
             this.ucEE_Units.xVisibleModifyHelpTextButton = false;
@@ -757,9 +757,9 @@
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 526);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -1378,7 +1378,8 @@
             // 
             // FormMain
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 635);
             this.Controls.Add(this.btnExitDDB);
             this.Controls.Add(this.tabControl1);

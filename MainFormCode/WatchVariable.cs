@@ -5,105 +5,6 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-
-    public class WatchVariablesBusinessLogic : iEntityEditorBusinesssLogic
-    {
-        FormMain formMain;
-        FormHelpPreview formHelpPreview;
-
-        public WatchVariablesBusinessLogic(FormMain fMain, FormHelpPreview hPreview)
-        {
-            formMain = fMain;
-            formHelpPreview = hPreview;
-        }
-
-        private WatchVariablesBusinessLogic()
-        { }
-
-        public object Copy(object obj)
-        {
-            WatchVarDB var = new WatchVarDB((WatchVarDB)obj);
-            var.dispName = "Copy of " + var.dispName;
-            var.embName = "Copy of " + var.embName;
-            return var;
-        }
-
-        public void Modify(object obj)
-        {
-            formMain.EnableWatchEditor(obj);
-        }
-
-        public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
-
-        public object Create()
-        {
-            object obj = formMain.WatchVarCreate();
-            if (formMain.EnableWatchEditor(obj))
-            {
-                return obj;
-            }
-
-            return null;
-
-        }
-
-        public void Preview(object obj)
-        {
-            formMain.UpdateWatchVarDisplay((WatchVarDB)obj);
-        }
-
-        public void Links()
-        {
-            //TODO 
-        }
-        public void Import()
-        {
-            FormImport iForm = new FormImport("Watch Variables");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with vList box of units from the XML file        
-        }
-        public void HelpModify(object obj)
-        {
-            WatchVarDB var = (WatchVarDB)obj;
-            FormHelpText fh = new FormHelpText(var, "Watch Variable \"" + var.dispName + "\"");
-            fh.ShowDialog();
-
-            HelpPreview(obj);
-
-        }
-
-        public void HelpPreview(object obj)
-        {
-            if (obj == null)
-            {
-                formHelpPreview.UpdateForm(String.Empty);
-            }
-            else
-            {
-                WatchVarDB e = (WatchVarDB)obj;
-                formHelpPreview.UpdateForm(e.helpText);
-            }
-        }
-
-        public void ChangeDisplayName(int name)
-        {
-            NameType nameType = NameType.DISPLAY;
-            if (name == 1)
-            {
-                nameType = NameType.ENMBEDDED;
-            }
-
-            GlobalSettings.setWatchDisplayType(nameType);
-
-        }
-
-    }
-
     public partial class FormMain
     {
         private void PopulateWatchVars()
@@ -400,4 +301,106 @@ namespace DDB
         }
 
     }
+
+
+    public class WatchVariablesBusinessLogic : iEntityEditorBusinesssLogic
+    {
+        FormMain formMain;
+        FormHelpPreview formHelpPreview;
+
+        public WatchVariablesBusinessLogic(FormMain fMain, FormHelpPreview hPreview)
+        {
+            formMain = fMain;
+            formHelpPreview = hPreview;
+        }
+
+        private WatchVariablesBusinessLogic()
+        { }
+
+        public object Copy(object obj)
+        {
+            WatchVarDB var = new WatchVarDB((WatchVarDB)obj);
+            var.dispName = "Copy of " + var.dispName;
+            var.embName = "Copy of " + var.embName;
+            return var;
+        }
+
+        public void Modify(object obj)
+        {
+            formMain.EnableWatchEditor(obj);
+        }
+
+        public void Delete(object obj)
+        {
+            // TODO Remove obj from DB
+        }
+
+        public object Create()
+        {
+            object obj = formMain.WatchVarCreate();
+            if (formMain.EnableWatchEditor(obj))
+            {
+                return obj;
+            }
+
+            return null;
+
+        }
+
+        public void Preview(object obj)
+        {
+            formMain.UpdateWatchVarDisplay((WatchVarDB)obj);
+        }
+
+        public void Links()
+        {
+            //TODO 
+        }
+        public void Import()
+        {
+            FormImport iForm = new FormImport("Watch Variables");
+            iForm.ShowDialog();
+            //TODO Open File dialog (xml file default)
+
+            //TODO Open new form with vList box of units from the XML file        
+        }
+        public void HelpModify(object obj)
+        {
+            WatchVarDB var = (WatchVarDB)obj;
+            FormHelpText fh = new FormHelpText(var, "Watch Variable \"" + var.dispName + "\"");
+            fh.ShowDialog();
+
+            HelpPreview(obj);
+
+        }
+
+        public void HelpPreview(object obj)
+        {
+            if (obj == null)
+            {
+                formHelpPreview.UpdateForm(String.Empty);
+            }
+            else
+            {
+                WatchVarDB e = (WatchVarDB)obj;
+                formHelpPreview.UpdateForm(e.helpText);
+            }
+        }
+
+        public void ChangeDisplayName(int name)
+        {
+            NameType nameType = NameType.DISPLAY;
+            if (name == 1)
+            {
+                nameType = NameType.ENMBEDDED;
+            }
+
+            GlobalSettings.setWatchDisplayType(nameType);
+
+        }
+
+    }
+
+
+
 }

@@ -4,18 +4,18 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormEventVariableEditor : Form
+    public partial class FormVariableEditor : Form
     {
         EventVariableDB ev;
 
-        public FormEventVariableEditor(EventVariableDB e)
+        public FormVariableEditor(EventVariableDB e)
         {
             InitializeComponent();
 
             this.ev = e;
         }
 
-        private FormEventVariableEditor()
+        private FormVariableEditor()
         {
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace DDB
 {
-    partial class FormEventVariableEditor
+    partial class FormVariableEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -309,7 +309,7 @@
             this.tBoxWatchDisplayName.Size = new System.Drawing.Size(404, 24);
             this.tBoxWatchDisplayName.TabIndex = 0;
             // 
-            // FormEventVariableEditor
+            // FormVariableEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -319,9 +319,9 @@
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
-            this.Name = "FormEventVariableEditor";
+            this.Name = "FormVariableEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Event Variable Editor";
+            this.Text = "Variable Editor";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEventEditor_KeyDown);
             this.grpBoxWatchAttrs.ResumeLayout(false);
             this.grpBoxWatchAttrs.PerformLayout();
