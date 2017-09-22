@@ -1389,6 +1389,8 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.mainMenuStrip;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(877, 670);
+            this.MinimumSize = new System.Drawing.Size(877, 670);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bombardier DDB (v 0.0.0.12)";
