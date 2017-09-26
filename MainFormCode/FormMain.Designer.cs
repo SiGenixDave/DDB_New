@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
-            this.ucEE_WatchVariables = new DDB.UserControlEntityEditor();
             this.grpBoxWatchAttrs = new System.Windows.Forms.GroupBox();
             this.cBoxWatchUnitConversion = new System.Windows.Forms.ComboBox();
             this.btnWatchAccept = new System.Windows.Forms.Button();
@@ -66,18 +65,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tBoxWatchDisplayName = new System.Windows.Forms.TextBox();
             this.tabEvents = new System.Windows.Forms.TabPage();
-            this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
-            this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
-            this.ucEE_Events = new DDB.UserControlEntityEditor();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.btnEditSelfTestErrorMessages = new System.Windows.Forms.Button();
             this.btnEditSelfTestLists = new System.Windows.Forms.Button();
-            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
-            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
-            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
-            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
-            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
             this.btnProjSettingsCancelChanges = new System.Windows.Forms.Button();
             this.btnProjSettingsAcceptChanges = new System.Windows.Forms.Button();
@@ -144,6 +135,15 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
+            this.ucEE_WatchVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
+            this.ucEE_Events = new DDB.UserControlEntityEditor();
+            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
+            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
+            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
+            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
@@ -193,17 +193,6 @@
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
-            // 
-            // ucEE_WatchVariables
-            // 
-            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
-            this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
-            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 500);
-            this.ucEE_WatchVariables.TabIndex = 7;
-            this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
-            this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
-            this.ucEE_WatchVariables.xVisibleLinksButton = false;
             // 
             // grpBoxWatchAttrs
             // 
@@ -621,36 +610,6 @@
             this.tabEvents.UseVisualStyleBackColor = true;
             this.tabEvents.Leave += new System.EventHandler(this.tabEvents_Leave);
             // 
-            // ucEE_EventVariables
-            // 
-            this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
-            this.ucEE_EventVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_EventVariables.Name = "ucEE_EventVariables";
-            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_EventVariables.TabIndex = 36;
-            this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
-            this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
-            // 
-            // ucEE_EventStructures
-            // 
-            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
-            this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_EventStructures.Name = "ucEE_EventStructures";
-            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_EventStructures.TabIndex = 35;
-            this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
-            this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Events
-            // 
-            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
-            this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_Events.Name = "ucEE_Events";
-            this.ucEE_Events.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_Events.TabIndex = 34;
-            this.ucEE_Events.xGroupBoxTitle = "Events";
-            this.ucEE_Events.xVisibleLinksButton = false;
-            // 
             // tabSelfTest
             // 
             this.tabSelfTest.Controls.Add(this.btnEditSelfTestErrorMessages);
@@ -683,27 +642,6 @@
             this.btnEditSelfTestLists.UseVisualStyleBackColor = true;
             this.btnEditSelfTestLists.Click += new System.EventHandler(this.btnEditSelfTestLists_Click);
             // 
-            // ucEE_SelfTestVariables
-            // 
-            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 48);
-            this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
-            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_SelfTestVariables.TabIndex = 1;
-            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
-            this.ucEE_SelfTestVariables.xVisibleDispEmbComboBox = true;
-            // 
-            // ucEE_SelfTest
-            // 
-            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 48);
-            this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
-            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_SelfTest.TabIndex = 0;
-            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
-            this.ucEE_SelfTest.xVisibleLinksButton = false;
-            this.ucEE_SelfTest.xVisibleModifyHelpTextButton = false;
-            // 
             // tabProjectDefinitions
             // 
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Enumerations);
@@ -717,36 +655,6 @@
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
-            // 
-            // ucEE_Enumerations
-            // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(533, 7);
-            this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(293, 421);
-            this.ucEE_Enumerations.TabIndex = 23;
-            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
-            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Bitmasks
-            // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(266, 7);
-            this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(300, 421);
-            this.ucEE_Bitmasks.TabIndex = 22;
-            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
-            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Units
-            // 
-            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
-            this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(282, 512);
-            this.ucEE_Units.TabIndex = 21;
-            this.ucEE_Units.xGroupBoxTitle = "Units";
-            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
             // 
             // tabProjectSettings
             // 
@@ -1375,6 +1283,98 @@
             this.btnExitDDB.Text = "Exit DDB";
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
+            // 
+            // ucEE_WatchVariables
+            // 
+            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
+            this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
+            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 500);
+            this.ucEE_WatchVariables.TabIndex = 7;
+            this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
+            this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
+            this.ucEE_WatchVariables.xVisibleLinksButton = false;
+            // 
+            // ucEE_EventVariables
+            // 
+            this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
+            this.ucEE_EventVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_EventVariables.Name = "ucEE_EventVariables";
+            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_EventVariables.TabIndex = 36;
+            this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
+            this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
+            // 
+            // ucEE_EventStructures
+            // 
+            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
+            this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_EventStructures.Name = "ucEE_EventStructures";
+            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_EventStructures.TabIndex = 35;
+            this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
+            this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Events
+            // 
+            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
+            this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Events.Name = "ucEE_Events";
+            this.ucEE_Events.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_Events.TabIndex = 34;
+            this.ucEE_Events.xGroupBoxTitle = "Events";
+            this.ucEE_Events.xVisibleLinksButton = false;
+            // 
+            // ucEE_SelfTestVariables
+            // 
+            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 48);
+            this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
+            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_SelfTestVariables.TabIndex = 1;
+            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
+            this.ucEE_SelfTestVariables.xVisibleDispEmbComboBox = true;
+            // 
+            // ucEE_SelfTest
+            // 
+            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 48);
+            this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
+            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_SelfTest.TabIndex = 0;
+            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
+            this.ucEE_SelfTest.xVisibleLinksButton = false;
+            this.ucEE_SelfTest.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Enumerations
+            // 
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(533, 7);
+            this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(293, 421);
+            this.ucEE_Enumerations.TabIndex = 23;
+            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
+            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Bitmasks
+            // 
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(266, 7);
+            this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(300, 421);
+            this.ucEE_Bitmasks.TabIndex = 22;
+            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
+            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Units
+            // 
+            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
+            this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Units.Name = "ucEE_Units";
+            this.ucEE_Units.Size = new System.Drawing.Size(282, 512);
+            this.ucEE_Units.TabIndex = 21;
+            this.ucEE_Units.xGroupBoxTitle = "Units";
+            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
             // 
             // FormMain
             // 
