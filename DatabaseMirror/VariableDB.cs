@@ -8,23 +8,23 @@ namespace DDB
         static public void Init()
         {
 
-            list.Add(new WatchVarDB("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
-            list.Add(new WatchVarDB("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
-            list.Add(new WatchVarDB("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
-            list.Add(new WatchVarDB("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
-            list.Add(new WatchVarDB("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
+            list.Add(new VariableDB("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>"));
+            list.Add(new VariableDB("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>"));
+            list.Add(new VariableDB("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>"));
+            list.Add(new VariableDB("Velocity - Var 01", "velocity01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 01</b>"));
+            list.Add(new VariableDB("Velocity - Var 02", "velocity02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Velocity - Var 02</b>"));
         }
 
-        static public List<WatchVarDB> list = new List<WatchVarDB>();
+        static public List<VariableDB> list = new List<VariableDB>();
 
-        static public WatchVarDB[] GetWatchVars()
+        static public VariableDB[] GetWatchVars()
         {
             return list.ToArray();
         }
 
     }
     
-    public class WatchVarDB: iDDBHelpObject
+    public class VariableDB: iDDBHelpObject
     {
         public String dispName;
         public String embName;
@@ -44,12 +44,12 @@ namespace DDB
         public Int32 fKey;
         static Int32 key;
 
-        private WatchVarDB()
+        private VariableDB()
         {
         }
 
 
-        public WatchVarDB(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
+        public VariableDB(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st, 
                             Int32 u, Int32 si, Int32 uc, Int32 fs, Int32 rw, Int32 evo, String ht)
         {
             dispName = d;
@@ -70,7 +70,7 @@ namespace DDB
             fKey = key++;
         }
 
-        public WatchVarDB(WatchVarDB w)
+        public VariableDB(VariableDB w)
         {
             dispName = w.dispName;
             embName = w.embName;

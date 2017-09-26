@@ -57,9 +57,26 @@ namespace DDB
             SelfTestList.Init();
             SelfTestListList.Init();
 
+            ucVE_WatchVar.setFormMain(this);
 
             InitProjectSettings();
         }
+
+        public object[] GetUnits()
+        {
+            return ucEE_Units.GetItems();
+        }
+
+        public object[] GetBitmasks()
+        {
+            return ucEE_Bitmasks.GetItems();
+        }
+
+        public object[] GetEnums()
+        {
+            return ucEE_Enumerations.GetItems();
+        }
+
 
         private void PopulateUnits()
         {
@@ -128,6 +145,7 @@ namespace DDB
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+#if TODO
             //TODO Reload any information based on the current tab selected
             switch (tabControl1.SelectedIndex)
             {
@@ -168,6 +186,7 @@ namespace DDB
                     dGridEventLog.ClearSelection();
                     break;
             }
+#endif
         }
 
         private void CreatePreviews()
