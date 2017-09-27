@@ -12,6 +12,7 @@ namespace DDB
     public partial class UserControlVariableEditor : UserControl
     {
         private FormMain formMain;
+        private Form parentForm;
 
         public UserControlVariableEditor()
         {
@@ -48,16 +49,69 @@ namespace DDB
             }
         }
 
+        bool _gBoxOptionsEnabled = true;
+        [DefaultValue(true)]
+        public bool xOptionsGroupBox
+        {
+            get
+            {
+                return _gBoxOptionsEnabled;
+            }
+            set
+            {
+                _gBoxOptionsEnabled = value;
+                gBoxOptions.Enabled = value;
+            }
+        }
+
+        bool _btnAcceptVisible = true;
+        [DefaultValue(true)]
+        public bool xAcceptButtonVisible
+        {
+            get
+            {
+                return _btnAcceptVisible;
+            }
+            set
+            {
+                _btnAcceptVisible = value;
+                btnAccept.Visible = value;
+            }
+        }
+
+        bool _btnCancelVisible = true;
+        [DefaultValue(true)]
+        public bool xCancelButtonVisible
+        {
+            get
+            {
+                return _btnCancelVisible;
+            }
+            set
+            {
+                _btnCancelVisible = value;
+                btnCancel.Visible = value;
+            }
+        }
+
+
         public void setFormMain (FormMain fmain)
         {
             formMain = fmain;
         }
 
+        public void setParentForm(Form pForm)
+        {
+            parentForm = pForm;
+        }
 
         public void UpdateVarDisplay(VariableDB watchVar)
         {
             if (watchVar != null)
             {
+
+                modifiedVar = (VariableDB)watchVar;
+                
                 tBoxDisplayName.Text = watchVar.dispName;
                 tBoxEmbName.Text = watchVar.embName;
                 tBoxMinChart.Text = watchVar.minChart.ToString();
@@ -75,6 +129,7 @@ namespace DDB
                 //TODO formHelpPreview.UpdateForm(watchVar.helpText);
 
                 EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), watchVar);
+
             }
             else
             {
@@ -280,7 +335,7 @@ namespace DDB
         }
 
 
-        public VariableDB VarCreate()
+        public VariableDB VarCreate(GetUserSelection getUS)
         {
             PopulateNewVarDefaults();
             VariableDB newVar = new VariableDB(tBoxDisplayName.Text, tBoxEmbName.Text, Convert.ToInt32(tBoxMinChart.Text),
@@ -288,7 +343,7 @@ namespace DDB
                                             Convert.ToInt32(tBoxMaxValue.Text), cBoxDataType.SelectedIndex, cBoxScaleType.SelectedIndex,
                                             cBoxUnits.SelectedIndex, cBoxScaleInfo.SelectedIndex, cBoxUnitConversion.SelectedIndex,
                                             cBoxFormatString.SelectedIndex, cBoxReadWriteFlags.SelectedIndex,
-                                            chkEngViewOnly.Checked ? 1 : 0, "");
+                                            chkEngViewOnly.Checked ? 1 : 0, "", getUS);
 
             return newVar;
         }
@@ -298,6 +353,15 @@ namespace DDB
         {
             modifyInProgress = false;
             modifyAccepted = accepted;
+            if (parentForm != null)
+            {
+                parentForm.DialogResult = DialogResult.Cancel;
+                if (accepted)
+                {
+                    parentForm.DialogResult = DialogResult.OK;
+                }
+                parentForm.Close();
+            }
         }
 
         private void PopulateNewVarDefaults()
@@ -317,7 +381,6 @@ namespace DDB
             cBoxReadWriteFlags.SelectedIndex = 0;
             chkEngViewOnly.Checked = false;
         }
-
 
 
     }

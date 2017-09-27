@@ -12,10 +12,10 @@ namespace DDB
 
         static public void Init()
         {
-            list.Add(new EventStructureDB("Event_1_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(0), EventVariableList.GetEventObject(1) }));
-            list.Add(new EventStructureDB("Event_2_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(4), EventVariableList.GetEventObject(5) }));
-            list.Add(new EventStructureDB("Event_3_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(8), EventVariableList.GetEventObject(18) }));
-            list.Add(new EventStructureDB("Event_4_Str", new List<EventVariableDB>() { EventVariableList.GetEventObject(9) }));
+            list.Add(new EventStructureDB("Event_1_Str", new List<VariableDB>() { EventVariableList.GetEventObject(5), EventVariableList.GetEventObject(6) }));
+            list.Add(new EventStructureDB("Event_2_Str", new List<VariableDB>() { EventVariableList.GetEventObject(7), EventVariableList.GetEventObject(8) }));
+            list.Add(new EventStructureDB("Event_3_Str", new List<VariableDB>() { EventVariableList.GetEventObject(9), EventVariableList.GetEventObject(10) }));
+            list.Add(new EventStructureDB("Event_4_Str", new List<VariableDB>() { EventVariableList.GetEventObject(11) }));
         }
 
         static public EventStructureDB[] GetEventStructures()
@@ -55,10 +55,10 @@ namespace DDB
     {
         public Int32 fKey;
         public String name;
-        public List<EventVariableDB> variableList;
+        public List<VariableDB> variableList;
         static Int32 key;
 
-        public EventStructureDB(String n, List<EventVariableDB> l)
+        public EventStructureDB(String n, List<VariableDB> l)
         {
             name = n;
             variableList = l;

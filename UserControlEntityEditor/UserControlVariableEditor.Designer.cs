@@ -60,9 +60,11 @@
             this.tBoxEmbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tBoxDisplayName = new System.Windows.Forms.TextBox();
+            this.gBoxOptions = new System.Windows.Forms.GroupBox();
             this.gBoxVarMod.SuspendLayout();
             this.gBoxChartScaling.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // cBoxUnitConversion
@@ -174,10 +176,10 @@
             // chkEngViewOnly
             // 
             this.chkEngViewOnly.AutoSize = true;
-            this.chkEngViewOnly.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEngViewOnly.Location = new System.Drawing.Point(13, 370);
+            this.chkEngViewOnly.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEngViewOnly.Location = new System.Drawing.Point(15, 62);
             this.chkEngViewOnly.Name = "chkEngViewOnly";
-            this.chkEngViewOnly.Size = new System.Drawing.Size(170, 17);
+            this.chkEngViewOnly.Size = new System.Drawing.Size(147, 17);
             this.chkEngViewOnly.TabIndex = 37;
             this.chkEngViewOnly.Text = "Engineering Only Visibility";
             this.chkEngViewOnly.UseVisualStyleBackColor = true;
@@ -241,21 +243,21 @@
             "Maintenence [R/W]",
             "Engineering [R/W]",
             "Factory [R/W]"});
-            this.cBoxReadWriteFlags.Location = new System.Drawing.Point(12, 338);
+            this.cBoxReadWriteFlags.Location = new System.Drawing.Point(76, 27);
             this.cBoxReadWriteFlags.Name = "cBoxReadWriteFlags";
-            this.cBoxReadWriteFlags.Size = new System.Drawing.Size(143, 21);
+            this.cBoxReadWriteFlags.Size = new System.Drawing.Size(120, 21);
             this.cBoxReadWriteFlags.TabIndex = 34;
             this.cBoxReadWriteFlags.SelectedIndexChanged += new System.EventHandler(this.cBoxReadWriteFlags_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 316);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 30);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 13);
+            this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 32;
-            this.label9.Text = "Read Write Flags";
+            this.label9.Text = "R/W Flags";
             // 
             // cBoxDataType
             // 
@@ -294,7 +296,7 @@
             this.gBoxVarMod.Controls.Add(this.tBoxMaxValue);
             this.gBoxVarMod.Controls.Add(this.label7);
             this.gBoxVarMod.Controls.Add(this.tBoxMinValue);
-            this.gBoxVarMod.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxVarMod.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxVarMod.Location = new System.Drawing.Point(13, 218);
             this.gBoxVarMod.Name = "gBoxVarMod";
             this.gBoxVarMod.Size = new System.Drawing.Size(222, 94);
@@ -305,10 +307,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 63);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 13);
+            this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Maximum Value";
             // 
@@ -323,10 +325,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 34);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(16, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.Size = new System.Drawing.Size(76, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Minimum Value";
             // 
@@ -355,10 +357,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(-1, 63);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 13);
+            this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Maximum Value";
             // 
@@ -373,10 +375,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(2, 34);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Minimum Value";
             // 
@@ -438,10 +440,24 @@
             this.tBoxDisplayName.Size = new System.Drawing.Size(404, 21);
             this.tBoxDisplayName.TabIndex = 0;
             // 
+            // gBoxOptions
+            // 
+            this.gBoxOptions.Controls.Add(this.cBoxReadWriteFlags);
+            this.gBoxOptions.Controls.Add(this.chkEngViewOnly);
+            this.gBoxOptions.Controls.Add(this.label9);
+            this.gBoxOptions.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxOptions.Location = new System.Drawing.Point(13, 318);
+            this.gBoxOptions.Name = "gBoxOptions";
+            this.gBoxOptions.Size = new System.Drawing.Size(222, 86);
+            this.gBoxOptions.TabIndex = 44;
+            this.gBoxOptions.TabStop = false;
+            this.gBoxOptions.Text = "Options";
+            // 
             // UserControlVariableEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gBoxOptions);
             this.Controls.Add(this.cBoxUnitConversion);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.cBoxScaleInfo);
@@ -450,13 +466,10 @@
             this.Controls.Add(this.lblWatchScaleInfo);
             this.Controls.Add(this.cBoxFormatString);
             this.Controls.Add(this.lblFormatString);
-            this.Controls.Add(this.chkEngViewOnly);
             this.Controls.Add(this.cBoxScaleType);
             this.Controls.Add(this.lblWatchUnitsEnumBitmask);
             this.Controls.Add(this.cBoxUnits);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cBoxReadWriteFlags);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.cBoxDataType);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gBoxVarMod);
@@ -471,6 +484,8 @@
             this.gBoxChartScaling.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gBoxOptions.ResumeLayout(false);
+            this.gBoxOptions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,5 +525,6 @@
         private System.Windows.Forms.TextBox tBoxEmbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBoxDisplayName;
+        private System.Windows.Forms.GroupBox gBoxOptions;
     }
 }

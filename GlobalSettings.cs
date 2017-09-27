@@ -2,7 +2,7 @@
 
 namespace DDB
 {
-    enum NameType
+    public enum NameType
     {
         DISPLAY,
         ENMBEDDED

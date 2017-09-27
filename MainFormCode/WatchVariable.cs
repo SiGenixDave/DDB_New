@@ -65,7 +65,9 @@ namespace DDB
             formMain.SetWatchGroupBoxEnable(true);
             formMain.SetWatchVarUserControlEnable(false);
             formMain.SetWatchOtherTabsEnable(false);
+            
             ucVE_WatchVar.EnableEditor(obj);
+            
             formMain.SetWatchGroupBoxEnable(false);
             formMain.SetWatchVarUserControlEnable(true);
             formMain.SetWatchOtherTabsEnable(true);
@@ -81,19 +83,19 @@ namespace DDB
             formMain.SetWatchGroupBoxEnable(true);
             formMain.SetWatchVarUserControlEnable(false);
             formMain.SetWatchOtherTabsEnable(false); 
-            object obj = ucVE_WatchVar.VarCreate();
+            
+            object obj = ucVE_WatchVar.VarCreate(GlobalSettings.getWatchDisplayType);
+
+            object retObj = null;
             if (ucVE_WatchVar.EnableEditor(obj))
             {
-                formMain.SetWatchGroupBoxEnable(false);
-                formMain.SetWatchVarUserControlEnable(true);
-                formMain.SetWatchOtherTabsEnable(true);
-                return obj;
+                retObj = obj;
             }
 
             formMain.SetWatchGroupBoxEnable(false);
             formMain.SetWatchVarUserControlEnable(true);
             formMain.SetWatchOtherTabsEnable(true);
-            return null;
+            return retObj;
 
         }
 

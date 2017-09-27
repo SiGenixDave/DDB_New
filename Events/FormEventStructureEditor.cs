@@ -34,7 +34,7 @@ namespace DDB
 
             mEventStructure.variableList.Clear();
 
-            foreach (EventVariableDB var in ucDS_UsedEventVars.GetItems())
+            foreach (VariableDB var in ucDS_UsedEventVars.GetItems())
             {
                 mEventStructure.variableList.Add(var);
             }
@@ -49,7 +49,7 @@ namespace DDB
                 return;
             }
 
-            foreach (EventVariableDB ev in mEventStructure.variableList)
+            foreach (VariableDB ev in mEventStructure.variableList)
             {
                 ucDS_UsedEventVars.AddListBoxItem(ev);
             }
@@ -57,9 +57,9 @@ namespace DDB
 
         private void PopulateUnusedVars()
         {
-            EventVariableDB[] allVars = EventVariableList.GetEventVariables();
+            VariableDB[] allVars = EventVariableList.GetEventVariables();
 
-            foreach (EventVariableDB var in EventVariableList.GetEventVariables())
+            foreach (VariableDB var in EventVariableList.GetEventVariables())
             {
                 if (mEventStructure.variableList != null)
                 {

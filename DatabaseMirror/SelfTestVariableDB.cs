@@ -86,7 +86,7 @@ namespace DDB
             helpText = ht;
         }
 
-        public SelfTestVariableDB(EventVariableDB e) : 
+        public SelfTestVariableDB(VariableDB e) : 
             this (e.dispName, e.embName, e.dataType, e.scaleType, 
                             e.units, e.scaleInfo, e.unitConversion, e.formatString, e.helpText)
         {}

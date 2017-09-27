@@ -6,84 +6,44 @@ namespace DDB
 {
     public partial class FormVariableEditor : Form
     {
-        EventVariableDB ev;
+        VariableDB var;
+        FormMain formMain;
 
-        public FormVariableEditor(EventVariableDB e)
+        public FormVariableEditor(VariableDB v, FormMain fMain)
         {
             InitializeComponent();
 
-            this.ev = e;
+            var = v;
+            formMain = fMain;
+
+            userControlVariableEditor1.setParentForm(this);
+            userControlVariableEditor1.setFormMain(formMain);
+
+            userControlVariableEditor1.UpdateVarDisplay(var);
+
+        }
+
+        public FormVariableEditor(FormMain fMain, GetUserSelection getUS)
+        {
+            InitializeComponent();
+
+            formMain = fMain;
+
+            var = userControlVariableEditor1.VarCreate(getUS);
+
+            userControlVariableEditor1.setParentForm(this);
+            userControlVariableEditor1.setFormMain(formMain);
+
+            userControlVariableEditor1.UpdateVarDisplay(var);
+
         }
 
         private FormVariableEditor()
         {
         }
 
-
-        public EventVariableDB GetEditedEventVariable()
-        {
-            //m_SelfTestObj.name = tBoxEventName.Text;
-            //m_SelfTestObj.embeddedName = tBoxDefineName.Text;
-            //m_SelfTestObj.logFKey = cBoxEventLogs.SelectedIndex;
-            //m_SelfTestObj.structFKey = cBoxEventStructs.SelectedIndex;
-            return ev;
-        }
-
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (Cancel.Query("Event Variable", ev.dispName))
-            {
-                this.DialogResult = DialogResult.Cancel;
-                Close();
-            }
-        }
-
-        private void FormEventEditor_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Return)
-            {
-                btnAccept_Click(null, null);
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                btnCancel_Click(null, null);
-            }
-        }
-
-        private void tBoxEventName_TextChanged(object sender, EventArgs e)
-        {
-#if TODO
-            // Only resize textbox when there is some and limited amount of text
-            if ((tBoxEventName.Text.Length > 0) && (tBoxEventName.Text.Length < 80))
-            {
-                Size size = TextRenderer.MeasureText(tBoxEventName.Text, tBoxEventName.Font);
-
-                tBoxEventName.Width = size.Width + 10;
-                tBoxEventName.Height = size.Height;
-            }
-#endif
-        }
-
-        private void tBoxDefineName_TextChanged(object sender, EventArgs e)
-        {
-#if TODO
-            // Only resize textbox when there is some and limited amount of text
-            if ((tBoxDefineName.Text.Length > 0) && (tBoxDefineName.Text.Length < 80))
-            {
-                Size size = TextRenderer.MeasureText(tBoxDefineName.Text, tBoxDefineName.Font);
-
-                tBoxDefineName.Width = size.Width + 10;
-                tBoxDefineName.Height = size.Height;
-            }
-#endif
-        }
+                
+    }
 
 
-     }
 }
