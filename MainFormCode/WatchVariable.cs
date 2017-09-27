@@ -74,9 +74,7 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        { }
 
         public object Create()
         {
@@ -108,6 +106,7 @@ namespace DDB
         {
             //TODO 
         }
+
         public void Import()
         {
             FormImport iForm = new FormImport("Watch Variables");
@@ -116,6 +115,7 @@ namespace DDB
 
             //TODO Open new form with vList box of units from the XML file        
         }
+
         public void HelpModify(object obj)
         {
             VariableDB var = (VariableDB)obj;

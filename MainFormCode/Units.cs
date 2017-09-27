@@ -6,20 +6,6 @@ namespace DDB
 {
     public partial class FormMain
     {
-        private void btnProjUnitsImport_Click(object sender, EventArgs e)
-        {
-            FormImport iForm = new FormImport("Units");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with vList box of units from the XML file
-        }
-
-        private void gBoxProjUnits_Enter(object sender, EventArgs e)
-        {
-            formEnumPreview.UpdateForm(null);
-            formBitmaskPreview.UpdateForm(null);
-        }
     }
 
 

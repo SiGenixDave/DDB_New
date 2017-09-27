@@ -142,52 +142,7 @@ namespace DDB
             Close();
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-#if TODO
-            //TODO Reload any information based on the current tab selected
-            switch (tabControl1.SelectedIndex)
-            {
-                case 0:
-                    // Tab Watch
-                    if (cBoxWatchScaleType.SelectedItem != null)
-                    {
-                        if (cBoxWatchScaleType.SelectedItem.ToString() == "Bitmask")
-                        {
-                            int savedIndex = cBoxWatchUnits.SelectedIndex;
-                            LoadBitmasksIntoComboBox(true);
-                            cBoxWatchUnits.SelectedIndex = savedIndex;
-                        }
-                        else if (cBoxWatchScaleType.SelectedItem.ToString() == "Enumeration")
-                        {
-                            int savedIndex = cBoxWatchUnits.SelectedIndex;
-                            LoadEnumsIntoComboBox(true);
-                            cBoxWatchUnits.SelectedIndex = savedIndex;
-                        }
-                    }
-                    break;
-
-                case 1:
-                    // Tab Event
-                    break;
-
-                case 2:
-                    // Tab Selftest
-                    break;
-
-                case 3:
-                    // Tab Project Definitions
-                    break;
-
-                case 4:
-                    // Tab Project Settings
-                    dGridURL.ClearSelection();
-                    dGridEventLog.ClearSelection();
-                    break;
-            }
-#endif
-        }
-
+        
         private void CreatePreviews()
         {
             formBitmaskPreview = new FormBitmaskPreview();

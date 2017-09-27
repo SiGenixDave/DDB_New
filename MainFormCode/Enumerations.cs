@@ -36,9 +36,7 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        { }
 
         public object Create()
         {

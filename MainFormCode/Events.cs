@@ -38,7 +38,7 @@ namespace DDB
 
         private void PopulateEventVariables()
         {
-            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview);
+            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview, formHelpPreview);
             ucEE_EventVariables.setBusinessLogic(ebl);
             ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
         }
@@ -48,18 +48,6 @@ namespace DDB
             return ucEE_EventVariables.GetItems();
         }
 
-        /////////////////////////////////
-#if TODO
-        private void btnEventVarImport_Click(object sender, EventArgs e)
-        {
-            FormImport iForm = new FormImport("Event Variables");
-            iForm.ShowDialog();
-            //TODO Open File dialog (xml file default)
-
-            //TODO Open new form with list box of units from the XML file
-        }
-
-#endif
     }
 
     public class EventsBusinessLogic : iEntityEditorBusinesssLogic
@@ -98,9 +86,7 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        { }
 
         public object Create()
         {
@@ -188,9 +174,7 @@ namespace DDB
         }
 
         public void Delete(object obj)
-        {
-            // TODO Remove obj from DB
-        }
+        { }
 
         public object Create()
         {
@@ -233,11 +217,13 @@ namespace DDB
     {
         private FormVariablePreview formVarPreview;
         private FormMain formMain;
+        private FormHelpPreview formHelpPreview;
 
-        public EventVariablesBusinessLogic(FormMain fMain, FormVariablePreview vPreview)
+        public EventVariablesBusinessLogic(FormMain fMain, FormVariablePreview vPreview, FormHelpPreview hPreview)
         {
             formMain = fMain;
             formVarPreview = vPreview;
+            formHelpPreview = hPreview;
         }
 
         private EventVariablesBusinessLogic()
@@ -302,16 +288,15 @@ namespace DDB
 
         public void HelpPreview(object obj)
         {
-#if TODO
             if (obj == null)
             {
                 formHelpPreview.UpdateForm(String.Empty);
             }
             else
             {
-                //TODO
+                VariableDB var = (VariableDB)obj;
+                formHelpPreview.UpdateForm(var.helpText);
             }
-#endif
         }
 
         public void ChangeDisplayName(int name)
