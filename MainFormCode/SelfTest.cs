@@ -104,10 +104,13 @@ namespace DDB
         // TODO FormVariablePreview varPreview;
         private FormMain formMain;
 
+        private FormHelpPreview formHelpPreview;
+
         //TODO public EventVariablesBusinessLogic(FormVariablePreview preview)
-        public SelfTestVariablesBusinessLogic(FormMain fMain)
+        public SelfTestVariablesBusinessLogic(FormMain fMain, FormHelpPreview helpPreview)
         {
             formMain = fMain;
+            formHelpPreview = helpPreview;
         }
 
         private SelfTestVariablesBusinessLogic()
@@ -172,16 +175,15 @@ namespace DDB
 
         public void HelpPreview(object obj)
         {
-#if TODO
             if (obj == null)
             {
                 formHelpPreview.UpdateForm(String.Empty);
             }
             else
             {
-                //TODO
+                VariableDB s = (VariableDB)obj;
+                formHelpPreview.UpdateForm(s.helpText);
             }
-#endif
         }
 
         public void ChangeDisplayName(int name)
@@ -209,7 +211,7 @@ namespace DDB
             ucEE_SelfTest.setBusinessLogic(sbl);
             ucEE_SelfTest.AddListBoxItems(SelfTestList.GetObjects());
 
-            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this);
+            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview);
             ucEE_SelfTestVariables.setBusinessLogic(svbl);
             ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
         }

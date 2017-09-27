@@ -8,10 +8,10 @@ namespace DDB
         public String dispName;
         public Int32 fKey;
         public String[] strValues = new String[32];
-        static Int32 key;
+        private static Int32 key;
 
         private BitmaskDB()
-        {}
+        { }
 
         public BitmaskDB(String dName, String[] sValues)
         {
@@ -33,8 +33,9 @@ namespace DDB
             }
         }
 
-        public BitmaskDB(BitmaskDB w): this(w.dispName, w.strValues)
-        {}
+        public BitmaskDB(BitmaskDB w)
+            : this(w.dispName, w.strValues)
+        { }
 
         public override string ToString()
         {
@@ -61,7 +62,5 @@ namespace DDB
             list.Add(new BitmaskDB("BitMask 05", val));
             list.Add(new BitmaskDB("BitMask 06", val));
         }
-
     }
-
 }

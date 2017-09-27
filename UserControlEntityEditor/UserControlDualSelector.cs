@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DDB
@@ -12,7 +8,7 @@ namespace DDB
     public partial class UserControlDualSelector : UserControl
     {
         private UserControlDualSelector otherSelector = null;
-        private List<object> allEntities = new List<object>(); 
+        private List<object> allEntities = new List<object>();
         private iDualSelectorSupport dualSelectorSupport = null;
 
         public UserControlDualSelector()
@@ -49,7 +45,6 @@ namespace DDB
         {
             allEntities.Clear();
             listBox.Items.Clear();
-
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +56,8 @@ namespace DDB
             get { return groupBox.Text; }
         }
 
-        bool _btnMoveUpVisible = true;
+        private bool _btnMoveUpVisible = true;
+
         [DefaultValue(true)]
         public bool xVisibleMoveUpButton
         {
@@ -76,7 +72,8 @@ namespace DDB
             }
         }
 
-        bool _btnMoveDownVisible = true;
+        private bool _btnMoveDownVisible = true;
+
         [DefaultValue(true)]
         public bool xVisibleMoveDownButton
         {
@@ -91,7 +88,8 @@ namespace DDB
             }
         }
 
-        bool _txtFilterVisible = true;
+        private bool _txtFilterVisible = true;
+
         [DefaultValue(true)]
         public bool xFilterVisible
         {
@@ -112,12 +110,11 @@ namespace DDB
             allEntities.Add(item);
         }
 
-        public void AddListBoxItems(object []items)
+        public void AddListBoxItems(object[] items)
         {
             listBox.Items.AddRange(items);
             allEntities.AddRange(items);
         }
-
 
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
@@ -136,7 +133,6 @@ namespace DDB
                 dualSelectorSupport.MoveDown(listBox.SelectedItem);
             }
         }
-
 
         public void MoveItem(int direction)
         {
@@ -160,7 +156,6 @@ namespace DDB
             // Restore selection
             listBox.SetSelected(newIndex, true);
         }
-
 
         private void listBox_DoubleClick(object sender, EventArgs e)
         {
@@ -207,7 +202,6 @@ namespace DDB
             listBox.SelectedIndex = -1;
         }
 
-
         ///////////////////////////////////////////////////////////////////////////
         // Context Menu tool strip
         private void moveSelectedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -215,15 +209,15 @@ namespace DDB
             MoveItemsToOtherSelector();
         }
 
-
-
         private enum UCSort
         {
             UNSORTED,
             SORT_ASC,
             SORT_DES
         }
+
         private UCSort currentSort = UCSort.UNSORTED;
+
         private void sortAscendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             object selItem = listBox.SelectedItem;
@@ -257,7 +251,6 @@ namespace DDB
             listBox.SelectedItem = selItem;
 
             currentSort = UCSort.SORT_DES;
-
         }
 
         private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -272,7 +265,6 @@ namespace DDB
 
             currentSort = UCSort.UNSORTED;
         }
-
 
         /////////////////////////////////////////////////////////////////////////////////////////
         // Methods
@@ -290,7 +282,6 @@ namespace DDB
                 contextMenuStrip.Items["moveSelectedToolStripMenuItem"].Visible = false;
                 contextMenuStrip.Items["toolStripSeparator3"].Visible = false;
             }
-        
         }
 
         private void txtBoxFilter_TextChanged(object sender, EventArgs e)
@@ -324,7 +315,6 @@ namespace DDB
             }
         }
 
-
         private void MoveItemsToOtherSelector()
         {
             // Support the user control when it doesn't have a partner
@@ -346,13 +336,12 @@ namespace DDB
                 }
             }
         }
-
     }
 
     public interface iDualSelectorSupport
     {
         void MoveUp(object obj);
+
         void MoveDown(object obj);
     }
-
 }

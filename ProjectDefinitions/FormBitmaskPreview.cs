@@ -4,16 +4,15 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormBitmaskPreview: Form
+    public partial class FormBitmaskPreview : Form
     {
-
         public FormBitmaskPreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
-        public void UpdateForm (BitmaskDB bm)
+        public void UpdateForm(BitmaskDB bm)
         {
             do
             {
@@ -70,6 +69,5 @@ namespace DDB
             // Force sort using int and not string
             dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
-
     }
 }

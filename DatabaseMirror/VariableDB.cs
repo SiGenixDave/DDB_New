@@ -7,7 +7,6 @@ namespace DDB
     {
         static public void Init()
         {
-
             list.Add(new VariableDB("Motion - Var 01", "motion01", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 01</b>", GlobalSettings.getWatchDisplayType));
             list.Add(new VariableDB("Motion - Var 02", "motion02", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 02</b>", GlobalSettings.getWatchDisplayType));
             list.Add(new VariableDB("Motion - Var 03", "motion03", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>Motion - Var 03</b>", GlobalSettings.getWatchDisplayType));
@@ -21,12 +20,11 @@ namespace DDB
         {
             return list.ToArray();
         }
-
     }
 
     public delegate NameType GetUserSelection();
 
-    public class VariableDB: iDDBHelpObject
+    public class VariableDB : iDDBHelpObject
     {
         public String dispName;
         public String embName;
@@ -36,7 +34,7 @@ namespace DDB
         public Int32 maxVal;
         public Int32 dataType;
         public Int32 scaleType;
-        public Int32 units; 
+        public Int32 units;
         public Int32 scaleInfo;
         public Int32 unitConversion;
         public Int32 formatString;
@@ -45,12 +43,11 @@ namespace DDB
         public String helpText;
         public Int32 fKey;
         public GetUserSelection getUserSelection;
-        static Int32 key;
+        private static Int32 key;
 
         private VariableDB()
         {
         }
-
 
         public VariableDB(String d, String e, Int32 minC, Int32 maxC, Int32 minV, Int32 maxV, Int32 dt, Int32 st,
                             Int32 u, Int32 si, Int32 uc, Int32 fs, Int32 rw, Int32 evo, String ht, GetUserSelection getUS)
@@ -67,7 +64,7 @@ namespace DDB
             scaleInfo = si;
             unitConversion = uc;
             formatString = fs;
-            readWrite= rw;
+            readWrite = rw;
             engineeringViewOnly = evo;
             helpText = ht;
             getUserSelection = new GetUserSelection(getUS);
@@ -115,7 +112,5 @@ namespace DDB
                 return embName;
             }
         }
-
     }
-
 }

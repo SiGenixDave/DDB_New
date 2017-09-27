@@ -6,8 +6,8 @@ namespace DDB
 {
     public partial class FormEventEditor : Form
     {
-        EventDB ev;
-        FormMain formMain;
+        private EventDB ev;
+        private FormMain formMain;
 
         public FormEventEditor(FormMain fMain, EventDB e)
         {
@@ -29,14 +29,13 @@ namespace DDB
         {
         }
 
-
         public EventDB GetEditedEvent()
         {
             ev.name = tBoxEventName.Text;
             ev.embeddedName = tBoxDefineName.Text;
             ev.eventLogDB = (EventLogDB)cBoxEventLogs.SelectedItem;
             ev.eventStructureDB = (EventStructureDB)(cBoxEventStructs.SelectedItem);
-           
+
             return ev;
         }
 
@@ -99,7 +98,6 @@ namespace DDB
             }
         }
 
-
         private void PopulateEventLogs()
         {
             foreach (EventLogDB el in EventLogList.GetEventLogs())
@@ -107,6 +105,5 @@ namespace DDB
                 cBoxEventLogs.Items.Add(el);
             }
         }
-
     }
 }

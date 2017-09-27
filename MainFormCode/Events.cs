@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DDB
@@ -50,7 +49,7 @@ namespace DDB
         }
 
         /////////////////////////////////
-#if TODO        
+#if TODO
         private void btnEventVarImport_Click(object sender, EventArgs e)
         {
             FormImport iForm = new FormImport("Event Variables");
@@ -61,15 +60,13 @@ namespace DDB
         }
 
 #endif
-
     }
-
 
     public class EventsBusinessLogic : iEntityEditorBusinesssLogic
     {
-        FormEventPreview evPreview;
-        FormMain formMain;
-        FormHelpPreview formHelpPreview;
+        private FormEventPreview evPreview;
+        private FormMain formMain;
+        private FormHelpPreview formHelpPreview;
 
         public EventsBusinessLogic(FormMain fMain, FormEventPreview preview, FormHelpPreview helpPreview)
         {
@@ -98,7 +95,6 @@ namespace DDB
                     evPreview.UpdateForm(e);
                 }
             }
-
         }
 
         public void Delete(object obj)
@@ -120,7 +116,6 @@ namespace DDB
             }
 
             return null;
-
         }
 
         public void Preview(object obj)
@@ -130,8 +125,10 @@ namespace DDB
 
         public void Links()
         { }
+
         public void Import()
         { }
+
         public void HelpModify(object obj)
         {
             EventDB e = (EventDB)obj;
@@ -139,7 +136,6 @@ namespace DDB
             fh.ShowDialog();
 
             HelpPreview(obj);
-
         }
 
         public void HelpPreview(object obj)
@@ -158,14 +154,11 @@ namespace DDB
         public void ChangeDisplayName(int name)
         { }
 
-
-
     }
-
 
     public class EventStructuresBusinessLogic : iEntityEditorBusinesssLogic
     {
-        FormEventStructurePreview evPreview;
+        private FormEventStructurePreview evPreview;
 
         public EventStructuresBusinessLogic(FormEventStructurePreview preview)
         {
@@ -192,7 +185,6 @@ namespace DDB
                     evPreview.UpdateForm(e);
                 }
             }
-
         }
 
         public void Delete(object obj)
@@ -214,7 +206,6 @@ namespace DDB
             }
 
             return null;
-
         }
 
         public void Preview(object obj)
@@ -224,21 +215,24 @@ namespace DDB
 
         public void Links()
         { }
+
         public void Import()
         { }
+
         public void HelpModify(object obj)
         { }
+
         public void HelpPreview(object obj)
         { }
+
         public void ChangeDisplayName(int name)
         { }
-
     }
 
     public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
         // TODO FormVariablePreview varPreview;
-        FormMain formMain;
+        private FormMain formMain;
 
         //TODO public EventVariablesBusinessLogic(FormVariablePreview preview)
         public EventVariablesBusinessLogic(FormMain fMain)
@@ -266,7 +260,6 @@ namespace DDB
                     //TODO varPreview.UpdateForm(obj);
                 }
             }
-
         }
 
         public void Delete(object obj)
@@ -285,7 +278,6 @@ namespace DDB
             }
 
             return null;
-
         }
 
         public void Preview(object obj)
@@ -295,17 +287,19 @@ namespace DDB
 
         public void Links()
         { }
+
         public void Import()
         { }
+
         public void HelpModify(object obj)
         {
             VariableDB var = (VariableDB)obj;
             FormHelpText fh = new FormHelpText(var, "Event Variable \"" + var.dispName + "\"");
             fh.ShowDialog();
 
-            HelpPreview(obj);        
-        
+            HelpPreview(obj);
         }
+
         public void HelpPreview(object obj)
         {
 #if TODO
@@ -317,8 +311,9 @@ namespace DDB
             {
                 //TODO
             }
-#endif        
+#endif
         }
+
         public void ChangeDisplayName(int name)
         {
             NameType nameType = NameType.DISPLAY;
@@ -328,9 +323,6 @@ namespace DDB
             }
 
             GlobalSettings.setEventVariableDisplayType(nameType);
-
         }
-
     }
-
 }

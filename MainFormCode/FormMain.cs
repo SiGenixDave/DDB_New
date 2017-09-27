@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace DDB
 {
@@ -25,7 +24,7 @@ namespace DDB
                     GlobalSettings.setCustomerUseOnly(true);
                 }
             }
-            
+
             InitializeComponent();
             if (GlobalSettings.getCustomerUseOnly())
             {
@@ -49,7 +48,7 @@ namespace DDB
             // Must be this order
             EventVariableList.Init();
             EventStructureList.Init();
-            EventLogList.Init(); 
+            EventLogList.Init();
             EventList.Init();
 
             // Must be this order
@@ -76,7 +75,6 @@ namespace DDB
         {
             return ucEE_Enumerations.GetItems();
         }
-
 
         private void PopulateUnits()
         {
@@ -248,7 +246,6 @@ namespace DDB
             {
                 formEventStructurePreview.Visible = false;
             }
-
         }
 
         private void previewHelpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,10 +276,8 @@ namespace DDB
             cListBoxFunctionFlags.SelectedIndex = -1;
         }
 
-
         private void btnProjSettingsAcceptChanges_Click(object sender, EventArgs e)
         {
-
             SaveEventLogs();
 
             //TODO  Save All Project Settings and make other tabs visible
@@ -316,14 +311,11 @@ namespace DDB
             cBoxCommType.SelectedIndex = 1;
         }
 
-
         private void tabEvents_Leave(object sender, EventArgs e)
         {
             EventList.Update(ucEE_Events.GetItems());
             EventStructureList.Update(ucEE_EventStructures.GetItems());
             EventVariableList.Update(ucEE_EventVariables.GetItems());
         }
-
-
     }
 }

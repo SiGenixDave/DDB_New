@@ -125,8 +125,8 @@ namespace DDB
 
         private void DeleteItems()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(stl)?",
-                                  "Delete Enumeration(stl) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(s)?",
+                                  "Delete Enumeration(s) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 
@@ -170,10 +170,21 @@ namespace DDB
                 rowindex++;
             }
 
-            DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-            row.Cells[0].Value = highestValue + 1;
-            row.Cells[1].Value = "Description";
-            dataGridView1.Rows.Add(row);
+            DataGridViewRow row;
+            if (dataGridView1.Rows.Count == 0)
+            {
+                dataGridView1.Rows.Add();
+                row = dataGridView1.Rows[0];
+                row.Cells[0].Value = 0;
+                row.Cells[1].Value = "Description";
+            }
+            else
+            {
+                row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = highestValue + 1;
+                row.Cells[1].Value = "Description";
+                dataGridView1.Rows.Add(row);
+            }
             dataGridView1.CurrentCell = dataGridView1.Rows[rowindex].Cells[1];
             dataGridView1.BeginEdit(true);
         }

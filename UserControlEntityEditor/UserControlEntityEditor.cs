@@ -458,8 +458,8 @@ namespace DDB
 
         private void DeleteItem()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected items(stl)?",
-                                  "Delete Items(stl) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected items(s)?",
+                                  "Delete Items(s) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 

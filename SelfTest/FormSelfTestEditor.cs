@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DDB
 {
     public partial class FormSelfTestEditor : Form
     {
-        SelfTestDB m_SelfTestObj;
-        SelfTestMessageDB m_TestDescription;
-        List<SelfTestMessageDB> m_TestMessageList = new List<SelfTestMessageDB>();
-        FormMain m_FormMain;
-        FormHelpPreview m_FormHelpPreview = new FormHelpPreview();
+        private SelfTestDB m_SelfTestObj;
+        private SelfTestMessageDB m_TestDescription;
+        private List<SelfTestMessageDB> m_TestMessageList = new List<SelfTestMessageDB>();
+        private FormMain m_FormMain;
+        private FormHelpPreview m_FormHelpPreview = new FormHelpPreview();
 
-        const String STR_APPEND = "Append";
-        const String STR_MODIFY = "Modify";
-        const String STR_INSERT_BEFORE = "Insert Before";
-        const String STR_INSERT_AFTER = "Insert After";
-        const String STR_DELETE = "Delete";
-        const String STR_REORDER = "Reorder";
+        private const String STR_APPEND = "Append";
+        private const String STR_MODIFY = "Modify";
+        private const String STR_INSERT_BEFORE = "Insert Before";
+        private const String STR_INSERT_AFTER = "Insert After";
+        private const String STR_DELETE = "Delete";
+        private const String STR_REORDER = "Reorder";
 
-        readonly String[] mCONST_Action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
-        readonly String[] mCONST_CustomerOnlyAction = { STR_MODIFY };
+        private const Int32 NEW_SELF_TEST = 0;
+
+        private readonly String[] mCONST_Action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
+        private readonly String[] mCONST_CustomerOnlyAction = { STR_MODIFY };
 
         public FormSelfTestEditor(FormMain fMain, SelfTestDB st)
         {
@@ -57,12 +58,10 @@ namespace DDB
             }
 
             m_FormHelpPreview.Owner = this;
-
         }
 
         private FormSelfTestEditor()
-        {}
-
+        { }
 
         public SelfTestDB GetEditedSelfTest()
         {
@@ -104,7 +103,6 @@ namespace DDB
             }
         }
 
-
         private void PopulateUsedVars()
         {
             if (m_SelfTestObj.variableList == null)
@@ -137,7 +135,6 @@ namespace DDB
                 }
             }
         }
-
 
         private void rbTestDescription_CheckedChanged(object sender, EventArgs e)
         {
@@ -176,15 +173,15 @@ namespace DDB
                     case STR_MODIFY:
                         ModifyTestStep();
                         break;
-                    
+
                     case STR_INSERT_BEFORE:
                         InsertTestStep(true);
                         break;
-                    
+
                     case STR_INSERT_AFTER:
                         InsertTestStep(false);
                         break;
-                    
+
                     case STR_DELETE:
                         DeleteTestStep();
                         break;
@@ -194,7 +191,6 @@ namespace DDB
                         break;
                 }
             }
-
         }
 
         private void cBoxMessageAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -204,6 +200,7 @@ namespace DDB
                 case STR_APPEND:
                     PopulateTestStepAppend();
                     break;
+
                 case STR_MODIFY:
                 case STR_INSERT_BEFORE:
                 case STR_INSERT_AFTER:
@@ -211,16 +208,16 @@ namespace DDB
                     PopulateTestStepInsertModifyDelete();
                     SetTestStepSelection();
                     break;
+
                 case STR_REORDER:
                     cBoxTestStep.Items.Clear();
                     btnGo.Enabled = true;
                     break;
+
                 default:
                     break;
-
             }
         }
-
 
         private void PopulateTestStepAppend()
         {
@@ -245,6 +242,7 @@ namespace DDB
         }
 
         private Int32 prevSelectedTestStepIndex = 0;
+
         private void PopulateTestStepInsertModifyDelete()
         {
             prevSelectedTestStepIndex = cBoxTestStep.SelectedIndex;
@@ -263,7 +261,6 @@ namespace DDB
                     cBoxTestStep.Items.Add(stm);
                 }
             }
-
         }
 
         private void SetTestStepSelection()
@@ -285,7 +282,6 @@ namespace DDB
             {
                 cBoxTestStep.SelectedItem = cBoxTestStep.Items[prevSelectedTestStepIndex - 1];
             }
-
         }
 
         private void PopulateActionCheckBox()
@@ -300,7 +296,6 @@ namespace DDB
                 cBoxMessageAction.Items.AddRange(mCONST_Action);
             }
         }
-
 
         private void ReNumberTestSteps()
         {
@@ -367,7 +362,6 @@ namespace DDB
                     CompileHelpTextAndShow();
                 }
             }
-
         }
 
         private void DeleteTestStep()
@@ -394,7 +388,6 @@ namespace DDB
             SetTestStepSelection();
 
             CompileHelpTextAndShow();
-
         }
 
         private void ReorderTestSteps()
@@ -418,7 +411,6 @@ namespace DDB
                 m_FormHelpPreview.Visible = true;
                 CompileHelpTextAndShow();
             }
-                
         }
 
         private void checkBoxViewEntireTest_CheckedChanged(object sender, EventArgs e)
@@ -432,7 +424,6 @@ namespace DDB
             {
                 m_FormHelpPreview.Visible = false;
             }
-
         }
 
         private void CompileHelpTextAndShow()
@@ -452,7 +443,7 @@ namespace DDB
             try
             {
                 Int32 testNumber = Convert.ToInt32(tBoxSelfTestNumber.Text);
-                if ((testNumber >= 200 && testNumber <= 299) && (!GlobalSettings.getCustomerUseOnly()))
+                if (((testNumber >= 200 && testNumber <= 299) || (testNumber == NEW_SELF_TEST)) && (!GlobalSettings.getCustomerUseOnly()))
                 {
                     ucDS_AvailableVars.Enabled = true;
                     ucDS_UsedVars.Enabled = true;
@@ -469,6 +460,5 @@ namespace DDB
                 ucDS_UsedVars.Enabled = false;
             }
         }
-
     }
 }

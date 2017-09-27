@@ -10,7 +10,7 @@ namespace DDB
         public List<String> strValues = new List<String>();
         public List<int> intValues = new List<int>();
 
-        static Int32 key;
+        private static Int32 key;
 
         private EnumsDB()
         {
@@ -22,7 +22,7 @@ namespace DDB
             fKey = key++;
         }
 
-        public EnumsDB(String dName, int []iValues, String[] sValues)
+        public EnumsDB(String dName, int[] iValues, String[] sValues)
         {
             dispName = dName;
             fKey = key++;
@@ -36,8 +36,8 @@ namespace DDB
             }
         }
 
-
-        public EnumsDB(EnumsDB e): this(e.dispName, e.intValues.ToArray(), e.strValues.ToArray())
+        public EnumsDB(EnumsDB e)
+            : this(e.dispName, e.intValues.ToArray(), e.strValues.ToArray())
         { }
 
         public override string ToString()
@@ -50,7 +50,6 @@ namespace DDB
     {
         static public List<EnumsDB> list = new List<EnumsDB>();
 
-
         static public EnumsDB[] GetEnums()
         {
             return list.ToArray();
@@ -58,11 +57,9 @@ namespace DDB
 
         static public void Init()
         {
-            list.Add(new EnumsDB("Traffic Light", new int[] {0, 1, 2}, new String[] {"Red", "Yellow", "Green"}));
-            list.Add(new EnumsDB("Spin/Slide", new int[] {0, 1}, new String[] {"Spin", "Slide"}));
-            list.Add(new EnumsDB("Contactor", new int[] {0, 255}, new String[] {"DeEnergized", "Energized"}));
+            list.Add(new EnumsDB("Traffic Light", new int[] { 0, 1, 2 }, new String[] { "Red", "Yellow", "Green" }));
+            list.Add(new EnumsDB("Spin/Slide", new int[] { 0, 1 }, new String[] { "Spin", "Slide" }));
+            list.Add(new EnumsDB("Contactor", new int[] { 0, 255 }, new String[] { "DeEnergized", "Energized" }));
         }
-
     }
-
 }

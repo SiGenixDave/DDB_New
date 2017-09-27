@@ -1,13 +1,11 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace DDB
 {
     public partial class FormVariableEditor : Form
     {
-        VariableDB var;
-        FormMain formMain;
+        private VariableDB var;
+        private FormMain formMain;
 
         public FormVariableEditor(VariableDB v, FormMain fMain)
         {
@@ -20,7 +18,6 @@ namespace DDB
             userControlVariableEditor1.setFormMain(formMain);
 
             userControlVariableEditor1.UpdateVarDisplay(var);
-
         }
 
         public FormVariableEditor(FormMain fMain, GetUserSelection getUS)
@@ -35,15 +32,10 @@ namespace DDB
             userControlVariableEditor1.setFormMain(formMain);
 
             userControlVariableEditor1.UpdateVarDisplay(var);
-
         }
 
         private FormVariableEditor()
         {
         }
-
-                
     }
-
-
 }

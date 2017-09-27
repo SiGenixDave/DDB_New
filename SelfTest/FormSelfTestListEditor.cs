@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace DDB
@@ -14,7 +13,6 @@ namespace DDB
             ucDS_AvailableTests.SetOtherSelector(ucDS_UsedTests);
 
             PopulateTestList();
-
         }
 
         private void cBoxTestList_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,7 +35,7 @@ namespace DDB
             }
         }
 
-        void PopulateTestList()
+        private void PopulateTestList()
         {
             cBoxTestList.Items.AddRange(SelfTestGroupList.GetObjects());
             cBoxTestList.SelectedIndex = 0;
@@ -66,7 +64,7 @@ namespace DDB
                 {
                     if (stl.selfTestList == null)
                     {
-                        // no tests in list so add 
+                        // no tests in list so add
                         ucDS_AvailableTests.AddListBoxItem(st);
                     }
                     else if (!stl.selfTestList.Contains(st))
@@ -75,9 +73,6 @@ namespace DDB
                     }
                 }
             }
-
         }
-
     }
-
 }

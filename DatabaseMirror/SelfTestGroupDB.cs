@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DDB
 {
-
     public class SelfTestGroupList
     {
-        static List<SelfTestGroupDB> list = new List<SelfTestGroupDB>();
+        private static List<SelfTestGroupDB> list = new List<SelfTestGroupDB>();
 
         static public void Init()
         {
-            list.Add(new SelfTestGroupDB("Logic & Passive Tests", 1, 100, 199, new List<SelfTestDB>() {SelfTestList.GetObject(0), SelfTestList.GetObject(1)} ));
+            list.Add(new SelfTestGroupDB("Logic & Passive Tests", 1, 100, 199, new List<SelfTestDB>() { SelfTestList.GetObject(0), SelfTestList.GetObject(1) }));
             list.Add(new SelfTestGroupDB("Interactive Tests", 2, 200, 299, new List<SelfTestDB>() { SelfTestList.GetObject(2), }));
             list.Add(new SelfTestGroupDB("Power Tests", 3, 300, 399, null));
             //new List<SelfTestDB>() { SelfTestList.GetObject(5), SelfTestList.GetObject(7) }
@@ -31,9 +28,7 @@ namespace DDB
                 list.Add(e);
             }
         }
-
     }
-
 
     public class SelfTestGroupDB
     {
@@ -43,7 +38,7 @@ namespace DDB
         public Int32 maxTestNumber;
         public List<SelfTestDB> selfTestList;
         public Int32 fKey;
-        static Int32 key;
+        private static Int32 key;
 
         public SelfTestGroupDB(String n, Int32 num, Int32 min, Int32 max, List<SelfTestDB> sList)
         {
@@ -57,16 +52,14 @@ namespace DDB
 
         public SelfTestGroupDB(SelfTestGroupDB st)
             : this(st.name, st.number, st.minTestNumber, st.maxTestNumber, st.selfTestList)
-        {}
+        { }
 
         private SelfTestGroupDB()
-        {}
+        { }
 
         public override string ToString()
         {
             return number.ToString() + " - " + name;
         }
-     }
-
-
+    }
 }

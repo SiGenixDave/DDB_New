@@ -4,16 +4,15 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormEventStructurePreview: Form
+    public partial class FormEventStructurePreview : Form
     {
-
         public FormEventStructurePreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
-        public void UpdateForm (EventStructureDB eStruct)
+        public void UpdateForm(EventStructureDB eStruct)
         {
             do
             {
@@ -27,7 +26,7 @@ namespace DDB
                 }
             } while (dataGridView1.Rows.Count > 0);
 
-            this.Text = "Event Structure Preview "; 
+            this.Text = "Event Structure Preview ";
             if (eStruct == null)
             {
                 return;
@@ -66,6 +65,5 @@ namespace DDB
             // Force sort using int and not string
             dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
-
     }
 }

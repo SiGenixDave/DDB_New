@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace DDB
 {
@@ -29,7 +29,6 @@ namespace DDB
                 gBoxURLs.Visible = true;
                 gBoxTargetCommunication.Size = new Size(462, 224);
             }
-
         }
 
         private void cListBoxFunctionFlags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -46,7 +45,6 @@ namespace DDB
                 }
             }
         }
-
 
         private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
         {
@@ -87,8 +85,8 @@ namespace DDB
 
         private void DeleteUrls()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected URL(stl)?",
-                                  "Delete URL(stl) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected URL(s)?",
+                                  "Delete URL(s) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 
@@ -122,7 +120,6 @@ namespace DDB
                 rowindex++;
             }
 
-
             DataGridViewRow row = (DataGridViewRow)dGridEventLog.Rows[0].Clone();
             row.Cells[0].Value = highestValue + 1;
             row.Cells[1].Value = "New Event Log";
@@ -133,8 +130,8 @@ namespace DDB
 
         private void DeleteEventLogs()
         {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Log(stl)?",
-                                  "Delete Event Log(stl) Confirmation",
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Event Log(s)?",
+                                  "Delete Event Log(s) Confirmation",
                                   MessageBoxButtons.OKCancel,
                                   MessageBoxIcon.Warning);
 
@@ -166,6 +163,5 @@ namespace DDB
 
             EventLogList.Update(eList.ToArray());
         }
-
     }
 }

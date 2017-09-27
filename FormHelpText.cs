@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 namespace DDB
 {
     public partial class FormHelpText : Form
@@ -35,6 +34,5 @@ namespace DDB
                 Close();
             }
         }
-
     }
 }

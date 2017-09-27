@@ -54,7 +54,5 @@ namespace DDB
         {
             return selfTestVar;
         }
-
-
     }
 }

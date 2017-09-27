@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DDB
 {
-
     public class SelfTestVariableList
     {
-        static List<VariableDB> list = new List<VariableDB>();
+        private static List<VariableDB> list = new List<VariableDB>();
 
         static public void Init()
         {
@@ -52,8 +48,6 @@ namespace DDB
             {
                 list.Add(v);
             }
-
         }
-
     }
 }

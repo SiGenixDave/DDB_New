@@ -4,16 +4,15 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormEnumPreview: Form
+    public partial class FormEnumPreview : Form
     {
-
         public FormEnumPreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
-        public void UpdateForm (EnumsDB enm)
+        public void UpdateForm(EnumsDB enm)
         {
             do
             {
@@ -29,7 +28,7 @@ namespace DDB
 
             if (enm == null)
             {
-                this.Text = "Enumeration Preview"; 
+                this.Text = "Enumeration Preview";
                 return;
             }
 
@@ -66,6 +65,5 @@ namespace DDB
             // Force sort using int and not string
             dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
-
     }
 }

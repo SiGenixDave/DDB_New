@@ -31,6 +31,5 @@ namespace DDB
         {
             return new UnitsDB(unitText, true);
         }
-
     }
 }
