@@ -38,7 +38,7 @@ namespace DDB
 
         private void PopulateEventVariables()
         {
-            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this);
+            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview);
             ucEE_EventVariables.setBusinessLogic(ebl);
             ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
         }
@@ -231,13 +231,13 @@ namespace DDB
 
     public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
-        // TODO FormVariablePreview varPreview;
+        private FormVariablePreview formVarPreview;
         private FormMain formMain;
 
-        //TODO public EventVariablesBusinessLogic(FormVariablePreview preview)
-        public EventVariablesBusinessLogic(FormMain fMain)
+        public EventVariablesBusinessLogic(FormMain fMain, FormVariablePreview vPreview)
         {
             formMain = fMain;
+            formVarPreview = vPreview;
         }
 
         private EventVariablesBusinessLogic()
@@ -257,7 +257,7 @@ namespace DDB
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //TODO varPreview.UpdateForm(obj);
+                    formVarPreview.UpdateForm((VariableDB)obj);
                 }
             }
         }
@@ -272,7 +272,7 @@ namespace DDB
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //TODO varPreview.UpdateForm(obj);
+                    formVarPreview.UpdateForm((VariableDB)var);
                     return var;
                 }
             }
@@ -282,7 +282,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            //TODO evPreview.UpdateForm((EventStructureDB)obj);
+            formVarPreview.UpdateForm((VariableDB)obj);
         }
 
         public void Links()

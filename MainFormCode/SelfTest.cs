@@ -101,16 +101,15 @@ namespace DDB
 
     public class SelfTestVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
-        // TODO FormVariablePreview varPreview;
+        private FormVariablePreview formVarPreview;
         private FormMain formMain;
-
         private FormHelpPreview formHelpPreview;
 
-        //TODO public EventVariablesBusinessLogic(FormVariablePreview preview)
-        public SelfTestVariablesBusinessLogic(FormMain fMain, FormHelpPreview helpPreview)
+        public SelfTestVariablesBusinessLogic(FormMain fMain, FormHelpPreview helpPreview, FormVariablePreview fPreview)
         {
             formMain = fMain;
             formHelpPreview = helpPreview;
+            formVarPreview = fPreview;
         }
 
         private SelfTestVariablesBusinessLogic()
@@ -130,7 +129,7 @@ namespace DDB
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //TODO varPreview.UpdateForm(obj);
+                    formVarPreview.UpdateForm((VariableDB)obj);
                 }
             }
         }
@@ -145,7 +144,7 @@ namespace DDB
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    //TODO varPreview.UpdateForm(obj);
+                    formVarPreview.UpdateForm((VariableDB)var);
                     return var;
                 }
             }
@@ -155,7 +154,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            //TODO evPreview.UpdateForm((EventStructureDB)obj);
+            formVarPreview.UpdateForm((VariableDB)obj);
         }
 
         public void Links()
@@ -211,7 +210,7 @@ namespace DDB
             ucEE_SelfTest.setBusinessLogic(sbl);
             ucEE_SelfTest.AddListBoxItems(SelfTestList.GetObjects());
 
-            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview);
+            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview, formVariablePreview);
             ucEE_SelfTestVariables.setBusinessLogic(svbl);
             ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
         }

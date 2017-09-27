@@ -9,6 +9,7 @@ namespace DDB
         private FormEnumPreview formEnumPreview;
         private FormEventPreview formEventPreview;
         private FormHelpPreview formHelpPreview;
+        private FormVariablePreview formVariablePreview;
         private FormEventStructurePreview formEventStructurePreview;
 
         private FormMain()
@@ -194,6 +195,7 @@ namespace DDB
             formEventPreview = new FormEventPreview();
             formEventStructurePreview = new FormEventStructurePreview();
             formHelpPreview = new FormHelpPreview();
+            formVariablePreview = new FormVariablePreview(this);
         }
 
         private void previewBitmasksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -245,6 +247,19 @@ namespace DDB
             else
             {
                 formEventStructurePreview.Visible = false;
+            }
+        }
+
+        private void previewEventVariablesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (previewEventVariablesToolStripMenuItem.Checked)
+            {
+                formVariablePreview.Visible = true;
+                this.Focus();
+            }
+            else
+            {
+                formVariablePreview.Visible = false;
             }
         }
 
@@ -317,5 +332,7 @@ namespace DDB
             EventStructureList.Update(ucEE_EventStructures.GetItems());
             EventVariableList.Update(ucEE_EventVariables.GetItems());
         }
+
+
     }
 }

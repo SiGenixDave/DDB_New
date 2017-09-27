@@ -926,7 +926,8 @@
             this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
             this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
             this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.previewEventVariablesToolStripMenuItem.Text = "Preview Event Variables";
+            this.previewEventVariablesToolStripMenuItem.Text = "Preview ST/EV Variables";
+            this.previewEventVariablesToolStripMenuItem.Click += new System.EventHandler(this.previewEventVariablesToolStripMenuItem_Click);
             // 
             // previewHelpToolStripMenuItem
             // 

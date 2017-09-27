@@ -56,6 +56,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormVariablePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVariablePreview.Designer.cs">
+      <DependentUpon>FormVariablePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseMirror\SelfTestGroupDB.cs" />
     <Compile Include="DatabaseMirror\SelfTestDB.cs" />
     <Compile Include="DatabaseMirror\SelfTestVariableDB.cs" />
@@ -215,6 +221,9 @@
     <Compile Include="UserControlEntityEditor\UserControlVariableEditor.Designer.cs">
       <DependentUpon>UserControlVariableEditor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormVariablePreview.resx">
+      <DependentUpon>FormVariablePreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVariableEditor.resx">
       <DependentUpon>FormVariableEditor.cs</DependentUpon>
     </EmbeddedResource>
