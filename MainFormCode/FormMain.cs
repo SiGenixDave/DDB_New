@@ -55,7 +55,7 @@ namespace DDB
             // Must be this order
             SelfTestVariableList.Init();
             SelfTestList.Init();
-            SelfTestListList.Init();
+            SelfTestGroupList.Init();
 
             ucVE_WatchVar.setFormMain(this);
 

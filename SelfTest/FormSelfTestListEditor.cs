@@ -39,13 +39,13 @@ namespace DDB
 
         void PopulateTestList()
         {
-            cBoxTestList.Items.AddRange(SelfTestListList.GetObjects());
+            cBoxTestList.Items.AddRange(SelfTestGroupList.GetObjects());
             cBoxTestList.SelectedIndex = 0;
         }
 
         public void PopulateTests(object obj)
         {
-            SelfTestListDB stl = (SelfTestListDB)obj;
+            SelfTestGroupDB stl = (SelfTestGroupDB)obj;
 
             ucDS_UsedTests.ClearAllItems();
             ucDS_AvailableTests.ClearAllItems();

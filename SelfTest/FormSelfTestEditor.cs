@@ -73,7 +73,7 @@ namespace DDB
             m_SelfTestObj.variableList.Clear();
             if ((m_SelfTestObj.number >= 200) && (m_SelfTestObj.number <= 299))
             {
-                foreach (SelfTestVariableDB stv in ucDS_UsedVars.GetItems())
+                foreach (VariableDB stv in ucDS_UsedVars.GetItems())
                 {
                     m_SelfTestObj.variableList.Add(stv);
                 }
@@ -112,7 +112,7 @@ namespace DDB
                 return;
             }
 
-            foreach (SelfTestVariableDB var in m_SelfTestObj.variableList)
+            foreach (VariableDB var in m_SelfTestObj.variableList)
             {
                 ucDS_UsedVars.AddListBoxItem(var);
             }
@@ -120,9 +120,9 @@ namespace DDB
 
         private void PopulateUnusedVars()
         {
-            SelfTestVariableDB[] allVars = SelfTestVariableList.GetSelfTestVariables();
+            VariableDB[] allVars = SelfTestVariableList.GetSelfTestVariables();
 
-            foreach (SelfTestVariableDB var in SelfTestVariableList.GetSelfTestVariables())
+            foreach (VariableDB var in SelfTestVariableList.GetSelfTestVariables())
             {
                 if (m_SelfTestObj.variableList != null)
                 {

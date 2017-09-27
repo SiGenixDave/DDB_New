@@ -56,7 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseMirror\SelfTestListsDB.cs" />
+    <Compile Include="DatabaseMirror\SelfTestGroupDB.cs" />
     <Compile Include="DatabaseMirror\SelfTestDB.cs" />
     <Compile Include="DatabaseMirror\SelfTestVariableDB.cs" />
     <Compile Include="DatabaseMirror\EventLogDB.cs" />

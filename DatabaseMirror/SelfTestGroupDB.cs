@@ -6,19 +6,19 @@ using System.Text;
 namespace DDB
 {
 
-    public class SelfTestListList
+    public class SelfTestGroupList
     {
-        static List<SelfTestListDB> list = new List<SelfTestListDB>();
+        static List<SelfTestGroupDB> list = new List<SelfTestGroupDB>();
 
         static public void Init()
         {
-            list.Add(new SelfTestListDB("Logic & Passive Tests", 1, 100, 199, new List<SelfTestDB>() {SelfTestList.GetObject(0), SelfTestList.GetObject(1)} ));
-            list.Add(new SelfTestListDB("Interactive Tests", 2, 200, 299, new List<SelfTestDB>() { SelfTestList.GetObject(2), }));
-            list.Add(new SelfTestListDB("Power Tests", 3, 300, 399, null));
+            list.Add(new SelfTestGroupDB("Logic & Passive Tests", 1, 100, 199, new List<SelfTestDB>() {SelfTestList.GetObject(0), SelfTestList.GetObject(1)} ));
+            list.Add(new SelfTestGroupDB("Interactive Tests", 2, 200, 299, new List<SelfTestDB>() { SelfTestList.GetObject(2), }));
+            list.Add(new SelfTestGroupDB("Power Tests", 3, 300, 399, null));
             //new List<SelfTestDB>() { SelfTestList.GetObject(5), SelfTestList.GetObject(7) }
         }
 
-        static public SelfTestListDB[] GetObjects()
+        static public SelfTestGroupDB[] GetObjects()
         {
             return list.ToArray();
         }
@@ -26,7 +26,7 @@ namespace DDB
         static public void Update(object[] updatedList)
         {
             list.Clear();
-            foreach (SelfTestListDB e in updatedList)
+            foreach (SelfTestGroupDB e in updatedList)
             {
                 list.Add(e);
             }
@@ -35,7 +35,7 @@ namespace DDB
     }
 
 
-    public class SelfTestListDB
+    public class SelfTestGroupDB
     {
         public String name;
         public Int32 number;
@@ -45,7 +45,7 @@ namespace DDB
         public Int32 fKey;
         static Int32 key;
 
-        public SelfTestListDB(String n, Int32 num, Int32 min, Int32 max, List<SelfTestDB> sList)
+        public SelfTestGroupDB(String n, Int32 num, Int32 min, Int32 max, List<SelfTestDB> sList)
         {
             name = n;
             number = num;
@@ -55,11 +55,11 @@ namespace DDB
             fKey = key++;
         }
 
-        public SelfTestListDB(SelfTestListDB st)
+        public SelfTestGroupDB(SelfTestGroupDB st)
             : this(st.name, st.number, st.minTestNumber, st.maxTestNumber, st.selfTestList)
         {}
 
-        private SelfTestListDB()
+        private SelfTestGroupDB()
         {}
 
         public override string ToString()
