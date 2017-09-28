@@ -86,10 +86,6 @@
             this.cBoxNumStreamVars = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cListBoxFunctionFlags = new System.Windows.Forms.CheckedListBox();
-            this.conMenuWatchVarList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,7 +126,6 @@
             this.conMenuURL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.conMenuWatchVarList.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -491,7 +486,7 @@
             this.addNewEventLogMenuItem,
             this.deleteEventLogMenuItem});
             this.conMenuEventLogs.Name = "conMenu";
-            this.conMenuEventLogs.Size = new System.Drawing.Size(179, 48);
+            this.conMenuEventLogs.Size = new System.Drawing.Size(179, 70);
             // 
             // addNewEventLogMenuItem
             // 
@@ -759,33 +754,6 @@
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
             // 
-            // conMenuWatchVarList
-            // 
-            this.conMenuWatchVarList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyWatchMenuItem,
-            this.modifyWatchMenuItem,
-            this.deleteWatchMenuItem});
-            this.conMenuWatchVarList.Name = "contextMenuStrip1";
-            this.conMenuWatchVarList.Size = new System.Drawing.Size(113, 70);
-            // 
-            // copyWatchMenuItem
-            // 
-            this.copyWatchMenuItem.Name = "copyWatchMenuItem";
-            this.copyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.copyWatchMenuItem.Text = "Copy";
-            // 
-            // modifyWatchMenuItem
-            // 
-            this.modifyWatchMenuItem.Name = "modifyWatchMenuItem";
-            this.modifyWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyWatchMenuItem.Text = "Modify";
-            // 
-            // deleteWatchMenuItem
-            // 
-            this.deleteWatchMenuItem.Name = "deleteWatchMenuItem";
-            this.deleteWatchMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteWatchMenuItem.Text = "Delete";
-            // 
             // mainMenuStrip
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -977,7 +945,7 @@
             this.MinimumSize = new System.Drawing.Size(877, 670);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.12)";
+            this.Text = "Bombardier DDB (v 0.0.0.13)";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
@@ -998,7 +966,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.conMenuWatchVarList.ResumeLayout(false);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1021,10 +988,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem genEmbToolStripMenuItem;
         private System.Windows.Forms.GroupBox grpBoxWatchAttrs;
-        private System.Windows.Forms.ContextMenuStrip conMenuWatchVarList;
-        private System.Windows.Forms.ToolStripMenuItem copyWatchMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyWatchMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteWatchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem genHelpFileToolStripMenuItem;
