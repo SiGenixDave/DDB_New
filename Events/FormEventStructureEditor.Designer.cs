@@ -32,8 +32,8 @@
             this.tBoxStructName = new System.Windows.Forms.TextBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.ucDS_UsedEventVars = new DDB.UserControlDualSelector();
             this.ucDS_AvailEventVars = new DDB.UserControlDualSelector();
+            this.ucDS_UsedEventVars = new DDB.UserControlDualSelector();
             this.SuspendLayout();
             // 
             // label1
@@ -41,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.Size = new System.Drawing.Size(110, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Structure Name:";
             // 
@@ -50,7 +50,7 @@
             this.tBoxStructName.Location = new System.Drawing.Point(107, 6);
             this.tBoxStructName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tBoxStructName.Name = "tBoxStructName";
-            this.tBoxStructName.Size = new System.Drawing.Size(86, 21);
+            this.tBoxStructName.Size = new System.Drawing.Size(86, 24);
             this.tBoxStructName.TabIndex = 3;
             this.tBoxStructName.TextChanged += new System.EventHandler(this.tBoxStructName_TextChanged);
             // 
@@ -76,18 +76,10 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ucDS_SelfTestMessageList
-            // 
-            this.ucDS_UsedEventVars.Location = new System.Drawing.Point(12, 32);
-            this.ucDS_UsedEventVars.Name = "ucDS_SelfTestMessageList";
-            this.ucDS_UsedEventVars.Size = new System.Drawing.Size(276, 456);
-            this.ucDS_UsedEventVars.TabIndex = 12;
-            this.ucDS_UsedEventVars.xFilterVisible = false;
-            this.ucDS_UsedEventVars.xGroupBoxTitle = "Used Event Variables";
-            // 
             // ucDS_AvailEventVars
             // 
             this.ucDS_AvailEventVars.Location = new System.Drawing.Point(268, 32);
+            this.ucDS_AvailEventVars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucDS_AvailEventVars.Name = "ucDS_AvailEventVars";
             this.ucDS_AvailEventVars.Size = new System.Drawing.Size(256, 456);
             this.ucDS_AvailEventVars.TabIndex = 13;
@@ -95,9 +87,19 @@
             this.ucDS_AvailEventVars.xVisibleMoveDownButton = false;
             this.ucDS_AvailEventVars.xVisibleMoveUpButton = false;
             // 
+            // ucDS_UsedEventVars
+            // 
+            this.ucDS_UsedEventVars.Location = new System.Drawing.Point(12, 32);
+            this.ucDS_UsedEventVars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucDS_UsedEventVars.Name = "ucDS_UsedEventVars";
+            this.ucDS_UsedEventVars.Size = new System.Drawing.Size(276, 456);
+            this.ucDS_UsedEventVars.TabIndex = 12;
+            this.ucDS_UsedEventVars.xFilterVisible = false;
+            this.ucDS_UsedEventVars.xGroupBoxTitle = "Used Event Variables";
+            // 
             // FormEventStructureEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 504);
             this.ControlBox = false;
@@ -109,9 +111,11 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormEventStructureEditor";
             this.Text = "Event Structure Editor";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEventStructureEditor_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

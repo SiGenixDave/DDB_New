@@ -1,55 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DDB
 {
     public partial class FormEventStructureEditor : Form
     {
-        EventStructureDB mEventStructure;
-        
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private EventStructureDB m_EventStructure;
+
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEventStructureEditor(EventStructureDB ev)
         {
             InitializeComponent();
-            mEventStructure = ev;
-            
+            m_EventStructure = ev;
+
+            // Let each combo box "know" about the other one so that objects (vars) can be exchanged
             ucDS_AvailEventVars.SetOtherSelector(ucDS_UsedEventVars);
             ucDS_UsedEventVars.SetOtherSelector(ucDS_AvailEventVars);
 
-            tBoxStructName.Text = mEventStructure.name;
+            tBoxStructName.Text = m_EventStructure.name;
 
+            // Populate the combo boxers
             PopulateUsedVars();
             PopulateUnusedVars();
-
         }
 
+        private FormEventStructureEditor()
+        { }
+
+        ////////////////////////////////////////////////////////////
+        // Public Methods
+        ////////////////////////////////////////////////////////////
+        // Invoked by calling form to populate the object with the user selected 
+        // data after "Accept" clicked
         public EventStructureDB GetEditedEventStructure()
         {
-            mEventStructure.name = tBoxStructName.Text;
+            m_EventStructure.name = tBoxStructName.Text;
 
-            mEventStructure.variableList.Clear();
+            m_EventStructure.variableList.Clear();
 
             foreach (VariableDB var in ucDS_UsedEventVars.GetItems())
             {
-                mEventStructure.variableList.Add(var);
+                m_EventStructure.variableList.Add(var);
             }
 
-            return mEventStructure;
+            return m_EventStructure;
         }
 
+        ////////////////////////////////////////////////////////////
+        // Private Methods
+        ////////////////////////////////////////////////////////////
         private void PopulateUsedVars()
         {
-            if (mEventStructure.variableList == null)
+            if (m_EventStructure.variableList == null)
             {
                 return;
             }
 
-            foreach (VariableDB ev in mEventStructure.variableList)
+            foreach (VariableDB ev in m_EventStructure.variableList)
             {
                 ucDS_UsedEventVars.AddListBoxItem(ev);
             }
@@ -61,9 +74,9 @@ namespace DDB
 
             foreach (VariableDB var in EventVariableList.GetEventVariables())
             {
-                if (mEventStructure.variableList != null)
+                if (m_EventStructure.variableList != null)
                 {
-                    if (!mEventStructure.variableList.Contains(var))
+                    if (!m_EventStructure.variableList.Contains(var))
                     {
                         ucDS_AvailEventVars.AddListBoxItem(var);
                     }
@@ -75,6 +88,9 @@ namespace DDB
             }
         }
 
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -83,7 +99,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Event Structure" , mEventStructure.name))
+            if (Cancel.Query("Event Structure", m_EventStructure.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();
@@ -102,6 +118,16 @@ namespace DDB
             }
         }
 
+        private void FormEventStructureEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                btnAccept_Click(null, null);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(null, null);
+            }
+        }
     }
-
 }

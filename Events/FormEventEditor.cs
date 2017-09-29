@@ -6,39 +6,75 @@ namespace DDB
 {
     public partial class FormEventEditor : Form
     {
-        private EventDB ev;
-        private FormMain formMain;
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        // Event being edited
+        private EventDB m_EventBeingEdited;
 
+        // Used to current event structures
+        private FormMain m_FormMain;
+
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEventEditor(FormMain fMain, EventDB e)
         {
             InitializeComponent();
 
-            this.ev = e;
-            this.formMain = fMain;
+            m_EventBeingEdited = e;
+            m_FormMain = fMain;
 
             PopulateEventStructures();
             PopulateEventLogs();
 
-            tBoxEventName.Text = ev.name;
-            tBoxDefineName.Text = ev.embeddedName;
-            cBoxEventLogs.SelectedItem = ev.eventLogDB;
-            cBoxEventStructs.SelectedItem = ev.eventStructureDB;
+            tBoxEventName.Text = m_EventBeingEdited.name;
+            tBoxDefineName.Text = m_EventBeingEdited.embeddedName;
+            cBoxEventLogs.SelectedItem = m_EventBeingEdited.eventLogDB;
+            cBoxEventStructs.SelectedItem = m_EventBeingEdited.eventStructureDB;
         }
 
+        // Disallow default constructor
         private FormEventEditor()
-        {
-        }
+        { }
 
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public EventDB GetEditedEvent()
         {
-            ev.name = tBoxEventName.Text;
-            ev.embeddedName = tBoxDefineName.Text;
-            ev.eventLogDB = (EventLogDB)cBoxEventLogs.SelectedItem;
-            ev.eventStructureDB = (EventStructureDB)(cBoxEventStructs.SelectedItem);
+            m_EventBeingEdited.name = tBoxEventName.Text;
+            m_EventBeingEdited.embeddedName = tBoxDefineName.Text;
+            m_EventBeingEdited.eventLogDB = (EventLogDB)cBoxEventLogs.SelectedItem;
+            m_EventBeingEdited.eventStructureDB = (EventStructureDB)(cBoxEventStructs.SelectedItem);
 
-            return ev;
+            return m_EventBeingEdited;
         }
 
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
+        private void PopulateEventStructures()
+        {
+            foreach (EventStructureDB e in m_FormMain.GetEventStructures())
+            {
+                cBoxEventStructs.Items.Add(e);
+            }
+        }
+
+        private void PopulateEventLogs()
+        {
+            // The event logs are copied to the event log list when updated since they are modified
+            // in a datagrid control and not a combo box
+            foreach (EventLogDB el in EventLogList.GetEventLogs())
+            {
+                cBoxEventLogs.Items.Add(el);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -47,7 +83,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Event", ev.name))
+            if (Cancel.Query("Event", m_EventBeingEdited.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();
@@ -87,22 +123,6 @@ namespace DDB
 
                 tBoxDefineName.Width = size.Width;
                 tBoxDefineName.Height = size.Height;
-            }
-        }
-
-        private void PopulateEventStructures()
-        {
-            foreach (EventStructureDB e in formMain.GetEventStructures())
-            {
-                cBoxEventStructs.Items.Add(e);
-            }
-        }
-
-        private void PopulateEventLogs()
-        {
-            foreach (EventLogDB el in EventLogList.GetEventLogs())
-            {
-                cBoxEventLogs.Items.Add(el);
             }
         }
     }

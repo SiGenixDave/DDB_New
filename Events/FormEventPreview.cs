@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace DDB
 {
     public partial class FormEventPreview : Form
     {
+
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEventPreview()
         {
             InitializeComponent();
         }
 
+
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public void UpdateForm(EventDB e)
         {
             if (e == null)
