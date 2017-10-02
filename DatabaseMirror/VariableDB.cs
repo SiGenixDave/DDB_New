@@ -88,6 +88,7 @@ namespace DDB
             readWrite = w.readWrite;
             engineeringViewOnly = w.engineeringViewOnly;
             helpText = w.helpText;
+            getUserSelection = w.getUserSelection;
             fKey = key++;
         }
 

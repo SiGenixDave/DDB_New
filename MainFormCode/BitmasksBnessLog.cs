@@ -4,22 +4,27 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-
-    public partial class FormMain
-    {}
-
-    public class BitmasksBusinessLogic : iEntityEditorBusinesssLogic
+    public class BitmasksBnessLog : iEntityEditorBusinesssLogic
     {
-        FormBitmaskPreview bmPreview;
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        FormBitmaskPreview m_FormBitmaskPreview;
 
-        public BitmasksBusinessLogic(FormBitmaskPreview preview)
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
+        public BitmasksBnessLog(FormBitmaskPreview preview)
         {
-            bmPreview = preview;
+            m_FormBitmaskPreview = preview;
         }
 
-        private BitmasksBusinessLogic()
+        private BitmasksBnessLog()
         { }
 
+        ////////////////////////////////////////////////////////////
+        // Interface Implementations
+        ////////////////////////////////////////////////////////////
         public object Copy(object obj)
         {
             BitmaskDB bt = new BitmaskDB((BitmaskDB)obj);
@@ -34,7 +39,7 @@ namespace DDB
                 DialogResult dr = bmEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    bmPreview.UpdateForm((BitmaskDB)obj);
+                    m_FormBitmaskPreview.UpdateForm((BitmaskDB)obj);
                 }
             }
         }
@@ -51,7 +56,7 @@ namespace DDB
                 DialogResult dr = bmEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    bmPreview.UpdateForm((BitmaskDB)bmt);
+                    m_FormBitmaskPreview.UpdateForm((BitmaskDB)bmt);
                     return bmt;
                 }
             }
@@ -61,7 +66,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            bmPreview.UpdateForm((BitmaskDB)obj);
+            m_FormBitmaskPreview.UpdateForm((BitmaskDB)obj);
         }
 
         public void Links()
@@ -76,7 +81,5 @@ namespace DDB
         public void ChangeDisplayName(int name)
         { }
     }
-
-
 
 }

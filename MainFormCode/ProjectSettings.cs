@@ -15,6 +15,17 @@ namespace DDB
             dGridURL.Columns[1].HeaderCell.Style = style;
             dGridEventLog.Columns[0].HeaderCell.Style = style;
             dGridEventLog.Columns[1].HeaderCell.Style = style;
+
+            DataGridViewColumn column = dGridURL.Columns[0];
+            column.Width = 175;
+            column = dGridURL.Columns[1];
+            column.Width = 200;
+
+            column = dGridEventLog.Columns[0];
+            column.Width = 75;
+            column = dGridEventLog.Columns[1];
+            column.Width = 150;
+
         }
 
         private void cBoxCommType_SelectedIndexChanged(object sender, EventArgs e)

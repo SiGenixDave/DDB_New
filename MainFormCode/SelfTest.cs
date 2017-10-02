@@ -62,7 +62,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            //TODO evPreview.UpdateForm((SelfTestDB)obj);
+            //TODO m_FormEventPreview.UpdateForm((SelfTestDB)obj);
         }
 
         public void Links()

@@ -31,22 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabWatchVariables = new System.Windows.Forms.TabPage();
-            this.ucEE_WatchVariables = new DDB.UserControlEntityEditor();
             this.grpBoxWatchAttrs = new System.Windows.Forms.GroupBox();
-            this.ucVE_WatchVar = new DDB.UserControlVariableEditor();
             this.tabEvents = new System.Windows.Forms.TabPage();
-            this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
-            this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
-            this.ucEE_Events = new DDB.UserControlEntityEditor();
             this.tabSelfTest = new System.Windows.Forms.TabPage();
             this.btnEditSelfTestErrorMessages = new System.Windows.Forms.Button();
             this.btnEditSelfTestLists = new System.Windows.Forms.Button();
-            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
-            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
             this.tabProjectDefinitions = new System.Windows.Forms.TabPage();
-            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
-            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
-            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabProjectSettings = new System.Windows.Forms.TabPage();
             this.btnProjSettingsCancelChanges = new System.Windows.Forms.Button();
             this.btnProjSettingsAcceptChanges = new System.Windows.Forms.Button();
@@ -64,7 +54,6 @@
             this.conMenuEventLogs = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEventLogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnProjSettingsAddEventLog = new System.Windows.Forms.Button();
             this.gBoxTargetCommunication = new System.Windows.Forms.GroupBox();
             this.gBoxURLs = new System.Windows.Forms.GroupBox();
             this.dGridURL = new System.Windows.Forms.DataGridView();
@@ -73,7 +62,6 @@
             this.conMenuURL = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewURLMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteURLMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnProjSettingsAddURL = new System.Windows.Forms.Button();
             this.cBoxCommType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tBoxProjSettingsAppDataPath = new System.Windows.Forms.TextBox();
@@ -109,6 +97,16 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnExitDDB = new System.Windows.Forms.Button();
+            this.ucEE_WatchVariables = new DDB.UserControlEntityEditor();
+            this.ucVE_WatchVar = new DDB.UserControlVariableEditor();
+            this.ucEE_EventVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_EventStructures = new DDB.UserControlEntityEditor();
+            this.ucEE_Events = new DDB.UserControlEntityEditor();
+            this.ucEE_SelfTestVariables = new DDB.UserControlEntityEditor();
+            this.ucEE_SelfTest = new DDB.UserControlEntityEditor();
+            this.ucEE_Enumerations = new DDB.UserControlEntityEditor();
+            this.ucEE_Bitmasks = new DDB.UserControlEntityEditor();
+            this.ucEE_Units = new DDB.UserControlEntityEditor();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
@@ -146,24 +144,13 @@
             // 
             this.tabWatchVariables.Controls.Add(this.ucEE_WatchVariables);
             this.tabWatchVariables.Controls.Add(this.grpBoxWatchAttrs);
-            this.tabWatchVariables.Location = new System.Drawing.Point(4, 22);
+            this.tabWatchVariables.Location = new System.Drawing.Point(4, 26);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWatchVariables.Size = new System.Drawing.Size(842, 529);
+            this.tabWatchVariables.Size = new System.Drawing.Size(842, 525);
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
-            // 
-            // ucEE_WatchVariables
-            // 
-            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
-            this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
-            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 500);
-            this.ucEE_WatchVariables.TabIndex = 7;
-            this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
-            this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
-            this.ucEE_WatchVariables.xVisibleLinksButton = false;
             // 
             // grpBoxWatchAttrs
             // 
@@ -177,57 +164,18 @@
             this.grpBoxWatchAttrs.TabStop = false;
             this.grpBoxWatchAttrs.Text = "Attributes";
             // 
-            // ucVE_WatchVar
-            // 
-            this.ucVE_WatchVar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucVE_WatchVar.Location = new System.Drawing.Point(9, 23);
-            this.ucVE_WatchVar.Margin = new System.Windows.Forms.Padding(4);
-            this.ucVE_WatchVar.Name = "ucVE_WatchVar";
-            this.ucVE_WatchVar.Size = new System.Drawing.Size(528, 423);
-            this.ucVE_WatchVar.TabIndex = 0;
-            // 
             // tabEvents
             // 
             this.tabEvents.Controls.Add(this.ucEE_EventVariables);
             this.tabEvents.Controls.Add(this.ucEE_EventStructures);
             this.tabEvents.Controls.Add(this.ucEE_Events);
-            this.tabEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabEvents.Location = new System.Drawing.Point(4, 26);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 529);
+            this.tabEvents.Size = new System.Drawing.Size(842, 525);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Event";
             this.tabEvents.UseVisualStyleBackColor = true;
             this.tabEvents.Leave += new System.EventHandler(this.tabEvents_Leave);
-            // 
-            // ucEE_EventVariables
-            // 
-            this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
-            this.ucEE_EventVariables.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_EventVariables.Name = "ucEE_EventVariables";
-            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_EventVariables.TabIndex = 36;
-            this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
-            this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
-            // 
-            // ucEE_EventStructures
-            // 
-            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
-            this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_EventStructures.Name = "ucEE_EventStructures";
-            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_EventStructures.TabIndex = 35;
-            this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
-            this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Events
-            // 
-            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
-            this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_Events.Name = "ucEE_Events";
-            this.ucEE_Events.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_Events.TabIndex = 34;
-            this.ucEE_Events.xGroupBoxTitle = "Events";
-            this.ucEE_Events.xVisibleLinksButton = false;
             // 
             // tabSelfTest
             // 
@@ -235,9 +183,9 @@
             this.tabSelfTest.Controls.Add(this.btnEditSelfTestLists);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTestVariables);
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTest);
-            this.tabSelfTest.Location = new System.Drawing.Point(4, 22);
+            this.tabSelfTest.Location = new System.Drawing.Point(4, 26);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 529);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 525);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -261,70 +209,19 @@
             this.btnEditSelfTestLists.UseVisualStyleBackColor = true;
             this.btnEditSelfTestLists.Click += new System.EventHandler(this.btnEditSelfTestLists_Click);
             // 
-            // ucEE_SelfTestVariables
-            // 
-            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 48);
-            this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
-            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_SelfTestVariables.TabIndex = 1;
-            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
-            this.ucEE_SelfTestVariables.xVisibleDispEmbComboBox = true;
-            // 
-            // ucEE_SelfTest
-            // 
-            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 48);
-            this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
-            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 738);
-            this.ucEE_SelfTest.TabIndex = 0;
-            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
-            this.ucEE_SelfTest.xVisibleLinksButton = false;
-            this.ucEE_SelfTest.xVisibleModifyHelpTextButton = false;
-            // 
             // tabProjectDefinitions
             // 
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Enumerations);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Bitmasks);
             this.tabProjectDefinitions.Controls.Add(this.ucEE_Units);
             this.tabProjectDefinitions.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
-            // 
-            // ucEE_Enumerations
-            // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(533, 7);
-            this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
-            this.ucEE_Enumerations.Size = new System.Drawing.Size(293, 421);
-            this.ucEE_Enumerations.TabIndex = 23;
-            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
-            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Bitmasks
-            // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(266, 7);
-            this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
-            this.ucEE_Bitmasks.Size = new System.Drawing.Size(300, 421);
-            this.ucEE_Bitmasks.TabIndex = 22;
-            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
-            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
-            // 
-            // ucEE_Units
-            // 
-            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
-            this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4);
-            this.ucEE_Units.Name = "ucEE_Units";
-            this.ucEE_Units.Size = new System.Drawing.Size(282, 512);
-            this.ucEE_Units.TabIndex = 21;
-            this.ucEE_Units.xGroupBoxTitle = "Units";
-            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
             // 
             // tabProjectSettings
             // 
@@ -335,9 +232,9 @@
             this.tabProjectSettings.Controls.Add(this.gBoxTargetCommunication);
             this.tabProjectSettings.Controls.Add(this.tableLayoutPanel1);
             this.tabProjectSettings.Controls.Add(this.groupBox2);
-            this.tabProjectSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 529);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -383,7 +280,7 @@
             this.tBoxPasswordLevel3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel3.Location = new System.Drawing.Point(104, 79);
             this.tBoxPasswordLevel3.Name = "tBoxPasswordLevel3";
-            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel3.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel3.TabIndex = 5;
             this.tBoxPasswordLevel3.Text = "aeg3";
             // 
@@ -392,7 +289,7 @@
             this.tBoxPasswordLevel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel2.Location = new System.Drawing.Point(104, 49);
             this.tBoxPasswordLevel2.Name = "tBoxPasswordLevel2";
-            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel2.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel2.TabIndex = 4;
             this.tBoxPasswordLevel2.Text = "aeg2";
             // 
@@ -401,7 +298,7 @@
             this.tBoxPasswordLevel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxPasswordLevel1.Location = new System.Drawing.Point(104, 20);
             this.tBoxPasswordLevel1.Name = "tBoxPasswordLevel1";
-            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(166, 21);
+            this.tBoxPasswordLevel1.Size = new System.Drawing.Size(166, 24);
             this.tBoxPasswordLevel1.TabIndex = 3;
             this.tBoxPasswordLevel1.Text = "aeg1";
             // 
@@ -411,7 +308,7 @@
             this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(48, 82);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.Size = new System.Drawing.Size(60, 17);
             this.label19.TabIndex = 2;
             this.label19.Text = "Factory";
             // 
@@ -421,7 +318,7 @@
             this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(25, 52);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(73, 13);
+            this.label18.Size = new System.Drawing.Size(90, 17);
             this.label18.TabIndex = 1;
             this.label18.Text = "Engineering";
             // 
@@ -431,14 +328,13 @@
             this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(18, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 13);
+            this.label17.Size = new System.Drawing.Size(95, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Maintenence";
             // 
             // gBoxEventLogs
             // 
             this.gBoxEventLogs.Controls.Add(this.dGridEventLog);
-            this.gBoxEventLogs.Controls.Add(this.btnProjSettingsAddEventLog);
             this.gBoxEventLogs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxEventLogs.Location = new System.Drawing.Point(502, 3);
             this.gBoxEventLogs.Name = "gBoxEventLogs";
@@ -463,7 +359,7 @@
             this.dGridEventLog.Location = new System.Drawing.Point(14, 20);
             this.dGridEventLog.Name = "dGridEventLog";
             this.dGridEventLog.RowTemplate.Height = 24;
-            this.dGridEventLog.Size = new System.Drawing.Size(295, 148);
+            this.dGridEventLog.Size = new System.Drawing.Size(295, 191);
             this.dGridEventLog.TabIndex = 8;
             this.dGridEventLog.Leave += new System.EventHandler(this.dGridEventLog_Leave);
             // 
@@ -486,32 +382,21 @@
             this.addNewEventLogMenuItem,
             this.deleteEventLogMenuItem});
             this.conMenuEventLogs.Name = "conMenu";
-            this.conMenuEventLogs.Size = new System.Drawing.Size(179, 70);
+            this.conMenuEventLogs.Size = new System.Drawing.Size(210, 52);
             // 
             // addNewEventLogMenuItem
             // 
             this.addNewEventLogMenuItem.Name = "addNewEventLogMenuItem";
-            this.addNewEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.addNewEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
             this.addNewEventLogMenuItem.Text = "Add New Event Log";
             this.addNewEventLogMenuItem.Click += new System.EventHandler(this.addNewEventLogMenuItem_Click);
             // 
             // deleteEventLogMenuItem
             // 
             this.deleteEventLogMenuItem.Name = "deleteEventLogMenuItem";
-            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.deleteEventLogMenuItem.Size = new System.Drawing.Size(209, 24);
             this.deleteEventLogMenuItem.Text = "Delete";
             this.deleteEventLogMenuItem.Click += new System.EventHandler(this.deleteEventLogMenuItem_Click);
-            // 
-            // btnProjSettingsAddEventLog
-            // 
-            this.btnProjSettingsAddEventLog.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjSettingsAddEventLog.Location = new System.Drawing.Point(6, 180);
-            this.btnProjSettingsAddEventLog.Name = "btnProjSettingsAddEventLog";
-            this.btnProjSettingsAddEventLog.Size = new System.Drawing.Size(94, 29);
-            this.btnProjSettingsAddEventLog.TabIndex = 4;
-            this.btnProjSettingsAddEventLog.Text = "Add Event Log";
-            this.btnProjSettingsAddEventLog.UseVisualStyleBackColor = true;
-            this.btnProjSettingsAddEventLog.Click += new System.EventHandler(this.btnProjSettingsAddEventLog_Click);
             // 
             // gBoxTargetCommunication
             // 
@@ -528,11 +413,10 @@
             // gBoxURLs
             // 
             this.gBoxURLs.Controls.Add(this.dGridURL);
-            this.gBoxURLs.Controls.Add(this.btnProjSettingsAddURL);
             this.gBoxURLs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxURLs.Location = new System.Drawing.Point(126, 20);
+            this.gBoxURLs.Location = new System.Drawing.Point(7, 60);
             this.gBoxURLs.Name = "gBoxURLs";
-            this.gBoxURLs.Size = new System.Drawing.Size(320, 195);
+            this.gBoxURLs.Size = new System.Drawing.Size(449, 158);
             this.gBoxURLs.TabIndex = 4;
             this.gBoxURLs.TabStop = false;
             this.gBoxURLs.Text = "URLs";
@@ -550,10 +434,10 @@
             this.urlAlias});
             this.dGridURL.ContextMenuStrip = this.conMenuURL;
             this.dGridURL.EnableHeadersVisualStyles = false;
-            this.dGridURL.Location = new System.Drawing.Point(14, 20);
+            this.dGridURL.Location = new System.Drawing.Point(0, 23);
             this.dGridURL.Name = "dGridURL";
             this.dGridURL.RowTemplate.Height = 24;
-            this.dGridURL.Size = new System.Drawing.Size(295, 128);
+            this.dGridURL.Size = new System.Drawing.Size(443, 128);
             this.dGridURL.TabIndex = 8;
             this.dGridURL.Leave += new System.EventHandler(this.dGridURL_Leave);
             // 
@@ -576,32 +460,21 @@
             this.addNewURLMenuItem,
             this.deleteURLMenuItem});
             this.conMenuURL.Name = "conMenu";
-            this.conMenuURL.Size = new System.Drawing.Size(148, 48);
+            this.conMenuURL.Size = new System.Drawing.Size(171, 52);
             // 
             // addNewURLMenuItem
             // 
             this.addNewURLMenuItem.Name = "addNewURLMenuItem";
-            this.addNewURLMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addNewURLMenuItem.Size = new System.Drawing.Size(170, 24);
             this.addNewURLMenuItem.Text = "Add New URL";
             this.addNewURLMenuItem.Click += new System.EventHandler(this.addNewURLMenuItem_Click);
             // 
             // deleteURLMenuItem
             // 
             this.deleteURLMenuItem.Name = "deleteURLMenuItem";
-            this.deleteURLMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.deleteURLMenuItem.Size = new System.Drawing.Size(170, 24);
             this.deleteURLMenuItem.Text = "Delete";
             this.deleteURLMenuItem.Click += new System.EventHandler(this.deleteURLMenuItem_Click);
-            // 
-            // btnProjSettingsAddURL
-            // 
-            this.btnProjSettingsAddURL.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjSettingsAddURL.Location = new System.Drawing.Point(6, 160);
-            this.btnProjSettingsAddURL.Name = "btnProjSettingsAddURL";
-            this.btnProjSettingsAddURL.Size = new System.Drawing.Size(75, 29);
-            this.btnProjSettingsAddURL.TabIndex = 4;
-            this.btnProjSettingsAddURL.Text = "Add URL";
-            this.btnProjSettingsAddURL.UseVisualStyleBackColor = true;
-            this.btnProjSettingsAddURL.Click += new System.EventHandler(this.btnProjSettingsAddURL_Click);
             // 
             // cBoxCommType
             // 
@@ -614,7 +487,7 @@
             "Serial & TCP"});
             this.cBoxCommType.Location = new System.Drawing.Point(6, 20);
             this.cBoxCommType.Name = "cBoxCommType";
-            this.cBoxCommType.Size = new System.Drawing.Size(101, 21);
+            this.cBoxCommType.Size = new System.Drawing.Size(101, 25);
             this.cBoxCommType.TabIndex = 0;
             this.cBoxCommType.SelectedIndexChanged += new System.EventHandler(this.cBoxCommType_SelectedIndexChanged);
             // 
@@ -646,17 +519,17 @@
             // tBoxProjSettingsAppDataPath
             // 
             this.tBoxProjSettingsAppDataPath.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 95);
+            this.tBoxProjSettingsAppDataPath.Location = new System.Drawing.Point(151, 102);
             this.tBoxProjSettingsAppDataPath.Name = "tBoxProjSettingsAppDataPath";
-            this.tBoxProjSettingsAppDataPath.Size = new System.Drawing.Size(205, 21);
+            this.tBoxProjSettingsAppDataPath.Size = new System.Drawing.Size(205, 24);
             this.tBoxProjSettingsAppDataPath.TabIndex = 6;
             // 
             // tBoxProjSettingsSoftwareVersion
             // 
             this.tBoxProjSettingsSoftwareVersion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 62);
+            this.tBoxProjSettingsSoftwareVersion.Location = new System.Drawing.Point(151, 69);
             this.tBoxProjSettingsSoftwareVersion.Name = "tBoxProjSettingsSoftwareVersion";
-            this.tBoxProjSettingsSoftwareVersion.Size = new System.Drawing.Size(102, 21);
+            this.tBoxProjSettingsSoftwareVersion.Size = new System.Drawing.Size(102, 24);
             this.tBoxProjSettingsSoftwareVersion.TabIndex = 5;
             // 
             // label14
@@ -664,9 +537,9 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(43, 1);
+            this.label14.Location = new System.Drawing.Point(23, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(101, 26);
+            this.label14.Size = new System.Drawing.Size(121, 34);
             this.label14.TabIndex = 1;
             this.label14.Text = "Displayed Watch Variables (max)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -676,9 +549,9 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(41, 66);
+            this.label15.Location = new System.Drawing.Point(17, 72);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 13);
+            this.label15.Size = new System.Drawing.Size(127, 17);
             this.label15.TabIndex = 2;
             this.label15.Text = "Software Version";
             // 
@@ -687,18 +560,18 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(15, 99);
+            this.label16.Location = new System.Drawing.Point(20, 97);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(129, 13);
+            this.label16.Size = new System.Drawing.Size(124, 34);
             this.label16.TabIndex = 3;
             this.label16.Text = "Application Data Path";
             // 
             // tBoxProjSettingsWatchVarMax
             // 
             this.tBoxProjSettingsWatchVarMax.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBoxProjSettingsWatchVarMax.Location = new System.Drawing.Point(151, 4);
+            this.tBoxProjSettingsWatchVarMax.Location = new System.Drawing.Point(151, 6);
             this.tBoxProjSettingsWatchVarMax.Name = "tBoxProjSettingsWatchVarMax";
-            this.tBoxProjSettingsWatchVarMax.Size = new System.Drawing.Size(72, 21);
+            this.tBoxProjSettingsWatchVarMax.Size = new System.Drawing.Size(72, 24);
             this.tBoxProjSettingsWatchVarMax.TabIndex = 4;
             // 
             // label23
@@ -706,9 +579,9 @@
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 37);
+            this.label23.Location = new System.Drawing.Point(4, 36);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(138, 13);
+            this.label23.Size = new System.Drawing.Size(140, 29);
             this.label23.TabIndex = 2;
             this.label23.Text = "Number of Stream Vars";
             // 
@@ -720,9 +593,9 @@
             this.cBoxNumStreamVars.Items.AddRange(new object[] {
             "8",
             "16"});
-            this.cBoxNumStreamVars.Location = new System.Drawing.Point(151, 32);
+            this.cBoxNumStreamVars.Location = new System.Drawing.Point(151, 39);
             this.cBoxNumStreamVars.Name = "cBoxNumStreamVars";
-            this.cBoxNumStreamVars.Size = new System.Drawing.Size(50, 21);
+            this.cBoxNumStreamVars.Size = new System.Drawing.Size(50, 25);
             this.cBoxNumStreamVars.TabIndex = 7;
             // 
             // groupBox2
@@ -749,7 +622,7 @@
             "Display URL Alias Name"});
             this.cListBoxFunctionFlags.Location = new System.Drawing.Point(6, 23);
             this.cListBoxFunctionFlags.Name = "cListBoxFunctionFlags";
-            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 68);
+            this.cListBoxFunctionFlags.Size = new System.Drawing.Size(400, 61);
             this.cListBoxFunctionFlags.TabIndex = 4;
             this.cListBoxFunctionFlags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxFunctionFlags_ItemCheck);
             this.cListBoxFunctionFlags.Leave += new System.EventHandler(this.cListBoxFunctionFlags_Leave);
@@ -762,7 +635,7 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(871, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(871, 28);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -776,44 +649,44 @@
             this.exitToolStripMenuItem,
             this.newToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.importToolStripMenuItem.Text = "Import...";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.exitToolStripMenuItem.Text = "Exit..";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // toolsToolStripMenuItem
@@ -830,37 +703,37 @@
             this.previewEventVariablesToolStripMenuItem,
             this.previewHelpToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // genEmbToolStripMenuItem
             // 
             this.genEmbToolStripMenuItem.Name = "genEmbToolStripMenuItem";
-            this.genEmbToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genEmbToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genEmbToolStripMenuItem.Text = "Generate Emb Code";
             // 
             // genHelpFileToolStripMenuItem
             // 
             this.genHelpFileToolStripMenuItem.Name = "genHelpFileToolStripMenuItem";
-            this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genHelpFileToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genHelpFileToolStripMenuItem.Text = "Generate Help File (.chm)";
             // 
             // genDocsToolStripMenuItem
             // 
             this.genDocsToolStripMenuItem.Name = "genDocsToolStripMenuItem";
-            this.genDocsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.genDocsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.genDocsToolStripMenuItem.Text = "Generate Docs...";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(243, 6);
             // 
             // previewBitmasksToolStripMenuItem
             // 
             this.previewBitmasksToolStripMenuItem.CheckOnClick = true;
             this.previewBitmasksToolStripMenuItem.Name = "previewBitmasksToolStripMenuItem";
-            this.previewBitmasksToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewBitmasksToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewBitmasksToolStripMenuItem.Text = "Preview Bitmasks";
             this.previewBitmasksToolStripMenuItem.Click += new System.EventHandler(this.previewBitmasksToolStripMenuItem_Click);
             // 
@@ -868,7 +741,7 @@
             // 
             this.previewEnumerationsToolStripMenuItem.CheckOnClick = true;
             this.previewEnumerationsToolStripMenuItem.Name = "previewEnumerationsToolStripMenuItem";
-            this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEnumerationsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEnumerationsToolStripMenuItem.Text = "Preview Enumerations";
             this.previewEnumerationsToolStripMenuItem.Click += new System.EventHandler(this.previewEnumerationsToolStripMenuItem_Click);
             // 
@@ -876,7 +749,7 @@
             // 
             this.previewEventsToolStripMenuItem.CheckOnClick = true;
             this.previewEventsToolStripMenuItem.Name = "previewEventsToolStripMenuItem";
-            this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventsToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventsToolStripMenuItem.Text = "Preview Event";
             this.previewEventsToolStripMenuItem.Click += new System.EventHandler(this.previewEventsToolStripMenuItem_Click);
             // 
@@ -884,7 +757,7 @@
             // 
             this.previewEventStructuresToolStripMenuItem.CheckOnClick = true;
             this.previewEventStructuresToolStripMenuItem.Name = "previewEventStructuresToolStripMenuItem";
-            this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventStructuresToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventStructuresToolStripMenuItem.Text = "Preview Event Structures";
             this.previewEventStructuresToolStripMenuItem.Click += new System.EventHandler(this.previewEventStructuresToolStripMenuItem_Click);
             // 
@@ -892,7 +765,7 @@
             // 
             this.previewEventVariablesToolStripMenuItem.CheckOnClick = true;
             this.previewEventVariablesToolStripMenuItem.Name = "previewEventVariablesToolStripMenuItem";
-            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewEventVariablesToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewEventVariablesToolStripMenuItem.Text = "Preview ST/EV Variables";
             this.previewEventVariablesToolStripMenuItem.Click += new System.EventHandler(this.previewEventVariablesToolStripMenuItem_Click);
             // 
@@ -900,7 +773,7 @@
             // 
             this.previewHelpToolStripMenuItem.CheckOnClick = true;
             this.previewHelpToolStripMenuItem.Name = "previewHelpToolStripMenuItem";
-            this.previewHelpToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.previewHelpToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.previewHelpToolStripMenuItem.Text = "Preview Help";
             this.previewHelpToolStripMenuItem.Click += new System.EventHandler(this.previewHelpToolStripMenuItem_Click);
             // 
@@ -909,13 +782,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(128, 24);
             this.aboutToolStripMenuItem1.Text = "About...";
             // 
             // btnExitDDB
@@ -928,11 +801,112 @@
             this.btnExitDDB.UseVisualStyleBackColor = true;
             this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
             // 
+            // ucEE_WatchVariables
+            // 
+            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 23);
+            this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
+            this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 500);
+            this.ucEE_WatchVariables.TabIndex = 7;
+            this.ucEE_WatchVariables.xGroupBoxTitle = "Watch Variables";
+            this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
+            this.ucEE_WatchVariables.xVisibleLinksButton = false;
+            // 
+            // ucVE_WatchVar
+            // 
+            this.ucVE_WatchVar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucVE_WatchVar.Location = new System.Drawing.Point(9, 23);
+            this.ucVE_WatchVar.Margin = new System.Windows.Forms.Padding(4);
+            this.ucVE_WatchVar.Name = "ucVE_WatchVar";
+            this.ucVE_WatchVar.Size = new System.Drawing.Size(528, 423);
+            this.ucVE_WatchVar.TabIndex = 0;
+            // 
+            // ucEE_EventVariables
+            // 
+            this.ucEE_EventVariables.Location = new System.Drawing.Point(558, 4);
+            this.ucEE_EventVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_EventVariables.Name = "ucEE_EventVariables";
+            this.ucEE_EventVariables.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_EventVariables.TabIndex = 36;
+            this.ucEE_EventVariables.xGroupBoxTitle = "Event Variables";
+            this.ucEE_EventVariables.xVisibleDispEmbComboBox = true;
+            // 
+            // ucEE_EventStructures
+            // 
+            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
+            this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_EventStructures.Name = "ucEE_EventStructures";
+            this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_EventStructures.TabIndex = 35;
+            this.ucEE_EventStructures.xGroupBoxTitle = "Event Structures";
+            this.ucEE_EventStructures.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Events
+            // 
+            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
+            this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Events.Name = "ucEE_Events";
+            this.ucEE_Events.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_Events.TabIndex = 34;
+            this.ucEE_Events.xGroupBoxTitle = "Events";
+            this.ucEE_Events.xVisibleLinksButton = false;
+            // 
+            // ucEE_SelfTestVariables
+            // 
+            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 48);
+            this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
+            this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_SelfTestVariables.TabIndex = 1;
+            this.ucEE_SelfTestVariables.xGroupBoxTitle = "Self Test Variables";
+            this.ucEE_SelfTestVariables.xVisibleDispEmbComboBox = true;
+            // 
+            // ucEE_SelfTest
+            // 
+            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 48);
+            this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_SelfTest.Name = "ucEE_SelfTest";
+            this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 738);
+            this.ucEE_SelfTest.TabIndex = 0;
+            this.ucEE_SelfTest.xGroupBoxTitle = "Self Test";
+            this.ucEE_SelfTest.xVisibleLinksButton = false;
+            this.ucEE_SelfTest.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Enumerations
+            // 
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(533, 7);
+            this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Enumerations.Name = "ucEE_Enumerations";
+            this.ucEE_Enumerations.Size = new System.Drawing.Size(293, 421);
+            this.ucEE_Enumerations.TabIndex = 23;
+            this.ucEE_Enumerations.xGroupBoxTitle = "Enumerations";
+            this.ucEE_Enumerations.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Bitmasks
+            // 
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(266, 7);
+            this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
+            this.ucEE_Bitmasks.Size = new System.Drawing.Size(300, 421);
+            this.ucEE_Bitmasks.TabIndex = 22;
+            this.ucEE_Bitmasks.xGroupBoxTitle = "Bitmasks";
+            this.ucEE_Bitmasks.xVisibleModifyHelpTextButton = false;
+            // 
+            // ucEE_Units
+            // 
+            this.ucEE_Units.Location = new System.Drawing.Point(0, 6);
+            this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucEE_Units.Name = "ucEE_Units";
+            this.ucEE_Units.Size = new System.Drawing.Size(282, 512);
+            this.ucEE_Units.TabIndex = 21;
+            this.ucEE_Units.xGroupBoxTitle = "Units";
+            this.ucEE_Units.xVisibleModifyHelpTextButton = false;
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 641);
+            this.ClientSize = new System.Drawing.Size(871, 635);
             this.Controls.Add(this.btnExitDDB);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.mainMenuStrip);
@@ -945,7 +919,7 @@
             this.MinimumSize = new System.Drawing.Size(877, 670);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.13)";
+            this.Text = "Bombardier DDB (v 0.0.0.14)";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
@@ -1007,7 +981,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckedListBox cListBoxFunctionFlags;
         private System.Windows.Forms.GroupBox gBoxURLs;
-        private System.Windows.Forms.Button btnProjSettingsAddURL;
         private System.Windows.Forms.TextBox tBoxProjSettingsAppDataPath;
         private System.Windows.Forms.TextBox tBoxProjSettingsSoftwareVersion;
         private System.Windows.Forms.TextBox tBoxProjSettingsWatchVarMax;
@@ -1021,7 +994,6 @@
         private System.Windows.Forms.DataGridView dGridEventLog;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLogEmbIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLogName;
-        private System.Windows.Forms.Button btnProjSettingsAddEventLog;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tBoxPasswordLevel3;
         private System.Windows.Forms.TextBox tBoxPasswordLevel2;

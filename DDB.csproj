@@ -107,9 +107,7 @@
     <Compile Include="FormVariableEditor.Designer.cs">
       <DependentUpon>FormVariableEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\Events.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MainFormCode\Events.cs" />
     <Compile Include="Events\FormEventStructurePreview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,9 +139,7 @@
       <DependentUpon>FormHelpPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSettings.cs" />
-    <Compile Include="MainFormCode\Bitmasks.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MainFormCode\BitmasksBnessLog.cs" />
     <Compile Include="Cancel.cs" />
     <Compile Include="ProjectDefinitions\FormEnumPreview.cs">
       <SubType>Form</SubType>
@@ -157,7 +153,7 @@
     <Compile Include="ProjectDefinitions\FormEnumEditor.Designer.cs">
       <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\Enumerations.cs" />
+    <Compile Include="MainFormCode\EnumerationssBnessLog.cs" />
     <Compile Include="ProjectDefinitions\FormBitmaskPreview.cs">
       <SubType>Form</SubType>
     </Compile>

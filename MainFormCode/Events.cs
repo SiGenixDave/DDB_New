@@ -3,67 +3,20 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormMain
+    public class EventsBnessLog : iEntityEditorBusinesssLogic
     {
-        private void PopulateEventLists()
+        private FormEventPreview m_FormEventPreview;
+        private FormMain m_FormMain;
+        private FormHelpPreview m_FormHelpPreview;
+
+        public EventsBnessLog(FormMain fMain, FormEventPreview preview, FormHelpPreview helpPreview)
         {
-            PopulateEvents();
-            PopulateEventStructures();
-            PopulateEventVariables();
+            m_FormMain = fMain;
+            m_FormEventPreview = preview;
+            m_FormHelpPreview = helpPreview;
         }
 
-        private void PopulateEvents()
-        {
-            EventsBusinessLogic ebl = new EventsBusinessLogic(this, formEventPreview, formHelpPreview);
-            ucEE_Events.setBusinessLogic(ebl);
-            ucEE_Events.AddListBoxItems(EventList.GetEvents());
-        }
-
-        public object[] GetEvents()
-        {
-            return ucEE_Events.GetItems();
-        }
-
-        private void PopulateEventStructures()
-        {
-            EventStructuresBusinessLogic ebl = new EventStructuresBusinessLogic(formEventStructurePreview);
-            ucEE_EventStructures.setBusinessLogic(ebl);
-            ucEE_EventStructures.AddListBoxItems(EventStructureList.GetEventStructures());
-        }
-
-        public object[] GetEventStructures()
-        {
-            return ucEE_EventStructures.GetItems();
-        }
-
-        private void PopulateEventVariables()
-        {
-            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview, formHelpPreview);
-            ucEE_EventVariables.setBusinessLogic(ebl);
-            ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
-        }
-
-        public object[] GetEventVariables()
-        {
-            return ucEE_EventVariables.GetItems();
-        }
-
-    }
-
-    public class EventsBusinessLogic : iEntityEditorBusinesssLogic
-    {
-        private FormEventPreview evPreview;
-        private FormMain formMain;
-        private FormHelpPreview formHelpPreview;
-
-        public EventsBusinessLogic(FormMain fMain, FormEventPreview preview, FormHelpPreview helpPreview)
-        {
-            formMain = fMain;
-            evPreview = preview;
-            formHelpPreview = helpPreview;
-        }
-
-        private EventsBusinessLogic()
+        private EventsBnessLog()
         { }
 
         public object Copy(object obj)
@@ -75,12 +28,12 @@ namespace DDB
 
         public void Modify(object obj)
         {
-            using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, (EventDB)obj))
+            using (FormEventEditor frmEvEdit = new FormEventEditor(m_FormMain, (EventDB)obj))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     EventDB e = frmEvEdit.GetEditedEvent();
-                    evPreview.UpdateForm(e);
+                    m_FormEventPreview.UpdateForm(e);
                 }
             }
         }
@@ -91,12 +44,12 @@ namespace DDB
         public object Create()
         {
             EventDB e = new EventDB("New Event Name", "Embedded Name", EventLogList.GetEventObject(0), EventStructureList.GetEventObject(0), "");
-            using (FormEventEditor frmEvEdit = new FormEventEditor(formMain, e))
+            using (FormEventEditor frmEvEdit = new FormEventEditor(m_FormMain, e))
             {
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEvent();
-                    evPreview.UpdateForm(e);
+                    m_FormEventPreview.UpdateForm(e);
                     return e;
                 }
             }
@@ -106,7 +59,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            evPreview.UpdateForm((EventDB)obj);
+            m_FormEventPreview.UpdateForm((EventDB)obj);
         }
 
         public void Links()
@@ -128,12 +81,12 @@ namespace DDB
         {
             if (obj == null)
             {
-                formHelpPreview.UpdateForm(String.Empty);
+                m_FormHelpPreview.UpdateForm(String.Empty);
             }
             else
             {
                 EventDB e = (EventDB)obj;
-                formHelpPreview.UpdateForm(e.helpText);
+                m_FormHelpPreview.UpdateForm(e.helpText);
             }
         }
 
@@ -142,16 +95,16 @@ namespace DDB
 
     }
 
-    public class EventStructuresBusinessLogic : iEntityEditorBusinesssLogic
+    public class EventStructuresBnessLog : iEntityEditorBusinesssLogic
     {
-        private FormEventStructurePreview evPreview;
+        private FormEventStructurePreview m_FormEventStructurePreview;
 
-        public EventStructuresBusinessLogic(FormEventStructurePreview preview)
+        public EventStructuresBnessLog(FormEventStructurePreview preview)
         {
-            evPreview = preview;
+            m_FormEventStructurePreview = preview;
         }
 
-        private EventStructuresBusinessLogic()
+        private EventStructuresBnessLog()
         { }
 
         public object Copy(object obj)
@@ -168,7 +121,7 @@ namespace DDB
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     EventStructureDB e = frmEvEdit.GetEditedEventStructure();
-                    evPreview.UpdateForm(e);
+                    m_FormEventStructurePreview.UpdateForm(e);
                 }
             }
         }
@@ -184,7 +137,7 @@ namespace DDB
                 if (frmEvEdit.ShowDialog() == DialogResult.OK)
                 {
                     e = frmEvEdit.GetEditedEventStructure();
-                    evPreview.UpdateForm(e);
+                    m_FormEventStructurePreview.UpdateForm(e);
                     return e;
                 }
             }
@@ -194,7 +147,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            evPreview.UpdateForm((EventStructureDB)obj);
+            m_FormEventStructurePreview.UpdateForm((EventStructureDB)obj);
         }
 
         public void Links()
@@ -213,20 +166,20 @@ namespace DDB
         { }
     }
 
-    public class EventVariablesBusinessLogic : iEntityEditorBusinesssLogic
+    public class EventVariablesBnessLog : iEntityEditorBusinesssLogic
     {
-        private FormVariablePreview formVarPreview;
-        private FormMain formMain;
-        private FormHelpPreview formHelpPreview;
+        private FormVariablePreview m_FormVariablePreview;
+        private FormMain m_FormMain;
+        private FormHelpPreview m_FormHelpPreview;
 
-        public EventVariablesBusinessLogic(FormMain fMain, FormVariablePreview vPreview, FormHelpPreview hPreview)
+        public EventVariablesBnessLog(FormMain fMain, FormVariablePreview vPreview, FormHelpPreview hPreview)
         {
-            formMain = fMain;
-            formVarPreview = vPreview;
-            formHelpPreview = hPreview;
+            m_FormMain = fMain;
+            m_FormVariablePreview = vPreview;
+            m_FormHelpPreview = hPreview;
         }
 
-        private EventVariablesBusinessLogic()
+        private EventVariablesBnessLog()
         { }
 
         public object Copy(object obj)
@@ -239,11 +192,11 @@ namespace DDB
 
         public void Modify(object obj)
         {
-            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)obj, formMain))
+            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)obj, m_FormMain))
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    formVarPreview.UpdateForm((VariableDB)obj);
+                    m_FormVariablePreview.UpdateForm((VariableDB)obj);
                 }
             }
         }
@@ -253,12 +206,13 @@ namespace DDB
 
         public object Create()
         {
-            VariableDB var = new VariableDB("New Event Variable", "newEvVar", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>New Event Var Description</b>", GlobalSettings.getEventVariableDisplayType);
-            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)var, formMain))
+            VariableDB var = new VariableDB("New Event Variable", "newEvVar", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, 
+                                            "<b>New Event Var Description</b>", GlobalSettings.getEventVariableDisplayType);
+            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)var, m_FormMain))
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
-                    formVarPreview.UpdateForm((VariableDB)var);
+                    m_FormVariablePreview.UpdateForm((VariableDB)var);
                     return var;
                 }
             }
@@ -268,7 +222,7 @@ namespace DDB
 
         public void Preview(object obj)
         {
-            formVarPreview.UpdateForm((VariableDB)obj);
+            m_FormVariablePreview.UpdateForm((VariableDB)obj);
         }
 
         public void Links()
@@ -290,12 +244,12 @@ namespace DDB
         {
             if (obj == null)
             {
-                formHelpPreview.UpdateForm(String.Empty);
+                m_FormHelpPreview.UpdateForm(String.Empty);
             }
             else
             {
                 VariableDB var = (VariableDB)obj;
-                formHelpPreview.UpdateForm(var.helpText);
+                m_FormHelpPreview.UpdateForm(var.helpText);
             }
         }
 

@@ -77,6 +77,50 @@ namespace DDB
             return ucEE_Enumerations.GetItems();
         }
 
+        private void PopulateEventLists()
+        {
+            PopulateEvents();
+            PopulateEventStructures();
+            PopulateEventVariables();
+        }
+
+        private void PopulateEvents()
+        {
+            EventsBnessLog ebl = new EventsBnessLog(this, formEventPreview, formHelpPreview);
+            ucEE_Events.setBusinessLogic(ebl);
+            ucEE_Events.AddListBoxItems(EventList.GetEvents());
+        }
+
+        public object[] GetEvents()
+        {
+            return ucEE_Events.GetItems();
+        }
+
+        private void PopulateEventStructures()
+        {
+            EventStructuresBnessLog ebl = new EventStructuresBnessLog(formEventStructurePreview);
+            ucEE_EventStructures.setBusinessLogic(ebl);
+            ucEE_EventStructures.AddListBoxItems(EventStructureList.GetEventStructures());
+        }
+
+        public object[] GetEventStructures()
+        {
+            return ucEE_EventStructures.GetItems();
+        }
+
+        private void PopulateEventVariables()
+        {
+            EventVariablesBnessLog ebl = new EventVariablesBnessLog(this, formVariablePreview, formHelpPreview);
+            ucEE_EventVariables.setBusinessLogic(ebl);
+            ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
+        }
+
+        public object[] GetEventVariables()
+        {
+            return ucEE_EventVariables.GetItems();
+        }
+
+
         private void PopulateUnits()
         {
             UnitsBusinessLogic ubl = new UnitsBusinessLogic();
@@ -87,14 +131,14 @@ namespace DDB
 
         private void PopulateBitmasks()
         {
-            BitmasksBusinessLogic bbl = new BitmasksBusinessLogic(formBitmaskPreview);
+            BitmasksBnessLog bbl = new BitmasksBnessLog(formBitmaskPreview);
             ucEE_Bitmasks.setBusinessLogic(bbl);
             ucEE_Bitmasks.AddListBoxItems(BitmaskList.GetBitmasks());
         }
 
         private void PopulateEnums()
         {
-            EnumsBusinessLogic ebl = new EnumsBusinessLogic(formEnumPreview);
+            EnumerationssBnessLog ebl = new EnumerationssBnessLog(formEnumPreview);
             ucEE_Enumerations.setBusinessLogic(ebl);
             ucEE_Enumerations.AddListBoxItems(EnumList.GetEnums());
         }
@@ -286,6 +330,11 @@ namespace DDB
             EventList.Update(ucEE_Events.GetItems());
             EventStructureList.Update(ucEE_EventStructures.GetItems());
             EventVariableList.Update(ucEE_EventVariables.GetItems());
+        }
+
+        private void dGridURL_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("Right click row to add or delete URLs", this);
         }
 
 

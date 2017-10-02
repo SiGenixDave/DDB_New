@@ -126,7 +126,7 @@ namespace DDB
                 cBoxFormatString.SelectedIndex = watchVar.formatString;
                 chkEngViewOnly.Checked = watchVar.engineeringViewOnly == 1 ? true : false;
 
-                //TODO formHelpPreview.UpdateForm(watchVar.helpText);
+                //TODO m_FormHelpPreview.UpdateForm(watchVar.helpText);
 
                 EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), watchVar);
 

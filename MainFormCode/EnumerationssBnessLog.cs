@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    public class EnumsBusinessLogic : iEntityEditorBusinesssLogic
+    public class EnumerationssBnessLog : iEntityEditorBusinesssLogic
     {
         FormEnumPreview enumPreview;
 
-        public EnumsBusinessLogic(FormEnumPreview preview)
+        public EnumerationssBnessLog(FormEnumPreview preview)
         {
             enumPreview = preview;
         }
 
-        private EnumsBusinessLogic()
+        private EnumerationssBnessLog()
         { }
 
         public object Copy(object obj)
@@ -40,7 +40,7 @@ namespace DDB
 
         public object Create()
         {
-            EnumsDB enm = new EnumsDB("New Enumration");
+            EnumsDB enm = new EnumsDB("New Enumeration");
 
             using (FormEnumsEditor emEdit = new FormEnumsEditor(enm, true))
             {
