@@ -5,6 +5,9 @@ namespace DDB
 {
     public partial class FormSelfTestListEditor : Form
     {
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormSelfTestListEditor()
         {
             InitializeComponent();
@@ -15,32 +18,9 @@ namespace DDB
             PopulateTestList();
         }
 
-        private void cBoxTestList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PopulateTests(cBoxTestList.SelectedItem);
-        }
-
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (Cancel.Query("Self Test Lists", ""))
-            {
-                this.DialogResult = DialogResult.Cancel;
-                Close();
-            }
-        }
-
-        private void PopulateTestList()
-        {
-            cBoxTestList.Items.AddRange(SelfTestGroupList.GetObjects());
-            cBoxTestList.SelectedIndex = 0;
-        }
-
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////        
         public void PopulateTests(object obj)
         {
             SelfTestGroupDB stl = (SelfTestGroupDB)obj;
@@ -74,5 +54,38 @@ namespace DDB
                 }
             }
         }
+
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
+        private void PopulateTestList()
+        {
+            cBoxTestList.Items.AddRange(SelfTestGroupList.GetObjects());
+            cBoxTestList.SelectedIndex = 0;
+        }
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
+        private void cBoxTestList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateTests(cBoxTestList.SelectedItem);
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (Cancel.Query("Self Test Lists", ""))
+            {
+                this.DialogResult = DialogResult.Cancel;
+                Close();
+            }
+        }
+
     }
 }

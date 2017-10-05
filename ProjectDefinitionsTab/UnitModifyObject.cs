@@ -4,36 +4,49 @@ namespace DDB
 {
     internal class UnitModifyObject : iTextEntry
     {
-        private const String formTitle = "Modify Unit";
-        private const String formMessage = "Update the Unit name: click Accept or Cancel";
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private const String FORM_TITLE = "Modify Unit";
+        private const String FORM_MESSAGE = "Update the Unit name: click Accept or Cancel";
 
-        private Boolean userAcceptance = false;
-        private UnitsDB myUnit;
+        private Boolean m_UserAcceptance = false;
+        private UnitsDB m_Unit;
 
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public UnitModifyObject(UnitsDB unit)
         {
-            myUnit = unit;
-            FormTextEntry formText = new FormTextEntry(formTitle, formMessage, unit.name, this);
+            m_Unit = unit;
+            FormTextEntry formText = new FormTextEntry(FORM_TITLE, FORM_MESSAGE, unit.name, this);
             formText.ShowDialog();
         }
 
         private UnitModifyObject()
         { }
 
-        public void ConfirmedTextEntry(string text)
-        {
-            myUnit.name = text;
-            userAcceptance = true;
-        }
-
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public Boolean GetUserAcceptance()
         {
-            return userAcceptance;
+            return m_UserAcceptance;
         }
 
         public UnitsDB GetUnit()
         {
-            return myUnit;
+            return m_Unit;
         }
+
+        ////////////////////////////////////////////////////////////
+        // Interface implementations
+        ////////////////////////////////////////////////////////////
+        public void ConfirmedTextEntry(string text)
+        {
+            m_Unit.name = text;
+            m_UserAcceptance = true;
+        }
+
     }
 }

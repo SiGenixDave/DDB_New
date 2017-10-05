@@ -6,12 +6,18 @@ namespace DDB
 {
     public partial class FormEnumsEditor : Form
     {
-        private EnumsDB enm;
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private EnumsDB m_EnumDB;
 
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEnumsEditor(EnumsDB em, Boolean modifyNewEnum)
         {
             InitializeComponent();
-            enm = em;
+            m_EnumDB = em;
             if (modifyNewEnum)
             {
                 this.Text = "Create";
@@ -20,15 +26,21 @@ namespace DDB
             {
                 this.Text = "Modify";
             }
-            this.Text += " Enumeration " + "\"" + enm.dispName + "\"";
+            this.Text += " Enumeration " + "\"" + m_EnumDB.dispName + "\"";
             InitDataGrid();
         }
 
+        private FormEnumsEditor()
+        { }
+
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void InitDataGrid()
         {
-            for (int index = 0; index < enm.intValues.Count; index++)
+            for (int index = 0; index < m_EnumDB.intValues.Count; index++)
             {
-                dataGridView1.Rows.Add(enm.intValues[index], enm.strValues[index]);
+                dataGridView1.Rows.Add(m_EnumDB.intValues[index], m_EnumDB.strValues[index]);
             }
 
             DataGridViewCellStyle style = new DataGridViewCellStyle();
@@ -39,12 +51,88 @@ namespace DDB
             dataGridView1.Columns[0].Width = 50;
             dataGridView1.Columns[1].Width = dataGridView1.Width - dataGridView1.Columns[0].Width;
 
-            tBoxName.Text = enm.dispName;
+            tBoxName.Text = m_EnumDB.dispName;
 
             // Force sort using int and not string
             dataGridView1.Columns[0].CellTemplate.ValueType = typeof(int);
         }
 
+        private void Save()
+        {
+            m_EnumDB.dispName = tBoxName.Text;
+
+            m_EnumDB.strValues.Clear();
+            m_EnumDB.intValues.Clear();
+
+            for (int index = 0; index < dataGridView1.RowCount; index++)
+            {
+                String strValue = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                int intValue = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
+                m_EnumDB.strValues.Add(strValue);
+                m_EnumDB.intValues.Add(intValue);
+            }
+        }
+
+        private void DeleteItems()
+        {
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(s)?",
+                                  "Delete Enumeration(s) Confirmation",
+                                  MessageBoxButtons.OKCancel,
+                                  MessageBoxIcon.Warning);
+
+            // User really didn't want to delete the variables... abort delete
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.RemoveAt(item.Index);
+            }
+        }
+
+        private void AddNewItem()
+        {
+            // Scan the datagridView for the highest value and insert the next highest and select
+            // the cell with description
+            int highestValue = int.MinValue;
+
+            int rowindex = 0;
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                int i;
+                int.TryParse(r.Cells[0].Value.ToString(), out i);
+                if (i > highestValue)
+                {
+                    highestValue = i;
+                }
+                rowindex++;
+            }
+
+            DataGridViewRow row;
+            if (dataGridView1.Rows.Count == 0)
+            {
+                dataGridView1.Rows.Add();
+                row = dataGridView1.Rows[0];
+                row.Cells[0].Value = 0;
+                row.Cells[1].Value = "Description";
+            }
+            else
+            {
+                row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = highestValue + 1;
+                row.Cells[1].Value = "Description";
+                dataGridView1.Rows.Add(row);
+            }
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowindex].Cells[1];
+            dataGridView1.BeginEdit(true);
+        }
+
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -54,7 +142,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Enumeration", enm.dispName))
+            if (Cancel.Query("Enumeration", m_EnumDB.dispName))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();
@@ -107,40 +195,6 @@ namespace DDB
             }
         }
 
-        private void Save()
-        {
-            enm.dispName = tBoxName.Text;
-
-            enm.strValues.Clear();
-            enm.intValues.Clear();
-
-            for (int index = 0; index < dataGridView1.RowCount; index++)
-            {
-                String strValue = dataGridView1.Rows[index].Cells[1].Value.ToString();
-                int intValue = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
-                enm.strValues.Add(strValue);
-                enm.intValues.Add(intValue);
-            }
-        }
-
-        private void DeleteItems()
-        {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected enumeration(s)?",
-                                  "Delete Enumeration(s) Confirmation",
-                                  MessageBoxButtons.OKCancel,
-                                  MessageBoxIcon.Warning);
-
-            // User really didn't want to delete the variables... abort delete
-            if (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
-            {
-                dataGridView1.Rows.RemoveAt(item.Index);
-            }
-        }
 
         private void deleteMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,43 +206,7 @@ namespace DDB
             AddNewItem();
         }
 
-        private void AddNewItem()
-        {
-            // Scan the datagridView for the highest value and insert the next highest and select
-            // the cell with description
-            int highestValue = int.MinValue;
-
-            int rowindex = 0;
-            foreach (DataGridViewRow r in dataGridView1.Rows)
-            {
-                int i;
-                int.TryParse(r.Cells[0].Value.ToString(), out i);
-                if (i > highestValue)
-                {
-                    highestValue = i;
-                }
-                rowindex++;
-            }
-
-            DataGridViewRow row;
-            if (dataGridView1.Rows.Count == 0)
-            {
-                dataGridView1.Rows.Add();
-                row = dataGridView1.Rows[0];
-                row.Cells[0].Value = 0;
-                row.Cells[1].Value = "Description";
-            }
-            else
-            {
-                row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                row.Cells[0].Value = highestValue + 1;
-                row.Cells[1].Value = "Description";
-                dataGridView1.Rows.Add(row);
-            }
-            dataGridView1.CurrentCell = dataGridView1.Rows[rowindex].Cells[1];
-            dataGridView1.BeginEdit(true);
-        }
-
+        
         private void FormEnumsEditor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)

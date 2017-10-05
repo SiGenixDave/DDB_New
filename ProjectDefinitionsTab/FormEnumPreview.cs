@@ -6,12 +6,18 @@ namespace DDB
 {
     public partial class FormEnumPreview : Form
     {
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEnumPreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public void UpdateForm(EnumsDB enm)
         {
             do
@@ -44,6 +50,9 @@ namespace DDB
             dataGridView1.Size = new Size(436, 75 + index * 25);
         }
 
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void InitDataGrid()
         {
             DataGridViewCellStyle style = new DataGridViewCellStyle();

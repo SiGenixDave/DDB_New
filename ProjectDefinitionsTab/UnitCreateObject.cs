@@ -4,32 +4,45 @@ namespace DDB
 {
     internal class UnitCreateObject : iTextEntry
     {
-        private const String formTitle = "Create Unit";
-        private const String formMessage = "Create the new Unit name: click Accept or Cancel";
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private const String FORM_TITLE = "Create Unit";
+        private const String FORM_MESSAGE = "Create the new Unit name: click Accept or Cancel";
 
-        private Boolean userAcceptance = false;
-        private String unitText;
+        private Boolean m_UserAcceptance = false;
+        private String m_UnitText;
 
-        public void ConfirmedTextEntry(string text)
-        {
-            unitText = text;
-            userAcceptance = true;
-        }
-
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public UnitCreateObject()
         {
-            FormTextEntry formText = new FormTextEntry(formTitle, formMessage, this);
+            FormTextEntry formText = new FormTextEntry(FORM_TITLE, FORM_MESSAGE, this);
             formText.ShowDialog();
         }
 
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public Boolean GetUserAcceptance()
         {
-            return userAcceptance;
+            return m_UserAcceptance;
         }
 
         public UnitsDB GetUnit()
         {
-            return new UnitsDB(unitText, true);
+            return new UnitsDB(m_UnitText, true);
         }
+
+        ////////////////////////////////////////////////////////////
+        // Interface implementations
+        ////////////////////////////////////////////////////////////
+        public void ConfirmedTextEntry(string text)
+        {
+            m_UnitText = text;
+            m_UserAcceptance = true;
+        }
+
     }
 }

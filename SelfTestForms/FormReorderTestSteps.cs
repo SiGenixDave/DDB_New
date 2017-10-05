@@ -11,54 +11,97 @@ namespace DDB
 {
     public partial class FormReorderTestSteps : Form , iDualSelectorSupport
     {
-        List<SelfTestMessageDB> m_StmList;
-        String m_Name;
-        SelfTestMessageDB m_Description;
-        FormHelpPreview fhp = new FormHelpPreview();
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private List<SelfTestMessageDB> m_SelfTestMessageList;
+        private String m_Name;
+        private SelfTestMessageDB m_SelfTestMessage;
+        private FormHelpPreview m_FormHelpPreview = new FormHelpPreview();
 
+
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormReorderTestSteps(SelfTestDB st)
         {
             InitializeComponent();
 
-            m_StmList = new List<SelfTestMessageDB>(st.messageList);
+            m_SelfTestMessageList = new List<SelfTestMessageDB>(st.messageList);
             m_Name = st.name;
-            m_Description = st.description;
+            m_SelfTestMessage = st.description;
             
             PopulateSelfTestMessages();
 
             ucDS_SelfTestMessageList.SetDualSelectorSupport(this);
 
-            fhp.Owner = this;
+            m_FormHelpPreview.Owner = this;
 
         }
 
-        private FormReorderTestSteps() { } 
+        private FormReorderTestSteps() { }
 
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public List<SelfTestMessageDB> GetEditedSelfTestList()
         {
-            m_StmList.Clear();
+            m_SelfTestMessageList.Clear();
 
             foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
             {
-                m_StmList.Add(s);
+                m_SelfTestMessageList.Add(s);
             }
 
-            return m_StmList;
+            return m_SelfTestMessageList;
         }
 
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void PopulateSelfTestMessages()
         {
-            if (m_StmList == null)
+            if (m_SelfTestMessageList == null)
             {
                 return;
             }
 
-            foreach (SelfTestMessageDB stm in m_StmList)
+            foreach (SelfTestMessageDB stm in m_SelfTestMessageList)
             {
                 ucDS_SelfTestMessageList.AddListBoxItem(stm);
             }
         }
 
+        private void CompileHelpTextAndShow()
+        {
+            String helpText = m_SelfTestMessage.messageText;
+
+            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
+            {
+                helpText += s.messageText;
+            }
+
+            m_FormHelpPreview.UpdateForm(helpText);
+        }
+
+
+        ////////////////////////////////////////////////////////////
+        // Interface implementations
+        ////////////////////////////////////////////////////////////
+        public void MoveUp(object obj)
+        {
+            CompileHelpTextAndShow();
+        }
+
+        public void MoveDown(object obj)
+        {
+            CompileHelpTextAndShow();
+        }
+
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////        
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -74,41 +117,19 @@ namespace DDB
             }
         }
 
-
-        public void MoveUp(object obj)
-        {
-            CompileHelpTextAndShow();
-        }
-
-        public void MoveDown(object obj)
-        {
-            CompileHelpTextAndShow();
-        }
-
         private void checkBoxPreview_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxPreview.Checked)
             {
-                fhp.Visible = true;
+                m_FormHelpPreview.Visible = true;
                 CompileHelpTextAndShow();
             }
             else
             {
-                fhp.Visible = false;
+                m_FormHelpPreview.Visible = false;
             }
         }
 
-        private void CompileHelpTextAndShow()
-        {
-            String helpText = m_Description.messageText;
-
-            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
-            {
-                helpText += s.messageText;
-            }
-
-            fhp.UpdateForm(helpText);
-        }
     }
 
 }

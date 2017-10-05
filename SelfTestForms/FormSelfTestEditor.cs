@@ -6,11 +6,16 @@ namespace DDB
 {
     public partial class FormSelfTestEditor : Form
     {
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
         private SelfTestDB m_SelfTestObj;
-        private SelfTestMessageDB m_TestDescription;
-        private List<SelfTestMessageDB> m_TestMessageList = new List<SelfTestMessageDB>();
+        private SelfTestMessageDB m_SelfTestMessage;
+        private List<SelfTestMessageDB> m_SelfTestMessageList = new List<SelfTestMessageDB>();
         private FormMain m_FormMain;
         private FormHelpPreview m_FormHelpPreview = new FormHelpPreview();
+        private Int32 m_PrevSelectedTestStepIndex = 0;
+
 
         private const String STR_APPEND = "Append";
         private const String STR_MODIFY = "Modify";
@@ -21,9 +26,12 @@ namespace DDB
 
         private const Int32 NEW_SELF_TEST = 0;
 
-        private readonly String[] mCONST_Action = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
-        private readonly String[] mCONST_CustomerOnlyAction = { STR_MODIFY };
+        private readonly String[] ACTION = { STR_APPEND, STR_MODIFY, STR_INSERT_BEFORE, STR_INSERT_AFTER, STR_DELETE, STR_REORDER };
+        private readonly String[] CUSTOMER_ONLY_ACTION = { STR_MODIFY };
 
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormSelfTestEditor(FormMain fMain, SelfTestDB st)
         {
             InitializeComponent();
@@ -31,10 +39,10 @@ namespace DDB
             this.m_SelfTestObj = st;
             this.m_FormMain = fMain;
 
-            m_TestDescription = st.description;
+            m_SelfTestMessage = st.description;
             foreach (SelfTestMessageDB s in st.messageList)
             {
-                m_TestMessageList.Add(s);
+                m_SelfTestMessageList.Add(s);
             }
 
             tBoxSelfTestName.Text = m_SelfTestObj.name;
@@ -63,6 +71,9 @@ namespace DDB
         private FormSelfTestEditor()
         { }
 
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public SelfTestDB GetEditedSelfTest()
         {
             m_SelfTestObj.name = tBoxSelfTestName.Text;
@@ -78,9 +89,9 @@ namespace DDB
                 }
             }
 
-            m_SelfTestObj.description = m_TestDescription;
+            m_SelfTestObj.description = m_SelfTestMessage;
             m_SelfTestObj.messageList.Clear();
-            foreach (SelfTestMessageDB s in m_TestMessageList)
+            foreach (SelfTestMessageDB s in m_SelfTestMessageList)
             {
                 m_SelfTestObj.messageList.Add(s);
             }
@@ -88,21 +99,10 @@ namespace DDB
             return m_SelfTestObj;
         }
 
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            Close();
-        }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (Cancel.Query("Self Test", m_SelfTestObj.name))
-            {
-                this.DialogResult = DialogResult.Cancel;
-                Close();
-            }
-        }
-
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void PopulateUsedVars()
         {
             if (m_SelfTestObj.variableList == null)
@@ -133,6 +133,229 @@ namespace DDB
                 {
                     ucDS_AvailableVars.AddListBoxItem(var);
                 }
+            }
+        }
+
+        private void PopulateTestStepAppend()
+        {
+            cBoxTestStep.Items.Clear();
+            btnGo.Enabled = true;
+
+            int newStepNumber;
+
+            // Find the last test step number, add 1 and then populate
+            if ((m_SelfTestMessageList == null) || (m_SelfTestMessageList.Count == 0))
+            {
+                newStepNumber = 1;
+            }
+            else
+            {
+                newStepNumber = m_SelfTestMessageList.Count + 1;
+            }
+
+            SelfTestMessageDB stm = new SelfTestMessageDB(newStepNumber, String.Empty);
+            cBoxTestStep.Items.Add(stm);
+            cBoxTestStep.SelectedItem = stm;
+        }
+
+
+        private void PopulateTestStepInsertModifyDelete()
+        {
+            m_PrevSelectedTestStepIndex = cBoxTestStep.SelectedIndex;
+            cBoxTestStep.Items.Clear();
+
+            // Find the last test step number, add 1 and then populate
+            if ((m_SelfTestMessageList == null) || (m_SelfTestMessageList.Count == 0))
+            {
+                btnGo.Enabled = false;
+            }
+            else
+            {
+                btnGo.Enabled = true;
+                foreach (SelfTestMessageDB stm in m_SelfTestMessageList)
+                {
+                    cBoxTestStep.Items.Add(stm);
+                }
+            }
+        }
+
+        private void SetTestStepSelection()
+        {
+            if (cBoxTestStep.Items.Count <= 0)
+            {
+                return;
+            }
+
+            if (m_PrevSelectedTestStepIndex < 0)
+            {
+                cBoxTestStep.SelectedItem = cBoxTestStep.Items[0];
+            }
+            else if (m_PrevSelectedTestStepIndex < cBoxTestStep.Items.Count)
+            {
+                cBoxTestStep.SelectedItem = cBoxTestStep.Items[m_PrevSelectedTestStepIndex];
+            }
+            else
+            {
+                cBoxTestStep.SelectedItem = cBoxTestStep.Items[m_PrevSelectedTestStepIndex - 1];
+            }
+        }
+
+        private void PopulateActionCheckBox()
+        {
+            cBoxMessageAction.Items.Clear();
+            if (GlobalSettings.getCustomerUseOnly())
+            {
+                cBoxMessageAction.Items.AddRange(CUSTOMER_ONLY_ACTION);
+            }
+            else
+            {
+                cBoxMessageAction.Items.AddRange(ACTION);
+            }
+        }
+
+        private void ReNumberTestSteps()
+        {
+            // Assume steps are ordered properly
+            Int32 testStep = 1;
+            foreach (SelfTestMessageDB stm in m_SelfTestMessageList)
+            {
+                stm.number = testStep;
+                testStep++;
+            }
+        }
+
+        private void AppendTestStep()
+        {
+            SelfTestMessageDB potentialNewTestStep = (SelfTestMessageDB)cBoxTestStep.SelectedItem;
+            using (FormHelpText fh = new FormHelpText(potentialNewTestStep,
+                                               "Appended (new) Self Test Message --- Number " + potentialNewTestStep.ToString()))
+            {
+                if (fh.ShowDialog() == DialogResult.OK)
+                {
+                    m_SelfTestMessageList.Add(potentialNewTestStep);
+                    // Since the user accepted, force the combo box to be updated to the next step
+                    PopulateTestStepAppend();
+
+                    CompileHelpTextAndShow();
+                }
+            }
+        }
+
+        private void ModifyTestStep()
+        {
+            FormHelpText fh = new FormHelpText((SelfTestMessageDB)cBoxTestStep.SelectedItem,
+                                               "Self Test Message \"" + cBoxTestStep.SelectedItem.ToString() + "\"");
+            fh.ShowDialog();
+
+            CompileHelpTextAndShow();
+        }
+
+        private void InsertTestStep(Boolean before)
+        {
+            // Get the current test step number
+            SelfTestMessageDB curr = (SelfTestMessageDB)(cBoxTestStep.SelectedItem);
+            Int32 testStepNum = curr.number;
+            SelfTestMessageDB potentialNewTestStep = new SelfTestMessageDB(before == true ? testStepNum : testStepNum + 1, "");
+
+            using (FormHelpText fh = new FormHelpText(potentialNewTestStep,
+                       "Insert (new) Self Test Message --- Number " + potentialNewTestStep.ToString()))
+            {
+                if (fh.ShowDialog() == DialogResult.OK)
+                {
+                    if (before)
+                    {
+                        testStepNum--;
+                    }
+                    // Insert the new test step
+                    m_SelfTestMessageList.Insert(testStepNum, potentialNewTestStep);
+
+                    // Renumber the following test steps
+                    ReNumberTestSteps();
+                    // Since the user accepted, force the combo box to be updated to the next step
+                    PopulateTestStepInsertModifyDelete();
+                    SetTestStepSelection();
+
+                    CompileHelpTextAndShow();
+                }
+            }
+        }
+
+        private void DeleteTestStep()
+        {
+            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Test Step?",
+                      "Delete Test Step Confirmation",
+                      MessageBoxButtons.OKCancel,
+                      MessageBoxIcon.Warning);
+
+            // User really didn't want to delete the test step... abort delete
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            SelfTestMessageDB stm = (SelfTestMessageDB)cBoxTestStep.SelectedItem;
+            Int32 testNum = stm.number;
+
+            m_SelfTestMessageList.Remove(stm);
+
+            ReNumberTestSteps();
+
+            PopulateTestStepInsertModifyDelete();
+            SetTestStepSelection();
+
+            CompileHelpTextAndShow();
+        }
+
+        private void ReorderTestSteps()
+        {
+            if (checkBoxViewEntireTest.Checked)
+            {
+                m_FormHelpPreview.Visible = false;
+            }
+
+            using (FormReorderTestSteps fReorder = new FormReorderTestSteps(m_SelfTestObj))
+            {
+                if (fReorder.ShowDialog() == DialogResult.OK)
+                {
+                    m_SelfTestMessageList = fReorder.GetEditedSelfTestList();
+                    ReNumberTestSteps();
+                }
+            }
+
+            if (checkBoxViewEntireTest.Checked)
+            {
+                m_FormHelpPreview.Visible = true;
+                CompileHelpTextAndShow();
+            }
+        }
+
+        private void CompileHelpTextAndShow()
+        {
+            String helpText = m_SelfTestObj.description.messageText;
+
+            foreach (SelfTestMessageDB s in m_SelfTestMessageList)
+            {
+                helpText += s.messageText;
+            }
+
+            m_FormHelpPreview.UpdateForm(helpText);
+        }
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (Cancel.Query("Self Test", m_SelfTestObj.name))
+            {
+                this.DialogResult = DialogResult.Cancel;
+                Close();
             }
         }
 
@@ -219,200 +442,7 @@ namespace DDB
             }
         }
 
-        private void PopulateTestStepAppend()
-        {
-            cBoxTestStep.Items.Clear();
-            btnGo.Enabled = true;
-
-            int newStepNumber;
-
-            // Find the last test step number, add 1 and then populate
-            if ((m_TestMessageList == null) || (m_TestMessageList.Count == 0))
-            {
-                newStepNumber = 1;
-            }
-            else
-            {
-                newStepNumber = m_TestMessageList.Count + 1;
-            }
-
-            SelfTestMessageDB stm = new SelfTestMessageDB(newStepNumber, String.Empty);
-            cBoxTestStep.Items.Add(stm);
-            cBoxTestStep.SelectedItem = stm;
-        }
-
-        private Int32 prevSelectedTestStepIndex = 0;
-
-        private void PopulateTestStepInsertModifyDelete()
-        {
-            prevSelectedTestStepIndex = cBoxTestStep.SelectedIndex;
-            cBoxTestStep.Items.Clear();
-
-            // Find the last test step number, add 1 and then populate
-            if ((m_TestMessageList == null) || (m_TestMessageList.Count == 0))
-            {
-                btnGo.Enabled = false;
-            }
-            else
-            {
-                btnGo.Enabled = true;
-                foreach (SelfTestMessageDB stm in m_TestMessageList)
-                {
-                    cBoxTestStep.Items.Add(stm);
-                }
-            }
-        }
-
-        private void SetTestStepSelection()
-        {
-            if (cBoxTestStep.Items.Count <= 0)
-            {
-                return;
-            }
-
-            if (prevSelectedTestStepIndex < 0)
-            {
-                cBoxTestStep.SelectedItem = cBoxTestStep.Items[0];
-            }
-            else if (prevSelectedTestStepIndex < cBoxTestStep.Items.Count)
-            {
-                cBoxTestStep.SelectedItem = cBoxTestStep.Items[prevSelectedTestStepIndex];
-            }
-            else
-            {
-                cBoxTestStep.SelectedItem = cBoxTestStep.Items[prevSelectedTestStepIndex - 1];
-            }
-        }
-
-        private void PopulateActionCheckBox()
-        {
-            cBoxMessageAction.Items.Clear();
-            if (GlobalSettings.getCustomerUseOnly())
-            {
-                cBoxMessageAction.Items.AddRange(mCONST_CustomerOnlyAction);
-            }
-            else
-            {
-                cBoxMessageAction.Items.AddRange(mCONST_Action);
-            }
-        }
-
-        private void ReNumberTestSteps()
-        {
-            // Assume steps are ordered properly
-            Int32 testStep = 1;
-            foreach (SelfTestMessageDB stm in m_TestMessageList)
-            {
-                stm.number = testStep;
-                testStep++;
-            }
-        }
-
-        private void AppendTestStep()
-        {
-            SelfTestMessageDB potentialNewTestStep = (SelfTestMessageDB)cBoxTestStep.SelectedItem;
-            using (FormHelpText fh = new FormHelpText(potentialNewTestStep,
-                                               "Appended (new) Self Test Message --- Number " + potentialNewTestStep.ToString()))
-            {
-                if (fh.ShowDialog() == DialogResult.OK)
-                {
-                    m_TestMessageList.Add(potentialNewTestStep);
-                    // Since the user accepted, force the combo box to be updated to the next step
-                    PopulateTestStepAppend();
-
-                    CompileHelpTextAndShow();
-                }
-            }
-        }
-
-        private void ModifyTestStep()
-        {
-            FormHelpText fh = new FormHelpText((SelfTestMessageDB)cBoxTestStep.SelectedItem,
-                                               "Self Test Message \"" + cBoxTestStep.SelectedItem.ToString() + "\"");
-            fh.ShowDialog();
-
-            CompileHelpTextAndShow();
-        }
-
-        private void InsertTestStep(Boolean before)
-        {
-            // Get the current test step number
-            SelfTestMessageDB curr = (SelfTestMessageDB)(cBoxTestStep.SelectedItem);
-            Int32 testStepNum = curr.number;
-            SelfTestMessageDB potentialNewTestStep = new SelfTestMessageDB(before == true ? testStepNum : testStepNum + 1, "");
-
-            using (FormHelpText fh = new FormHelpText(potentialNewTestStep,
-                       "Insert (new) Self Test Message --- Number " + potentialNewTestStep.ToString()))
-            {
-                if (fh.ShowDialog() == DialogResult.OK)
-                {
-                    if (before)
-                    {
-                        testStepNum--;
-                    }
-                    // Insert the new test step
-                    m_TestMessageList.Insert(testStepNum, potentialNewTestStep);
-
-                    // Renumber the following test steps
-                    ReNumberTestSteps();
-                    // Since the user accepted, force the combo box to be updated to the next step
-                    PopulateTestStepInsertModifyDelete();
-                    SetTestStepSelection();
-
-                    CompileHelpTextAndShow();
-                }
-            }
-        }
-
-        private void DeleteTestStep()
-        {
-            DialogResult dr = MessageBox.Show("Are you sure that you want to delete the selected Test Step?",
-                      "Delete Test Step Confirmation",
-                      MessageBoxButtons.OKCancel,
-                      MessageBoxIcon.Warning);
-
-            // User really didn't want to delete the test step... abort delete
-            if (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            SelfTestMessageDB stm = (SelfTestMessageDB)cBoxTestStep.SelectedItem;
-            Int32 testNum = stm.number;
-
-            m_TestMessageList.Remove(stm);
-
-            ReNumberTestSteps();
-
-            PopulateTestStepInsertModifyDelete();
-            SetTestStepSelection();
-
-            CompileHelpTextAndShow();
-        }
-
-        private void ReorderTestSteps()
-        {
-            if (checkBoxViewEntireTest.Checked)
-            {
-                m_FormHelpPreview.Visible = false;
-            }
-
-            using (FormReorderTestSteps fReorder = new FormReorderTestSteps(m_SelfTestObj))
-            {
-                if (fReorder.ShowDialog() == DialogResult.OK)
-                {
-                    m_TestMessageList = fReorder.GetEditedSelfTestList();
-                    ReNumberTestSteps();
-                }
-            }
-
-            if (checkBoxViewEntireTest.Checked)
-            {
-                m_FormHelpPreview.Visible = true;
-                CompileHelpTextAndShow();
-            }
-        }
-
+        
         private void checkBoxViewEntireTest_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxViewEntireTest.Checked)
@@ -424,18 +454,6 @@ namespace DDB
             {
                 m_FormHelpPreview.Visible = false;
             }
-        }
-
-        private void CompileHelpTextAndShow()
-        {
-            String helpText = m_SelfTestObj.description.messageText;
-
-            foreach (SelfTestMessageDB s in m_TestMessageList)
-            {
-                helpText += s.messageText;
-            }
-
-            m_FormHelpPreview.UpdateForm(helpText);
         }
 
         private void tBoxSelfTestNumber_TextChanged(object sender, EventArgs e)
