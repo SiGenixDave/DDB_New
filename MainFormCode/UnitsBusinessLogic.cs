@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 namespace DDB
 {
-    public partial class FormMain
-    {
-    }
-
 
     public class UnitsBusinessLogic : iEntityEditorBusinesssLogic
     {
+        ////////////////////////////////////////////////////////////
+        // Interface Implementations
+        ////////////////////////////////////////////////////////////
         public object Copy(object obj)
         {
             UnitsDB u = (UnitsDB)obj;

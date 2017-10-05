@@ -812,12 +812,12 @@
             this.ucEE_WatchVariables.xVisibleDispEmbComboBox = true;
             this.ucEE_WatchVariables.xVisibleLinksButton = false;
             // 
-            // ucVE_WatchVar
+            // m_UCVE_WatchVar
             // 
             this.ucVE_WatchVar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucVE_WatchVar.Location = new System.Drawing.Point(9, 23);
             this.ucVE_WatchVar.Margin = new System.Windows.Forms.Padding(4);
-            this.ucVE_WatchVar.Name = "ucVE_WatchVar";
+            this.ucVE_WatchVar.Name = "m_UCVE_WatchVar";
             this.ucVE_WatchVar.Size = new System.Drawing.Size(528, 423);
             this.ucVE_WatchVar.TabIndex = 0;
             // 

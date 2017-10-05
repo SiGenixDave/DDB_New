@@ -6,12 +6,19 @@ namespace DDB
 {
     public partial class FormEventStructurePreview : Form
     {
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormEventStructurePreview()
         {
             InitializeComponent();
             InitDataGrid();
         }
 
+
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public void UpdateForm(EventStructureDB eStruct)
         {
             do
@@ -44,6 +51,10 @@ namespace DDB
             dataGridView1.Size = new Size(436, 75 + populatedRowCount * 25);
         }
 
+
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void InitDataGrid()
         {
             dataGridView1.Columns[0].Width = 100;

@@ -68,37 +68,38 @@
     <Compile Include="DatabaseMirror\EventLogDB.cs" />
     <Compile Include="DatabaseMirror\EventVariableDB.cs" />
     <Compile Include="DatabaseMirror\EventStructureDB.cs" />
-    <Compile Include="SelfTest\FormSelfTestListEditor.cs">
+    <Compile Include="MainFormCode\SelfTestVariablesBusinessLogic.cs" />
+    <Compile Include="MainFormCode\EventVariablesBusinessLogic.cs" />
+    <Compile Include="MainFormCode\EventStructuresBusinessLogic.cs" />
+    <Compile Include="SelfTestForms\FormSelfTestListEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelfTest\FormSelfTestListEditor.Designer.cs">
+    <Compile Include="SelfTestForms\FormSelfTestListEditor.Designer.cs">
       <DependentUpon>FormSelfTestListEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelfTest\FormReorderTestSteps.cs">
+    <Compile Include="SelfTestForms\FormReorderTestSteps.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelfTest\FormReorderTestSteps.Designer.cs">
+    <Compile Include="SelfTestForms\FormReorderTestSteps.Designer.cs">
       <DependentUpon>FormReorderTestSteps.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelfTest\FormSelfTestEditor.cs">
+    <Compile Include="SelfTestForms\FormSelfTestEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelfTest\FormSelfTestEditor.Designer.cs">
+    <Compile Include="SelfTestForms\FormSelfTestEditor.Designer.cs">
       <DependentUpon>FormSelfTestEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\SelfTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlDualSelector.cs">
+    <Compile Include="MainFormCode\SelfTestsBusinessLogic.cs" />
+    <Compile Include="UserControls\UserControlDualSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlDualSelector.Designer.cs">
+    <Compile Include="UserControls\UserControlDualSelector.Designer.cs">
       <DependentUpon>UserControlDualSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlEntityEditor.cs">
+    <Compile Include="UserControls\UserControlEntityEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlEntityEditor.Designer.cs">
+    <Compile Include="UserControls\UserControlEntityEditor.Designer.cs">
       <DependentUpon>UserControlEntityEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVariableEditor.cs">
@@ -107,29 +108,29 @@
     <Compile Include="FormVariableEditor.Designer.cs">
       <DependentUpon>FormVariableEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\Events.cs" />
-    <Compile Include="Events\FormEventStructurePreview.cs">
+    <Compile Include="MainFormCode\EventBusinesssLogic.cs" />
+    <Compile Include="EventForms\FormEventStructurePreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events\FormEventStructurePreview.Designer.cs">
+    <Compile Include="EventForms\FormEventStructurePreview.Designer.cs">
       <DependentUpon>FormEventStructurePreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Events\FormEventEditor.cs">
+    <Compile Include="EventForms\FormEventEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events\FormEventEditor.Designer.cs">
+    <Compile Include="EventForms\FormEventEditor.Designer.cs">
       <DependentUpon>FormEventEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Events\FormEventPreview.cs">
+    <Compile Include="EventForms\FormEventPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events\FormEventPreview.Designer.cs">
+    <Compile Include="EventForms\FormEventPreview.Designer.cs">
       <DependentUpon>FormEventPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Events\FormEventStructureEditor.cs">
+    <Compile Include="EventForms\FormEventStructureEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events\FormEventStructureEditor.Designer.cs">
+    <Compile Include="EventForms\FormEventStructureEditor.Designer.cs">
       <DependentUpon>FormEventStructureEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHelpPreview.cs">
@@ -139,31 +140,31 @@
       <DependentUpon>FormHelpPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSettings.cs" />
-    <Compile Include="MainFormCode\BitmasksBnessLog.cs" />
+    <Compile Include="MainFormCode\BitmaskBusinesssLogic.cs" />
     <Compile Include="Cancel.cs" />
-    <Compile Include="ProjectDefinitions\FormEnumPreview.cs">
+    <Compile Include="ProjectDefinitionsTab\FormEnumPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormEnumPreview.Designer.cs">
+    <Compile Include="ProjectDefinitionsTab\FormEnumPreview.Designer.cs">
       <DependentUpon>FormEnumPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormEnumEditor.cs">
+    <Compile Include="ProjectDefinitionsTab\FormEnumEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormEnumEditor.Designer.cs">
+    <Compile Include="ProjectDefinitionsTab\FormEnumEditor.Designer.cs">
       <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\EnumerationssBnessLog.cs" />
-    <Compile Include="ProjectDefinitions\FormBitmaskPreview.cs">
+    <Compile Include="MainFormCode\EnumerationsBusinessLogic.cs" />
+    <Compile Include="ProjectDefinitionsTab\FormBitmaskPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormBitmaskPreview.Designer.cs">
+    <Compile Include="ProjectDefinitionsTab\FormBitmaskPreview.Designer.cs">
       <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormBitmaskEditor.cs">
+    <Compile Include="ProjectDefinitionsTab\FormBitmaskEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectDefinitions\FormBitmaskEditor.Designer.cs">
+    <Compile Include="ProjectDefinitionsTab\FormBitmaskEditor.Designer.cs">
       <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormImport.cs">
@@ -172,12 +173,12 @@
     <Compile Include="FormImport.Designer.cs">
       <DependentUpon>FormImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormCode\ProjectSettings.cs">
+    <Compile Include="MainFormCode\ProjectSettingsTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DatabaseMirror\BitmaskDB.cs" />
     <Compile Include="DatabaseMirror\EnumsDB.cs" />
-    <Compile Include="ProjectDefinitions\UnitCreateObject.cs" />
+    <Compile Include="ProjectDefinitionsTab\UnitCreateObject.cs" />
     <Compile Include="FormHelpText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,19 +203,15 @@
     <Compile Include="DatabaseMirror\EventDB.cs" />
     <Compile Include="DatabaseMirror\ProjectSettingsDB.cs" />
     <Compile Include="DatabaseMirror\UnitsDB.cs" />
-    <Compile Include="ProjectDefinitions\UnitModifyObject.cs" />
-    <Compile Include="MainFormCode\Units.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ProjectDefinitionsTab\UnitModifyObject.cs" />
+    <Compile Include="MainFormCode\UnitsBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatabaseMirror\VariableDB.cs" />
-    <Compile Include="MainFormCode\WatchVariable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlVariableEditor.cs">
+    <Compile Include="MainFormCode\WatchVariablesBusinessLogic.cs" />
+    <Compile Include="UserControls\UserControlVariableEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlEntityEditor\UserControlVariableEditor.Designer.cs">
+    <Compile Include="UserControls\UserControlVariableEditor.Designer.cs">
       <DependentUpon>UserControlVariableEditor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormVariablePreview.resx">
@@ -223,31 +220,31 @@
     <EmbeddedResource Include="FormVariableEditor.resx">
       <DependentUpon>FormVariableEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Events\FormEventStructurePreview.resx">
+    <EmbeddedResource Include="EventForms\FormEventStructurePreview.resx">
       <DependentUpon>FormEventStructurePreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Events\FormEventEditor.resx">
+    <EmbeddedResource Include="EventForms\FormEventEditor.resx">
       <DependentUpon>FormEventEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Events\FormEventPreview.resx">
+    <EmbeddedResource Include="EventForms\FormEventPreview.resx">
       <DependentUpon>FormEventPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Events\FormEventStructureEditor.resx">
+    <EmbeddedResource Include="EventForms\FormEventStructureEditor.resx">
       <DependentUpon>FormEventStructureEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelpPreview.resx">
       <DependentUpon>FormHelpPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDefinitions\FormEnumPreview.resx">
+    <EmbeddedResource Include="ProjectDefinitionsTab\FormEnumPreview.resx">
       <DependentUpon>FormEnumPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDefinitions\FormEnumEditor.resx">
+    <EmbeddedResource Include="ProjectDefinitionsTab\FormEnumEditor.resx">
       <DependentUpon>FormEnumEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDefinitions\FormBitmaskPreview.resx">
+    <EmbeddedResource Include="ProjectDefinitionsTab\FormBitmaskPreview.resx">
       <DependentUpon>FormBitmaskPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectDefinitions\FormBitmaskEditor.resx">
+    <EmbeddedResource Include="ProjectDefinitionsTab\FormBitmaskEditor.resx">
       <DependentUpon>FormBitmaskEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelpText.resx">
@@ -272,22 +269,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SelfTest\FormSelfTestListEditor.resx">
+    <EmbeddedResource Include="SelfTestForms\FormSelfTestListEditor.resx">
       <DependentUpon>FormSelfTestListEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelfTest\FormReorderTestSteps.resx">
+    <EmbeddedResource Include="SelfTestForms\FormReorderTestSteps.resx">
       <DependentUpon>FormReorderTestSteps.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelfTest\FormSelfTestEditor.resx">
+    <EmbeddedResource Include="SelfTestForms\FormSelfTestEditor.resx">
       <DependentUpon>FormSelfTestEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlEntityEditor\UserControlDualSelector.resx">
+    <EmbeddedResource Include="UserControls\UserControlDualSelector.resx">
       <DependentUpon>UserControlDualSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlEntityEditor\UserControlEntityEditor.resx">
+    <EmbeddedResource Include="UserControls\UserControlEntityEditor.resx">
       <DependentUpon>UserControlEntityEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlEntityEditor\UserControlVariableEditor.resx">
+    <EmbeddedResource Include="UserControls\UserControlVariableEditor.resx">
       <DependentUpon>UserControlVariableEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

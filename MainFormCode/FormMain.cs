@@ -77,6 +77,32 @@ namespace DDB
             return ucEE_Enumerations.GetItems();
         }
 
+        private void PopulateWatchVars()
+        {
+            WatchVariablesBusinessLogic wbl = new WatchVariablesBusinessLogic(this, formHelpPreview, ucVE_WatchVar);
+            ucEE_WatchVariables.setBusinessLogic(wbl);
+            ucEE_WatchVariables.AddListBoxItems(WatchVarList.GetWatchVars());
+        }
+
+        public void SetWatchGroupBoxEnable(Boolean enable)
+        {
+            grpBoxWatchAttrs.Enabled = enable;
+        }
+
+        public void SetWatchVarUserControlEnable(Boolean enable)
+        {
+            ucEE_WatchVariables.Enabled = enable;
+        }
+
+        public void SetWatchOtherTabsEnable(Boolean enable)
+        {
+            tabEvents.Enabled = enable;
+            tabSelfTest.Enabled = enable;
+            tabProjectDefinitions.Enabled = enable;
+            tabProjectSettings.Enabled = enable;
+        }
+
+
         private void PopulateEventLists()
         {
             PopulateEvents();
@@ -86,7 +112,7 @@ namespace DDB
 
         private void PopulateEvents()
         {
-            EventsBnessLog ebl = new EventsBnessLog(this, formEventPreview, formHelpPreview);
+            EventBusinesssLogic ebl = new EventBusinesssLogic(this, formEventPreview, formHelpPreview);
             ucEE_Events.setBusinessLogic(ebl);
             ucEE_Events.AddListBoxItems(EventList.GetEvents());
         }
@@ -98,7 +124,7 @@ namespace DDB
 
         private void PopulateEventStructures()
         {
-            EventStructuresBnessLog ebl = new EventStructuresBnessLog(formEventStructurePreview);
+            EventStructuresBusinessLogic ebl = new EventStructuresBusinessLogic(formEventStructurePreview);
             ucEE_EventStructures.setBusinessLogic(ebl);
             ucEE_EventStructures.AddListBoxItems(EventStructureList.GetEventStructures());
         }
@@ -110,7 +136,7 @@ namespace DDB
 
         private void PopulateEventVariables()
         {
-            EventVariablesBnessLog ebl = new EventVariablesBnessLog(this, formVariablePreview, formHelpPreview);
+            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview, formHelpPreview);
             ucEE_EventVariables.setBusinessLogic(ebl);
             ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
         }
@@ -120,6 +146,27 @@ namespace DDB
             return ucEE_EventVariables.GetItems();
         }
 
+        private void PopulateSelfTestLists()
+        {
+            PopulateSelfTests();
+        }
+
+        private void PopulateSelfTests()
+        {
+            SelfTestsBusinessLogic sbl = new SelfTestsBusinessLogic(this, formHelpPreview);
+            ucEE_SelfTest.setBusinessLogic(sbl);
+            ucEE_SelfTest.AddListBoxItems(SelfTestList.GetObjects());
+
+            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview, formVariablePreview);
+            ucEE_SelfTestVariables.setBusinessLogic(svbl);
+            ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
+        }
+
+        private void btnEditSelfTestLists_Click(object sender, EventArgs e)
+        {
+            FormSelfTestListEditor formSTLE = new FormSelfTestListEditor();
+            formSTLE.ShowDialog();
+        }
 
         private void PopulateUnits()
         {
@@ -131,14 +178,14 @@ namespace DDB
 
         private void PopulateBitmasks()
         {
-            BitmasksBnessLog bbl = new BitmasksBnessLog(formBitmaskPreview);
+            BitmaskBusinesssLogic bbl = new BitmaskBusinesssLogic(formBitmaskPreview);
             ucEE_Bitmasks.setBusinessLogic(bbl);
             ucEE_Bitmasks.AddListBoxItems(BitmaskList.GetBitmasks());
         }
 
         private void PopulateEnums()
         {
-            EnumerationssBnessLog ebl = new EnumerationssBnessLog(formEnumPreview);
+            EnumerationsBusinessLogic ebl = new EnumerationsBusinessLogic(formEnumPreview);
             ucEE_Enumerations.setBusinessLogic(ebl);
             ucEE_Enumerations.AddListBoxItems(EnumList.GetEnums());
         }

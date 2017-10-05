@@ -5,53 +5,33 @@ using System.Windows.Forms;
 
 namespace DDB
 {
-    public partial class FormMain
-    {
-        private void PopulateWatchVars()
-        {
-            WatchVariablesBusinessLogic wbl = new WatchVariablesBusinessLogic(this, formHelpPreview, ucVE_WatchVar);
-            ucEE_WatchVariables.setBusinessLogic(wbl);
-            ucEE_WatchVariables.AddListBoxItems(WatchVarList.GetWatchVars());
-        }
-
-        public void SetWatchGroupBoxEnable(Boolean enable)
-        {
-            grpBoxWatchAttrs.Enabled = enable;
-        }
-
-        public void SetWatchVarUserControlEnable(Boolean enable)
-        {
-            ucEE_WatchVariables.Enabled = enable;
-        }
-
-        public void SetWatchOtherTabsEnable(Boolean enable)
-        {
-            tabEvents.Enabled = enable;
-            tabSelfTest.Enabled = enable;
-            tabProjectDefinitions.Enabled = enable;
-            tabProjectSettings.Enabled = enable;
-        }
-
-    }
-
-
-
+    
     public class WatchVariablesBusinessLogic : iEntityEditorBusinesssLogic
     {
-        FormMain formMain;
-        FormHelpPreview formHelpPreview;
-        UserControlVariableEditor ucVE_WatchVar;
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private FormMain m_FormMain;
+        private FormHelpPreview m_FormHelpPreview;
+        private UserControlVariableEditor m_UCVE_WatchVar;
 
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public WatchVariablesBusinessLogic(FormMain fMain, FormHelpPreview hPreview, UserControlVariableEditor ucVE )
         {
-            formMain = fMain;
-            formHelpPreview = hPreview;
-            ucVE_WatchVar = ucVE;
+            m_FormMain = fMain;
+            m_FormHelpPreview = hPreview;
+            m_UCVE_WatchVar = ucVE;
         }
 
         private WatchVariablesBusinessLogic()
         { }
 
+
+        ////////////////////////////////////////////////////////////
+        // Interface Implementations
+        ////////////////////////////////////////////////////////////
         public object Copy(object obj)
         {
             VariableDB var = new VariableDB((VariableDB)obj);
@@ -62,15 +42,15 @@ namespace DDB
 
         public void Modify(object obj)
         {
-            formMain.SetWatchGroupBoxEnable(true);
-            formMain.SetWatchVarUserControlEnable(false);
-            formMain.SetWatchOtherTabsEnable(false);
+            m_FormMain.SetWatchGroupBoxEnable(true);
+            m_FormMain.SetWatchVarUserControlEnable(false);
+            m_FormMain.SetWatchOtherTabsEnable(false);
             
-            ucVE_WatchVar.EnableEditor(obj);
+            m_UCVE_WatchVar.EnableEditor(obj);
             
-            formMain.SetWatchGroupBoxEnable(false);
-            formMain.SetWatchVarUserControlEnable(true);
-            formMain.SetWatchOtherTabsEnable(true);
+            m_FormMain.SetWatchGroupBoxEnable(false);
+            m_FormMain.SetWatchVarUserControlEnable(true);
+            m_FormMain.SetWatchOtherTabsEnable(true);
         }
 
         public void Delete(object obj)
@@ -78,28 +58,28 @@ namespace DDB
 
         public object Create()
         {
-            formMain.SetWatchGroupBoxEnable(true);
-            formMain.SetWatchVarUserControlEnable(false);
-            formMain.SetWatchOtherTabsEnable(false); 
+            m_FormMain.SetWatchGroupBoxEnable(true);
+            m_FormMain.SetWatchVarUserControlEnable(false);
+            m_FormMain.SetWatchOtherTabsEnable(false); 
             
-            object obj = ucVE_WatchVar.VarCreate(GlobalSettings.getWatchDisplayType);
+            object obj = m_UCVE_WatchVar.VarCreate(GlobalSettings.getWatchDisplayType);
 
             object retObj = null;
-            if (ucVE_WatchVar.EnableEditor(obj))
+            if (m_UCVE_WatchVar.EnableEditor(obj))
             {
                 retObj = obj;
             }
 
-            formMain.SetWatchGroupBoxEnable(false);
-            formMain.SetWatchVarUserControlEnable(true);
-            formMain.SetWatchOtherTabsEnable(true);
+            m_FormMain.SetWatchGroupBoxEnable(false);
+            m_FormMain.SetWatchVarUserControlEnable(true);
+            m_FormMain.SetWatchOtherTabsEnable(true);
             return retObj;
 
         }
 
         public void Preview(object obj)
         {
-            ucVE_WatchVar.UpdateVarDisplay((VariableDB)obj);
+            m_UCVE_WatchVar.UpdateVarDisplay((VariableDB)obj);
         }
 
         public void Links()
@@ -130,12 +110,12 @@ namespace DDB
         {
             if (obj == null)
             {
-                formHelpPreview.UpdateForm(String.Empty);
+                m_FormHelpPreview.UpdateForm(String.Empty);
             }
             else
             {
                 VariableDB e = (VariableDB)obj;
-                formHelpPreview.UpdateForm(e.helpText);
+                m_FormHelpPreview.UpdateForm(e.helpText);
             }
         }
 

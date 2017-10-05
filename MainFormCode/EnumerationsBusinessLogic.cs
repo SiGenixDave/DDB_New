@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace DDB
 {
-    public class BitmasksBnessLog : iEntityEditorBusinesssLogic
+    public class EnumerationsBusinessLogic : iEntityEditorBusinesssLogic
     {
         ////////////////////////////////////////////////////////////
         // Attributes
         ////////////////////////////////////////////////////////////
-        FormBitmaskPreview m_FormBitmaskPreview;
+        private FormEnumPreview enumPreview;
 
         ////////////////////////////////////////////////////////////
         // Constructors
         ////////////////////////////////////////////////////////////
-        public BitmasksBnessLog(FormBitmaskPreview preview)
+        public EnumerationsBusinessLogic(FormEnumPreview preview)
         {
-            m_FormBitmaskPreview = preview;
+            enumPreview = preview;
         }
 
-        private BitmasksBnessLog()
+        private EnumerationsBusinessLogic()
         { }
 
         ////////////////////////////////////////////////////////////
@@ -27,46 +27,47 @@ namespace DDB
         ////////////////////////////////////////////////////////////
         public object Copy(object obj)
         {
-            BitmaskDB bt = new BitmaskDB((BitmaskDB)obj);
-            bt.dispName = "Copy of " + bt.dispName;
-            return bt;
+            EnumsDB enm = new EnumsDB((EnumsDB)obj);
+            enm.dispName = "Copy of " + enm.dispName;
+            return enm;
         }
 
         public void Modify(object obj)
         {
-            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor((BitmaskDB)obj, false))
+            using (FormEnumsEditor emEdit = new FormEnumsEditor((EnumsDB)obj, false))
             {
-                DialogResult dr = bmEdit.ShowDialog();
+                DialogResult dr = emEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    m_FormBitmaskPreview.UpdateForm((BitmaskDB)obj);
+                    enumPreview.UpdateForm((EnumsDB)obj);
                 }
             }
         }
 
         public void Delete(object obj)
-        {}
+        { }
 
         public object Create()
         {
-            BitmaskDB bmt = new BitmaskDB("New BitmaskDB");
+            EnumsDB enm = new EnumsDB("New Enumeration");
 
-            using (FormBitmaskEditor bmEdit = new FormBitmaskEditor(bmt, true))
+            using (FormEnumsEditor emEdit = new FormEnumsEditor(enm, true))
             {
-                DialogResult dr = bmEdit.ShowDialog();
+                DialogResult dr = emEdit.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    m_FormBitmaskPreview.UpdateForm((BitmaskDB)bmt);
-                    return bmt;
+                    enumPreview.UpdateForm((EnumsDB)enm);
+                    return enm;
                 }
             }
 
             return null;
+
         }
 
         public void Preview(object obj)
         {
-            m_FormBitmaskPreview.UpdateForm((BitmaskDB)obj);
+            enumPreview.UpdateForm((EnumsDB)obj);
         }
 
         public void Links()
@@ -77,9 +78,9 @@ namespace DDB
         { }
         public void HelpPreview(object obj)
         { }
-
         public void ChangeDisplayName(int name)
         { }
+
     }
 
 }

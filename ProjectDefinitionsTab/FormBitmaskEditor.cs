@@ -6,12 +6,18 @@ namespace DDB
 {
     public partial class FormBitmaskEditor : Form
     {
-        private BitmaskDB bitmask;
+        ////////////////////////////////////////////////////////////
+        // Attributes
+        ////////////////////////////////////////////////////////////
+        private BitmaskDB m_Bitmask;
 
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormBitmaskEditor(BitmaskDB bm, Boolean createNewBitmask)
         {
             InitializeComponent();
-            bitmask = bm;
+            m_Bitmask = bm;
             if (createNewBitmask)
             {
                 this.Text = "Create";
@@ -26,6 +32,12 @@ namespace DDB
             LoadInfo();
         }
 
+        private FormBitmaskEditor()
+        { }
+
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void InitDataGrid(DataGridView dView, int startBit)
         {
             int bmId = startBit;
@@ -33,9 +45,9 @@ namespace DDB
             {
                 uint hexValue = (uint)(1) << bmId;
                 String bmText = String.Empty;
-                if (!String.IsNullOrEmpty(bitmask.strValues[bmId]))
+                if (!String.IsNullOrEmpty(m_Bitmask.strValues[bmId]))
                 {
-                    bmText = bitmask.strValues[bmId];
+                    bmText = m_Bitmask.strValues[bmId];
                 }
                 dView.Rows.Add(bmId.ToString(), "0x" + hexValue.ToString("X8"), bmText);
                 bmId--;
@@ -60,46 +72,30 @@ namespace DDB
             dView.Columns[1].DefaultCellStyle.SelectionForeColor = Color.Black;
         }
 
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            Save();
-            this.DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (Cancel.Query("Bitmask", bitmask.dispName))
-            {
-                this.DialogResult = DialogResult.Cancel;
-                Close();
-            }
-        }
-
         private void LoadInfo()
         {
-            tBoxName.Text = bitmask.dispName;
+            tBoxName.Text = m_Bitmask.dispName;
 
             for (int index = 1; index <= 16; index++)
             {
-                if (!String.IsNullOrEmpty(bitmask.strValues[index - 1]))
+                if (!String.IsNullOrEmpty(m_Bitmask.strValues[index - 1]))
                 {
-                    dataGridView2.Rows[16 - index].Cells[2].Value = bitmask.strValues[index - 1];
+                    dataGridView2.Rows[16 - index].Cells[2].Value = m_Bitmask.strValues[index - 1];
                 }
             }
 
             for (int index = 1; index <= 16; index++)
             {
-                if (!String.IsNullOrEmpty(bitmask.strValues[index - 1]))
+                if (!String.IsNullOrEmpty(m_Bitmask.strValues[index - 1]))
                 {
-                    dataGridView1.Rows[16 - index].Cells[2].Value = bitmask.strValues[index - 1 + 16];
+                    dataGridView1.Rows[16 - index].Cells[2].Value = m_Bitmask.strValues[index - 1 + 16];
                 }
             }
         }
 
         private void Save()
         {
-            bitmask.dispName = tBoxName.Text;
+            m_Bitmask.dispName = tBoxName.Text;
 
             for (int index = 1; index <= 16; index++)
             {
@@ -107,11 +103,11 @@ namespace DDB
                 // TODO Need to check for "spaces" here too
                 if (String.IsNullOrEmpty(str))
                 {
-                    bitmask.strValues[index - 1] = null;
+                    m_Bitmask.strValues[index - 1] = null;
                 }
                 else
                 {
-                    bitmask.strValues[index - 1] = str;
+                    m_Bitmask.strValues[index - 1] = str;
                 }
             }
 
@@ -121,14 +117,35 @@ namespace DDB
                 // TODO Need to check for "spaces" here too
                 if (String.IsNullOrEmpty(str))
                 {
-                    bitmask.strValues[index - 1 + 16] = null;
+                    m_Bitmask.strValues[index - 1 + 16] = null;
                 }
                 else
                 {
-                    bitmask.strValues[index - 1 + 16] = str;
+                    m_Bitmask.strValues[index - 1 + 16] = str;
                 }
             }
         }
+
+
+        ////////////////////////////////////////////////////////////
+        // Control event methods
+        ////////////////////////////////////////////////////////////
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            Save();
+            this.DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (Cancel.Query("Bitmask", m_Bitmask.dispName))
+            {
+                this.DialogResult = DialogResult.Cancel;
+                Close();
+            }
+        }
+
 
         private void tBoxName_TextChanged(object sender, EventArgs e)
         {

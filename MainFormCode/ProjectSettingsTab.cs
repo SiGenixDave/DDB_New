@@ -7,6 +7,10 @@ namespace DDB
 {
     public partial class FormMain
     {
+
+        ////////////////////////////////////////////////////////////
+        // Private methods
+        ////////////////////////////////////////////////////////////
         private void InitProjectSettings()
         {
             DataGridViewCellStyle style = new DataGridViewCellStyle();
@@ -25,66 +29,6 @@ namespace DDB
             column.Width = 75;
             column = dGridEventLog.Columns[1];
             column.Width = 150;
-
-        }
-
-        private void cBoxCommType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cBoxCommType.SelectedIndex == 0)
-            {
-                gBoxURLs.Visible = false;
-                gBoxTargetCommunication.Size = new Size(150, 100);
-            }
-            else
-            {
-                gBoxURLs.Visible = true;
-                gBoxTargetCommunication.Size = new Size(462, 224);
-            }
-        }
-
-        private void cListBoxFunctionFlags_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (cListBoxFunctionFlags.SelectedIndex == 4)
-            {
-                if (e.NewValue == CheckState.Checked)
-                {
-                    dGridURL.Columns[1].Visible = true;
-                }
-                else
-                {
-                    dGridURL.Columns[1].Visible = false;
-                }
-            }
-        }
-
-        private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
-        {
-            AddNewURL();
-        }
-
-        private void addNewURLMenuItem_Click(object sender, EventArgs e)
-        {
-            AddNewURL();
-        }
-
-        private void deleteURLMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteUrls();
-        }
-
-        private void btnProjSettingsAddEventLog_Click(object sender, EventArgs e)
-        {
-            AddNewEventLog();
-        }
-
-        private void addNewEventLogMenuItem_Click(object sender, EventArgs e)
-        {
-            AddNewEventLog();
-        }
-
-        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteEventLogs();
         }
 
         private void AddNewURL()
@@ -174,5 +118,68 @@ namespace DDB
 
             EventLogList.Update(eList.ToArray());
         }
+
+        ////////////////////////////////////////////////////////////
+        // Control Event methods
+        ////////////////////////////////////////////////////////////
+        private void cBoxCommType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxCommType.SelectedIndex == 0)
+            {
+                gBoxURLs.Visible = false;
+                gBoxTargetCommunication.Size = new Size(150, 100);
+            }
+            else
+            {
+                gBoxURLs.Visible = true;
+                gBoxTargetCommunication.Size = new Size(462, 224);
+            }
+        }
+
+        private void cListBoxFunctionFlags_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (cListBoxFunctionFlags.SelectedIndex == 4)
+            {
+                if (e.NewValue == CheckState.Checked)
+                {
+                    dGridURL.Columns[1].Visible = true;
+                }
+                else
+                {
+                    dGridURL.Columns[1].Visible = false;
+                }
+            }
+        }
+
+        private void btnProjSettingsAddURL_Click(object sender, EventArgs e)
+        {
+            AddNewURL();
+        }
+
+        private void addNewURLMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewURL();
+        }
+
+        private void deleteURLMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteUrls();
+        }
+
+        private void btnProjSettingsAddEventLog_Click(object sender, EventArgs e)
+        {
+            AddNewEventLog();
+        }
+
+        private void addNewEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewEventLog();
+        }
+
+        private void deleteEventLogMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteEventLogs();
+        }
+
     }
 }
