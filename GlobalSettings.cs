@@ -2,18 +2,18 @@
 
 namespace DDB
 {
-    public enum NameType
+    public static class GlobalSettings
     {
-        DISPLAY,
-        ENMBEDDED
-    }
-
-    internal static class GlobalSettings
-    {
+        public enum NameType
+        {
+            DISPLAY,
+            ENMBEDDED
+        }
+        
         private static Boolean customerUseOnly;
-        private static NameType watchVar = NameType.DISPLAY;
-        private static NameType eventVar = NameType.DISPLAY;
-        private static NameType selfTestVar = NameType.DISPLAY;
+        private static GlobalSettings.NameType watchVar = GlobalSettings.NameType.DISPLAY;
+        private static GlobalSettings.NameType eventVar = GlobalSettings.NameType.DISPLAY;
+        private static GlobalSettings.NameType selfTestVar = GlobalSettings.NameType.DISPLAY;
 
         static public void setCustomerUseOnly(Boolean setting)
         {
@@ -25,32 +25,32 @@ namespace DDB
             return customerUseOnly;
         }
 
-        static public void setWatchDisplayType(NameType n)
+        static public void setWatchDisplayType(GlobalSettings.NameType n)
         {
             watchVar = n;
         }
 
-        static public NameType getWatchDisplayType()
+        static public GlobalSettings.NameType getWatchDisplayType()
         {
             return watchVar;
         }
 
-        static public void setEventVariableDisplayType(NameType n)
+        static public void setEventVariableDisplayType(GlobalSettings.NameType n)
         {
             eventVar = n;
         }
 
-        static public NameType getEventVariableDisplayType()
+        static public GlobalSettings.NameType getEventVariableDisplayType()
         {
             return eventVar;
         }
 
-        static public void setSelfTestVariableDisplayType(NameType n)
+        static public void setSelfTestVariableDisplayType(GlobalSettings.NameType n)
         {
             selfTestVar = n;
         }
 
-        static public NameType getSelfTestVariableDisplayType()
+        static public GlobalSettings.NameType getSelfTestVariableDisplayType()
         {
             return selfTestVar;
         }

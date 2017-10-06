@@ -5,12 +5,12 @@ namespace DDB
 {
     public partial class FormHelpText : Form
     {
-        private iDDBHelpObject ddbHelpObject;
+        private iDDBHelpObject m_DDBHelpObject;
 
         public FormHelpText(iDDBHelpObject ddbHelpObject, String formTitle)
         {
             InitializeComponent();
-            this.ddbHelpObject = ddbHelpObject;
+            this.m_DDBHelpObject = ddbHelpObject;
             winFormHtmlEditor1.BodyHtml = ddbHelpObject.GetHelpText();
             this.Text = formTitle;
         }
@@ -22,13 +22,13 @@ namespace DDB
         {
             this.DialogResult = DialogResult.OK;
             // This saves the help text to the object
-            ddbHelpObject.SaveHelpText(winFormHtmlEditor1.BodyHtml);
+            m_DDBHelpObject.SaveHelpText(winFormHtmlEditor1.BodyHtml);
             Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("HTML Help Text for ", this.Text))
+            if (UserCancel.Query("HTML Help Text for ", this.Text))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

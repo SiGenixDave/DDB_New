@@ -22,7 +22,7 @@ namespace DDB
         }
     }
 
-    public delegate NameType GetUserSelection();
+    public delegate GlobalSettings.NameType GetUserSelection();
 
     public class VariableDB : iDDBHelpObject
     {
@@ -104,7 +104,7 @@ namespace DDB
 
         public override string ToString()
         {
-            if (getUserSelection() == NameType.DISPLAY)
+            if (getUserSelection() == GlobalSettings.NameType.DISPLAY)
             {
                 return dispName;
             }

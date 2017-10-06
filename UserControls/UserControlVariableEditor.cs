@@ -328,7 +328,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Watch Variable") == true)
+            if (UserCancel.Query("Watch Variable") == true)
             {
                 AcceptOrCancelModification(false);
             }

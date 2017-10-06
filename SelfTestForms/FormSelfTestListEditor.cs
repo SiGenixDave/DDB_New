@@ -80,7 +80,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Self Test Lists", ""))
+            if (UserCancel.Query("Self Test Lists", ""))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

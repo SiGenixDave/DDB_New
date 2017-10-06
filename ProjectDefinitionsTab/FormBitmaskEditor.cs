@@ -139,7 +139,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Bitmask", m_Bitmask.dispName))
+            if (UserCancel.Query("Bitmask", m_Bitmask.dispName))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

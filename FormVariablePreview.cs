@@ -4,28 +4,29 @@ namespace DDB
 {
     public partial class FormVariablePreview : Form
     {
-        private FormMain formMain;
-
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
         public FormVariablePreview(FormMain fMain)
         {
             InitializeComponent();
 
-            formMain = fMain;
-
             userControlVariableEditor1.setParentForm(this);
-            userControlVariableEditor1.setFormMain(formMain);
+            userControlVariableEditor1.setFormMain(fMain);
 
             userControlVariableEditor1.Enabled = false;
         }
 
+        private FormVariablePreview()
+        { }
+
+        ////////////////////////////////////////////////////////////
+        // Public methods
+        ////////////////////////////////////////////////////////////
         public void UpdateForm(VariableDB var)
         {
             userControlVariableEditor1.UpdateVarDisplay(var);
         }
 
-
-        private FormVariablePreview()
-        {
-        }
     }
 }

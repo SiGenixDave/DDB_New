@@ -99,7 +99,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Event Structure", m_EventStructure.name))
+            if (UserCancel.Query("Event Structure", m_EventStructure.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

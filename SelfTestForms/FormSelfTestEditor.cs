@@ -352,7 +352,7 @@ namespace DDB
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Cancel.Query("Self Test", m_SelfTestObj.name))
+            if (UserCancel.Query("Self Test", m_SelfTestObj.name))
             {
                 this.DialogResult = DialogResult.Cancel;
                 Close();

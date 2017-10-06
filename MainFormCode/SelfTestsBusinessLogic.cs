@@ -97,10 +97,10 @@ namespace DDB
 
         public void ChangeDisplayName(int name)
         {
-            NameType nameType = NameType.DISPLAY;
+            GlobalSettings.NameType nameType = GlobalSettings.NameType.DISPLAY;
             if (name == 1)
             {
-                nameType = NameType.ENMBEDDED;
+                nameType = GlobalSettings.NameType.ENMBEDDED;
             }
 
             GlobalSettings.setSelfTestVariableDisplayType(nameType);

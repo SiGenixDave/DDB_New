@@ -245,7 +245,7 @@
             this.btnProjSettingsCancelChanges.Name = "btnProjSettingsCancelChanges";
             this.btnProjSettingsCancelChanges.Size = new System.Drawing.Size(75, 41);
             this.btnProjSettingsCancelChanges.TabIndex = 12;
-            this.btnProjSettingsCancelChanges.Text = "Cancel Changes";
+            this.btnProjSettingsCancelChanges.Text = "UserCancel Changes";
             this.btnProjSettingsCancelChanges.UseVisualStyleBackColor = true;
             this.btnProjSettingsCancelChanges.Click += new System.EventHandler(this.btnProjSettingsCancelChanges_Click);
             // 
