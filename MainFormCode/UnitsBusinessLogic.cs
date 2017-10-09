@@ -56,7 +56,7 @@ namespace DDB
         public void HelpPreview(object obj)
         { }
 
-        public void ChangeDisplayName(int name)
+        public void ChangeDisplayName(GlobalSettings.NameType nameType)
         { }
 
     }

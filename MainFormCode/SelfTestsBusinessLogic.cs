@@ -95,14 +95,8 @@ namespace DDB
             }
         }
 
-        public void ChangeDisplayName(int name)
+        public void ChangeDisplayName(GlobalSettings.NameType nameType)
         {
-            GlobalSettings.NameType nameType = GlobalSettings.NameType.DISPLAY;
-            if (name == 1)
-            {
-                nameType = GlobalSettings.NameType.ENMBEDDED;
-            }
-
             GlobalSettings.setSelfTestVariableDisplayType(nameType);
         }
     }

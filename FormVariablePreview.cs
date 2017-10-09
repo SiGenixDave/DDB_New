@@ -7,12 +7,14 @@ namespace DDB
         ////////////////////////////////////////////////////////////
         // Constructors
         ////////////////////////////////////////////////////////////
-        public FormVariablePreview(FormMain fMain)
+        public FormVariablePreview(FormMain fMain, FormBitmaskPreview bPreview, FormEnumPreview ePreview)
         {
             InitializeComponent();
 
             userControlVariableEditor1.setParentForm(this);
             userControlVariableEditor1.setFormMain(fMain);
+            userControlVariableEditor1.setBitmaskHelpPreview(bPreview);
+            userControlVariableEditor1.setEnumHelpPreview(ePreview);
 
             userControlVariableEditor1.Enabled = false;
         }

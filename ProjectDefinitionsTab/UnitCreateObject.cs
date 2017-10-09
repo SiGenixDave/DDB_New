@@ -8,7 +8,7 @@ namespace DDB
         // Attributes
         ////////////////////////////////////////////////////////////
         private const String FORM_TITLE = "Create Unit";
-        private const String FORM_MESSAGE = "Create the new Unit name: click Accept or UserCancel";
+        private const String FORM_MESSAGE = "Create the new Unit name: click Accept or Cancel";
 
         private Boolean m_UserAcceptance = false;
         private String m_UnitText;

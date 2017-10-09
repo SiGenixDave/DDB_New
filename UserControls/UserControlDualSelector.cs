@@ -94,11 +94,13 @@ namespace DDB
         ////////////////////////////////////////////////////////////
         public object[] GetItems()
         {
+            // Returned all items whether or not they are in the list box 
             return m_AllItems.ToArray();
         }
 
-        public object[] GetReorderItems()
+        public object[] GetOrderedListboxItems()
         {
+            // returns the ordered list in the list box
             List<object> listBoxObjects = new List<object>();
             foreach (object obj in listBox.Items)
             {
@@ -107,11 +109,14 @@ namespace DDB
             return listBoxObjects.ToArray();
         }
 
+        // Since we can't force the constructor to support a user created constructor, this needs
+        // to be done at run-time
         public void SetOtherSelector(UserControlDualSelector other)
         {
             m_OtherSelector = other;
         }
 
+        // Support additional move up / move down functionality 
         public void SetDualSelectorSupport(iDualSelectorSupport support)
         {
             m_DualSelectorSupport = support;
@@ -164,14 +169,17 @@ namespace DDB
             if (m_OtherSelector != null)
             {
                 int index = 0;
+                // Stores the selected objects so that they can be deleted after they have been moved
                 List<object> selIndices = new List<object>();
                 while (index < listBox.SelectedIndices.Count)
                 {
+                    // Add the selected items to the other list box
                     m_OtherSelector.AddListBoxItem(listBox.Items[listBox.SelectedIndices[index]]);
                     selIndices.Add(listBox.Items[listBox.SelectedIndices[index]]);
                     index++;
                 }
                 index = 0;
+                // now its safe to remove the selected items from the current list box
                 while (index < selIndices.Count)
                 {
                     listBox.Items.Remove(selIndices[index]);
@@ -327,6 +335,7 @@ namespace DDB
             listBox.Items.Clear();
             if (txtBoxFilter.Text == "")
             {
+                // no filter so add all items back to list box
                 listBox.Items.AddRange(m_AllItems.ToArray());
             }
             else
@@ -335,6 +344,7 @@ namespace DDB
 
                 foreach (object obj in m_AllItems)
                 {
+                    // Add all items that match the user entered filter
                     if (obj.ToString().Contains(txtBoxFilter.Text))
                     {
                         filteredList.Add(obj);
@@ -343,12 +353,14 @@ namespace DDB
 
                 if (filteredList.Count != 0)
                 {
+                    // Add the items if 1 or more matches are detected
                     listBox.Items.AddRange(filteredList.ToArray());
                 }
             }
 
             if (m_CurrentSortType == UCSort.SORT_DES)
             {
+                // sort the items in descending order if that sort method was previously selected
                 sortDescendingToolStripMenuItem_Click(null, null);
             }
         }

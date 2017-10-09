@@ -58,6 +58,8 @@ namespace DDB
             SelfTestGroupList.Init();
 
             ucVE_WatchVar.setFormMain(this);
+            ucVE_WatchVar.setBitmaskHelpPreview(formBitmaskPreview);
+            ucVE_WatchVar.setEnumHelpPreview(formEnumPreview);
 
             InitProjectSettings();
         }
@@ -136,7 +138,7 @@ namespace DDB
 
         private void PopulateEventVariables()
         {
-            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview, formHelpPreview);
+            EventVariablesBusinessLogic ebl = new EventVariablesBusinessLogic(this, formVariablePreview, formHelpPreview, formBitmaskPreview, formEnumPreview);
             ucEE_EventVariables.setBusinessLogic(ebl);
             ucEE_EventVariables.AddListBoxItems(EventVariableList.GetEventVariables());
         }
@@ -157,7 +159,7 @@ namespace DDB
             ucEE_SelfTest.setBusinessLogic(sbl);
             ucEE_SelfTest.AddListBoxItems(SelfTestList.GetObjects());
 
-            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview, formVariablePreview);
+            SelfTestVariablesBusinessLogic svbl = new SelfTestVariablesBusinessLogic(this, formHelpPreview, formVariablePreview, formBitmaskPreview, formEnumPreview);
             ucEE_SelfTestVariables.setBusinessLogic(svbl);
             ucEE_SelfTestVariables.AddListBoxItems(SelfTestVariableList.GetSelfTestVariables());
         }
@@ -241,7 +243,7 @@ namespace DDB
             formEventPreview = new FormEventPreview();
             formEventStructurePreview = new FormEventStructurePreview();
             formHelpPreview = new FormHelpPreview();
-            formVariablePreview = new FormVariablePreview(this);
+            formVariablePreview = new FormVariablePreview(this, formBitmaskPreview, formEnumPreview);
         }
 
         private void previewBitmasksToolStripMenuItem_Click(object sender, EventArgs e)

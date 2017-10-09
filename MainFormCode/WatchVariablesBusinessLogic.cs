@@ -45,7 +45,7 @@ namespace DDB
             m_FormMain.SetWatchGroupBoxEnable(true);
             m_FormMain.SetWatchVarUserControlEnable(false);
             m_FormMain.SetWatchOtherTabsEnable(false);
-            
+
             m_UCVE_WatchVar.EnableEditor(obj);
             
             m_FormMain.SetWatchGroupBoxEnable(false);
@@ -119,16 +119,9 @@ namespace DDB
             }
         }
 
-        public void ChangeDisplayName(int name)
+        public void ChangeDisplayName(GlobalSettings.NameType nameType)
         {
-            GlobalSettings.NameType nameType = GlobalSettings.NameType.DISPLAY;
-            if (name == 1)
-            {
-                nameType = GlobalSettings.NameType.ENMBEDDED;
-            }
-
             GlobalSettings.setWatchDisplayType(nameType);
-
         }
 
     }

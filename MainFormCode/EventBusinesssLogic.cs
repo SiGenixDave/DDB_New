@@ -99,7 +99,7 @@ namespace DDB
             }
         }
 
-        public void ChangeDisplayName(int name)
+        public void ChangeDisplayName(GlobalSettings.NameType nameType)
         { }
 
     }

@@ -48,7 +48,7 @@ namespace DDB
         {
             m_SelfTestMessageList.Clear();
 
-            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
+            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetOrderedListboxItems())
             {
                 m_SelfTestMessageList.Add(s);
             }
@@ -76,7 +76,7 @@ namespace DDB
         {
             String helpText = m_SelfTestMessage.messageText;
 
-            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetReorderItems())
+            foreach (SelfTestMessageDB s in ucDS_SelfTestMessageList.GetOrderedListboxItems())
             {
                 helpText += s.messageText;
             }

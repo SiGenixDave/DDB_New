@@ -4,34 +4,20 @@ namespace DDB
 {
     public partial class FormVariableEditor : Form
     {
-        private VariableDB var;
-        private FormMain formMain;
-
-        public FormVariableEditor(VariableDB v, FormMain fMain)
+        ////////////////////////////////////////////////////////////
+        // Constructors
+        ////////////////////////////////////////////////////////////
+        public FormVariableEditor(VariableDB var, FormMain fMain, FormBitmaskPreview fBitmaskPreview, FormEnumPreview fEnumPreview)
         {
             InitializeComponent();
 
-            var = v;
-            formMain = fMain;
-
+            // This form uses the user control "variable editor" to edit variables
             userControlVariableEditor1.setParentForm(this);
-            userControlVariableEditor1.setFormMain(formMain);
 
+            userControlVariableEditor1.setFormMain(fMain);
             userControlVariableEditor1.UpdateVarDisplay(var);
-        }
-
-        public FormVariableEditor(FormMain fMain, GetUserSelection getUS)
-        {
-            InitializeComponent();
-
-            formMain = fMain;
-
-            var = userControlVariableEditor1.VarCreate(getUS);
-
-            userControlVariableEditor1.setParentForm(this);
-            userControlVariableEditor1.setFormMain(formMain);
-
-            userControlVariableEditor1.UpdateVarDisplay(var);
+            userControlVariableEditor1.setBitmaskHelpPreview(fBitmaskPreview);
+            userControlVariableEditor1.setEnumHelpPreview(fEnumPreview);
         }
 
         private FormVariableEditor()

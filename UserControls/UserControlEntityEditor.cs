@@ -13,6 +13,7 @@ namespace DDB
     {
         private iEntityEditorBusinesssLogic businessLogic;
         private List<object> allEntities = new List<object>(); 
+        private Boolean m_ModifyInProgress = false;
 
         public UserControlEntityEditor()
         {
@@ -327,7 +328,10 @@ namespace DDB
 
         private void groupBox_Leave(object sender, EventArgs e)
         {
-            listBox.SelectedIndex = -1;
+            if (!m_ModifyInProgress)
+            {
+                listBox.SelectedIndex = -1;
+            }
         }
 
 
@@ -447,7 +451,9 @@ namespace DDB
 
         private void ModifyItem()
         {
+            m_ModifyInProgress = true;
             businessLogic.Modify(listBox.SelectedItem);
+            m_ModifyInProgress = false;
 
             if (listBox.SelectedIndex != -1)
             {
@@ -549,7 +555,9 @@ namespace DDB
         {
             if (businessLogic != null)
             {
-                businessLogic.ChangeDisplayName(cBoxDispEmb.SelectedIndex);
+                GlobalSettings.NameType displayName = (cBoxDispEmb.SelectedIndex == 0) ?
+                    GlobalSettings.NameType.DISPLAY : GlobalSettings.NameType.ENMBEDDED;
+                businessLogic.ChangeDisplayName(displayName);
                 RefreshListbox();
             }
         }
@@ -584,7 +592,7 @@ namespace DDB
         void Preview(object obj);
         void Links();
         void Import();
-        void ChangeDisplayName(int nameId);
+        void ChangeDisplayName(GlobalSettings.NameType nameType);
         void HelpModify(object obj);
         void HelpPreview(object obj);
     }

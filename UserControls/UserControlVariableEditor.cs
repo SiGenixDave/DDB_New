@@ -11,8 +11,10 @@ namespace DDB
 {
     public partial class UserControlVariableEditor : UserControl
     {
-        private FormMain formMain;
-        private Form parentForm;
+        private FormMain m_FormMain;
+        private Form m_ParentForm;
+        private FormEnumPreview m_FormEnumPreview;
+        private FormBitmaskPreview m_FormBitmaskPreview; 
 
         public UserControlVariableEditor()
         {
@@ -97,13 +99,24 @@ namespace DDB
 
         public void setFormMain (FormMain fmain)
         {
-            formMain = fmain;
+            m_FormMain = fmain;
         }
 
         public void setParentForm(Form pForm)
         {
-            parentForm = pForm;
+            m_ParentForm = pForm;
         }
+
+        public void setEnumHelpPreview(FormEnumPreview eForm)
+        {
+            m_FormEnumPreview = eForm;
+        }
+
+        public void setBitmaskHelpPreview(FormBitmaskPreview bForm)
+        {
+            m_FormBitmaskPreview = bForm;
+        }
+
 
         public void UpdateVarDisplay(VariableDB watchVar)
         {
@@ -125,9 +138,6 @@ namespace DDB
                 cBoxReadWriteFlags.SelectedIndex = watchVar.readWrite;
                 cBoxFormatString.SelectedIndex = watchVar.formatString;
                 chkEngViewOnly.Checked = watchVar.engineeringViewOnly == 1 ? true : false;
-
-                //TODO m_FormHelpPreview.UpdateForm(watchVar.helpText);
-
                 EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), watchVar);
 
             }
@@ -227,7 +237,7 @@ namespace DDB
         {
             cBoxUnits.Items.Clear();
 
-            foreach (UnitsDB unit in formMain.GetUnits())
+            foreach (UnitsDB unit in m_FormMain.GetUnits())
             {
                 cBoxUnits.Items.Add(unit);
             }
@@ -242,7 +252,7 @@ namespace DDB
 
             cBoxUnits.Items.Clear();
 
-            foreach (BitmaskDB b in formMain.GetBitmasks())
+            foreach (BitmaskDB b in m_FormMain.GetBitmasks())
             {
                 cBoxUnits.Items.Add(b);
             }
@@ -257,7 +267,7 @@ namespace DDB
         {
             cBoxUnits.Items.Clear();
 
-            foreach (EnumsDB e in formMain.GetEnums())
+            foreach (EnumsDB e in m_FormMain.GetEnums())
             {
                 cBoxUnits.Items.Add(e);
             }
@@ -279,17 +289,36 @@ namespace DDB
 
             if (cBoxScaleType.SelectedItem.ToString() == "Bitmask")
             {
-#if TODO
-                formEnumPreview.UpdateForm(null);
-                formBitmaskPreview.UpdateForm((BitmaskDB)cBoxWatchUnits.SelectedItem);
-#endif
+                if (m_FormEnumPreview != null)
+                {
+                    m_FormEnumPreview.UpdateForm(null);
+                }
+                if (m_FormBitmaskPreview != null)
+                {
+                    m_FormBitmaskPreview.UpdateForm((BitmaskDB)cBoxUnits.SelectedItem);
+                }
             }
-            if (cBoxScaleType.SelectedItem.ToString() == "Enumeration")
+            else if (cBoxScaleType.SelectedItem.ToString() == "Enumeration")
             {
-#if TODO
-                formBitmaskPreview.UpdateForm(null);
-                formEnumPreview.UpdateForm((EnumsDB)cBoxWatchUnits.SelectedItem);
-#endif
+                if (m_FormEnumPreview != null)
+                {
+                    m_FormEnumPreview.UpdateForm((EnumsDB)cBoxUnits.SelectedItem);
+                }
+                if (m_FormBitmaskPreview != null)
+                {
+                    m_FormBitmaskPreview.UpdateForm(null);
+                }
+            }
+            else
+            {
+                if (m_FormBitmaskPreview != null)
+                {
+                    m_FormBitmaskPreview.UpdateForm(null);
+                }
+                if (m_FormEnumPreview != null)
+                {
+                    m_FormEnumPreview.UpdateForm(null);
+                }
             }
 
         }
@@ -353,14 +382,14 @@ namespace DDB
         {
             modifyInProgress = false;
             modifyAccepted = accepted;
-            if (parentForm != null)
+            if (m_ParentForm != null)
             {
-                parentForm.DialogResult = DialogResult.Cancel;
+                m_ParentForm.DialogResult = DialogResult.Cancel;
                 if (accepted)
                 {
-                    parentForm.DialogResult = DialogResult.OK;
+                    m_ParentForm.DialogResult = DialogResult.OK;
                 }
-                parentForm.Close();
+                m_ParentForm.Close();
             }
         }
 

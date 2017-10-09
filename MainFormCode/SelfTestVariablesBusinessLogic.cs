@@ -12,15 +12,19 @@ namespace DDB
         private FormVariablePreview m_FormVariablePreview;
         private FormMain m_FormMain;
         private FormHelpPreview m_FormHelpPreview;
+        private FormBitmaskPreview m_FormBitmaskPreview;
+        private FormEnumPreview m_FormEnumPreview;
 
         ////////////////////////////////////////////////////////////
         // Constructors
         ////////////////////////////////////////////////////////////
-        public SelfTestVariablesBusinessLogic(FormMain fMain, FormHelpPreview helpPreview, FormVariablePreview fPreview)
+        public SelfTestVariablesBusinessLogic(FormMain fMain, FormHelpPreview helpPreview, FormVariablePreview fPreview, FormBitmaskPreview bPreview, FormEnumPreview ePreview)
         {
             m_FormMain = fMain;
             m_FormHelpPreview = helpPreview;
             m_FormVariablePreview = fPreview;
+            m_FormBitmaskPreview = bPreview;
+            m_FormEnumPreview = ePreview;
         }
 
         private SelfTestVariablesBusinessLogic()
@@ -39,7 +43,7 @@ namespace DDB
 
         public void Modify(object obj)
         {
-            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)obj, m_FormMain))
+            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)obj, m_FormMain, m_FormBitmaskPreview, m_FormEnumPreview))
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
@@ -54,7 +58,7 @@ namespace DDB
         public object Create()
         {
             VariableDB var = new VariableDB("New Self Test Variable", "newStVar", 0, 65535, 0, 65535, 1, 0, 1, 0, 0, 0, 0, 0, "<b>New Self Test Var Description</b>", GlobalSettings.getEventVariableDisplayType);
-            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)var, m_FormMain))
+            using (FormVariableEditor frmEdit = new FormVariableEditor((VariableDB)var, m_FormMain, m_FormBitmaskPreview, m_FormEnumPreview))
             {
                 if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
@@ -99,14 +103,8 @@ namespace DDB
             }
         }
 
-        public void ChangeDisplayName(int name)
+        public void ChangeDisplayName(GlobalSettings.NameType nameType)
         {
-            GlobalSettings.NameType nameType = GlobalSettings.NameType.DISPLAY;
-            if (name == 1)
-            {
-                nameType = GlobalSettings.NameType.ENMBEDDED;
-            }
-
             GlobalSettings.setSelfTestVariableDisplayType(nameType);
         }
     }
