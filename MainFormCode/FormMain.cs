@@ -324,6 +324,37 @@ namespace DDB
             }
         }
 
+        private void enableAllPreviewsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetPreviewsState(true);
+        }
+
+        private void disableAllPreviewsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetPreviewsState(false);
+        }
+
+        private void SetPreviewsState(Boolean state)
+        {
+            previewBitmasksToolStripMenuItem.Checked = state;
+            previewBitmasksToolStripMenuItem_Click(null, null);
+
+            previewEnumerationsToolStripMenuItem.Checked = state;
+            previewEnumerationsToolStripMenuItem_Click(null, null);
+
+            previewEventsToolStripMenuItem.Checked = state;
+            previewEventsToolStripMenuItem_Click(null, null);
+
+            previewEventStructuresToolStripMenuItem.Checked = state;
+            previewEventStructuresToolStripMenuItem_Click(null, null);
+
+            previewEventVariablesToolStripMenuItem.Checked = state;
+            previewEventVariablesToolStripMenuItem_Click(null, null);
+
+            previewHelpToolStripMenuItem.Checked = state;
+            previewHelpToolStripMenuItem_Click(null, null);
+        }
+
         private void dGridURL_Leave(object sender, EventArgs e)
         {
             dGridURL.ClearSelection();
@@ -385,6 +416,8 @@ namespace DDB
         {
             toolTip1.Show("Right click row to add or delete URLs", this);
         }
+
+
 
 
     }

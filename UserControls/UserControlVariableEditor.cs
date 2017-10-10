@@ -138,7 +138,7 @@ namespace DDB
                 cBoxReadWriteFlags.SelectedIndex = watchVar.readWrite;
                 cBoxFormatString.SelectedIndex = watchVar.formatString;
                 chkEngViewOnly.Checked = watchVar.engineeringViewOnly == 1 ? true : false;
-                EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), watchVar);
+                EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), watchVar, true);
 
             }
             else
@@ -172,7 +172,7 @@ namespace DDB
             return modifyAccepted;
         }
 
-        private void EnableControlsOnSelectedScaleType(String scaleTypeTxt, VariableDB w)
+        private void EnableControlsOnSelectedScaleType(String scaleTypeTxt, VariableDB var, Boolean useExistingIndexes)
         {
             switch (scaleTypeTxt)
             {
@@ -195,9 +195,9 @@ namespace DDB
                     lblWatchScaleInfo.Visible = true;
                     cBoxScaleInfo.Visible = true;
 
-                    cBoxFormatString.SelectedIndex = w.formatString;
-                    cBoxUnitConversion.SelectedIndex = w.unitConversion;
-                    cBoxScaleInfo.SelectedIndex = w.scaleInfo;
+                    cBoxFormatString.SelectedIndex = var.formatString;
+                    cBoxUnitConversion.SelectedIndex = var.unitConversion;
+                    cBoxScaleInfo.SelectedIndex = var.scaleInfo;
 
                     lblWatchUnitsEnumBitmask.Text = "Units";
                     LoadUnitsIntoComboBox();
@@ -213,7 +213,7 @@ namespace DDB
 
                     lblWatchUnitsEnumBitmask.Text = "Enumeration";
 
-                    LoadEnumsIntoComboBox(false);
+                    LoadEnumsIntoComboBox(var, useExistingIndexes);
                     break;
 
                 case "Bitmask":
@@ -225,8 +225,7 @@ namespace DDB
                     cBoxScaleInfo.Visible = false;
 
                     lblWatchUnitsEnumBitmask.Text = "Bitmask";
-                    LoadBitmasksIntoComboBox(false);
-
+                    LoadBitmasksIntoComboBox(var, useExistingIndexes);
 
                     break;
             }
@@ -247,7 +246,7 @@ namespace DDB
         }
 
 
-        private void LoadBitmasksIntoComboBox(Boolean useExistingIndex)
+        private void LoadBitmasksIntoComboBox(VariableDB var, Boolean useExistingIndex)
         {
 
             cBoxUnits.Items.Clear();
@@ -256,14 +255,18 @@ namespace DDB
             {
                 cBoxUnits.Items.Add(b);
             }
-            if (!useExistingIndex)
+
+            if (useExistingIndex)
+            {
+                cBoxUnits.SelectedIndex = var.units;
+            }
+            else
             {
                 cBoxUnits.SelectedIndex = 0;
             }
-
         }
 
-        private void LoadEnumsIntoComboBox(Boolean useExistingIndex)
+        private void LoadEnumsIntoComboBox(VariableDB var, Boolean useExistingIndex)
         {
             cBoxUnits.Items.Clear();
 
@@ -272,16 +275,19 @@ namespace DDB
                 cBoxUnits.Items.Add(e);
             }
 
-            if (!useExistingIndex)
+            if (useExistingIndex)
+            {
+                cBoxUnits.SelectedIndex = var.units;
+            }
+            else
             {
                 cBoxUnits.SelectedIndex = 0;
             }
-
         }
 
         private void cBoxScaleType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), modifiedVar);
+            EnableControlsOnSelectedScaleType(cBoxScaleType.SelectedItem.ToString(), modifiedVar, false);
         }
 
         private void cBoxUnits_SelectedIndexChanged(object sender, EventArgs e)
