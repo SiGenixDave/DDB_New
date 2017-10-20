@@ -113,6 +113,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEventStructureEditor";
             this.Text = "Event Structure Editor";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEventStructureEditor_KeyDown);

@@ -150,7 +150,7 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Name:";
             // 
@@ -158,13 +158,13 @@
             // 
             this.tBoxName.Location = new System.Drawing.Point(67, 25);
             this.tBoxName.Name = "tBoxName";
-            this.tBoxName.Size = new System.Drawing.Size(100, 20);
+            this.tBoxName.Size = new System.Drawing.Size(100, 23);
             this.tBoxName.TabIndex = 5;
             this.tBoxName.TextChanged += new System.EventHandler(this.tBoxName_TextChanged);
             // 
             // FormBitmaskEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 497);
             this.ControlBox = false;
@@ -177,6 +177,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormBitmaskEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bitmask Editor";

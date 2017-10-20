@@ -61,7 +61,7 @@
             this.tBoxEntry.Location = new System.Drawing.Point(26, 63);
             this.tBoxEntry.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxEntry.Name = "tBoxEntry";
-            this.tBoxEntry.Size = new System.Drawing.Size(417, 24);
+            this.tBoxEntry.Size = new System.Drawing.Size(417, 28);
             this.tBoxEntry.TabIndex = 2;
             // 
             // lblMessage
@@ -70,7 +70,7 @@
             this.lblMessage.Location = new System.Drawing.Point(22, 26);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(59, 17);
+            this.lblMessage.Size = new System.Drawing.Size(75, 21);
             this.lblMessage.TabIndex = 3;
             this.lblMessage.Text = "Message";
             // 
@@ -87,6 +87,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTextEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Title";

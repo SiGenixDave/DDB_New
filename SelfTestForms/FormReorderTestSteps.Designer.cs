@@ -59,6 +59,7 @@
             // ucDS_SelfTestMessageList
             // 
             this.ucDS_SelfTestMessageList.Location = new System.Drawing.Point(12, 16);
+            this.ucDS_SelfTestMessageList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucDS_SelfTestMessageList.Name = "ucDS_SelfTestMessageList";
             this.ucDS_SelfTestMessageList.Size = new System.Drawing.Size(276, 456);
             this.ucDS_SelfTestMessageList.TabIndex = 12;
@@ -70,7 +71,7 @@
             this.checkBoxPreview.AutoSize = true;
             this.checkBoxPreview.Location = new System.Drawing.Point(294, 290);
             this.checkBoxPreview.Name = "checkBoxPreview";
-            this.checkBoxPreview.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxPreview.Size = new System.Drawing.Size(77, 21);
             this.checkBoxPreview.TabIndex = 13;
             this.checkBoxPreview.Text = "Preview";
             this.checkBoxPreview.UseVisualStyleBackColor = true;
@@ -78,7 +79,7 @@
             // 
             // FormReorderTestSteps
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 484);
             this.ControlBox = false;
@@ -89,6 +90,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormReorderTestSteps";
             this.Text = "Reorder Test Steps";
             this.ResumeLayout(false);

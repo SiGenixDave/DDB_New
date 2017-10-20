@@ -31,9 +31,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cBoxTestList = new System.Windows.Forms.ComboBox();
             this.ucDS_UsedTests = new DDB.UserControlDualSelector();
             this.ucDS_AvailableTests = new DDB.UserControlDualSelector();
+            this.cBoxTestList = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,16 +71,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tests";
             // 
-            // cBoxTestList
-            // 
-            this.cBoxTestList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxTestList.FormattingEnabled = true;
-            this.cBoxTestList.Location = new System.Drawing.Point(12, 12);
-            this.cBoxTestList.Name = "cBoxTestList";
-            this.cBoxTestList.Size = new System.Drawing.Size(177, 25);
-            this.cBoxTestList.TabIndex = 19;
-            this.cBoxTestList.SelectedIndexChanged += new System.EventHandler(this.cBoxTestList_SelectedIndexChanged);
-            // 
             // ucDS_UsedTests
             // 
             this.ucDS_UsedTests.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,6 +94,16 @@
             this.ucDS_AvailableTests.xVisibleMoveDownButton = false;
             this.ucDS_AvailableTests.xVisibleMoveUpButton = false;
             // 
+            // cBoxTestList
+            // 
+            this.cBoxTestList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxTestList.FormattingEnabled = true;
+            this.cBoxTestList.Location = new System.Drawing.Point(12, 12);
+            this.cBoxTestList.Name = "cBoxTestList";
+            this.cBoxTestList.Size = new System.Drawing.Size(177, 25);
+            this.cBoxTestList.TabIndex = 19;
+            this.cBoxTestList.SelectedIndexChanged += new System.EventHandler(this.cBoxTestList_SelectedIndexChanged);
+            // 
             // FormSelfTestListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -118,6 +118,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormSelfTestListEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Self Test List Editor";

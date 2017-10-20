@@ -76,7 +76,7 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Test Name";
             // 
@@ -86,7 +86,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(113, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Embedded Name";
             // 
@@ -95,7 +95,7 @@
             this.tBoxSelfTestName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSelfTestName.Location = new System.Drawing.Point(12, 41);
             this.tBoxSelfTestName.Name = "tBoxSelfTestName";
-            this.tBoxSelfTestName.Size = new System.Drawing.Size(223, 21);
+            this.tBoxSelfTestName.Size = new System.Drawing.Size(223, 24);
             this.tBoxSelfTestName.TabIndex = 10;
             // 
             // tBoxDefineName
@@ -103,7 +103,7 @@
             this.tBoxDefineName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxDefineName.Location = new System.Drawing.Point(12, 141);
             this.tBoxDefineName.Name = "tBoxDefineName";
-            this.tBoxDefineName.Size = new System.Drawing.Size(223, 21);
+            this.tBoxDefineName.Size = new System.Drawing.Size(223, 24);
             this.tBoxDefineName.TabIndex = 11;
             // 
             // tBoxSelfTestNumber
@@ -111,7 +111,7 @@
             this.tBoxSelfTestNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSelfTestNumber.Location = new System.Drawing.Point(12, 88);
             this.tBoxSelfTestNumber.Name = "tBoxSelfTestNumber";
-            this.tBoxSelfTestNumber.Size = new System.Drawing.Size(69, 21);
+            this.tBoxSelfTestNumber.Size = new System.Drawing.Size(69, 24);
             this.tBoxSelfTestNumber.TabIndex = 13;
             this.tBoxSelfTestNumber.TextChanged += new System.EventHandler(this.tBoxSelfTestNumber_TextChanged);
             // 
@@ -121,7 +121,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(9, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(87, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "Test Number";
             // 
@@ -130,7 +130,7 @@
             this.rbMessage.AutoSize = true;
             this.rbMessage.Location = new System.Drawing.Point(112, 20);
             this.rbMessage.Name = "rbMessage";
-            this.rbMessage.Size = new System.Drawing.Size(67, 17);
+            this.rbMessage.Size = new System.Drawing.Size(80, 21);
             this.rbMessage.TabIndex = 18;
             this.rbMessage.Text = "Message";
             this.rbMessage.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.cBoxTestStep.FormattingEnabled = true;
             this.cBoxTestStep.Location = new System.Drawing.Point(112, 87);
             this.cBoxTestStep.Name = "cBoxTestStep";
-            this.cBoxTestStep.Size = new System.Drawing.Size(75, 21);
+            this.cBoxTestStep.Size = new System.Drawing.Size(75, 25);
             this.cBoxTestStep.TabIndex = 19;
             // 
             // checkBoxViewEntireTest
@@ -152,7 +152,7 @@
             this.checkBoxViewEntireTest.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxViewEntireTest.Location = new System.Drawing.Point(9, 160);
             this.checkBoxViewEntireTest.Name = "checkBoxViewEntireTest";
-            this.checkBoxViewEntireTest.Size = new System.Drawing.Size(193, 17);
+            this.checkBoxViewEntireTest.Size = new System.Drawing.Size(238, 21);
             this.checkBoxViewEntireTest.TabIndex = 20;
             this.checkBoxViewEntireTest.Text = "View Description and All Messages)";
             this.checkBoxViewEntireTest.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@
             this.lblStepNumber.Enabled = false;
             this.lblStepNumber.Location = new System.Drawing.Point(66, 90);
             this.lblStepNumber.Name = "lblStepNumber";
-            this.lblStepNumber.Size = new System.Drawing.Size(40, 13);
+            this.lblStepNumber.Size = new System.Drawing.Size(50, 17);
             this.lblStepNumber.TabIndex = 23;
             this.lblStepNumber.Text = "Step #";
             // 
@@ -202,7 +202,7 @@
             this.lblAction.Enabled = false;
             this.lblAction.Location = new System.Drawing.Point(66, 55);
             this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(37, 13);
+            this.lblAction.Size = new System.Drawing.Size(46, 17);
             this.lblAction.TabIndex = 22;
             this.lblAction.Text = "Action";
             // 
@@ -213,7 +213,7 @@
             this.cBoxMessageAction.FormattingEnabled = true;
             this.cBoxMessageAction.Location = new System.Drawing.Point(112, 52);
             this.cBoxMessageAction.Name = "cBoxMessageAction";
-            this.cBoxMessageAction.Size = new System.Drawing.Size(75, 21);
+            this.cBoxMessageAction.Size = new System.Drawing.Size(75, 25);
             this.cBoxMessageAction.TabIndex = 21;
             this.cBoxMessageAction.SelectedIndexChanged += new System.EventHandler(this.cBoxMessageAction_SelectedIndexChanged);
             // 
@@ -223,7 +223,7 @@
             this.rbTestDescription.Checked = true;
             this.rbTestDescription.Location = new System.Drawing.Point(17, 22);
             this.rbTestDescription.Name = "rbTestDescription";
-            this.rbTestDescription.Size = new System.Drawing.Size(78, 17);
+            this.rbTestDescription.Size = new System.Drawing.Size(97, 21);
             this.rbTestDescription.TabIndex = 17;
             this.rbTestDescription.TabStop = true;
             this.rbTestDescription.Text = "Description";
@@ -255,7 +255,7 @@
             // 
             // FormSelfTestEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 481);
             this.ControlBox = false;
@@ -273,6 +273,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormSelfTestEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Self Test Editor";

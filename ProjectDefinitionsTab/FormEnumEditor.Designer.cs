@@ -84,19 +84,19 @@
             this.addNewMemberMenuItem,
             this.deleteMenuItem});
             this.conMenu.Name = "conMenu";
-            this.conMenu.Size = new System.Drawing.Size(172, 48);
+            this.conMenu.Size = new System.Drawing.Size(201, 52);
             // 
             // addNewMemberMenuItem
             // 
             this.addNewMemberMenuItem.Name = "addNewMemberMenuItem";
-            this.addNewMemberMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.addNewMemberMenuItem.Size = new System.Drawing.Size(200, 24);
             this.addNewMemberMenuItem.Text = "Add New Member";
             this.addNewMemberMenuItem.Click += new System.EventHandler(this.addNewMemberMenuItem_Click);
             // 
             // deleteMenuItem
             // 
             this.deleteMenuItem.Name = "deleteMenuItem";
-            this.deleteMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.deleteMenuItem.Size = new System.Drawing.Size(200, 24);
             this.deleteMenuItem.Text = "Delete";
             this.deleteMenuItem.Click += new System.EventHandler(this.deleteMenuItem_Click);
             // 
@@ -125,7 +125,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Name:";
             // 
@@ -133,7 +133,7 @@
             // 
             this.tBoxName.Location = new System.Drawing.Point(67, 25);
             this.tBoxName.Name = "tBoxName";
-            this.tBoxName.Size = new System.Drawing.Size(100, 20);
+            this.tBoxName.Size = new System.Drawing.Size(100, 23);
             this.tBoxName.TabIndex = 5;
             this.tBoxName.TextChanged += new System.EventHandler(this.tBoxName_TextChanged);
             // 
@@ -160,7 +160,7 @@
             // 
             // FormEnumsEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 497);
             this.ControlBox = false;
@@ -174,6 +174,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEnumsEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Enumeration Editor";

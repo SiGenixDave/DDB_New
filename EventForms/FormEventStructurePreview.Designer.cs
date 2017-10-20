@@ -86,6 +86,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEventStructurePreview";
             this.Text = "Event Structure Preview";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -74,7 +74,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 21);
+            this.label2.Size = new System.Drawing.Size(136, 21);
             this.label2.TabIndex = 7;
             this.label2.Text = "Embedded Name";
             // 
@@ -149,6 +149,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEventEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Event Editor";

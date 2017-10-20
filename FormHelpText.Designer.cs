@@ -413,7 +413,7 @@
             // winFormHtmlEditor1.CmbTitleInsert
             // 
             this.winFormHtmlEditor1.CmbTitleInsert.Name = "_factoryCmbTitleInsert";
-            this.winFormHtmlEditor1.CmbTitleInsert.Size = new System.Drawing.Size(135, 29);
+            this.winFormHtmlEditor1.CmbTitleInsert.Size = new System.Drawing.Size(119, 29);
             this.winFormHtmlEditor1.EditorContextMenuStrip = null;
             this.winFormHtmlEditor1.HeaderStyleContentElementID = "page_style";
             this.winFormHtmlEditor1.HorizontalScroll = null;

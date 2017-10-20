@@ -86,12 +86,13 @@
             this.cListBoxFunctionFlags = new System.Windows.Forms.CheckedListBox();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recentStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genEmbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genHelpFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,7 +110,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnExitDDB = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabWatchVariables.SuspendLayout();
             this.grpBoxWatchAttrs.SuspendLayout();
@@ -140,7 +140,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(850, 555);
+            this.tabControl1.Size = new System.Drawing.Size(850, 599);
             this.tabControl1.TabIndex = 0;
             // 
             // tabWatchVariables
@@ -150,14 +150,14 @@
             this.tabWatchVariables.Location = new System.Drawing.Point(4, 26);
             this.tabWatchVariables.Name = "tabWatchVariables";
             this.tabWatchVariables.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWatchVariables.Size = new System.Drawing.Size(842, 525);
+            this.tabWatchVariables.Size = new System.Drawing.Size(842, 569);
             this.tabWatchVariables.TabIndex = 0;
             this.tabWatchVariables.Text = "Watch Variables";
             this.tabWatchVariables.UseVisualStyleBackColor = true;
             // 
             // ucEE_WatchVariables
             // 
-            this.ucEE_WatchVariables.Location = new System.Drawing.Point(16, 28);
+            this.ucEE_WatchVariables.Location = new System.Drawing.Point(7, 4);
             this.ucEE_WatchVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_WatchVariables.Name = "ucEE_WatchVariables";
             this.ucEE_WatchVariables.Size = new System.Drawing.Size(276, 599);
@@ -181,7 +181,7 @@
             // ucVE_WatchVar
             // 
             this.ucVE_WatchVar.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucVE_WatchVar.Location = new System.Drawing.Point(9, 23);
+            this.ucVE_WatchVar.Location = new System.Drawing.Point(9, 4);
             this.ucVE_WatchVar.Margin = new System.Windows.Forms.Padding(4);
             this.ucVE_WatchVar.Name = "ucVE_WatchVar";
             this.ucVE_WatchVar.Size = new System.Drawing.Size(528, 423);
@@ -194,7 +194,7 @@
             this.tabEvents.Controls.Add(this.ucEE_Events);
             this.tabEvents.Location = new System.Drawing.Point(4, 26);
             this.tabEvents.Name = "tabEvents";
-            this.tabEvents.Size = new System.Drawing.Size(842, 525);
+            this.tabEvents.Size = new System.Drawing.Size(842, 569);
             this.tabEvents.TabIndex = 3;
             this.tabEvents.Text = "Event";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             // 
             // ucEE_EventStructures
             // 
-            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 3);
+            this.ucEE_EventStructures.Location = new System.Drawing.Point(288, 4);
             this.ucEE_EventStructures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_EventStructures.Name = "ucEE_EventStructures";
             this.ucEE_EventStructures.Size = new System.Drawing.Size(276, 885);
@@ -222,7 +222,7 @@
             // 
             // ucEE_Events
             // 
-            this.ucEE_Events.Location = new System.Drawing.Point(6, 4);
+            this.ucEE_Events.Location = new System.Drawing.Point(7, 4);
             this.ucEE_Events.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Events.Name = "ucEE_Events";
             this.ucEE_Events.Size = new System.Drawing.Size(276, 885);
@@ -238,7 +238,7 @@
             this.tabSelfTest.Controls.Add(this.ucEE_SelfTest);
             this.tabSelfTest.Location = new System.Drawing.Point(4, 26);
             this.tabSelfTest.Name = "tabSelfTest";
-            this.tabSelfTest.Size = new System.Drawing.Size(842, 525);
+            this.tabSelfTest.Size = new System.Drawing.Size(842, 569);
             this.tabSelfTest.TabIndex = 4;
             this.tabSelfTest.Text = "SelfTest";
             this.tabSelfTest.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             // 
             // ucEE_SelfTestVariables
             // 
-            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 57);
+            this.ucEE_SelfTestVariables.Location = new System.Drawing.Point(305, 4);
             this.ucEE_SelfTestVariables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_SelfTestVariables.Name = "ucEE_SelfTestVariables";
             this.ucEE_SelfTestVariables.Size = new System.Drawing.Size(276, 885);
@@ -274,7 +274,7 @@
             // 
             // ucEE_SelfTest
             // 
-            this.ucEE_SelfTest.Location = new System.Drawing.Point(23, 57);
+            this.ucEE_SelfTest.Location = new System.Drawing.Point(7, 4);
             this.ucEE_SelfTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_SelfTest.Name = "ucEE_SelfTest";
             this.ucEE_SelfTest.Size = new System.Drawing.Size(276, 885);
@@ -292,14 +292,14 @@
             this.tabProjectDefinitions.Location = new System.Drawing.Point(4, 26);
             this.tabProjectDefinitions.Name = "tabProjectDefinitions";
             this.tabProjectDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectDefinitions.Size = new System.Drawing.Size(842, 569);
             this.tabProjectDefinitions.TabIndex = 1;
             this.tabProjectDefinitions.Text = "Project Definitions";
             this.tabProjectDefinitions.UseVisualStyleBackColor = true;
             // 
             // ucEE_Enumerations
             // 
-            this.ucEE_Enumerations.Location = new System.Drawing.Point(557, 35);
+            this.ucEE_Enumerations.Location = new System.Drawing.Point(557, 4);
             this.ucEE_Enumerations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Enumerations.Name = "ucEE_Enumerations";
             this.ucEE_Enumerations.Size = new System.Drawing.Size(275, 475);
@@ -309,7 +309,7 @@
             // 
             // ucEE_Bitmasks
             // 
-            this.ucEE_Bitmasks.Location = new System.Drawing.Point(282, 35);
+            this.ucEE_Bitmasks.Location = new System.Drawing.Point(282, 4);
             this.ucEE_Bitmasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Bitmasks.Name = "ucEE_Bitmasks";
             this.ucEE_Bitmasks.Size = new System.Drawing.Size(275, 475);
@@ -319,7 +319,7 @@
             // 
             // ucEE_Units
             // 
-            this.ucEE_Units.Location = new System.Drawing.Point(7, 35);
+            this.ucEE_Units.Location = new System.Drawing.Point(7, 4);
             this.ucEE_Units.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucEE_Units.Name = "ucEE_Units";
             this.ucEE_Units.Size = new System.Drawing.Size(275, 475);
@@ -338,7 +338,7 @@
             this.tabProjectSettings.Controls.Add(this.groupBox2);
             this.tabProjectSettings.Location = new System.Drawing.Point(4, 26);
             this.tabProjectSettings.Name = "tabProjectSettings";
-            this.tabProjectSettings.Size = new System.Drawing.Size(842, 525);
+            this.tabProjectSettings.Size = new System.Drawing.Size(842, 569);
             this.tabProjectSettings.TabIndex = 5;
             this.tabProjectSettings.Text = "Project Settings";
             this.tabProjectSettings.UseVisualStyleBackColor = true;
@@ -746,21 +746,34 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.recentStripMenuItem,
             this.importToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.newToolStripMenuItem});
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.openToolStripMenuItem.Text = "Open...";
+            // 
+            // recentStripMenuItem
+            // 
+            this.recentStripMenuItem.Name = "recentStripMenuItem";
+            this.recentStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.recentStripMenuItem.Text = "Recent";
             // 
             // importToolStripMenuItem
             // 
@@ -786,12 +799,6 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.exitToolStripMenuItem.Text = "Exit..";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
-            this.newToolStripMenuItem.Text = "New";
             // 
             // toolsToolStripMenuItem
             // 
@@ -917,22 +924,11 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(128, 24);
             this.aboutToolStripMenuItem1.Text = "About...";
             // 
-            // btnExitDDB
-            // 
-            this.btnExitDDB.Location = new System.Drawing.Point(348, 588);
-            this.btnExitDDB.Name = "btnExitDDB";
-            this.btnExitDDB.Size = new System.Drawing.Size(120, 40);
-            this.btnExitDDB.TabIndex = 2;
-            this.btnExitDDB.Text = "Exit DDB";
-            this.btnExitDDB.UseVisualStyleBackColor = true;
-            this.btnExitDDB.Click += new System.EventHandler(this.btnExitDDB_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 631);
-            this.Controls.Add(this.btnExitDDB);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -993,7 +989,6 @@
         private System.Windows.Forms.TabPage tabEvents;
         private System.Windows.Forms.TabPage tabSelfTest;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnExitDDB;
         private System.Windows.Forms.TabPage tabProjectSettings;
         private System.Windows.Forms.ToolStripMenuItem previewBitmasksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previewEnumerationsToolStripMenuItem;
@@ -1055,6 +1050,7 @@
         private System.Windows.Forms.ToolStripMenuItem enableAllPreviewsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem disableAllPreviewsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recentStripMenuItem;
     }
 }
 
