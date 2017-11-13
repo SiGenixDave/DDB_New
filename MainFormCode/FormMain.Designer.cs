@@ -940,7 +940,7 @@
             this.MinimumSize = new System.Drawing.Size(877, 670);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bombardier DDB (v 0.0.0.15)";
+            this.Text = "Bombardier DDB (v 0.0.0.16)";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabWatchVariables.ResumeLayout(false);
